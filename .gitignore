@@ -1,0 +1,25 @@
+#OS junk files
+[Tt]humbs.db
+*.DS_Store
+
+#VS files
+*.[Oo]bj
+*.exe
+*.pdb
+*.ilk
+ipch/
+*.sdf
+*.opensdf
+*.vcxproj
+*.vcxproj.*
+*.tlog
+*.sln
+*.suo
+*.manifest
+*.res
+*.lastbuildstate
+*.cache
+*.rc
+*.cache
+
+#Proj specific

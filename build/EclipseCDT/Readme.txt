@@ -1,0 +1,1 @@
+This build area is for Linux builds via Eclipse.  Makefile support may be added later, courtesy of CMake.
