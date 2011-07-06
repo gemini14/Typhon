@@ -16,7 +16,7 @@ link_directories(
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../shared/)
 
 if(CMAKE_COMPILER_IS_GNUCXX)
-    set(CMAKE_CXX_FLAGS "-Wall -std=c++0x")
+    set(CMAKE_CXX_FLAGS "-Wall -g -std=c++0x")
 endif()
 
 
@@ -28,7 +28,17 @@ elseif(CMAKE_HOST_WIN32)
     add_executable(Typhon32 main.cpp)
     target_link_libraries(Typhon32 debug IrrlichtD_32 optimized Irrlicht_32)
     set_target_properties(Typhon32 PROPERTIES PREFIX "../")
-elseif(CMAKE_COMPILER_IS_GNUCXX)
-    target_link_libraries(Typhon irrlicht.a)
+elseif(CMAKE_HOST_UNIX)
+    if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+        message("CMAKE_SIZEOF_VOID_P = ${CMAKE_SIZEOF_VOID_P}")
+        #64-bit project (void pointer is 8 bytes/64bits)
+        add_executable(Typhon64 main.cpp)
+        target_link_libraries(Typhon64 Irrlicht64.a)
+    else()
+        message("CMAKE_SIZEOF_VOID_P = ${CMAKE_SIZEOF_VOID_P}")
+        #32-bit project (void pointer is 4 bytes/32 bits)
+        add_executable(Typhon32 main.cpp)
+        target_link_libraries(Typhon32 Irrlicht32.a)
+    endif()
 endif()
 

@@ -1,0 +1,1 @@
+/usr/bin/c++   -Wall -g -std=c++0x -O3 -DNDEBUG   CMakeFiles/Typhon32.dir/main.cpp.o  -o /home/tarik/workspace/Typhon/shared/Typhon32 -rdynamic -L/home/tarik/workspace/Typhon/src/../lib -L/home/tarik/workspace/Typhon/src/../lib/Irrlicht -Wl,-Bstatic -lIrrlicht32 -Wl,-Bdynamic -Wl,-rpath,/home/tarik/workspace/Typhon/src/../lib:/home/tarik/workspace/Typhon/src/../lib/Irrlicht 
