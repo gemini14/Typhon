@@ -11,35 +11,54 @@ namespace Typhon
 
 int Metrics::GetPerfScore()
 {
-	int score = 0;
-	int numCPU = 0, speedCPU = 0, memory = 0;
+	long numCores = 0;
+	int score = 0, memory = 0;
+	float speedCPU = 0;
 
 #ifdef WIN32
 #else
 	// get number of cores
-	numCPU = sysconf(_SC_NPROCESSORS_ONLN);
-	printf("%d\n",numCPU);
-	// get installed physical memory
-	FILE *resultStream;
+	numCores = sysconf(_SC_NPROCESSORS_ONLN);
+	printf("Number of cores: %ld\n", numCores);
 
-	// run grep on /proc/meminfo
-	resultStream = popen("grep \"MemTotal*\" /proc/meminfo", "r");
+	// get CPU speed (max)
+	FILE *resultCPU = popen("cat /proc/cpuinfo | grep \"cpu MHz\"", "r");
 
-	if (!resultStream)
+	if (resultCPU)
 	{
-		return -1;
+		float temp;
+		while (fscanf(resultCPU, "%*s %*s %*c %f", &temp) != EOF)
+		{
+			speedCPU += temp;
+		}
+
+		speedCPU /= numCores;
+
+		if (pclose(resultCPU) == -1)
+		{
+			printf(
+					"Error: Failed to close command stream after querying CPU speed.\n");
+		}
 	}
 
-	fscanf(resultStream, "*%d", &memory);
-	printf("%d\n",memory);
+	// get installed physical memory
+	FILE *resultMem = popen("grep \"MemTotal*\" /proc/meminfo", "r");
 
-	if (pclose(resultStream) != 0)
+	if (resultMem)
 	{
-		fprintf(stderr, " Error: Failed to close command stream \n");
+
+		fscanf(resultMem, "%*s %d", &memory);
+		printf("Memory: %d\n", memory);
+
+		if (pclose(resultMem) == -1)
+		{
+			printf(
+					"Error: Failed to close command stream after querying memory.\n");
+		}
 	}
 #endif
 
-	score = (numCPU * speedCPU) * 0.5 + memory * 0.5;
+	score = (numCores * speedCPU) * 0.5 + memory * 0.5;
 	return score;
 }
 
