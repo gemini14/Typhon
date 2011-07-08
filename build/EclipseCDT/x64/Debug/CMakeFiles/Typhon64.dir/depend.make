@@ -177,5 +177,9 @@ CMakeFiles/Typhon64.dir/main.cpp.o: /home/tarik/workspace/Typhon/src/../include/
 CMakeFiles/Typhon64.dir/main.cpp.o: /home/tarik/workspace/Typhon/src/../include/irrlicht/triangle3d.h
 CMakeFiles/Typhon64.dir/main.cpp.o: /home/tarik/workspace/Typhon/src/../include/irrlicht/vector2d.h
 CMakeFiles/Typhon64.dir/main.cpp.o: /home/tarik/workspace/Typhon/src/../include/irrlicht/vector3d.h
+CMakeFiles/Typhon64.dir/main.cpp.o: /home/tarik/workspace/Typhon/src/../include/metrics/metrics.h
 CMakeFiles/Typhon64.dir/main.cpp.o: /home/tarik/workspace/Typhon/src/main.cpp
+
+CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o: /home/tarik/workspace/Typhon/src/../include/metrics/metrics.h
+CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o: /home/tarik/workspace/Typhon/src/metrics/metrics.cpp
 

@@ -1,7 +1,7 @@
 The system is: Linux - 2.6.38-8-generic - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler: /usr/bin/gcc 
-Build flags: -m64
+Build flags: -m64;-O0
 Id flags: 
 
 The output was:
@@ -14,7 +14,7 @@ The C compiler identification is GNU, found in "/home/tarik/workspace/Typhon/bui
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++ 
-Build flags: -m64
+Build flags: -m64;-O0
 Id flags: 
 
 The output was:
@@ -36,10 +36,10 @@ Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
 make[1]: Entering directory `/home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp/CMakeFiles 1
 Building C object CMakeFiles/cmTryCompileExec.dir/testCCompiler.c.o
-/usr/bin/gcc   -m64     -o CMakeFiles/cmTryCompileExec.dir/testCCompiler.c.o   -c /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp/testCCompiler.c
+/usr/bin/gcc   -m64 -O0     -o CMakeFiles/cmTryCompileExec.dir/testCCompiler.c.o   -c /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp/testCCompiler.c
 Linking C executable cmTryCompileExec
 /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
-/usr/bin/gcc   -m64     CMakeFiles/cmTryCompileExec.dir/testCCompiler.c.o  -o cmTryCompileExec -rdynamic 
+/usr/bin/gcc   -m64 -O0     CMakeFiles/cmTryCompileExec.dir/testCCompiler.c.o  -o cmTryCompileExec -rdynamic 
 make[1]: Leaving directory `/home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp'
 
 
@@ -51,10 +51,10 @@ Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
 make[1]: Entering directory `/home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp/CMakeFiles 1
 Building C object CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.o
-/usr/bin/gcc   -m64     -o CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c
+/usr/bin/gcc   -m64 -O0     -o CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c
 Linking C executable cmTryCompileExec
 /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
-/usr/bin/gcc   -m64    -v CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec -rdynamic  
+/usr/bin/gcc   -m64 -O0    -v CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/gcc
 COLLECT_LTO_WRAPPER=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/lto-wrapper
@@ -64,7 +64,7 @@ Thread model: posix
 gcc version 4.6.0 (GCC) 
 COMPILER_PATH=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/:/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/:/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/
 LIBRARY_PATH=/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-m64' '-v' '-o' 'cmTryCompileExec' '-rdynamic' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-m64' '-O0' '-v' '-o' 'cmTryCompileExec' '-rdynamic' '-mtune=generic' '-march=x86-64'
  /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/collect2 --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/crtbegin.o -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/../../.. CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/crtend.o /usr/lib/../lib64/crtn.o
 make[1]: Leaving directory `/home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp'
 
@@ -78,10 +78,10 @@ Parsed C implicit link information from above output:
   ignore line: [make[1]: Entering directory `/home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp']
   ignore line: [/usr/bin/cmake -E cmake_progress_report /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp/CMakeFiles 1]
   ignore line: [Building C object CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/gcc   -m64     -o CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
+  ignore line: [/usr/bin/gcc   -m64 -O0     -o CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
   ignore line: [Linking C executable cmTryCompileExec]
   ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/gcc   -m64    -v CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec -rdynamic  ]
+  ignore line: [/usr/bin/gcc   -m64 -O0    -v CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/gcc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/lto-wrapper]
@@ -91,7 +91,7 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 4.6.0 (GCC) ]
   ignore line: [COMPILER_PATH=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/:/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/:/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-m64' '-v' '-o' 'cmTryCompileExec' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  ignore line: [COLLECT_GCC_OPTIONS='-m64' '-O0' '-v' '-o' 'cmTryCompileExec' '-rdynamic' '-mtune=generic' '-march=x86-64']
   link line: [ /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/collect2 --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/crtbegin.o -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/../../.. CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/crtend.o /usr/lib/../lib64/crtn.o]
     arg [/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/collect2] ==> ignore
     arg [--eh-frame-hdr] ==> ignore
@@ -143,10 +143,10 @@ Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
 make[1]: Entering directory `/home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp/CMakeFiles 1
 Building CXX object CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.o
-/usr/bin/c++    -m64     -o CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.o -c /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+/usr/bin/c++    -m64 -O0     -o CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.o -c /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
 Linking CXX executable cmTryCompileExec
 /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
-/usr/bin/c++    -m64     CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec -rdynamic 
+/usr/bin/c++    -m64 -O0     CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec -rdynamic 
 make[1]: Leaving directory `/home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp'
 
 
@@ -158,10 +158,10 @@ Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
 make[1]: Entering directory `/home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp/CMakeFiles 1
 Building CXX object CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++    -m64     -o CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
+/usr/bin/c++    -m64 -O0     -o CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
 Linking CXX executable cmTryCompileExec
 /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
-/usr/bin/c++    -m64    -v CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec -rdynamic  
+/usr/bin/c++    -m64 -O0    -v CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/lto-wrapper
@@ -171,7 +171,7 @@ Thread model: posix
 gcc version 4.6.0 (GCC) 
 COMPILER_PATH=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/:/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/:/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/
 LIBRARY_PATH=/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-m64' '-v' '-o' 'cmTryCompileExec' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-m64' '-O0' '-v' '-o' 'cmTryCompileExec' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
  /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/collect2 --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/crtbegin.o -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/../../.. CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/crtend.o /usr/lib/../lib64/crtn.o
 make[1]: Leaving directory `/home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp'
 
@@ -185,10 +185,10 @@ Parsed CXX implicit link information from above output:
   ignore line: [make[1]: Entering directory `/home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp']
   ignore line: [/usr/bin/cmake -E cmake_progress_report /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/CMakeTmp/CMakeFiles 1]
   ignore line: [Building CXX object CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++    -m64     -o CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [/usr/bin/c++    -m64 -O0     -o CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
   ignore line: [Linking CXX executable cmTryCompileExec]
   ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++    -m64    -v CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec -rdynamic  ]
+  ignore line: [/usr/bin/c++    -m64 -O0    -v CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/lto-wrapper]
@@ -198,7 +198,7 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 4.6.0 (GCC) ]
   ignore line: [COMPILER_PATH=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/:/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/:/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-m64' '-v' '-o' 'cmTryCompileExec' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [COLLECT_GCC_OPTIONS='-m64' '-O0' '-v' '-o' 'cmTryCompileExec' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
   link line: [ /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/collect2 --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/crtbegin.o -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/../../.. CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.6.0/crtend.o /usr/lib/../lib64/crtn.o]
     arg [/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.6.0/collect2] ==> ignore
     arg [--eh-frame-hdr] ==> ignore

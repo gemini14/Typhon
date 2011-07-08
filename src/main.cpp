@@ -24,8 +24,11 @@ DEALINGS IN THE SOFTWARE.
 
 #include <irrlicht/irrlicht.h>
 
+#include <metrics/metrics.h>
+
 int main(int argc, char* argv[])
 {
 	irr::c8 test;
+	std::cout << Typhon::Metrics::GetPerfScore();
 	return 0;
 }

@@ -1,7 +1,8 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/Typhon32.dir/main.cpp.o"
-  "/home/tarik/workspace/Typhon/shared/Typhon32.pdb"
-  "/home/tarik/workspace/Typhon/shared/Typhon32"
+  "CMakeFiles/Typhon32.dir/metrics/metrics.cpp.o"
+  "/home/tarik/workspace/Typhon/shared/Linux/Typhon32.pdb"
+  "/home/tarik/workspace/Typhon/shared/Linux/Typhon32"
 )
 
 # Per-language clean rules from dependency scanning.

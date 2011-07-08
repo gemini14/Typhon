@@ -135,6 +135,30 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+metrics/metrics.o: metrics/metrics.cpp.o
+.PHONY : metrics/metrics.o
+
+# target to build an object file
+metrics/metrics.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o
+.PHONY : metrics/metrics.cpp.o
+
+metrics/metrics.i: metrics/metrics.cpp.i
+.PHONY : metrics/metrics.i
+
+# target to preprocess a source file
+metrics/metrics.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/metrics/metrics.cpp.i
+.PHONY : metrics/metrics.cpp.i
+
+metrics/metrics.s: metrics/metrics.cpp.s
+.PHONY : metrics/metrics.s
+
+# target to generate assembly for a file
+metrics/metrics.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/metrics/metrics.cpp.s
+.PHONY : metrics/metrics.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -147,6 +171,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... metrics/metrics.o"
+	@echo "... metrics/metrics.i"
+	@echo "... metrics/metrics.s"
 .PHONY : help
 
 

@@ -13,32 +13,54 @@ link_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/../lib/Irrlicht/ 
 )
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../shared/)
+set(SourceFiles main.cpp metrics/metrics.cpp)
 
-if(CMAKE_COMPILER_IS_GNUCXX)
-    set(CMAKE_CXX_FLAGS "-Wall -g -std=c++0x")
-endif()
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../shared/)
 
 
 if(CMAKE_CL_64)
-    add_executable(Typhon64 main.cpp)
+
+    message("Creating Win64 project...")
+    add_executable(Typhon64 ${SourceFiles})
     target_link_libraries(Typhon64 debug IrrlichtD_64 optimized Irrlicht_64)
     set_target_properties(Typhon64 PROPERTIES PREFIX "../")
+
 elseif(CMAKE_HOST_WIN32)
-    add_executable(Typhon32 main.cpp)
+
+    message("Creating Win32 project")
+    add_executable(Typhon32 ${SourceFiles})
     target_link_libraries(Typhon32 debug IrrlichtD_32 optimized Irrlicht_32)
     set_target_properties(Typhon32 PROPERTIES PREFIX "../")
+
 elseif(CMAKE_HOST_UNIX)
-    if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+    
+    add_definitions(-g -Wall -std=c++0x)
+    
+    # Set linux bin directory to a separate folder so that it can be ignored
+    # (Linux exe's don't have any extension)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../shared/Linux/)
+    
+    if(${CMAKE_SIZEOF_VOID_P} EQUAL 8)
+    
         message("CMAKE_SIZEOF_VOID_P = ${CMAKE_SIZEOF_VOID_P}")
+        message("Creating x64 project...")
         #64-bit project (void pointer is 8 bytes/64bits)
-        add_executable(Typhon64 main.cpp)
-        target_link_libraries(Typhon64 Irrlicht64.a)
-    else()
+        
+        add_executable(Typhon64 ${SourceFiles})
+        set_target_properties(Typhon64 PROPERTIES DEBUG_POSTFIX _D)
+        target_link_libraries(Typhon64 -m64 Irrlicht64.a)
+        
+    elseif(${CMAKE_SIZEOF_VOID_P} EQUAL 4)
+    
         message("CMAKE_SIZEOF_VOID_P = ${CMAKE_SIZEOF_VOID_P}")
+        message("Creating x86 project...")
         #32-bit project (void pointer is 4 bytes/32 bits)
-        add_executable(Typhon32 main.cpp)
-        target_link_libraries(Typhon32 Irrlicht32.a)
+        
+        add_executable(Typhon32 ${SourceFiles})
+        set_target_properties(Typhon32 PROPERTIES DEBUG_POSTFIX _D)
+        target_link_libraries(Typhon32 -m32 Irrlicht32.a)
+    
     endif()
+
 endif()
 

@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/tarik/workspace/Typhon/build/EclipseCDT/x86/Debug
 CMakeFiles/Typhon32.dir/all:
 	$(MAKE) -f CMakeFiles/Typhon32.dir/build.make CMakeFiles/Typhon32.dir/depend
 	$(MAKE) -f CMakeFiles/Typhon32.dir/build.make CMakeFiles/Typhon32.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/workspace/Typhon/build/EclipseCDT/x86/Debug/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/workspace/Typhon/build/EclipseCDT/x86/Debug/CMakeFiles  1 2
 	@echo "Built target Typhon32"
 .PHONY : CMakeFiles/Typhon32.dir/all
 
@@ -69,7 +69,7 @@ all: CMakeFiles/Typhon32.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Typhon32.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/workspace/Typhon/build/EclipseCDT/x86/Debug/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/workspace/Typhon/build/EclipseCDT/x86/Debug/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Typhon32.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/workspace/Typhon/build/EclipseCDT/x86/Debug/CMakeFiles 0
 .PHONY : CMakeFiles/Typhon32.dir/rule

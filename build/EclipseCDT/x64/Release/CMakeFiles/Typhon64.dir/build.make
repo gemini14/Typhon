@@ -73,14 +73,40 @@ CMakeFiles/Typhon64.dir/main.cpp.o.provides: CMakeFiles/Typhon64.dir/main.cpp.o.
 CMakeFiles/Typhon64.dir/main.cpp.o.provides.build: CMakeFiles/Typhon64.dir/main.cpp.o
 .PHONY : CMakeFiles/Typhon64.dir/main.cpp.o.provides.build
 
+CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o: /home/tarik/workspace/Typhon/src/metrics/metrics.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Release/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o -c /home/tarik/workspace/Typhon/src/metrics/metrics.cpp
+
+CMakeFiles/Typhon64.dir/metrics/metrics.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Typhon64.dir/metrics/metrics.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tarik/workspace/Typhon/src/metrics/metrics.cpp > CMakeFiles/Typhon64.dir/metrics/metrics.cpp.i
+
+CMakeFiles/Typhon64.dir/metrics/metrics.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Typhon64.dir/metrics/metrics.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tarik/workspace/Typhon/src/metrics/metrics.cpp -o CMakeFiles/Typhon64.dir/metrics/metrics.cpp.s
+
+CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o.requires
+
+CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o.provides: CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o.provides
+
+CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o.provides.build: CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o
+.PHONY : CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o.provides.build
+
 # Object files for target Typhon64
 Typhon64_OBJECTS = \
-"CMakeFiles/Typhon64.dir/main.cpp.o"
+"CMakeFiles/Typhon64.dir/main.cpp.o" \
+"CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o"
 
 # External object files for target Typhon64
 Typhon64_EXTERNAL_OBJECTS =
 
 /home/tarik/workspace/Typhon/shared/Typhon64: CMakeFiles/Typhon64.dir/main.cpp.o
+/home/tarik/workspace/Typhon/shared/Typhon64: CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o
 /home/tarik/workspace/Typhon/shared/Typhon64: CMakeFiles/Typhon64.dir/build.make
 /home/tarik/workspace/Typhon/shared/Typhon64: CMakeFiles/Typhon64.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/tarik/workspace/Typhon/shared/Typhon64"
@@ -91,6 +117,7 @@ CMakeFiles/Typhon64.dir/build: /home/tarik/workspace/Typhon/shared/Typhon64
 .PHONY : CMakeFiles/Typhon64.dir/build
 
 CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/main.cpp.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o.requires
 .PHONY : CMakeFiles/Typhon64.dir/requires
 
 CMakeFiles/Typhon64.dir/clean:

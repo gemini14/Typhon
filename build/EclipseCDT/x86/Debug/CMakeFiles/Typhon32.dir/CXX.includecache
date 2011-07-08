@@ -1576,9 +1576,21 @@ dimension2d.h
 irrMath.h
 /home/tarik/workspace/Typhon/src/../include/irrlicht/irrMath.h
 
+/home/tarik/workspace/Typhon/src/../include/metrics/metrics.h
+
 /home/tarik/workspace/Typhon/src/main.cpp
 iostream
 -
 irrlicht/irrlicht.h
+-
+metrics/metrics.h
+-
+
+/home/tarik/workspace/Typhon/src/metrics/metrics.cpp
+cstdio
+-
+unistd.h
+-
+metrics/metrics.h
 -
 
