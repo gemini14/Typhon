@@ -1,6 +1,6 @@
 #ifdef WIN32
 #include <Windows.h>
-#else
+#else // Linux
 #include <unistd.h>
 #endif
 
@@ -93,7 +93,7 @@ int Metrics::GetPerfScore()
 	}
 #endif
 
-	score = (numCores * speedCPU) * 0.5 + memory * 0.5;
+	score = (speedCPU * .4) + (memory * 0.4) + (numCores * .2);
 	return score;
 }
 
