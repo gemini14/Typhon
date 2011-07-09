@@ -13,7 +13,16 @@ link_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/../lib/Irrlicht/ 
 )
 
-set(SourceFiles main.cpp metrics/metrics.cpp)
+set(Hdr ../include/)
+
+set(HeaderFiles
+${Hdr}metrics/metrics.h
+)
+
+set(SourceFiles 
+main.cpp 
+metrics/metrics.cpp
+)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../shared/)
 
@@ -21,14 +30,14 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../shared/)
 if(CMAKE_CL_64)
 
     message("Creating Win64 project...")
-    add_executable(Typhon64 ${SourceFiles})
+    add_executable(Typhon64 ${SourceFiles} ${HeaderFiles})
     target_link_libraries(Typhon64 debug IrrlichtD_64 optimized Irrlicht_64)
     set_target_properties(Typhon64 PROPERTIES PREFIX "../")
 
 elseif(CMAKE_HOST_WIN32)
 
     message("Creating Win32 project")
-    add_executable(Typhon32 ${SourceFiles})
+    add_executable(Typhon32 ${SourceFiles} ${HeaderFiles})
     target_link_libraries(Typhon32 debug IrrlichtD_32 optimized Irrlicht_32)
     set_target_properties(Typhon32 PROPERTIES PREFIX "../")
 
