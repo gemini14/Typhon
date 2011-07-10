@@ -4,18 +4,18 @@
 namespace Typhon
 {
 
-class Metrics
-{
-private:
+	class Metrics
+	{
+	private:
 
-	Metrics();
-	~Metrics();
+		Metrics();
+		~Metrics();
 
-public:
+	public:
 
-	static int GetPerfScore();
-};
+		static int GetPerfScore();
+	};
 
 }
 
-#endif /* METRICS_H_ */
+#endif

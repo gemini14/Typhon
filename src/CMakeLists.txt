@@ -4,6 +4,12 @@ cmake_minimum_required(VERSION 2.8)
 project(Typhon)
 
 
+find_package(Boost 1.46)
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS})
+endif()
+
+
 include_directories(
     ../include/ 
 )
@@ -13,32 +19,43 @@ link_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/../lib/Irrlicht/ 
 )
 
-set(Hdr ../include/)
+set(hdr ../include/)
 
 set(HeaderFiles
-${Hdr}metrics/metrics.h
+${hdr}metrics/metrics.h
+${hdr}network/network.h
 )
 
 set(SourceFiles 
 main.cpp 
 metrics/metrics.cpp
+network/network.cpp
 )
 
+
+source_group(Header\ Files\\metrics FILES ${hdr}metrics/metrics.h)
+source_group(Header\ Files\\network FILES ${hdr}network/network.h)
+
+source_group(Source\ Files\\metrics FILES metrics/metrics.cpp)
+source_group(Source\ Files\\network FILES network/network.cpp)
+
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../shared/)
+
 
 
 if(CMAKE_CL_64)
 
     message("Creating Win64 project...")
     add_executable(Typhon64 ${SourceFiles} ${HeaderFiles})
-    target_link_libraries(Typhon64 debug IrrlichtD_64 optimized Irrlicht_64)
+    target_link_libraries(Typhon64 debug IrrlichtD_64 optimized Irrlicht_64 Ws2_32)
     set_target_properties(Typhon64 PROPERTIES PREFIX "../")
 
 elseif(CMAKE_HOST_WIN32)
 
     message("Creating Win32 project")
     add_executable(Typhon32 ${SourceFiles} ${HeaderFiles})
-    target_link_libraries(Typhon32 debug IrrlichtD_32 optimized Irrlicht_32)
+    target_link_libraries(Typhon32 debug IrrlichtD_32 optimized Irrlicht_32 Ws2_32)
     set_target_properties(Typhon32 PROPERTIES PREFIX "../")
 
 elseif(CMAKE_HOST_UNIX)

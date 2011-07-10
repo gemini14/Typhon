@@ -25,10 +25,13 @@ DEALINGS IN THE SOFTWARE.
 #include <irrlicht/irrlicht.h>
 
 #include <metrics/metrics.h>
+#include <network/network.h>
 
 int main(int argc, char* argv[])
 {
-	irr::c8 test;
+	// irr::c8 test;
 	std::cout << Typhon::Metrics::GetPerfScore();
+	Typhon::Network net(Typhon::RAW, 1550);
+	net.StartUp();
 	return 0;
 }
