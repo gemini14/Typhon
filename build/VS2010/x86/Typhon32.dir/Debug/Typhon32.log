@@ -1,17 +1,12 @@
-﻿Build started 7/10/2011 2:42:22 AM.
-     1>Project "D:\X Platform Projects\Typhon\build\VS2010\x86\Typhon32.vcxproj" on node 3 (build target(s)).
+﻿Build started 7/11/2011 2:48:14 AM.
+     1>Project "D:\X Platform Projects\Typhon\build\VS2010\x86\Typhon32.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Typhon32.dir\Debug\Typhon32.unsuccessfulbuild" because "AlwaysCreate" was specified.
        CustomBuild:
          All outputs are up-to-date.
        ClCompile:
-         All outputs are up-to-date.
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:/boost_1_43_0 /I"D:/X Platform Projects/Typhon/src/../include" /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon32.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/shared/Debug/../Typhon32.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\src\main.cpp ..\..\..\src\metrics\metrics.cpp ..\..\..\src\network\network.cpp  /Zm1000 
-         main.cpp
-         metrics.cpp
-     1>..\..\..\src\metrics\metrics.cpp(97): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:/boost_1_43_0 /I"D:/X Platform Projects/Typhon/src/../include" /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon32.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/shared/Debug/../Typhon32.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\src\network\network.cpp  /Zm1000 
          network.cpp
-         Generating Code...
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
@@ -32,4 +27,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:08.18
+Time Elapsed 00:00:05.13

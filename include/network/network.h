@@ -29,15 +29,16 @@ namespace Typhon
 	private:
 
 		// designated port
-		int portNumber;
+		static int portNumber;
 		// our IP
-		sockaddr_storage machineAddr;
+		static sockaddr_in machineAddr;
 		// broadcast IP
-		sockaddr_storage broadcastAddr;
+		static sockaddr_in broadcastAddr;
 
 		NETWORK_HANDLING_TYPE type;
 
 		std::string GetIP();
+		std::string GetNetMask();
 
 	public:
 

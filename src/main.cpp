@@ -30,7 +30,7 @@ DEALINGS IN THE SOFTWARE.
 int main(int argc, char* argv[])
 {
 	// irr::c8 test;
-	std::cout << Typhon::Metrics::GetPerfScore();
+	std::cout << "Perf score: " << Typhon::Metrics::GetPerfScore() << "\n";
 	Typhon::Network net(Typhon::RAW, 1550);
 	net.StartUp();
 	return 0;
