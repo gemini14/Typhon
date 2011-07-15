@@ -94,7 +94,7 @@ int Metrics::GetPerfScore()
 	}
 #endif
 
-	score = (speedCPU * .4) + (memory * 0.4) + (numCores * .2);
+	score = static_cast<int>((speedCPU * .4) + (memory * 0.4) + (numCores * .2));
 	return score;
 }
 

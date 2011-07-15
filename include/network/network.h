@@ -20,8 +20,9 @@ namespace Typhon
 
 	struct Message
 	{
+		char prefix;
 		std::string msg;
-		std::string player;
+		in_addr address;
 	};
 
 	class Network : boost::noncopyable
@@ -35,8 +36,14 @@ namespace Typhon
 		// broadcast IP
 		static sockaddr_in broadcastAddr;
 
+#ifdef WIN32
+		SOCKET winsocket;
+#else
+#endif
+
 		NETWORK_HANDLING_TYPE type;
 
+		void DisplayError(const std::string &message);
 		std::string GetIP();
 		std::string GetNetMask();
 
@@ -45,7 +52,7 @@ namespace Typhon
 		Network(NETWORK_HANDLING_TYPE type, const int port);
 		~Network();
 
-		void BroadcastMessage(const std::string &msg);
+		void BroadcastMessage(const std::string &msg, const char prefix);
 		const Message ReceiveMessage();
 		bool StartUp();
 	};

@@ -19,6 +19,7 @@ DEALINGS IN THE SOFTWARE.
 */
 
 // Project Typhon
+//#include <Windows.h>
 
 #include <iostream>
 
@@ -32,6 +33,24 @@ int main(int argc, char* argv[])
 	// irr::c8 test;
 	std::cout << "Perf score: " << Typhon::Metrics::GetPerfScore() << "\n";
 	Typhon::Network net(Typhon::RAW, 1550);
-	net.StartUp();
+	bool ok = net.StartUp();
+	char buf[INET_ADDRSTRLEN];
+	std::cout << "Listening...\n";
+	while(true)
+	{
+		//net.BroadcastMessage("Herro, I'm Charlie the Chimp!", 'D');
+		Typhon::Message m = net.ReceiveMessage();
+		if(m.prefix == 'D')
+		{
+			std::cout << "Hey, we got a message!  Prefix: " << m.prefix << " IP: "
+				<< inet_ntop(AF_INET, &m.address, buf, INET_ADDRSTRLEN) << "\nMessage reads: " << m.msg;
+			break;
+		}
+		else
+		{
+			std::cout << "Nothing yet...\n";
+		}
+		//Sleep(2000);
+	}
 	return 0;
 }

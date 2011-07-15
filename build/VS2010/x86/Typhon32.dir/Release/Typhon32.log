@@ -1,0 +1,29 @@
+﻿Build started 7/13/2011 2:38:32 AM.
+     1>Project "D:\X Platform Projects\Typhon\build\VS2010\x86\Typhon32.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Typhon32.dir\Release\Typhon32.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule D:/X Platform Projects/Typhon/src/CMakeLists.txt
+         CMake does not need to re-run because D:\X Platform Projects\Typhon\build\VS2010\x86\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:/boost_1_43_0 /I"D:/X Platform Projects/Typhon/src/../include" /nologo /W3 /WX- /O2 /Ob2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon32.dir\Release\\" /Fd"D:/X Platform Projects/Typhon/shared/Release/../Typhon32.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\src\main.cpp ..\..\..\src\metrics\metrics.cpp ..\..\..\src\network\network.cpp  /Zm1000 
+         main.cpp
+         metrics.cpp
+     1>..\..\..\src\metrics\metrics.cpp(97): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+         network.cpp
+         Generating Code...
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\X Platform Projects\Typhon\shared\Release\Typhon32.exe" /VERSION:"0.0" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Release" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Irrlicht" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Irrlicht/Release" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib Irrlicht_32.lib Ws2_32.lib /MANIFEST /ManifestFile:"Typhon32.dir\Release\Typhon32.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"D:\X Platform Projects\Typhon\shared\Release\Typhon32.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/X Platform Projects/Typhon/build/VS2010/x86/Release/Typhon32.lib" /MACHINE:X86 Typhon32.dir\Release\main.obj
+         Typhon32.dir\Release\metrics.obj
+         Typhon32.dir\Release\network.obj  /machine:X86 
+         Typhon32.vcxproj -> D:\X Platform Projects\Typhon\shared\Release\Typhon32.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\X Platform Projects\Typhon\shared\Release\Typhon32.exe;#1" /manifest Typhon32.dir\Release\Typhon32.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Typhon32.dir\Release\Typhon32.unsuccessfulbuild".
+         Touching "Typhon32.dir\Release\Typhon32.lastbuildstate".
+     1>Done Building Project "D:\X Platform Projects\Typhon\build\VS2010\x86\Typhon32.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.24

@@ -14,6 +14,15 @@
 # EXTERNAL cache entries
 ########################
 
+//Path to a file.
+Boost_INCLUDE_DIR:PATH=C:/boost_1_43_0
+
+//Boost library directory
+Boost_LIBRARY_DIRS:FILEPATH=C:/boost_1_43_0/stage/lib
+
+//Boost diagnostic define
+Boost_LIB_DIAGNOSTIC_DEFINITIONS:STRING=-DBOOST_LIB_DIAGNOSTIC
+
 //Semicolon separated list of supported configuration types, only
 // supports Debug, Release, MinSizeRel, and RelWithDebInfo, anything
 // else will be ignored.
@@ -153,6 +162,14 @@ Typhon_SOURCE_DIR:STATIC=D:/X Platform Projects/Typhon/src
 
 //Stored GUID
 ALL_BUILD_GUID_CMAKE:INTERNAL=7F3A357E-54F8-4955-ABD7-BAA56AAB15AE
+//ADVANCED property for variable: Boost_INCLUDE_DIR
+Boost_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_LIBRARY_DIRS
+Boost_LIBRARY_DIRS-ADVANCED:INTERNAL=1
+//The library version string for boost libraries
+Boost_LIB_VERSION:INTERNAL=1_43
+//The version number for boost libraries
+Boost_VERSION:INTERNAL=104300
 //ADVANCED property for variable: CMAKE_BUILD_TOOL
 CMAKE_BUILD_TOOL-ADVANCED:INTERNAL=1
 //What is the target build tool cmake is generating for.
@@ -276,9 +293,21 @@ RUN_TESTS_GUID_CMAKE:INTERNAL=C1AE0FFE-2442-41DE-8700-9BDD68D7C689
 //Stored GUID
 SG_Filter_CMake Rules_GUID_CMAKE:INTERNAL=3771CD15-F9EB-4978-9F36-ECBA98E07CEC
 //Stored GUID
+SG_Filter_Header Files\enet_GUID_CMAKE:INTERNAL=9A27A70E-F534-4AAD-A942-65C64E996B99
+//Stored GUID
+SG_Filter_Header Files\metrics_GUID_CMAKE:INTERNAL=33C07050-3CCB-47A7-8766-067AE3702F7A
+//Stored GUID
+SG_Filter_Header Files\network_GUID_CMAKE:INTERNAL=3426AFA0-D9D8-44C9-A5BB-0028068E3A12
+//Stored GUID
 SG_Filter_Header Files_GUID_CMAKE:INTERNAL=E5ABEE5E-9CA2-4072-9175-F243ABFE67E9
 //Stored GUID
 SG_Filter_Resources_GUID_CMAKE:INTERNAL=87BF1786-AAF1-4EB5-A908-3A198E1D49D6
+//Stored GUID
+SG_Filter_Source Files\enet_GUID_CMAKE:INTERNAL=67EAA625-9492-44C7-AF02-89D6AA45358F
+//Stored GUID
+SG_Filter_Source Files\metrics_GUID_CMAKE:INTERNAL=11A0B2B7-7582-4848-ACE0-5768650DE6E9
+//Stored GUID
+SG_Filter_Source Files\network_GUID_CMAKE:INTERNAL=C97501A0-CBD7-43AD-BE3C-CB34542599C3
 //Stored GUID
 SG_Filter_Source Files_GUID_CMAKE:INTERNAL=9A8DC7E9-6A78-4601-997E-D2246A864CE1
 //Stored GUID
