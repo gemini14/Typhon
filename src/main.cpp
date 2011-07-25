@@ -19,16 +19,60 @@ DEALINGS IN THE SOFTWARE.
 */
 
 // Project Typhon
+//#include <Windows.h>
 
 #include <iostream>
+#include <sstream>
 
-#include <irrlicht/irrlicht.h>
+#include "engine/engine.h"
+#include "metrics/metrics.h"
+#include "network/networkfactory.h"
+#include "utility/username.h"
 
-#include <metrics/metrics.h>
+using namespace std;
+using namespace Typhon;
+
+const int PORT_NUMBER = 1550;
 
 int main(int argc, char* argv[])
 {
-	irr::c8 test;
-	std::cout << Typhon::Metrics::GetPerfScore();
+	int perfScore = Typhon::Metrics::GetPerfScore();
+	cout << "Perf score: " << perfScore << "\n";
+	
+	Network *net = GetNetwork(Typhon::RAW, PORT_NUMBER);
+	if(!net)
+	{
+		cout << "Error starting up network code.\n";
+		return 1;
+	}
+	cout << "Network up!\n";
+
+	Engine *engine = new Engine();
+	if(!engine->ready)
+	{
+		cout << "Error creating Irrlicht device.\n";
+		delete engine;
+		delete net;
+		return 1;
+	}
+	cout << "Irrlicht engine initialized!\n";
+
+	wstring name = GetUsername();
+	
+	stringstream discovery;
+	discovery << ConvertWideToCharString(name) << "%" << perfScore;
+	while(true)
+	{
+		net->BroadcastMessage(discovery.str(), 'D');
+		Message m = net->ReceiveMessage();
+		if(m.prefix == 'D')
+		{
+			std::cout << "Discovery message: " << m.msg;
+			break;
+		}
+	}
+
+	delete engine;
+	delete net;
 	return 0;
 }
