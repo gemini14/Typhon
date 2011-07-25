@@ -22,9 +22,6 @@ link_directories(
 set(hdr ../include/)
 
 set(HeaderFiles
-${hdr}metrics/metrics.h
-
-${hdr}network/network.h
 
 ${hdr}enet/callbacks.h
 ${hdr}enet/enet.h
@@ -35,14 +32,24 @@ ${hdr}enet/types.h
 ${hdr}enet/unix.h
 ${hdr}enet/utility.h
 ${hdr}enet/win32.h
+
+${hdr}engine/engine.h
+
+${hdr}metrics/metrics.h
+
+${hdr}network/lobbylist.h
+${hdr}network/network.h
+${hdr}network/networkenet.h
+${hdr}network/networkfactory.h
+${hdr}network/networklinux.h
+${hdr}network/networkraw.h
+${hdr}network/networkwin.h
+
+${hdr}utility/username.h
 )
 
 set(SourceFiles 
 main.cpp 
-
-metrics/metrics.cpp
-
-network/network.cpp
 
 enet/callbacks.c
 enet/compress.c
@@ -53,16 +60,22 @@ enet/peer.c
 enet/protocol.c
 enet/unix.c
 enet/win32.c
+
+engine/engine.cpp
+
+metrics/metrics.cpp
+
+network/lobbyList.cpp
+network/network.cpp
+network/networkenet.cpp
+network/networkfactory.cpp
+network/networklinux.cpp
+network/networkraw.cpp
+network/networkwin.cpp
+
+utility/username.cpp
 )
 
-
-source_group(Header\ Files\\metrics FILES 
-${hdr}metrics/metrics.h
-)
-
-source_group(Header\ Files\\network FILES 
-${hdr}network/network.h
-)
 
 source_group(Header\ Files\\enet FILES
 ${hdr}enet/callbacks.h
@@ -76,13 +89,28 @@ ${hdr}enet/utility.h
 ${hdr}enet/win32.h
 )
 
-source_group(Source\ Files\\metrics FILES 
-metrics/metrics.cpp
+source_group(Header\ Files\\engine FILES
+${hdr}engine/engine.h
 )
 
-source_group(Source\ Files\\network FILES 
-network/network.cpp
+source_group(Header\ Files\\metrics FILES 
+${hdr}metrics/metrics.h
 )
+
+source_group(Header\ Files\\network FILES 
+${hdr}network/lobbylist.h
+${hdr}network/network.h
+${hdr}network/networkenet.h
+${hdr}network/networkfactory.h
+${hdr}network/networklinux.h
+${hdr}network/networkraw.h
+${hdr}network/networkwin.h
+)
+
+source_group(Header\ Files\\utility FILES
+${hdr}utility/username.h
+)
+
 
 source_group(Source\ Files\\enet FILES
 enet/callbacks.c
@@ -96,9 +124,30 @@ enet/unix.c
 enet/win32.c
 )
 
+source_group(Source\ Files\\engine FILES
+engine/engine.cpp
+)
+
+source_group(Source\ Files\\metrics FILES 
+metrics/metrics.cpp
+)
+
+source_group(Source\ Files\\network FILES 
+network/lobbylist.cpp
+network/network.cpp
+network/networkenet.cpp
+network/networkfactory.cpp
+network/networklinux.cpp
+network/networkraw.cpp
+network/networkwin.cpp
+)
+
+source_group(Source\ Files\\utility FILES
+utility/username.cpp
+)
+
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../shared/)
-
 
 
 if(CMAKE_CL_64)

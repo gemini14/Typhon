@@ -22,35 +22,57 @@ DEALINGS IN THE SOFTWARE.
 //#include <Windows.h>
 
 #include <iostream>
+#include <sstream>
 
-#include <irrlicht/irrlicht.h>
+#include "engine/engine.h"
+#include "metrics/metrics.h"
+#include "network/networkfactory.h"
+#include "utility/username.h"
 
-#include <metrics/metrics.h>
-#include <network/network.h>
+using namespace std;
+using namespace Typhon;
+
+const int PORT_NUMBER = 1550;
 
 int main(int argc, char* argv[])
 {
-	// irr::c8 test;
-	std::cout << "Perf score: " << Typhon::Metrics::GetPerfScore() << "\n";
-	Typhon::Network net(Typhon::RAW, 1550);
-	bool ok = net.StartUp();
-	char buf[INET_ADDRSTRLEN];
-	std::cout << "Listening...\n";
+	int perfScore = Typhon::Metrics::GetPerfScore();
+	cout << "Perf score: " << perfScore << "\n";
+	
+	Network *net = GetNetwork(Typhon::RAW, PORT_NUMBER);
+	if(!net)
+	{
+		cout << "Error starting up network code.\n";
+		return 1;
+	}
+	cout << "Network up!\n";
+
+	Engine *engine = new Engine();
+	if(!engine->ready)
+	{
+		cout << "Error creating Irrlicht device.\n";
+		delete engine;
+		delete net;
+		return 1;
+	}
+	cout << "Irrlicht engine initialized!\n";
+
+	wstring name = GetUsername();
+	
+	stringstream discovery;
+	discovery << ConvertWideToCharString(name) << "%" << perfScore;
 	while(true)
 	{
-		//net.BroadcastMessage("Herro, I'm Charlie the Chimp!", 'D');
-		Typhon::Message m = net.ReceiveMessage();
+		net->BroadcastMessage(discovery.str(), 'D');
+		Message m = net->ReceiveMessage();
 		if(m.prefix == 'D')
 		{
-			std::cout << "Hey, we got a message!  Prefix: " << m.prefix << " IP: "
-				<< inet_ntop(AF_INET, &m.address, buf, INET_ADDRSTRLEN) << "\nMessage reads: " << m.msg;
+			std::cout << "Discovery message: " << m.msg;
 			break;
 		}
-		else
-		{
-			std::cout << "Nothing yet...\n";
-		}
-		//Sleep(2000);
 	}
+
+	delete engine;
+	delete net;
 	return 0;
 }
