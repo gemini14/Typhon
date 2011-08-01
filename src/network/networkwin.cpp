@@ -28,7 +28,8 @@ namespace Typhon
 		hints.ai_flags = AI_PASSIVE;
 		getaddrinfo(hostname, nullptr, &hints, &result);
 
-		for( ; result != nullptr; result = result->ai_next)
+		bool done = false;
+		for( ; !done && result; result = result->ai_next)
 		{
 			switch(result->ai_family)
 			{
@@ -36,6 +37,7 @@ namespace Typhon
 				char buffer[INET_ADDRSTRLEN];
 				ipaddr += inet_ntop(AF_INET, &(reinterpret_cast<sockaddr_in*>(result->ai_addr)->sin_addr), 
 					buffer, INET_ADDRSTRLEN);
+				done = true;
 				break;
 			default:
 				// address with another protocol (i.e, IPv6)
@@ -44,7 +46,6 @@ namespace Typhon
 		}
 
 		freeaddrinfo(result);
-
 		return ipaddr;
 	}
 

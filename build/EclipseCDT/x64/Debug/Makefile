@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tarik/workspace/Typhon/src
+CMAKE_SOURCE_DIR = "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug
+CMAKE_BINARY_DIR = "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,9 +69,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -110,6 +110,246 @@ Typhon64: cmake_check_build_system
 Typhon64/fast:
 	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/build
 .PHONY : Typhon64/fast
+
+enet/callbacks.o: enet/callbacks.c.o
+.PHONY : enet/callbacks.o
+
+# target to build an object file
+enet/callbacks.c.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/callbacks.c.o
+.PHONY : enet/callbacks.c.o
+
+enet/callbacks.i: enet/callbacks.c.i
+.PHONY : enet/callbacks.i
+
+# target to preprocess a source file
+enet/callbacks.c.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/callbacks.c.i
+.PHONY : enet/callbacks.c.i
+
+enet/callbacks.s: enet/callbacks.c.s
+.PHONY : enet/callbacks.s
+
+# target to generate assembly for a file
+enet/callbacks.c.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/callbacks.c.s
+.PHONY : enet/callbacks.c.s
+
+enet/compress.o: enet/compress.c.o
+.PHONY : enet/compress.o
+
+# target to build an object file
+enet/compress.c.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/compress.c.o
+.PHONY : enet/compress.c.o
+
+enet/compress.i: enet/compress.c.i
+.PHONY : enet/compress.i
+
+# target to preprocess a source file
+enet/compress.c.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/compress.c.i
+.PHONY : enet/compress.c.i
+
+enet/compress.s: enet/compress.c.s
+.PHONY : enet/compress.s
+
+# target to generate assembly for a file
+enet/compress.c.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/compress.c.s
+.PHONY : enet/compress.c.s
+
+enet/host.o: enet/host.c.o
+.PHONY : enet/host.o
+
+# target to build an object file
+enet/host.c.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/host.c.o
+.PHONY : enet/host.c.o
+
+enet/host.i: enet/host.c.i
+.PHONY : enet/host.i
+
+# target to preprocess a source file
+enet/host.c.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/host.c.i
+.PHONY : enet/host.c.i
+
+enet/host.s: enet/host.c.s
+.PHONY : enet/host.s
+
+# target to generate assembly for a file
+enet/host.c.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/host.c.s
+.PHONY : enet/host.c.s
+
+enet/list.o: enet/list.c.o
+.PHONY : enet/list.o
+
+# target to build an object file
+enet/list.c.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/list.c.o
+.PHONY : enet/list.c.o
+
+enet/list.i: enet/list.c.i
+.PHONY : enet/list.i
+
+# target to preprocess a source file
+enet/list.c.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/list.c.i
+.PHONY : enet/list.c.i
+
+enet/list.s: enet/list.c.s
+.PHONY : enet/list.s
+
+# target to generate assembly for a file
+enet/list.c.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/list.c.s
+.PHONY : enet/list.c.s
+
+enet/packet.o: enet/packet.c.o
+.PHONY : enet/packet.o
+
+# target to build an object file
+enet/packet.c.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/packet.c.o
+.PHONY : enet/packet.c.o
+
+enet/packet.i: enet/packet.c.i
+.PHONY : enet/packet.i
+
+# target to preprocess a source file
+enet/packet.c.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/packet.c.i
+.PHONY : enet/packet.c.i
+
+enet/packet.s: enet/packet.c.s
+.PHONY : enet/packet.s
+
+# target to generate assembly for a file
+enet/packet.c.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/packet.c.s
+.PHONY : enet/packet.c.s
+
+enet/peer.o: enet/peer.c.o
+.PHONY : enet/peer.o
+
+# target to build an object file
+enet/peer.c.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/peer.c.o
+.PHONY : enet/peer.c.o
+
+enet/peer.i: enet/peer.c.i
+.PHONY : enet/peer.i
+
+# target to preprocess a source file
+enet/peer.c.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/peer.c.i
+.PHONY : enet/peer.c.i
+
+enet/peer.s: enet/peer.c.s
+.PHONY : enet/peer.s
+
+# target to generate assembly for a file
+enet/peer.c.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/peer.c.s
+.PHONY : enet/peer.c.s
+
+enet/protocol.o: enet/protocol.c.o
+.PHONY : enet/protocol.o
+
+# target to build an object file
+enet/protocol.c.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/protocol.c.o
+.PHONY : enet/protocol.c.o
+
+enet/protocol.i: enet/protocol.c.i
+.PHONY : enet/protocol.i
+
+# target to preprocess a source file
+enet/protocol.c.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/protocol.c.i
+.PHONY : enet/protocol.c.i
+
+enet/protocol.s: enet/protocol.c.s
+.PHONY : enet/protocol.s
+
+# target to generate assembly for a file
+enet/protocol.c.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/protocol.c.s
+.PHONY : enet/protocol.c.s
+
+enet/unix.o: enet/unix.c.o
+.PHONY : enet/unix.o
+
+# target to build an object file
+enet/unix.c.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/unix.c.o
+.PHONY : enet/unix.c.o
+
+enet/unix.i: enet/unix.c.i
+.PHONY : enet/unix.i
+
+# target to preprocess a source file
+enet/unix.c.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/unix.c.i
+.PHONY : enet/unix.c.i
+
+enet/unix.s: enet/unix.c.s
+.PHONY : enet/unix.s
+
+# target to generate assembly for a file
+enet/unix.c.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/unix.c.s
+.PHONY : enet/unix.c.s
+
+enet/win32.o: enet/win32.c.o
+.PHONY : enet/win32.o
+
+# target to build an object file
+enet/win32.c.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/win32.c.o
+.PHONY : enet/win32.c.o
+
+enet/win32.i: enet/win32.c.i
+.PHONY : enet/win32.i
+
+# target to preprocess a source file
+enet/win32.c.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/win32.c.i
+.PHONY : enet/win32.c.i
+
+enet/win32.s: enet/win32.c.s
+.PHONY : enet/win32.s
+
+# target to generate assembly for a file
+enet/win32.c.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/win32.c.s
+.PHONY : enet/win32.c.s
+
+engine/engine.o: engine/engine.cpp.o
+.PHONY : engine/engine.o
+
+# target to build an object file
+engine/engine.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/engine/engine.cpp.o
+.PHONY : engine/engine.cpp.o
+
+engine/engine.i: engine/engine.cpp.i
+.PHONY : engine/engine.i
+
+# target to preprocess a source file
+engine/engine.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/engine/engine.cpp.i
+.PHONY : engine/engine.cpp.i
+
+engine/engine.s: engine/engine.cpp.s
+.PHONY : engine/engine.s
+
+# target to generate assembly for a file
+engine/engine.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/engine/engine.cpp.s
+.PHONY : engine/engine.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -159,6 +399,198 @@ metrics/metrics.cpp.s:
 	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/metrics/metrics.cpp.s
 .PHONY : metrics/metrics.cpp.s
 
+network/lobbylist.o: network/lobbylist.cpp.o
+.PHONY : network/lobbylist.o
+
+# target to build an object file
+network/lobbylist.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o
+.PHONY : network/lobbylist.cpp.o
+
+network/lobbylist.i: network/lobbylist.cpp.i
+.PHONY : network/lobbylist.i
+
+# target to preprocess a source file
+network/lobbylist.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/lobbylist.cpp.i
+.PHONY : network/lobbylist.cpp.i
+
+network/lobbylist.s: network/lobbylist.cpp.s
+.PHONY : network/lobbylist.s
+
+# target to generate assembly for a file
+network/lobbylist.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/lobbylist.cpp.s
+.PHONY : network/lobbylist.cpp.s
+
+network/network.o: network/network.cpp.o
+.PHONY : network/network.o
+
+# target to build an object file
+network/network.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/network.cpp.o
+.PHONY : network/network.cpp.o
+
+network/network.i: network/network.cpp.i
+.PHONY : network/network.i
+
+# target to preprocess a source file
+network/network.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/network.cpp.i
+.PHONY : network/network.cpp.i
+
+network/network.s: network/network.cpp.s
+.PHONY : network/network.s
+
+# target to generate assembly for a file
+network/network.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/network.cpp.s
+.PHONY : network/network.cpp.s
+
+network/networkenet.o: network/networkenet.cpp.o
+.PHONY : network/networkenet.o
+
+# target to build an object file
+network/networkenet.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networkenet.cpp.o
+.PHONY : network/networkenet.cpp.o
+
+network/networkenet.i: network/networkenet.cpp.i
+.PHONY : network/networkenet.i
+
+# target to preprocess a source file
+network/networkenet.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networkenet.cpp.i
+.PHONY : network/networkenet.cpp.i
+
+network/networkenet.s: network/networkenet.cpp.s
+.PHONY : network/networkenet.s
+
+# target to generate assembly for a file
+network/networkenet.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networkenet.cpp.s
+.PHONY : network/networkenet.cpp.s
+
+network/networkfactory.o: network/networkfactory.cpp.o
+.PHONY : network/networkfactory.o
+
+# target to build an object file
+network/networkfactory.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o
+.PHONY : network/networkfactory.cpp.o
+
+network/networkfactory.i: network/networkfactory.cpp.i
+.PHONY : network/networkfactory.i
+
+# target to preprocess a source file
+network/networkfactory.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networkfactory.cpp.i
+.PHONY : network/networkfactory.cpp.i
+
+network/networkfactory.s: network/networkfactory.cpp.s
+.PHONY : network/networkfactory.s
+
+# target to generate assembly for a file
+network/networkfactory.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networkfactory.cpp.s
+.PHONY : network/networkfactory.cpp.s
+
+network/networklinux.o: network/networklinux.cpp.o
+.PHONY : network/networklinux.o
+
+# target to build an object file
+network/networklinux.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networklinux.cpp.o
+.PHONY : network/networklinux.cpp.o
+
+network/networklinux.i: network/networklinux.cpp.i
+.PHONY : network/networklinux.i
+
+# target to preprocess a source file
+network/networklinux.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networklinux.cpp.i
+.PHONY : network/networklinux.cpp.i
+
+network/networklinux.s: network/networklinux.cpp.s
+.PHONY : network/networklinux.s
+
+# target to generate assembly for a file
+network/networklinux.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networklinux.cpp.s
+.PHONY : network/networklinux.cpp.s
+
+network/networkraw.o: network/networkraw.cpp.o
+.PHONY : network/networkraw.o
+
+# target to build an object file
+network/networkraw.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networkraw.cpp.o
+.PHONY : network/networkraw.cpp.o
+
+network/networkraw.i: network/networkraw.cpp.i
+.PHONY : network/networkraw.i
+
+# target to preprocess a source file
+network/networkraw.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networkraw.cpp.i
+.PHONY : network/networkraw.cpp.i
+
+network/networkraw.s: network/networkraw.cpp.s
+.PHONY : network/networkraw.s
+
+# target to generate assembly for a file
+network/networkraw.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networkraw.cpp.s
+.PHONY : network/networkraw.cpp.s
+
+network/networkwin.o: network/networkwin.cpp.o
+.PHONY : network/networkwin.o
+
+# target to build an object file
+network/networkwin.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networkwin.cpp.o
+.PHONY : network/networkwin.cpp.o
+
+network/networkwin.i: network/networkwin.cpp.i
+.PHONY : network/networkwin.i
+
+# target to preprocess a source file
+network/networkwin.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networkwin.cpp.i
+.PHONY : network/networkwin.cpp.i
+
+network/networkwin.s: network/networkwin.cpp.s
+.PHONY : network/networkwin.s
+
+# target to generate assembly for a file
+network/networkwin.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networkwin.cpp.s
+.PHONY : network/networkwin.cpp.s
+
+utility/username.o: utility/username.cpp.o
+.PHONY : utility/username.o
+
+# target to build an object file
+utility/username.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/utility/username.cpp.o
+.PHONY : utility/username.cpp.o
+
+utility/username.i: utility/username.cpp.i
+.PHONY : utility/username.i
+
+# target to preprocess a source file
+utility/username.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/utility/username.cpp.i
+.PHONY : utility/username.cpp.i
+
+utility/username.s: utility/username.cpp.s
+.PHONY : utility/username.s
+
+# target to generate assembly for a file
+utility/username.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/utility/username.cpp.s
+.PHONY : utility/username.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -168,12 +600,66 @@ help:
 	@echo "... Typhon64"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... enet/callbacks.o"
+	@echo "... enet/callbacks.i"
+	@echo "... enet/callbacks.s"
+	@echo "... enet/compress.o"
+	@echo "... enet/compress.i"
+	@echo "... enet/compress.s"
+	@echo "... enet/host.o"
+	@echo "... enet/host.i"
+	@echo "... enet/host.s"
+	@echo "... enet/list.o"
+	@echo "... enet/list.i"
+	@echo "... enet/list.s"
+	@echo "... enet/packet.o"
+	@echo "... enet/packet.i"
+	@echo "... enet/packet.s"
+	@echo "... enet/peer.o"
+	@echo "... enet/peer.i"
+	@echo "... enet/peer.s"
+	@echo "... enet/protocol.o"
+	@echo "... enet/protocol.i"
+	@echo "... enet/protocol.s"
+	@echo "... enet/unix.o"
+	@echo "... enet/unix.i"
+	@echo "... enet/unix.s"
+	@echo "... enet/win32.o"
+	@echo "... enet/win32.i"
+	@echo "... enet/win32.s"
+	@echo "... engine/engine.o"
+	@echo "... engine/engine.i"
+	@echo "... engine/engine.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
 	@echo "... metrics/metrics.o"
 	@echo "... metrics/metrics.i"
 	@echo "... metrics/metrics.s"
+	@echo "... network/lobbylist.o"
+	@echo "... network/lobbylist.i"
+	@echo "... network/lobbylist.s"
+	@echo "... network/network.o"
+	@echo "... network/network.i"
+	@echo "... network/network.s"
+	@echo "... network/networkenet.o"
+	@echo "... network/networkenet.i"
+	@echo "... network/networkenet.s"
+	@echo "... network/networkfactory.o"
+	@echo "... network/networkfactory.i"
+	@echo "... network/networkfactory.s"
+	@echo "... network/networklinux.o"
+	@echo "... network/networklinux.i"
+	@echo "... network/networklinux.s"
+	@echo "... network/networkraw.o"
+	@echo "... network/networkraw.i"
+	@echo "... network/networkraw.s"
+	@echo "... network/networkwin.o"
+	@echo "... network/networkwin.i"
+	@echo "... network/networkwin.s"
+	@echo "... utility/username.o"
+	@echo "... utility/username.i"
+	@echo "... utility/username.s"
 .PHONY : help
 
 

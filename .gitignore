@@ -24,3 +24,4 @@ ipch/
 
 #Proj specific
 /shared/Linux
+.metadata

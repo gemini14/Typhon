@@ -65,7 +65,7 @@ engine/engine.cpp
 
 metrics/metrics.cpp
 
-network/lobbyList.cpp
+network/lobbylist.cpp
 network/network.cpp
 network/networkenet.cpp
 network/networkfactory.cpp
@@ -166,7 +166,7 @@ elseif(CMAKE_HOST_WIN32)
 
 elseif(CMAKE_HOST_UNIX)
     
-    add_definitions(-g -Wall -std=c++0x)
+    add_definitions(-g -Wall -std=c++0x -DHAS_SOCKLEN_T)
     
     # Set linux bin directory to a separate folder so that it can be ignored
     # (Linux exe's don't have any extension)

@@ -1,4 +1,4 @@
-# Install script for directory: /home/tarik/workspace/Typhon/src
+# Install script for directory: /media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

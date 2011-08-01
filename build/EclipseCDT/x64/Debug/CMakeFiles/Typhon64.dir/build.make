@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tarik/workspace/Typhon/src
+CMAKE_SOURCE_DIR = "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug
+CMAKE_BINARY_DIR = "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Typhon64.dir/depend.make
@@ -50,18 +50,18 @@ include CMakeFiles/Typhon64.dir/progress.make
 include CMakeFiles/Typhon64.dir/flags.make
 
 CMakeFiles/Typhon64.dir/main.cpp.o: CMakeFiles/Typhon64.dir/flags.make
-CMakeFiles/Typhon64.dir/main.cpp.o: /home/tarik/workspace/Typhon/src/main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles $(CMAKE_PROGRESS_1)
+CMakeFiles/Typhon64.dir/main.cpp.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/main.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Typhon64.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Typhon64.dir/main.cpp.o -c /home/tarik/workspace/Typhon/src/main.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Typhon64.dir/main.cpp.o -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/main.cpp"
 
 CMakeFiles/Typhon64.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Typhon64.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tarik/workspace/Typhon/src/main.cpp > CMakeFiles/Typhon64.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/main.cpp" > CMakeFiles/Typhon64.dir/main.cpp.i
 
 CMakeFiles/Typhon64.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Typhon64.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tarik/workspace/Typhon/src/main.cpp -o CMakeFiles/Typhon64.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/main.cpp" -o CMakeFiles/Typhon64.dir/main.cpp.s
 
 CMakeFiles/Typhon64.dir/main.cpp.o.requires:
 .PHONY : CMakeFiles/Typhon64.dir/main.cpp.o.requires
@@ -73,19 +73,259 @@ CMakeFiles/Typhon64.dir/main.cpp.o.provides: CMakeFiles/Typhon64.dir/main.cpp.o.
 CMakeFiles/Typhon64.dir/main.cpp.o.provides.build: CMakeFiles/Typhon64.dir/main.cpp.o
 .PHONY : CMakeFiles/Typhon64.dir/main.cpp.o.provides.build
 
+CMakeFiles/Typhon64.dir/enet/callbacks.c.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/enet/callbacks.c.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/enet/callbacks.c
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Typhon64.dir/enet/callbacks.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Typhon64.dir/enet/callbacks.c.o   -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/callbacks.c"
+
+CMakeFiles/Typhon64.dir/enet/callbacks.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Typhon64.dir/enet/callbacks.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/callbacks.c" > CMakeFiles/Typhon64.dir/enet/callbacks.c.i
+
+CMakeFiles/Typhon64.dir/enet/callbacks.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Typhon64.dir/enet/callbacks.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/callbacks.c" -o CMakeFiles/Typhon64.dir/enet/callbacks.c.s
+
+CMakeFiles/Typhon64.dir/enet/callbacks.c.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/enet/callbacks.c.o.requires
+
+CMakeFiles/Typhon64.dir/enet/callbacks.c.o.provides: CMakeFiles/Typhon64.dir/enet/callbacks.c.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/callbacks.c.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/enet/callbacks.c.o.provides
+
+CMakeFiles/Typhon64.dir/enet/callbacks.c.o.provides.build: CMakeFiles/Typhon64.dir/enet/callbacks.c.o
+.PHONY : CMakeFiles/Typhon64.dir/enet/callbacks.c.o.provides.build
+
+CMakeFiles/Typhon64.dir/enet/compress.c.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/enet/compress.c.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/enet/compress.c
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Typhon64.dir/enet/compress.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Typhon64.dir/enet/compress.c.o   -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/compress.c"
+
+CMakeFiles/Typhon64.dir/enet/compress.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Typhon64.dir/enet/compress.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/compress.c" > CMakeFiles/Typhon64.dir/enet/compress.c.i
+
+CMakeFiles/Typhon64.dir/enet/compress.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Typhon64.dir/enet/compress.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/compress.c" -o CMakeFiles/Typhon64.dir/enet/compress.c.s
+
+CMakeFiles/Typhon64.dir/enet/compress.c.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/enet/compress.c.o.requires
+
+CMakeFiles/Typhon64.dir/enet/compress.c.o.provides: CMakeFiles/Typhon64.dir/enet/compress.c.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/compress.c.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/enet/compress.c.o.provides
+
+CMakeFiles/Typhon64.dir/enet/compress.c.o.provides.build: CMakeFiles/Typhon64.dir/enet/compress.c.o
+.PHONY : CMakeFiles/Typhon64.dir/enet/compress.c.o.provides.build
+
+CMakeFiles/Typhon64.dir/enet/host.c.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/enet/host.c.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/enet/host.c
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Typhon64.dir/enet/host.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Typhon64.dir/enet/host.c.o   -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/host.c"
+
+CMakeFiles/Typhon64.dir/enet/host.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Typhon64.dir/enet/host.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/host.c" > CMakeFiles/Typhon64.dir/enet/host.c.i
+
+CMakeFiles/Typhon64.dir/enet/host.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Typhon64.dir/enet/host.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/host.c" -o CMakeFiles/Typhon64.dir/enet/host.c.s
+
+CMakeFiles/Typhon64.dir/enet/host.c.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/enet/host.c.o.requires
+
+CMakeFiles/Typhon64.dir/enet/host.c.o.provides: CMakeFiles/Typhon64.dir/enet/host.c.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/host.c.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/enet/host.c.o.provides
+
+CMakeFiles/Typhon64.dir/enet/host.c.o.provides.build: CMakeFiles/Typhon64.dir/enet/host.c.o
+.PHONY : CMakeFiles/Typhon64.dir/enet/host.c.o.provides.build
+
+CMakeFiles/Typhon64.dir/enet/list.c.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/enet/list.c.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/enet/list.c
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Typhon64.dir/enet/list.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Typhon64.dir/enet/list.c.o   -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/list.c"
+
+CMakeFiles/Typhon64.dir/enet/list.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Typhon64.dir/enet/list.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/list.c" > CMakeFiles/Typhon64.dir/enet/list.c.i
+
+CMakeFiles/Typhon64.dir/enet/list.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Typhon64.dir/enet/list.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/list.c" -o CMakeFiles/Typhon64.dir/enet/list.c.s
+
+CMakeFiles/Typhon64.dir/enet/list.c.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/enet/list.c.o.requires
+
+CMakeFiles/Typhon64.dir/enet/list.c.o.provides: CMakeFiles/Typhon64.dir/enet/list.c.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/list.c.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/enet/list.c.o.provides
+
+CMakeFiles/Typhon64.dir/enet/list.c.o.provides.build: CMakeFiles/Typhon64.dir/enet/list.c.o
+.PHONY : CMakeFiles/Typhon64.dir/enet/list.c.o.provides.build
+
+CMakeFiles/Typhon64.dir/enet/packet.c.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/enet/packet.c.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/enet/packet.c
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Typhon64.dir/enet/packet.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Typhon64.dir/enet/packet.c.o   -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/packet.c"
+
+CMakeFiles/Typhon64.dir/enet/packet.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Typhon64.dir/enet/packet.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/packet.c" > CMakeFiles/Typhon64.dir/enet/packet.c.i
+
+CMakeFiles/Typhon64.dir/enet/packet.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Typhon64.dir/enet/packet.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/packet.c" -o CMakeFiles/Typhon64.dir/enet/packet.c.s
+
+CMakeFiles/Typhon64.dir/enet/packet.c.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/enet/packet.c.o.requires
+
+CMakeFiles/Typhon64.dir/enet/packet.c.o.provides: CMakeFiles/Typhon64.dir/enet/packet.c.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/packet.c.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/enet/packet.c.o.provides
+
+CMakeFiles/Typhon64.dir/enet/packet.c.o.provides.build: CMakeFiles/Typhon64.dir/enet/packet.c.o
+.PHONY : CMakeFiles/Typhon64.dir/enet/packet.c.o.provides.build
+
+CMakeFiles/Typhon64.dir/enet/peer.c.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/enet/peer.c.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/enet/peer.c
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_7)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Typhon64.dir/enet/peer.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Typhon64.dir/enet/peer.c.o   -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/peer.c"
+
+CMakeFiles/Typhon64.dir/enet/peer.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Typhon64.dir/enet/peer.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/peer.c" > CMakeFiles/Typhon64.dir/enet/peer.c.i
+
+CMakeFiles/Typhon64.dir/enet/peer.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Typhon64.dir/enet/peer.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/peer.c" -o CMakeFiles/Typhon64.dir/enet/peer.c.s
+
+CMakeFiles/Typhon64.dir/enet/peer.c.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/enet/peer.c.o.requires
+
+CMakeFiles/Typhon64.dir/enet/peer.c.o.provides: CMakeFiles/Typhon64.dir/enet/peer.c.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/peer.c.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/enet/peer.c.o.provides
+
+CMakeFiles/Typhon64.dir/enet/peer.c.o.provides.build: CMakeFiles/Typhon64.dir/enet/peer.c.o
+.PHONY : CMakeFiles/Typhon64.dir/enet/peer.c.o.provides.build
+
+CMakeFiles/Typhon64.dir/enet/protocol.c.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/enet/protocol.c.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/enet/protocol.c
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_8)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Typhon64.dir/enet/protocol.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Typhon64.dir/enet/protocol.c.o   -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/protocol.c"
+
+CMakeFiles/Typhon64.dir/enet/protocol.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Typhon64.dir/enet/protocol.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/protocol.c" > CMakeFiles/Typhon64.dir/enet/protocol.c.i
+
+CMakeFiles/Typhon64.dir/enet/protocol.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Typhon64.dir/enet/protocol.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/protocol.c" -o CMakeFiles/Typhon64.dir/enet/protocol.c.s
+
+CMakeFiles/Typhon64.dir/enet/protocol.c.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/enet/protocol.c.o.requires
+
+CMakeFiles/Typhon64.dir/enet/protocol.c.o.provides: CMakeFiles/Typhon64.dir/enet/protocol.c.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/protocol.c.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/enet/protocol.c.o.provides
+
+CMakeFiles/Typhon64.dir/enet/protocol.c.o.provides.build: CMakeFiles/Typhon64.dir/enet/protocol.c.o
+.PHONY : CMakeFiles/Typhon64.dir/enet/protocol.c.o.provides.build
+
+CMakeFiles/Typhon64.dir/enet/unix.c.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/enet/unix.c.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/enet/unix.c
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_9)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Typhon64.dir/enet/unix.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Typhon64.dir/enet/unix.c.o   -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/unix.c"
+
+CMakeFiles/Typhon64.dir/enet/unix.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Typhon64.dir/enet/unix.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/unix.c" > CMakeFiles/Typhon64.dir/enet/unix.c.i
+
+CMakeFiles/Typhon64.dir/enet/unix.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Typhon64.dir/enet/unix.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/unix.c" -o CMakeFiles/Typhon64.dir/enet/unix.c.s
+
+CMakeFiles/Typhon64.dir/enet/unix.c.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/enet/unix.c.o.requires
+
+CMakeFiles/Typhon64.dir/enet/unix.c.o.provides: CMakeFiles/Typhon64.dir/enet/unix.c.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/unix.c.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/enet/unix.c.o.provides
+
+CMakeFiles/Typhon64.dir/enet/unix.c.o.provides.build: CMakeFiles/Typhon64.dir/enet/unix.c.o
+.PHONY : CMakeFiles/Typhon64.dir/enet/unix.c.o.provides.build
+
+CMakeFiles/Typhon64.dir/enet/win32.c.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/enet/win32.c.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/enet/win32.c
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_10)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Typhon64.dir/enet/win32.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Typhon64.dir/enet/win32.c.o   -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/win32.c"
+
+CMakeFiles/Typhon64.dir/enet/win32.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Typhon64.dir/enet/win32.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/win32.c" > CMakeFiles/Typhon64.dir/enet/win32.c.i
+
+CMakeFiles/Typhon64.dir/enet/win32.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Typhon64.dir/enet/win32.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/enet/win32.c" -o CMakeFiles/Typhon64.dir/enet/win32.c.s
+
+CMakeFiles/Typhon64.dir/enet/win32.c.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/enet/win32.c.o.requires
+
+CMakeFiles/Typhon64.dir/enet/win32.c.o.provides: CMakeFiles/Typhon64.dir/enet/win32.c.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/enet/win32.c.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/enet/win32.c.o.provides
+
+CMakeFiles/Typhon64.dir/enet/win32.c.o.provides.build: CMakeFiles/Typhon64.dir/enet/win32.c.o
+.PHONY : CMakeFiles/Typhon64.dir/enet/win32.c.o.provides.build
+
+CMakeFiles/Typhon64.dir/engine/engine.cpp.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/engine/engine.cpp.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/engine/engine.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_11)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Typhon64.dir/engine/engine.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Typhon64.dir/engine/engine.cpp.o -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/engine/engine.cpp"
+
+CMakeFiles/Typhon64.dir/engine/engine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Typhon64.dir/engine/engine.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/engine/engine.cpp" > CMakeFiles/Typhon64.dir/engine/engine.cpp.i
+
+CMakeFiles/Typhon64.dir/engine/engine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Typhon64.dir/engine/engine.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/engine/engine.cpp" -o CMakeFiles/Typhon64.dir/engine/engine.cpp.s
+
+CMakeFiles/Typhon64.dir/engine/engine.cpp.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/engine/engine.cpp.o.requires
+
+CMakeFiles/Typhon64.dir/engine/engine.cpp.o.provides: CMakeFiles/Typhon64.dir/engine/engine.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/engine/engine.cpp.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/engine/engine.cpp.o.provides
+
+CMakeFiles/Typhon64.dir/engine/engine.cpp.o.provides.build: CMakeFiles/Typhon64.dir/engine/engine.cpp.o
+.PHONY : CMakeFiles/Typhon64.dir/engine/engine.cpp.o.provides.build
+
 CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o: CMakeFiles/Typhon64.dir/flags.make
-CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o: /home/tarik/workspace/Typhon/src/metrics/metrics.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles $(CMAKE_PROGRESS_2)
+CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/metrics/metrics.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_12)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o -c /home/tarik/workspace/Typhon/src/metrics/metrics.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/metrics/metrics.cpp"
 
 CMakeFiles/Typhon64.dir/metrics/metrics.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Typhon64.dir/metrics/metrics.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tarik/workspace/Typhon/src/metrics/metrics.cpp > CMakeFiles/Typhon64.dir/metrics/metrics.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/metrics/metrics.cpp" > CMakeFiles/Typhon64.dir/metrics/metrics.cpp.i
 
 CMakeFiles/Typhon64.dir/metrics/metrics.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Typhon64.dir/metrics/metrics.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tarik/workspace/Typhon/src/metrics/metrics.cpp -o CMakeFiles/Typhon64.dir/metrics/metrics.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/metrics/metrics.cpp" -o CMakeFiles/Typhon64.dir/metrics/metrics.cpp.s
 
 CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o.requires:
 .PHONY : CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o.requires
@@ -97,27 +337,273 @@ CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o.provides: CMakeFiles/Typhon64.dir/
 CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o.provides.build: CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o
 .PHONY : CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o.provides.build
 
+CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/network/lobbylist.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_13)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/lobbylist.cpp"
+
+CMakeFiles/Typhon64.dir/network/lobbylist.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Typhon64.dir/network/lobbylist.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/lobbylist.cpp" > CMakeFiles/Typhon64.dir/network/lobbylist.cpp.i
+
+CMakeFiles/Typhon64.dir/network/lobbylist.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Typhon64.dir/network/lobbylist.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/lobbylist.cpp" -o CMakeFiles/Typhon64.dir/network/lobbylist.cpp.s
+
+CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o.requires
+
+CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o.provides: CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o.provides
+
+CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o.provides.build: CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o
+.PHONY : CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o.provides.build
+
+CMakeFiles/Typhon64.dir/network/network.cpp.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/network/network.cpp.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/network/network.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_14)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Typhon64.dir/network/network.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Typhon64.dir/network/network.cpp.o -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/network.cpp"
+
+CMakeFiles/Typhon64.dir/network/network.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Typhon64.dir/network/network.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/network.cpp" > CMakeFiles/Typhon64.dir/network/network.cpp.i
+
+CMakeFiles/Typhon64.dir/network/network.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Typhon64.dir/network/network.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/network.cpp" -o CMakeFiles/Typhon64.dir/network/network.cpp.s
+
+CMakeFiles/Typhon64.dir/network/network.cpp.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/network/network.cpp.o.requires
+
+CMakeFiles/Typhon64.dir/network/network.cpp.o.provides: CMakeFiles/Typhon64.dir/network/network.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/network.cpp.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/network/network.cpp.o.provides
+
+CMakeFiles/Typhon64.dir/network/network.cpp.o.provides.build: CMakeFiles/Typhon64.dir/network/network.cpp.o
+.PHONY : CMakeFiles/Typhon64.dir/network/network.cpp.o.provides.build
+
+CMakeFiles/Typhon64.dir/network/networkenet.cpp.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/network/networkenet.cpp.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/network/networkenet.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_15)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Typhon64.dir/network/networkenet.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Typhon64.dir/network/networkenet.cpp.o -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/networkenet.cpp"
+
+CMakeFiles/Typhon64.dir/network/networkenet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Typhon64.dir/network/networkenet.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/networkenet.cpp" > CMakeFiles/Typhon64.dir/network/networkenet.cpp.i
+
+CMakeFiles/Typhon64.dir/network/networkenet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Typhon64.dir/network/networkenet.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/networkenet.cpp" -o CMakeFiles/Typhon64.dir/network/networkenet.cpp.s
+
+CMakeFiles/Typhon64.dir/network/networkenet.cpp.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/network/networkenet.cpp.o.requires
+
+CMakeFiles/Typhon64.dir/network/networkenet.cpp.o.provides: CMakeFiles/Typhon64.dir/network/networkenet.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networkenet.cpp.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/network/networkenet.cpp.o.provides
+
+CMakeFiles/Typhon64.dir/network/networkenet.cpp.o.provides.build: CMakeFiles/Typhon64.dir/network/networkenet.cpp.o
+.PHONY : CMakeFiles/Typhon64.dir/network/networkenet.cpp.o.provides.build
+
+CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/network/networkfactory.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_16)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/networkfactory.cpp"
+
+CMakeFiles/Typhon64.dir/network/networkfactory.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Typhon64.dir/network/networkfactory.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/networkfactory.cpp" > CMakeFiles/Typhon64.dir/network/networkfactory.cpp.i
+
+CMakeFiles/Typhon64.dir/network/networkfactory.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Typhon64.dir/network/networkfactory.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/networkfactory.cpp" -o CMakeFiles/Typhon64.dir/network/networkfactory.cpp.s
+
+CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o.requires
+
+CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o.provides: CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o.provides
+
+CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o.provides.build: CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o
+.PHONY : CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o.provides.build
+
+CMakeFiles/Typhon64.dir/network/networklinux.cpp.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/network/networklinux.cpp.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/network/networklinux.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_17)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Typhon64.dir/network/networklinux.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Typhon64.dir/network/networklinux.cpp.o -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/networklinux.cpp"
+
+CMakeFiles/Typhon64.dir/network/networklinux.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Typhon64.dir/network/networklinux.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/networklinux.cpp" > CMakeFiles/Typhon64.dir/network/networklinux.cpp.i
+
+CMakeFiles/Typhon64.dir/network/networklinux.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Typhon64.dir/network/networklinux.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/networklinux.cpp" -o CMakeFiles/Typhon64.dir/network/networklinux.cpp.s
+
+CMakeFiles/Typhon64.dir/network/networklinux.cpp.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/network/networklinux.cpp.o.requires
+
+CMakeFiles/Typhon64.dir/network/networklinux.cpp.o.provides: CMakeFiles/Typhon64.dir/network/networklinux.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networklinux.cpp.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/network/networklinux.cpp.o.provides
+
+CMakeFiles/Typhon64.dir/network/networklinux.cpp.o.provides.build: CMakeFiles/Typhon64.dir/network/networklinux.cpp.o
+.PHONY : CMakeFiles/Typhon64.dir/network/networklinux.cpp.o.provides.build
+
+CMakeFiles/Typhon64.dir/network/networkraw.cpp.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/network/networkraw.cpp.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/network/networkraw.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_18)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Typhon64.dir/network/networkraw.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Typhon64.dir/network/networkraw.cpp.o -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/networkraw.cpp"
+
+CMakeFiles/Typhon64.dir/network/networkraw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Typhon64.dir/network/networkraw.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/networkraw.cpp" > CMakeFiles/Typhon64.dir/network/networkraw.cpp.i
+
+CMakeFiles/Typhon64.dir/network/networkraw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Typhon64.dir/network/networkraw.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/networkraw.cpp" -o CMakeFiles/Typhon64.dir/network/networkraw.cpp.s
+
+CMakeFiles/Typhon64.dir/network/networkraw.cpp.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/network/networkraw.cpp.o.requires
+
+CMakeFiles/Typhon64.dir/network/networkraw.cpp.o.provides: CMakeFiles/Typhon64.dir/network/networkraw.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networkraw.cpp.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/network/networkraw.cpp.o.provides
+
+CMakeFiles/Typhon64.dir/network/networkraw.cpp.o.provides.build: CMakeFiles/Typhon64.dir/network/networkraw.cpp.o
+.PHONY : CMakeFiles/Typhon64.dir/network/networkraw.cpp.o.provides.build
+
+CMakeFiles/Typhon64.dir/network/networkwin.cpp.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/network/networkwin.cpp.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/network/networkwin.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_19)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Typhon64.dir/network/networkwin.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Typhon64.dir/network/networkwin.cpp.o -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/networkwin.cpp"
+
+CMakeFiles/Typhon64.dir/network/networkwin.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Typhon64.dir/network/networkwin.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/networkwin.cpp" > CMakeFiles/Typhon64.dir/network/networkwin.cpp.i
+
+CMakeFiles/Typhon64.dir/network/networkwin.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Typhon64.dir/network/networkwin.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/network/networkwin.cpp" -o CMakeFiles/Typhon64.dir/network/networkwin.cpp.s
+
+CMakeFiles/Typhon64.dir/network/networkwin.cpp.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/network/networkwin.cpp.o.requires
+
+CMakeFiles/Typhon64.dir/network/networkwin.cpp.o.provides: CMakeFiles/Typhon64.dir/network/networkwin.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/network/networkwin.cpp.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/network/networkwin.cpp.o.provides
+
+CMakeFiles/Typhon64.dir/network/networkwin.cpp.o.provides.build: CMakeFiles/Typhon64.dir/network/networkwin.cpp.o
+.PHONY : CMakeFiles/Typhon64.dir/network/networkwin.cpp.o.provides.build
+
+CMakeFiles/Typhon64.dir/utility/username.cpp.o: CMakeFiles/Typhon64.dir/flags.make
+CMakeFiles/Typhon64.dir/utility/username.cpp.o: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/src/utility/username.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles" $(CMAKE_PROGRESS_20)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Typhon64.dir/utility/username.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Typhon64.dir/utility/username.cpp.o -c "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/utility/username.cpp"
+
+CMakeFiles/Typhon64.dir/utility/username.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Typhon64.dir/utility/username.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/utility/username.cpp" > CMakeFiles/Typhon64.dir/utility/username.cpp.i
+
+CMakeFiles/Typhon64.dir/utility/username.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Typhon64.dir/utility/username.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src/utility/username.cpp" -o CMakeFiles/Typhon64.dir/utility/username.cpp.s
+
+CMakeFiles/Typhon64.dir/utility/username.cpp.o.requires:
+.PHONY : CMakeFiles/Typhon64.dir/utility/username.cpp.o.requires
+
+CMakeFiles/Typhon64.dir/utility/username.cpp.o.provides: CMakeFiles/Typhon64.dir/utility/username.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Typhon64.dir/build.make CMakeFiles/Typhon64.dir/utility/username.cpp.o.provides.build
+.PHONY : CMakeFiles/Typhon64.dir/utility/username.cpp.o.provides
+
+CMakeFiles/Typhon64.dir/utility/username.cpp.o.provides.build: CMakeFiles/Typhon64.dir/utility/username.cpp.o
+.PHONY : CMakeFiles/Typhon64.dir/utility/username.cpp.o.provides.build
+
 # Object files for target Typhon64
 Typhon64_OBJECTS = \
 "CMakeFiles/Typhon64.dir/main.cpp.o" \
-"CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o"
+"CMakeFiles/Typhon64.dir/enet/callbacks.c.o" \
+"CMakeFiles/Typhon64.dir/enet/compress.c.o" \
+"CMakeFiles/Typhon64.dir/enet/host.c.o" \
+"CMakeFiles/Typhon64.dir/enet/list.c.o" \
+"CMakeFiles/Typhon64.dir/enet/packet.c.o" \
+"CMakeFiles/Typhon64.dir/enet/peer.c.o" \
+"CMakeFiles/Typhon64.dir/enet/protocol.c.o" \
+"CMakeFiles/Typhon64.dir/enet/unix.c.o" \
+"CMakeFiles/Typhon64.dir/enet/win32.c.o" \
+"CMakeFiles/Typhon64.dir/engine/engine.cpp.o" \
+"CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o" \
+"CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o" \
+"CMakeFiles/Typhon64.dir/network/network.cpp.o" \
+"CMakeFiles/Typhon64.dir/network/networkenet.cpp.o" \
+"CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o" \
+"CMakeFiles/Typhon64.dir/network/networklinux.cpp.o" \
+"CMakeFiles/Typhon64.dir/network/networkraw.cpp.o" \
+"CMakeFiles/Typhon64.dir/network/networkwin.cpp.o" \
+"CMakeFiles/Typhon64.dir/utility/username.cpp.o"
 
 # External object files for target Typhon64
 Typhon64_EXTERNAL_OBJECTS =
 
-/home/tarik/workspace/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/main.cpp.o
-/home/tarik/workspace/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o
-/home/tarik/workspace/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/build.make
-/home/tarik/workspace/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/tarik/workspace/Typhon/shared/Linux/Typhon64_D"
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/main.cpp.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/enet/callbacks.c.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/enet/compress.c.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/enet/host.c.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/enet/list.c.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/enet/packet.c.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/enet/peer.c.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/enet/protocol.c.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/enet/unix.c.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/enet/win32.c.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/engine/engine.cpp.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/network/network.cpp.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/network/networkenet.cpp.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/network/networklinux.cpp.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/network/networkraw.cpp.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/network/networkwin.cpp.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/utility/username.cpp.o
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/build.make
+/media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D: CMakeFiles/Typhon64.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable \"/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/shared/Linux/Typhon64_D\""
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Typhon64.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/Typhon64.dir/build: /home/tarik/workspace/Typhon/shared/Linux/Typhon64_D
+CMakeFiles/Typhon64.dir/build: /media/38AA603AAA5FF2BC/X\ Platform\ Projects/Typhon/shared/Linux/Typhon64_D
 .PHONY : CMakeFiles/Typhon64.dir/build
 
 CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/main.cpp.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/enet/callbacks.c.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/enet/compress.c.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/enet/host.c.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/enet/list.c.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/enet/packet.c.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/enet/peer.c.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/enet/protocol.c.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/enet/unix.c.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/enet/win32.c.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/engine/engine.cpp.o.requires
 CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/metrics/metrics.cpp.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/network/lobbylist.cpp.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/network/network.cpp.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/network/networkenet.cpp.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/network/networkfactory.cpp.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/network/networklinux.cpp.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/network/networkraw.cpp.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/network/networkwin.cpp.o.requires
+CMakeFiles/Typhon64.dir/requires: CMakeFiles/Typhon64.dir/utility/username.cpp.o.requires
 .PHONY : CMakeFiles/Typhon64.dir/requires
 
 CMakeFiles/Typhon64.dir/clean:
@@ -125,6 +611,6 @@ CMakeFiles/Typhon64.dir/clean:
 .PHONY : CMakeFiles/Typhon64.dir/clean
 
 CMakeFiles/Typhon64.dir/depend:
-	cd /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tarik/workspace/Typhon/src /home/tarik/workspace/Typhon/src /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug /home/tarik/workspace/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/Typhon64.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src" "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/src" "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug" "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug" "/media/38AA603AAA5FF2BC/X Platform Projects/Typhon/build/EclipseCDT/x64/Debug/CMakeFiles/Typhon64.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/Typhon64.dir/depend
 
