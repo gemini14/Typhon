@@ -44,8 +44,6 @@ ${hdr}network/networkfactory.h
 ${hdr}network/networklinux.h
 ${hdr}network/networkraw.h
 ${hdr}network/networkwin.h
-
-${hdr}utility/username.h
 )
 
 set(SourceFiles 
@@ -72,8 +70,6 @@ network/networkfactory.cpp
 network/networklinux.cpp
 network/networkraw.cpp
 network/networkwin.cpp
-
-utility/username.cpp
 )
 
 
@@ -108,7 +104,6 @@ ${hdr}network/networkwin.h
 )
 
 source_group(Header\ Files\\utility FILES
-${hdr}utility/username.h
 )
 
 
@@ -143,7 +138,6 @@ network/networkwin.cpp
 )
 
 source_group(Source\ Files\\utility FILES
-utility/username.cpp
 )
 
 

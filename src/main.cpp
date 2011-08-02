@@ -25,10 +25,11 @@ DEALINGS IN THE SOFTWARE.
 #include <sstream>
 
 #include "engine/engine.h"
+#include "irrlicht/irrlicht.h"
 #include "metrics/metrics.h"
 #include "network/networkfactory.h"
-#include "utility/username.h"
 
+using namespace irr;
 using namespace std;
 using namespace Typhon;
 
@@ -38,7 +39,7 @@ int main(int argc, char* argv[])
 {
 	int perfScore = Typhon::Metrics::GetPerfScore();
 	cout << "Perf score: " << perfScore << "\n";
-	
+
 	Network *net = GetNetwork(Typhon::RAW, PORT_NUMBER);
 	if(!net)
 	{
@@ -57,10 +58,8 @@ int main(int argc, char* argv[])
 	}
 	cout << "Irrlicht engine initialized!\n";
 
-	wstring name = GetUsername();
-	
 	stringstream discovery;
-	discovery << ConvertWideToCharString(name) << "%" << perfScore;
+	// discovery << name << "%" << perfScore;
 	while(true)
 	{
 		net->BroadcastMessage(discovery.str(), 'D');
@@ -69,6 +68,25 @@ int main(int argc, char* argv[])
 		{
 			std::cout << "Discovery message: " << m.msg;
 			break;
+		}
+	}
+
+	int lastFPS = -1;
+
+	while(engine->device->run())
+	{
+		engine->driver->beginScene();
+		engine->smgr->drawAll();
+		engine->gui->drawAll();
+		engine->driver->endScene();
+
+		int fps = engine->driver->getFPS();
+		if (lastFPS != fps)
+		{
+			core::stringw titleBar(L"Project Typhon - FPS: ");
+			titleBar += fps;
+			engine->device->setWindowCaption(titleBar.c_str());
+			lastFPS = fps;
 		}
 	}
 
