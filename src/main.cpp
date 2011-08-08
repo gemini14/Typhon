@@ -19,61 +19,50 @@ DEALINGS IN THE SOFTWARE.
 */
 
 // Project Typhon
-//#include <Windows.h>
 
 #include <iostream>
 #include <sstream>
 
-#include "engine/engine.h"
-#include "irrlicht/irrlicht.h"
-#include "metrics/metrics.h"
-#include "network/networkfactory.h"
+#include "state/machine.h"
 
 using namespace irr;
 using namespace std;
 using namespace Typhon;
 
-const int PORT_NUMBER = 1550;
 
 int main(int argc, char* argv[])
 {
-	int perfScore = Typhon::Metrics::GetPerfScore();
-	cout << "Perf score: " << perfScore << "\n";
-
-	Network *net = GetNetwork(Typhon::RAW, PORT_NUMBER);
-	if(!net)
+	Machine machine;
+	try
 	{
-		cout << "Error starting up network code.\n";
+		machine.initiate();
+	}
+	catch(const std::exception &ex)
+	{
+		std::cout << ex.what();
 		return 1;
 	}
-	cout << "Network up!\n";
-
-	Engine *engine = new Engine();
-	if(!engine->ready)
-	{
-		cout << "Error creating Irrlicht device.\n";
-		delete engine;
-		delete net;
-		return 1;
-	}
-	cout << "Irrlicht engine initialized!\n";
+	machine.process_event(EvOptions());
+	machine.process_event(EvMainMenu());
+	machine.process_event(EvLobby());
+	machine.process_event(EvMainMenu());
 
 	stringstream discovery;
 	// discovery << name << "%" << perfScore;
-	while(true)
+	/*while(true)
 	{
-		net->BroadcastMessage(discovery.str(), 'D');
-		Message m = net->ReceiveMessage();
-		if(m.prefix == 'D')
-		{
-			std::cout << "Discovery message: " << m.msg;
-			break;
-		}
+	net->BroadcastMessage(discovery.str(), 'D');
+	Message m = net->ReceiveMessage();
+	if(m.prefix == 'D')
+	{
+	std::cout << "Discovery message: " << m.msg;
+	break;
 	}
+	}*/
 
 	int lastFPS = -1;
 
-	while(engine->device->run())
+	/*while(engine->device->run())
 	{
 		engine->driver->beginScene();
 		engine->smgr->drawAll();
@@ -88,9 +77,9 @@ int main(int argc, char* argv[])
 			engine->device->setWindowCaption(titleBar.c_str());
 			lastFPS = fps;
 		}
-	}
+	}*/
 
-	delete engine;
-	delete net;
+	//delete engine;
+	//delete net;
 	return 0;
 }

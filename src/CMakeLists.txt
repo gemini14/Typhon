@@ -44,6 +44,8 @@ ${hdr}network/networkfactory.h
 ${hdr}network/networklinux.h
 ${hdr}network/networkraw.h
 ${hdr}network/networkwin.h
+
+${hdr}state/machine.h
 )
 
 set(SourceFiles 
@@ -101,6 +103,10 @@ ${hdr}network/networkfactory.h
 ${hdr}network/networklinux.h
 ${hdr}network/networkraw.h
 ${hdr}network/networkwin.h
+)
+
+source_group(Header\ Files\\state FILES
+${hdr}state/machine.h
 )
 
 source_group(Header\ Files\\utility FILES
