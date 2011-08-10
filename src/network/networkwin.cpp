@@ -1,5 +1,7 @@
 #include "network/networkwin.h"
 
+#ifdef WIN32
+
 #include <iostream>
 
 using namespace std;
@@ -220,3 +222,5 @@ namespace Typhon
 		return true;
 	}
 }
+
+#endif

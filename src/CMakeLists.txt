@@ -4,12 +4,6 @@ cmake_minimum_required(VERSION 2.8)
 project(Typhon)
 
 
-#find_package(Boost 1.46)
-#if(Boost_FOUND)
-#    include_directories(${Boost_INCLUDE_DIRS})
-#endif()
-
-
 include_directories(
     ../include/ 
 )
@@ -44,6 +38,8 @@ ${hdr}network/networkfactory.h
 ${hdr}network/networklinux.h
 ${hdr}network/networkraw.h
 ${hdr}network/networkwin.h
+
+${hdr}state/machine.h
 )
 
 set(SourceFiles 
@@ -101,6 +97,10 @@ ${hdr}network/networkfactory.h
 ${hdr}network/networklinux.h
 ${hdr}network/networkraw.h
 ${hdr}network/networkwin.h
+)
+
+source_group(Header\ Files\\state FILES
+${hdr}state/machine.h
 )
 
 source_group(Header\ Files\\utility FILES
@@ -166,27 +166,11 @@ elseif(CMAKE_HOST_UNIX)
     # (Linux exe's don't have any extension)
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../shared/Linux/)
     
-    if(${CMAKE_SIZEOF_VOID_P} EQUAL 8)
-    
-        message("CMAKE_SIZEOF_VOID_P = ${CMAKE_SIZEOF_VOID_P}")
-        message("Creating x64 project...")
-        #64-bit project (void pointer is 8 bytes/64bits)
-        
-        add_executable(Typhon64 ${SourceFiles})
-        set_target_properties(Typhon64 PROPERTIES DEBUG_POSTFIX _D)
-        target_link_libraries(Typhon64 -m64 Irrlicht64.a)
-        
-    elseif(${CMAKE_SIZEOF_VOID_P} EQUAL 4)
-    
-        message("CMAKE_SIZEOF_VOID_P = ${CMAKE_SIZEOF_VOID_P}")
-        message("Creating x86 project...")
-        #32-bit project (void pointer is 4 bytes/32 bits)
-        
-        add_executable(Typhon32 ${SourceFiles})
-        set_target_properties(Typhon32 PROPERTIES DEBUG_POSTFIX _D)
-        target_link_libraries(Typhon32 -m32 Irrlicht32.a)
-    
-    endif()
+    message("Creating project...")
+           
+    add_executable(Typhon ${SourceFiles})
+    set_target_properties(Typhon PROPERTIES DEBUG_POSTFIX _D)
+    target_link_libraries(Typhon Irrlicht)
 
 endif()
 

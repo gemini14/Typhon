@@ -1,6 +1,8 @@
 #ifndef NETWORKWIN_H
 #define NETWORKWIN_H
 
+#ifdef WIN32
+
 #include <WinSock2.h>
 #include <ws2tcpip.h>
 
@@ -31,5 +33,7 @@ namespace Typhon
 		virtual bool StartUp();
 	};
 }
+
+#endif
 
 #endif

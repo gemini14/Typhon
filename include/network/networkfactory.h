@@ -5,6 +5,8 @@
 
 namespace Typhon
 {
+	const int PORT_NUMBER = 1550;
+
 	enum NETWORK_HANDLING_TYPE
 	{
 		RAW,
