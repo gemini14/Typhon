@@ -20,12 +20,12 @@ DEALINGS IN THE SOFTWARE.
 
 // Project Typhon
 
+#include <exception>
 #include <iostream>
 #include <sstream>
 
 #include "state/machine.h"
 
-using namespace irr;
 using namespace std;
 using namespace Typhon;
 
@@ -37,49 +37,32 @@ int main(int argc, char* argv[])
 	{
 		machine.initiate();
 	}
-	catch(const std::exception &ex)
+	catch(const exception &ex)
 	{
-		std::cout << ex.what();
+		cout << ex.what();
 		return 1;
 	}
-	machine.process_event(EvOptions());
-	machine.process_event(EvMainMenu());
-	machine.process_event(EvLobby());
-	machine.process_event(EvMainMenu());
-
-	stringstream discovery;
-	// discovery << name << "%" << perfScore;
-	/*while(true)
-	{
-	net->BroadcastMessage(discovery.str(), 'D');
-	Message m = net->ReceiveMessage();
-	if(m.prefix == 'D')
-	{
-	std::cout << "Discovery message: " << m.msg;
-	break;
-	}
-	}*/
-
+			
 	int lastFPS = -1;
 
-	/*while(engine->device->run())
+	while(!machine.terminated() && machine.engine->device->run())
 	{
-		engine->driver->beginScene();
-		engine->smgr->drawAll();
-		engine->gui->drawAll();
-		engine->driver->endScene();
+		machine.Run(lastFPS);
+		machine.process_event(EvOptions());
+	}
 
-		int fps = engine->driver->getFPS();
-		if (lastFPS != fps)
-		{
-			core::stringw titleBar(L"Project Typhon - FPS: ");
-			titleBar += fps;
-			engine->device->setWindowCaption(titleBar.c_str());
-			lastFPS = fps;
-		}
-	}*/
+	//stringstream discovery;
+	//discovery << name << "%" << perfScore;
+	//while(true)
+	//{
+	//	net->BroadcastMessage(discovery.str(), 'D');
+	//	Message m = net->ReceiveMessage();
+	//	if(m.prefix == 'D')
+	//	{
+	//		std::cout << "Discovery message: " << m.msg;
+	//		break;
+	//	}
+	//}
 
-	//delete engine;
-	//delete net;
 	return 0;
 }

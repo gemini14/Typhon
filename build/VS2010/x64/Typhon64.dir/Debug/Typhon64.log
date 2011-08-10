@@ -1,4 +1,4 @@
-﻿Build started 8/8/2011 1:25:17 AM.
+﻿Build started 8/8/2011 10:48:45 PM.
      1>Project "D:\X Platform Projects\Typhon\build\VS2010\x64\Typhon64.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Touching "Typhon64.dir\Debug\Typhon64.unsuccessfulbuild".
@@ -45,4 +45,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:09.74
+Time Elapsed 00:00:08.08
