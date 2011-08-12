@@ -32,30 +32,28 @@ namespace Typhon
 		struct Options;
 
 		// EVENTS
-		struct EvGame: sc::event<EvGame>
+		struct EvGame : sc::event<EvGame>
 		{
 		};
-		struct EvLobby: sc::event<EvLobby>
+		struct EvLobby : sc::event<EvLobby>
 		{
 		};
-		struct EvMainMenu: sc::event<EvMainMenu>
+		struct EvMainMenu : sc::event<EvMainMenu>
 		{
 		};
-		struct EvOptions: sc::event<EvOptions>
+		struct EvOptions : sc::event<EvOptions>
 		{
 		};
 
 		// MACHINE
-		struct Machine: sc::state_machine<Machine, MainMenu>
+		struct Machine : sc::state_machine<Machine, MainMenu>
 		{
-			typedef void (*StateRun)();
-
-			StateRun stateRun;
+			std::shared_ptr<FSMState> state;
 			std::shared_ptr<Engine> engine;
 			const int perfScore;
 
-			Machine() :
-			engine(new Engine()), perfScore(Typhon::Metrics::GetPerfScore())
+			Machine()
+				: engine(new Engine()), perfScore(Typhon::Metrics::GetPerfScore())
 			{
 				if (!engine || !engine->ready)
 				{
@@ -70,10 +68,7 @@ namespace Typhon
 			{
 				engine->driver->beginScene();
 
-				// state-specific code
-				// to change this, the individual states assign the machine's stateRun function pointer
-				// to their version of stateRun using outermost_context
-				stateRun();
+				state->Run(engine);
 
 				engine->smgr->drawAll();
 				engine->gui->drawAll();
@@ -91,19 +86,15 @@ namespace Typhon
 		};
 
 		// STATES
-		struct Game: sc::state<Game, Machine>
+		struct Game : sc::state<Game, Machine>
 		{
-			typedef mpl::list<sc::transition<EvLobby, Lobby>> reactions;
+			typedef mpl::list<
+				sc::transition<EvLobby, Lobby>> reactions;
 
-			static void StateRun()
-			{
-			}
-
-			Game(my_context ctx) :
-			my_base(ctx)
+			Game(my_context ctx)
+				: my_base(ctx)
 			{
 				std::cout << "Entered the game! Hi hi!\n";
-				outermost_context().stateRun = &StateRun;
 			}
 
 			~Game()
@@ -112,20 +103,16 @@ namespace Typhon
 			}
 		};
 
-		struct Lobby: sc::state<Lobby, Machine>
+		struct Lobby : sc::state<Lobby, Machine>
 		{
-			typedef mpl::list<sc::transition<EvMainMenu, MainMenu>, sc::transition<
-				EvGame, Game>> reactions;
+			typedef mpl::list<
+				sc::transition<EvMainMenu, MainMenu>,
+				sc::transition<EvGame, Game>> reactions;
 
 			std::unique_ptr<Network> network;
 
-			static void StateRun()
-			{
-				std::cout << "OoooOOoooOo we're in the lobby!\n";
-			}
-
-			Lobby(my_context ctx) :
-			my_base(ctx), network(Typhon::GetNetwork(Typhon::RAW, PORT_NUMBER))
+			Lobby(my_context ctx)
+				: my_base(ctx), network(Typhon::GetNetwork(Typhon::RAW, PORT_NUMBER))
 			{
 				if (!network)
 				{
@@ -133,7 +120,6 @@ namespace Typhon
 				}
 				std::cout << "Network up!\n";
 				std::cout << "Lobby hi!\n";
-				outermost_context().stateRun = &StateRun;
 			}
 
 			~Lobby()
@@ -142,23 +128,19 @@ namespace Typhon
 			}
 		};
 
-		struct MainMenu: sc::state<MainMenu, Machine>
+		struct MainMenu : sc::state<MainMenu, Machine>
 		{
-			typedef mpl::list<sc::transition<EvOptions, Options>, sc::transition<
-				EvLobby, Lobby>> reactions;
+			typedef mpl::list<
+				sc::transition<EvOptions, Options>,
+				sc::transition<EvLobby, Lobby>> reactions;
 
-			std::unique_ptr<Typhon::MainMenu> menu;
+			std::shared_ptr<Typhon::MainMenu> menu;
 
-			static void StateRun()
-			{
-				std::cout << "Wow it works! On Menu!\n";
-			}
-
-			MainMenu(my_context ctx) :
-			my_base(ctx)
+			MainMenu(my_context ctx)
+				: my_base(ctx), menu(new Typhon::MainMenu)
 			{
 				std::cout << "Hi hi!\n";
-				outermost_context().stateRun = &StateRun;
+				outermost_context().state = menu;
 			}
 
 			~MainMenu()
@@ -167,20 +149,14 @@ namespace Typhon
 			}
 		};
 
-		struct Options: sc::state<Options, Machine>
+		struct Options : sc::state<Options, Machine>
 		{
 			typedef sc::transition<EvMainMenu, MainMenu> reactions;
 
-			static void StateRun()
-			{
-				std::cout << "No way..we're changing options!\n";
-			}
-
-			Options(my_context ctx) :
-			my_base(ctx)
+			Options(my_context ctx)
+				: my_base(ctx)
 			{
 				std::cout << "Options hi!\n";
-				outermost_context().stateRun = &StateRun;
 			}
 
 			~Options()

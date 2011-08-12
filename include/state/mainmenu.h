@@ -1,9 +1,11 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
 
+#include "state/fsmstate.h"
+
 namespace Typhon
 {
-	class MainMenu
+	class MainMenu : public FSMState
 	{
 	private:
 
@@ -11,7 +13,10 @@ namespace Typhon
 
 	public:
 
+		MainMenu();
+		virtual ~MainMenu();
 
+		virtual void Run(std::shared_ptr<Engine> engine);
 	};
 }
 

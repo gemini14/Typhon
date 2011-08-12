@@ -39,6 +39,7 @@ ${hdr}network/networklinux.h
 ${hdr}network/networkraw.h
 ${hdr}network/networkwin.h
 
+${hdr}state/fsmstate.h
 ${hdr}state/machine.h
 ${hdr}state/mainmenu.h
 
@@ -105,6 +106,7 @@ ${hdr}network/networkwin.h
 )
 
 source_group(Header\ Files\\state FILES
+${hdr}state/fsmstate.h
 ${hdr}state/machine.h
 ${hdr}state/mainmenu.h
 )
