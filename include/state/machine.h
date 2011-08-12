@@ -1,7 +1,6 @@
 #ifndef STATE_H
 #define STATE_H
 
-#include <exception>
 #include <iostream>
 #include <memory>
 #include <string>
@@ -15,6 +14,8 @@
 #include "engine/engine.h"
 #include "metrics/metrics.h"
 #include "network/networkfactory.h"
+#include "state/mainmenu.h"
+#include "utility/stateexception.h"
 
 namespace mpl = boost::mpl;
 namespace sc = boost::statechart;
@@ -22,189 +23,172 @@ namespace sc = boost::statechart;
 
 namespace Typhon
 {
-	class StateException : public std::exception
+	namespace FSM
 	{
-	private:
-		std::string msg;
+		// Forward Declarations
+		struct Game;
+		struct Lobby;
+		struct MainMenu;
+		struct Options;
 
-	public:
-		StateException(const char *msg)
-			: msg(msg)
+		// EVENTS
+		struct EvGame: sc::event<EvGame>
 		{
-		}
-
-		virtual ~StateException() throw()
+		};
+		struct EvLobby: sc::event<EvLobby>
 		{
-		}
-
-		virtual const char* what() const throw ()
+		};
+		struct EvMainMenu: sc::event<EvMainMenu>
 		{
-			return msg.c_str();
-		}
-	};
+		};
+		struct EvOptions: sc::event<EvOptions>
+		{
+		};
 
-	// Forward Declarations
-	struct Game;
-	struct Lobby;
-	struct MainMenu;
-	struct Options;
+		// MACHINE
+		struct Machine: sc::state_machine<Machine, MainMenu>
+		{
+			typedef void (*StateRun)();
 
-	// EVENTS
-	struct EvGame: sc::event<EvGame>
-	{
-	};
-	struct EvLobby: sc::event<EvLobby>
-	{
-	};
-	struct EvMainMenu: sc::event<EvMainMenu>
-	{
-	};
-	struct EvOptions: sc::event<EvOptions>
-	{
-	};
+			StateRun stateRun;
+			std::shared_ptr<Engine> engine;
+			const int perfScore;
 
-	// MACHINE
-	struct Machine: sc::state_machine<Machine, MainMenu>
-	{
-		typedef void (*StateRun)();
-
-		StateRun stateRun;
-		std::shared_ptr<Engine> engine;
-		const int perfScore;
-
-		Machine() :
+			Machine() :
 			engine(new Engine()), perfScore(Typhon::Metrics::GetPerfScore())
-		{
-			if (!engine || !engine->ready)
 			{
-				throw StateException("Couldn't allocate or create Irrlicht device.\n");
+				if (!engine || !engine->ready)
+				{
+					throw StateException("Couldn't allocate or create Irrlicht device.\n");
+				}
+
+				std::cout << "Irrlicht engine initialized!\n";
+				std::cout << "Perf score: " << perfScore << "\n";
 			}
 
-			std::cout << "Irrlicht engine initialized!\n";
-			std::cout << "Perf score: " << perfScore << "\n";
-		}
-
-		void Run(int &lastFPS)
-		{
-			engine->driver->beginScene();
-
-			// state-specific code
-			// to change this, the individual states assign the machine's stateRun function pointer
-			// to their version of stateRun using outermost_context
-			stateRun();
-
-			engine->smgr->drawAll();
-			engine->gui->drawAll();
-			engine->driver->endScene();
-
-			int fps = engine->driver->getFPS();
-			if (lastFPS != fps)
+			void Run(int &lastFPS)
 			{
-				irr::core::stringw titleBar(L"Project Typhon - FPS: ");
-				titleBar += fps;
-				engine->device->setWindowCaption(titleBar.c_str());
-				lastFPS = fps;
+				engine->driver->beginScene();
+
+				// state-specific code
+				// to change this, the individual states assign the machine's stateRun function pointer
+				// to their version of stateRun using outermost_context
+				stateRun();
+
+				engine->smgr->drawAll();
+				engine->gui->drawAll();
+				engine->driver->endScene();
+
+				int fps = engine->driver->getFPS();
+				if (lastFPS != fps)
+				{
+					irr::core::stringw titleBar(L"Project Typhon - FPS: ");
+					titleBar += fps;
+					engine->device->setWindowCaption(titleBar.c_str());
+					lastFPS = fps;
+				}
 			}
-		}
-	};
+		};
 
-	// STATES
-	struct Game: sc::state<Game, Machine>
-	{
-		typedef mpl::list<sc::transition<EvLobby, Lobby>> reactions;
-
-		static void StateRun()
+		// STATES
+		struct Game: sc::state<Game, Machine>
 		{
-		}
+			typedef mpl::list<sc::transition<EvLobby, Lobby>> reactions;
 
-		Game(my_context ctx) :
+			static void StateRun()
+			{
+			}
+
+			Game(my_context ctx) :
 			my_base(ctx)
-		{
-			std::cout << "Entered the game! Hi hi!\n";
-			outermost_context().stateRun = &StateRun;
-		}
+			{
+				std::cout << "Entered the game! Hi hi!\n";
+				outermost_context().stateRun = &StateRun;
+			}
 
-		~Game()
-		{
-			std::cout << "Game bye!\n";
-		}
-	};
+			~Game()
+			{
+				std::cout << "Game bye!\n";
+			}
+		};
 
-	struct Lobby: sc::state<Lobby, Machine>
-	{
-		typedef mpl::list<sc::transition<EvMainMenu, MainMenu>, sc::transition<
+		struct Lobby: sc::state<Lobby, Machine>
+		{
+			typedef mpl::list<sc::transition<EvMainMenu, MainMenu>, sc::transition<
 				EvGame, Game>> reactions;
 
-		std::unique_ptr<Network> network;
+			std::unique_ptr<Network> network;
 
-		static void StateRun()
-		{
-			std::cout << "OoooOOoooOo we're in the lobby!\n";
-		}
-
-		Lobby(my_context ctx) :
-			my_base(ctx), network(Typhon::GetNetwork(Typhon::RAW, PORT_NUMBER))
-		{
-			if (!network)
+			static void StateRun()
 			{
-				throw StateException("Error starting up network code (could not allocate or incompatible system).\n");
+				std::cout << "OoooOOoooOo we're in the lobby!\n";
 			}
-			std::cout << "Network up!\n";
-			std::cout << "Lobby hi!\n";
-			outermost_context().stateRun = &StateRun;
-		}
 
-		~Lobby()
+			Lobby(my_context ctx) :
+			my_base(ctx), network(Typhon::GetNetwork(Typhon::RAW, PORT_NUMBER))
+			{
+				if (!network)
+				{
+					throw StateException("Error starting up network code (could not allocate or incompatible system).\n");
+				}
+				std::cout << "Network up!\n";
+				std::cout << "Lobby hi!\n";
+				outermost_context().stateRun = &StateRun;
+			}
+
+			~Lobby()
+			{
+				std::cout << "Lobby bye!\n";
+			}
+		};
+
+		struct MainMenu: sc::state<MainMenu, Machine>
 		{
-			std::cout << "Lobby bye!\n";
-		}
-	};
-
-	struct MainMenu: sc::state<MainMenu, Machine>
-	{
-		typedef mpl::list<sc::transition<EvOptions, Options>, sc::transition<
+			typedef mpl::list<sc::transition<EvOptions, Options>, sc::transition<
 				EvLobby, Lobby>> reactions;
 
-		static void StateRun()
-		{
-			std::cout << "Wow it works! On Menu!\n";
-		}
+			std::unique_ptr<Typhon::MainMenu> menu;
 
-		MainMenu(my_context ctx) :
+			static void StateRun()
+			{
+				std::cout << "Wow it works! On Menu!\n";
+			}
+
+			MainMenu(my_context ctx) :
 			my_base(ctx)
+			{
+				std::cout << "Hi hi!\n";
+				outermost_context().stateRun = &StateRun;
+			}
+
+			~MainMenu()
+			{
+				std::cout << "Bye bye!\n";
+			}
+		};
+
+		struct Options: sc::state<Options, Machine>
 		{
-			std::cout << "Hi hi!\n";
-			outermost_context().stateRun = &StateRun;
-		}
+			typedef sc::transition<EvMainMenu, MainMenu> reactions;
 
-		~MainMenu()
-		{
-			std::cout << "Bye bye!\n";
-		}
-	};
+			static void StateRun()
+			{
+				std::cout << "No way..we're changing options!\n";
+			}
 
-	struct Options: sc::state<Options, Machine>
-	{
-		typedef sc::transition<EvMainMenu, MainMenu> reactions;
-
-		static void StateRun()
-		{
-			std::cout << "No way..we're changing options!\n";
-		}
-
-		Options(my_context ctx) :
+			Options(my_context ctx) :
 			my_base(ctx)
-		{
-			std::cout << "Options hi!\n";
-			outermost_context().stateRun = &StateRun;
-		}
+			{
+				std::cout << "Options hi!\n";
+				outermost_context().stateRun = &StateRun;
+			}
 
-		~Options()
-		{
-			std::cout << "Options bye!\n";
-		}
-	};
-
+			~Options()
+			{
+				std::cout << "Options bye!\n";
+			}
+		};
+	}
 }
 
 #endif

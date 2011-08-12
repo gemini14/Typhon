@@ -40,6 +40,9 @@ ${hdr}network/networkraw.h
 ${hdr}network/networkwin.h
 
 ${hdr}state/machine.h
+${hdr}state/mainmenu.h
+
+${hdr}utility/stateexception.h
 )
 
 set(SourceFiles 
@@ -66,6 +69,8 @@ network/networkfactory.cpp
 network/networklinux.cpp
 network/networkraw.cpp
 network/networkwin.cpp
+
+state/mainmenu.cpp
 )
 
 
@@ -101,9 +106,11 @@ ${hdr}network/networkwin.h
 
 source_group(Header\ Files\\state FILES
 ${hdr}state/machine.h
+${hdr}state/mainmenu.h
 )
 
 source_group(Header\ Files\\utility FILES
+${hdr}utility/stateexception.h
 )
 
 
@@ -135,6 +142,10 @@ network/networkfactory.cpp
 network/networklinux.cpp
 network/networkraw.cpp
 network/networkwin.cpp
+)
+
+source_group(Source\ Files\\state FILES
+state/mainmenu.cpp
 )
 
 source_group(Source\ Files\\utility FILES

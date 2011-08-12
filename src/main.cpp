@@ -32,7 +32,7 @@ using namespace Typhon;
 
 int main(int argc, char* argv[])
 {
-	Machine machine;
+	FSM::Machine machine;
 	try
 	{
 		machine.initiate();
@@ -48,7 +48,7 @@ int main(int argc, char* argv[])
 	while(!machine.terminated() && machine.engine->device->run())
 	{
 		machine.Run(lastFPS);
-		machine.process_event(EvOptions());
+		machine.process_event(FSM::EvOptions());
 	}
 
 	//stringstream discovery;
