@@ -51,9 +51,10 @@ namespace Typhon
 			std::shared_ptr<FSMState> state;
 			std::shared_ptr<Engine> engine;
 			const int perfScore;
+			irr::video::SColor backColor;
 
 			Machine()
-				: engine(new Engine()), perfScore(Typhon::Metrics::GetPerfScore())
+				: engine(new Engine()), perfScore(Typhon::Metrics::GetPerfScore()), backColor(255, 255, 255, 255)
 			{
 				if (!engine || !engine->ready)
 				{
@@ -66,7 +67,7 @@ namespace Typhon
 
 			void Run(int &lastFPS)
 			{
-				engine->driver->beginScene();
+				engine->driver->beginScene(true, true, backColor); 
 
 				state->Run(engine);
 
@@ -141,6 +142,7 @@ namespace Typhon
 			{
 				std::cout << "Hi hi!\n";
 				outermost_context().state = menu;
+				outermost_context().backColor = irr::video::SColor(255, 245, 203, 10);
 			}
 
 			~MainMenu()

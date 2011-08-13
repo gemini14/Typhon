@@ -1,6 +1,7 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
 
+#include "irrlicht/irrlicht.h"
 #include "state/fsmstate.h"
 
 namespace Typhon
