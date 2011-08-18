@@ -63,6 +63,10 @@ namespace Typhon
 
 				std::cout << "Irrlicht engine initialized!\n";
 				std::cout << "Perf score: " << perfScore << "\n";
+
+				auto test = engine->lang->GetText(DE, "BackToMainMenu");
+				auto test2 = engine->lang->GetText(EN, "BackToMainMenu");
+				std::wcout << test << "\n" << test2 << "\n";
 			}
 
 			void Run(int &lastFPS)

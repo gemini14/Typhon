@@ -1,10 +1,9 @@
-﻿Build started 7/13/2011 2:38:30 AM.
+﻿Build started 8/16/2011 3:44:45 AM.
      1>Project "D:\X Platform Projects\Typhon\build\VS2010\x86\ZERO_CHECK.vcxproj" on node 2 (build target(s)).
-     1>PrepareForBuild:
-         Creating directory "D:\X Platform Projects\Typhon\build\VS2010\x86\Release\".
-       InitializeBuildStatus:
+     1>InitializeBuildStatus:
          Creating "Win32\Release\ZERO_CHECK\ZERO_CHECK.unsuccessfulbuild" because "AlwaysCreate" was specified.
        CustomBuild:
+         All outputs are up-to-date.
          Checking Build System
          CMake does not need to re-run because D:/X Platform Projects/Typhon/build/VS2010/x86/CMakeFiles/generate.stamp is up-to-date.
        FinalizeBuildStatus:
@@ -14,4 +13,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.88
+Time Elapsed 00:00:00.50

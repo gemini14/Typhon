@@ -1,27 +1,96 @@
-﻿Build started 7/13/2011 2:30:56 AM.
-     1>Project "D:\X Platform Projects\Typhon\build\VS2010\x86\Typhon32.vcxproj" on node 2 (build target(s)).
-     1>InitializeBuildStatus:
+﻿Build started 8/16/2011 3:43:56 AM.
+     1>Project "D:\X Platform Projects\Typhon\build\VS2010\x86\Typhon32.vcxproj" on node 3 (build target(s)).
+     1>PrepareForBuild:
+         Creating directory "D:\X Platform Projects\Typhon\shared\Win32\Debug\".
+       InitializeBuildStatus:
          Creating "Typhon32.dir\Debug\Typhon32.unsuccessfulbuild" because "AlwaysCreate" was specified.
        CustomBuild:
          All outputs are up-to-date.
+         Building Custom Rule D:/X Platform Projects/Typhon/src/CMakeLists.txt
+         CMake does not need to re-run because D:\X Platform Projects\Typhon\build\VS2010\x86\CMakeFiles\generate.stamp is up-to-date.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:/boost_1_43_0 /I"D:/X Platform Projects/Typhon/src/../include" /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon32.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/shared/Debug/../Typhon32.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\src\main.cpp ..\..\..\src\network\network.cpp  /Zm1000 
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"D:/X Platform Projects/Typhon/src/../include" /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon32.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/shared/Win32/Debug/../Typhon32.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\src\main.cpp ..\..\..\src\engine\engine.cpp ..\..\..\src\metrics\metrics.cpp ..\..\..\src\network\lobbylist.cpp ..\..\..\src\network\network.cpp ..\..\..\src\network\networkenet.cpp ..\..\..\src\network\networkfactory.cpp ..\..\..\src\network\networklinux.cpp ..\..\..\src\network\networkraw.cpp ..\..\..\src\network\networkwin.cpp ..\..\..\src\state\mainmenu.cpp  /Zm1000 
          main.cpp
+         engine.cpp
+         metrics.cpp
+         lobbylist.cpp
          network.cpp
+         networkenet.cpp
+         networkfactory.cpp
+         networklinux.cpp
+         networkraw.cpp
+         networkwin.cpp
+         mainmenu.cpp
+         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"D:/X Platform Projects/Typhon/src/../include" /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon32.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/shared/Win32/Debug/../Typhon32.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\..\src\enet\callbacks.c ..\..\..\src\enet\compress.c ..\..\..\src\enet\host.c ..\..\..\src\enet\list.c ..\..\..\src\enet\packet.c ..\..\..\src\enet\peer.c ..\..\..\src\enet\protocol.c ..\..\..\src\enet\unix.c ..\..\..\src\enet\win32.c  /Zm1000 
+         callbacks.c
+         compress.c
+     1>..\..\..\src\enet\compress.c(303): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(308): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(326): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(548): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(563): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(578): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(593): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+         host.c
+         list.c
+         packet.c
+         peer.c
+         protocol.c
+         unix.c
+         win32.c
          Generating Code...
        ManifestResourceCompile:
-         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Typhon32.dir\Debug\Typhon32.exe.embed.manifest.res" Typhon32.dir\Debug\Typhon32_manifest.rc 
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\X Platform Projects\Typhon\shared\Debug\Typhon32.exe" /VERSION:"0.0" /INCREMENTAL /NOLOGO /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Irrlicht" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Irrlicht/Debug" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib IrrlichtD_32.lib Ws2_32.lib /MANIFEST /ManifestFile:"Typhon32.dir\Debug\Typhon32.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\X Platform Projects\Typhon\shared\Debug\Typhon32.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/X Platform Projects/Typhon/build/VS2010/x86/Debug/Typhon32.lib" /MACHINE:X86 Typhon32.dir\Debug\Typhon32.exe.embed.manifest.res
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\X Platform Projects\Typhon\shared\Win32\Debug\Typhon32.exe" /VERSION:"0.0" /INCREMENTAL /NOLOGO /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Irrlicht" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Irrlicht/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/luabind" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/luabind/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/lua" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/lua/Debug" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib IrrlichtD_32.lib lua5.1_32.lib luabindD_32.lib Ws2_32.lib winmm.lib /MANIFEST /ManifestFile:"Typhon32.dir\Debug\Typhon32.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\X Platform Projects\Typhon\shared\Win32\Debug\Typhon32.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/X Platform Projects/Typhon/build/VS2010/x86/Debug/Typhon32.lib" /MACHINE:X86 Typhon32.dir\Debug\Typhon32.exe.embed.manifest.res
          Typhon32.dir\Debug\main.obj
+         Typhon32.dir\Debug\callbacks.obj
+         Typhon32.dir\Debug\compress.obj
+         Typhon32.dir\Debug\host.obj
+         Typhon32.dir\Debug\list.obj
+         Typhon32.dir\Debug\packet.obj
+         Typhon32.dir\Debug\peer.obj
+         Typhon32.dir\Debug\protocol.obj
+         Typhon32.dir\Debug\unix.obj
+         Typhon32.dir\Debug\win32.obj
+         Typhon32.dir\Debug\engine.obj
          Typhon32.dir\Debug\metrics.obj
-         Typhon32.dir\Debug\network.obj  /machine:X86 /debug 
+         Typhon32.dir\Debug\lobbylist.obj
+         Typhon32.dir\Debug\network.obj
+         Typhon32.dir\Debug\networkenet.obj
+         Typhon32.dir\Debug\networkfactory.obj
+         Typhon32.dir\Debug\networklinux.obj
+         Typhon32.dir\Debug\networkraw.obj
+         Typhon32.dir\Debug\networkwin.obj
+         Typhon32.dir\Debug\mainmenu.obj  /machine:X86 /debug 
        Manifest:
+         Deleting file "Typhon32.dir\Debug\Typhon32.exe.embed.manifest".
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Typhon32.dir\Debug\Typhon32.exe.embed.manifest" /manifest Typhon32.dir\Debug\Typhon32.exe.intermediate.manifest
-         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Typhon32.dir\Debug\Typhon32.exe.embed.manifest.res" Typhon32.dir\Debug\Typhon32_manifest.rc 
        LinkEmbedManifest:
-         All outputs are up-to-date.
-         Typhon32.vcxproj -> D:\X Platform Projects\Typhon\shared\Debug\Typhon32.exe
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\X Platform Projects\Typhon\shared\Win32\Debug\Typhon32.exe" /VERSION:"0.0" /INCREMENTAL /NOLOGO /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Irrlicht" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Irrlicht/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/luabind" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/luabind/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/lua" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/lua/Debug" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib IrrlichtD_32.lib lua5.1_32.lib luabindD_32.lib Ws2_32.lib winmm.lib /MANIFEST /ManifestFile:"Typhon32.dir\Debug\Typhon32.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\X Platform Projects\Typhon\shared\Win32\Debug\Typhon32.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/X Platform Projects/Typhon/build/VS2010/x86/Debug/Typhon32.lib" /MACHINE:X86 Typhon32.dir\Debug\Typhon32.exe.embed.manifest.res
+         Typhon32.dir\Debug\main.obj
+         Typhon32.dir\Debug\callbacks.obj
+         Typhon32.dir\Debug\compress.obj
+         Typhon32.dir\Debug\host.obj
+         Typhon32.dir\Debug\list.obj
+         Typhon32.dir\Debug\packet.obj
+         Typhon32.dir\Debug\peer.obj
+         Typhon32.dir\Debug\protocol.obj
+         Typhon32.dir\Debug\unix.obj
+         Typhon32.dir\Debug\win32.obj
+         Typhon32.dir\Debug\engine.obj
+         Typhon32.dir\Debug\metrics.obj
+         Typhon32.dir\Debug\lobbylist.obj
+         Typhon32.dir\Debug\network.obj
+         Typhon32.dir\Debug\networkenet.obj
+         Typhon32.dir\Debug\networkfactory.obj
+         Typhon32.dir\Debug\networklinux.obj
+         Typhon32.dir\Debug\networkraw.obj
+         Typhon32.dir\Debug\networkwin.obj
+         Typhon32.dir\Debug\mainmenu.obj  /machine:X86 /debug 
+         Typhon32.vcxproj -> D:\X Platform Projects\Typhon\shared\Win32\Debug\Typhon32.exe
        FinalizeBuildStatus:
          Deleting file "Typhon32.dir\Debug\Typhon32.unsuccessfulbuild".
          Touching "Typhon32.dir\Debug\Typhon32.lastbuildstate".
@@ -29,4 +98,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.73
+Time Elapsed 00:00:31.13
