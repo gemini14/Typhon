@@ -12,6 +12,14 @@ namespace Typhon
 		luaState = luaL_newstate();
 		luaL_openlibs(luaState);
 		open(luaState);
+
+		LoadScript("scripts/scriptList.lua");
+		auto scripts = GetLuaObject("scriptList");
+		assert(type(scripts) == LUA_TTABLE);
+		for(luabind::iterator i(scripts), end; i != end; ++i)
+		{
+			LoadScript(object_cast<std::string>(*i));
+		}
 	}
 
 	LuaManager::~LuaManager()

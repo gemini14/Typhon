@@ -30,14 +30,6 @@ namespace Typhon
 	I18N::I18N(LuaManager *lua)
 		: lua(lua)
 	{
-		lua->LoadScript("scripts/scriptList.lua");
-		auto scripts = lua->GetLuaObject("scriptList");
-		assert(type(scripts) == LUA_TTABLE);
-		for(luabind::iterator i(scripts), end; i != end; ++i)
-		{
-			lua->LoadScript(object_cast<std::string>(*i));
-		}
-
 		setlocale(LC_ALL, "");
 	}
 
@@ -60,7 +52,7 @@ namespace Typhon
 		}
 
 		
-		int size = mbstowcs(nullptr, text.c_str(), 0);
+		auto size = mbstowcs(nullptr, text.c_str(), 0);
 		if(size == -1)
 		{
 			return L"";
