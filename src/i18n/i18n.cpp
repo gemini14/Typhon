@@ -39,6 +39,9 @@ namespace Typhon
 
 	std::wstring I18N::GetText(LANG lang, const std::string &entry)
 	{
+		// Depending on text retrieval frequency, may want to load a whole language's text at once,
+		// store (and convert) it, and return text as needed.  If only GUI/HUD uses text, this should
+		// be sufficient.
 		string text;
 		try
 		{
@@ -51,7 +54,6 @@ namespace Typhon
 			return L"";
 		}
 
-		
 		auto size = mbstowcs(nullptr, text.c_str(), 0);
 		if(size == -1)
 		{
