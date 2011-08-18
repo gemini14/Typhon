@@ -186,7 +186,7 @@ source_group(Source\ Files\\utility FILES
 
 if(CMAKE_CL_64)
 
-	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../shared/Win64/)
+	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../bin/Win64/)
 	message("Creating Win64 project...")
 	add_executable(Typhon64 ${SourceFiles} ${HeaderFiles} ${ScriptFiles})
 	target_link_libraries(Typhon64 debug IrrlichtD_64 optimized Irrlicht_64 
@@ -195,7 +195,7 @@ if(CMAKE_CL_64)
 
 elseif(CMAKE_HOST_WIN32)
 
-	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../shared/Win32/)
+	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../bin/Win32/)
 	message("Creating Win32 project")
 	add_executable(Typhon32 ${SourceFiles} ${HeaderFiles} ${ScriptFiles})
 	target_link_libraries(Typhon32 debug IrrlichtD_32 optimized Irrlicht_32
@@ -208,7 +208,7 @@ elseif(CMAKE_HOST_UNIX)
 	
 	# Set linux bin directory to a separate folder so that it can be ignored
 	# (Linux exe's don't have any extension)
-	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../shared/Linux/)
+	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../bin/Linux/)
 	
 	message("Creating project...")
 		   
