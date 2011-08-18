@@ -84,6 +84,7 @@ state/mainmenu.cpp
 
 
 set(ScriptFiles
+scripts/de_lang.lua
 scripts/en_lang.lua
 scripts/lang_get.lua
 scripts/scriptList.lua

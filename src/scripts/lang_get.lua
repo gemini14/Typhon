@@ -1,7 +1,8 @@
 local text = {}
 
-text.en = require(en_lang)
+text.en = require('scripts/en_lang')
+text.de = require('scripts/de_lang')
 
-local function GetText(lang, entry)
-	return text.lang.entry
+function GetText(lang, entry)
+	return text[lang][entry]
 end

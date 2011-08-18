@@ -9,15 +9,17 @@ namespace Typhon
 {
 	class LuaManager;
 
+	enum LANG { EN, DE };
+	
 	class I18N : boost::noncopyable
 	{
 	private:
 
 		LuaManager *lua;
 
+		std::string ConvertLangToString(LANG lang);
+
 	public:
-		
-		enum LANG { EN, DE };
 
 		I18N(LuaManager *lua);
 		~I18N();

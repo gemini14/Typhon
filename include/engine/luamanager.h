@@ -21,10 +21,10 @@ namespace Typhon
 	{
 	private:
 
-		lua_State *luaState;
-
 	public:
 
+		lua_State *luaState;
+		
 		LuaManager();
 		~LuaManager();
 
