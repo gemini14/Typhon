@@ -19,60 +19,79 @@ DEALINGS IN THE SOFTWARE.
 */
 
 // Project Typhon
-//#include <Windows.h>
 
+#include <exception>
 #include <iostream>
 #include <sstream>
 
-#include "engine/engine.h"
-#include "metrics/metrics.h"
-#include "network/networkfactory.h"
-#include "utility/username.h"
+#include "state/machine.h"
 
 using namespace std;
 using namespace Typhon;
 
-const int PORT_NUMBER = 1550;
 
 int main(int argc, char* argv[])
 {
-	int perfScore = Typhon::Metrics::GetPerfScore();
-	cout << "Perf score: " << perfScore << "\n";
-	
-	Network *net = GetNetwork(Typhon::RAW, PORT_NUMBER);
-	if(!net)
+	FSM::Machine machine;
+	try
 	{
-		cout << "Error starting up network code.\n";
+		machine.initiate();
+	}
+	catch(const exception &ex)
+	{
+		cout << ex.what();
 		return 1;
 	}
-	cout << "Network up!\n";
 
-	Engine *engine = new Engine();
-	if(!engine->ready)
-	{
-		cout << "Error creating Irrlicht device.\n";
-		delete engine;
-		delete net;
-		return 1;
-	}
-	cout << "Irrlicht engine initialized!\n";
+	int lastFPS = -1;
 
-	wstring name = GetUsername();
-	
-	stringstream discovery;
-	discovery << ConvertWideToCharString(name) << "%" << perfScore;
-	while(true)
+	while(!machine.terminated() && machine.engine->device->run() && !machine.engine->terminate)
 	{
-		net->BroadcastMessage(discovery.str(), 'D');
-		Message m = net->ReceiveMessage();
-		if(m.prefix == 'D')
+		machine.Run(lastFPS);
+		
+		// process FSM's event queue
+		while(!machine.engine->eventQueue.empty())
 		{
-			std::cout << "Discovery message: " << m.msg;
-			break;
+			auto newEvent = machine.engine->eventQueue.front();
+			switch(newEvent)
+			{
+			case FSM::GAME:
+				machine.process_event(FSM::EvGame());
+				break;
+
+			case FSM::LOBBY:
+				machine.process_event(FSM::EvLobby());
+				break;
+
+			case FSM::MAINMENU:
+				machine.process_event(FSM::EvMainMenu());
+				break;
+
+			case FSM::OPTIONS:
+				machine.process_event(FSM::EvOptions());
+				break;
+
+			default:
+				cout << "Invalid event passed to event queue.\n";
+				break;
+			}
+			machine.engine->eventQueue.pop();
 		}
 	}
 
-	delete engine;
-	delete net;
+
+	//stringstream discovery;
+	//discovery << name << "%" << perfScore;
+	//while(true)
+	//{
+	//	net->BroadcastMessage(discovery.str(), 'D');
+	//	Message m = net->ReceiveMessage();
+	//	if(m.prefix == 'D')
+	//	{
+	//		std::cout << "Discovery message: " << m.msg;
+	//		break;
+	//	}
+	//}
+
 	return 0;
 }

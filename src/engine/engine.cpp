@@ -1,11 +1,12 @@
 #include "engine/engine.h"
 
 using namespace irr;
+using namespace std;
 
 namespace Typhon
 {
 	Engine::Engine()
-		: ready(false)
+		: ready(false), terminate(false), lang(new I18N(&lua))
 	{
 		video::E_DRIVER_TYPE driverType;
 #ifdef _IRR_WINDOWS_
@@ -32,7 +33,7 @@ namespace Typhon
 			smgr = device->getSceneManager();
 			gui = device->getGUIEnvironment();
 			ready = true;
-		}
+		}	
 	}
 
 	Engine::~Engine()
