@@ -14,10 +14,10 @@ namespace Typhon
 
 	public:
 
-		MainMenu();
+		MainMenu(std::shared_ptr<Engine> engine);
 		virtual ~MainMenu();
 
-		virtual void Run(std::shared_ptr<Engine> engine);
+		virtual void Run();
 	};
 }
 

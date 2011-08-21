@@ -1,18 +1,12 @@
-﻿Build started 8/18/2011 2:04:47 AM.
+﻿Build started 8/21/2011 2:34:30 AM.
      1>Project "D:\X Platform Projects\Typhon\build\VS2010\x64\Typhon64.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Creating "Typhon64.dir\Debug\Typhon64.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "Typhon64.dir\Debug\Typhon64.unsuccessfulbuild".
        CustomBuild:
          All outputs are up-to-date.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:/X Platform Projects/Typhon/src/../include" /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon64.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/bin/Win64/Debug/../Typhon64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\engine\luamanager.cpp ..\..\..\src\i18n\i18n.cpp  /Zm1000 
-         luamanager.cpp
-         i18n.cpp
-     1>..\..\..\src\i18n\i18n.cpp(55): warning C4996: 'mbstowcs': This function or variable may be unsafe. Consider using mbstowcs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(498) : see declaration of 'mbstowcs'
-     1>..\..\..\src\i18n\i18n.cpp(61): warning C4996: 'mbstowcs': This function or variable may be unsafe. Consider using mbstowcs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(498) : see declaration of 'mbstowcs'
-         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:/X Platform Projects/Typhon/src/../include" /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon64.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/bin/Win64/Debug/../Typhon64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\main.cpp  /Zm1000 
+         main.cpp
          All outputs are up-to-date.
        ManifestResourceCompile:
          All outputs are up-to-date.
@@ -54,4 +48,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:08.01
+Time Elapsed 00:00:08.33

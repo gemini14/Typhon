@@ -6,7 +6,8 @@ using namespace irr;
 
 namespace Typhon
 {
-	MainMenu::MainMenu()
+	MainMenu::MainMenu(std::shared_ptr<Engine> engine)
+		: FSMState(engine)
 	{
 	}
 
@@ -14,7 +15,7 @@ namespace Typhon
 	{
 	}
 
-	void MainMenu::Run(std::shared_ptr<Engine> engine)
+	void MainMenu::Run()
 	{
 		// get text from lang file
 	}

@@ -73,7 +73,7 @@ namespace Typhon
 			{
 				engine->driver->beginScene(true, true, backColor); 
 
-				state->Run(engine);
+				state->Run();
 
 				engine->smgr->drawAll();
 				engine->gui->drawAll();
@@ -142,7 +142,7 @@ namespace Typhon
 			std::shared_ptr<Typhon::MainMenu> menu;
 
 			MainMenu(my_context ctx)
-				: my_base(ctx), menu(new Typhon::MainMenu)
+				: my_base(ctx), menu(new Typhon::MainMenu(outermost_context().engine))
 			{
 				std::cout << "Hi hi!\n";
 				outermost_context().state = menu;

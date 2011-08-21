@@ -13,7 +13,10 @@ namespace Typhon
 	{
 	public:
 
-		FSMState()
+		std::shared_ptr<Engine> engine;
+
+		FSMState(std::shared_ptr<Engine> engine)
+			: engine(engine)
 		{
 		}
 		
@@ -21,7 +24,7 @@ namespace Typhon
 		{
 		}
 
-		virtual void Run(std::shared_ptr<Engine> engine) = 0;
+		virtual void Run() = 0;
 	};
 }
 
