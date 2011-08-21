@@ -46,8 +46,11 @@ ${hdr}network/networkwin.h
 
 ${hdr}state/fsmevents.h
 ${hdr}state/fsmstate.h
+${hdr}state/game.h
+${hdr}state/lobby.h
 ${hdr}state/machine.h
 ${hdr}state/mainmenu.h
+${hdr}state/options.h
 
 ${hdr}utility/constants.h
 ${hdr}utility/stateexception.h
@@ -81,7 +84,10 @@ network/networklinux.cpp
 network/networkraw.cpp
 network/networkwin.cpp
 
+state/game.cpp
+state/lobby.cpp
 state/mainmenu.cpp
+state/options.cpp
 )
 
 
@@ -131,8 +137,11 @@ ${hdr}network/networkwin.h
 source_group(Header\ Files\\state FILES
 ${hdr}state/fsmevents.h
 ${hdr}state/fsmstate.h
+${hdr}state/game.h
+${hdr}state/lobby.h
 ${hdr}state/machine.h
 ${hdr}state/mainmenu.h
+${hdr}state/options.h
 )
 
 source_group(Header\ Files\\utility FILES
@@ -181,7 +190,10 @@ ${ScriptFiles}
 )
 
 source_group(Source\ Files\\state FILES
+state/game.cpp
+state/lobby.cpp
 state/mainmenu.cpp
+state/options.cpp
 )
 
 source_group(Source\ Files\\utility FILES

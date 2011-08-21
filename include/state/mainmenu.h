@@ -1,16 +1,17 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
 
-#include "irrlicht/irrlicht.h"
+#include <vector>
+
 #include "state/fsmstate.h"
 
 namespace Typhon
 {
-	class MainMenu : public FSMState, irr::IEventReceiver
+	class MainMenu : public FSMState
 	{
 	private:
 
-
+		std::vector<irr::gui::IGUIButton*> guiElements;
 
 	public:
 

@@ -5,11 +5,12 @@
 
 #include <boost/noncopyable.hpp>
 
+#include "engine/engine.h"
+#include "irrlicht/irrlicht.h"
+
 namespace Typhon
 {
-	class Engine;
-
-	class FSMState : boost::noncopyable
+	class FSMState : boost::noncopyable, public irr::IEventReceiver
 	{
 	public:
 
@@ -18,12 +19,14 @@ namespace Typhon
 		FSMState(std::shared_ptr<Engine> engine)
 			: engine(engine)
 		{
+			engine->device->setEventReceiver(this);
 		}
 		
 		virtual ~FSMState()
 		{
 		}
 
+		virtual bool OnEvent(const irr::SEvent &event) = 0;
 		virtual void Run() = 0;
 	};
 }

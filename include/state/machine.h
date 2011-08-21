@@ -15,7 +15,10 @@
 #include "metrics/metrics.h"
 #include "network/networkfactory.h"
 #include "state/fsmevents.h"
+#include "state/game.h"
+#include "state/lobby.h"
 #include "state/mainmenu.h"
+#include "state/options.h"
 #include "utility/stateexception.h"
 
 namespace mpl = boost::mpl;
@@ -145,10 +148,14 @@ namespace Typhon
 		{
 			typedef sc::transition<EvMainMenu, MainMenu> reactions;
 
+			std::shared_ptr<Typhon::Options> options;
+
 			Options(my_context ctx)
-				: my_base(ctx)
+				: my_base(ctx), options(new Typhon::Options(outermost_context().engine))
 			{
 				std::cout << "Options hi!\n";
+				outermost_context().state = options;
+				outermost_context().backColor = irr::video::SColor(255, 245, 203, 10);
 			}
 
 			~Options()

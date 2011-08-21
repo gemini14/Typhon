@@ -6,7 +6,7 @@ using namespace std;
 namespace Typhon
 {
 	Engine::Engine()
-		: ready(false), lang(new I18N(&lua))
+		: ready(false), terminate(false), lang(new I18N(&lua))
 	{
 		video::E_DRIVER_TYPE driverType;
 #ifdef _IRR_WINDOWS_

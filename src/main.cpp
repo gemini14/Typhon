@@ -42,14 +42,43 @@ int main(int argc, char* argv[])
 		cout << ex.what();
 		return 1;
 	}
-			
+
 	int lastFPS = -1;
 
-	while(!machine.terminated() && machine.engine->device->run())
+	while(!machine.terminated() && machine.engine->device->run() && !machine.engine->terminate)
 	{
 		machine.Run(lastFPS);
-		machine.process_event(FSM::EvOptions());
+		
+		// process FSM's event queue
+		while(!machine.engine->eventQueue.empty())
+		{
+			auto newEvent = machine.engine->eventQueue.front();
+			switch(newEvent)
+			{
+			case FSM::GAME:
+				machine.process_event(FSM::EvGame());
+				break;
+
+			case FSM::LOBBY:
+				machine.process_event(FSM::EvLobby());
+				break;
+
+			case FSM::MAINMENU:
+				machine.process_event(FSM::EvMainMenu());
+				break;
+
+			case FSM::OPTIONS:
+				machine.process_event(FSM::EvOptions());
+				break;
+
+			default:
+				cout << "Invalid event passed to event queue.\n";
+				break;
+			}
+			machine.engine->eventQueue.pop();
+		}
 	}
+
 
 	//stringstream discovery;
 	//discovery << name << "%" << perfScore;

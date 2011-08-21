@@ -1,7 +1,6 @@
 #include "state/mainmenu.h"
 
 #include "engine/engine.h"
-#include "state/machine.h"
 #include "utility/constants.h"
 
 using namespace irr;
@@ -9,35 +8,54 @@ using namespace irr;
 namespace Typhon
 {
 	// GUI ENUMS
-	enum GUI_IDS { BUTTON_ENTER_LOBBY, BUTTON_QUIT };
+	enum GUI_IDS { BUTTON_ENTER_LOBBY, BUTTON_OPTIONS, BUTTON_QUIT };
 
 	MainMenu::MainMenu(std::shared_ptr<Engine> engine)
 		: FSMState(engine)
 	{
 		auto scrSize = engine->driver->getScreenSize();
-		int edgeBorderWidth = scrSize.Width - 100;
-		int edgeBorderHeight = scrSize.Height - 100;
-
-		// Quit button
-		engine->gui->addButton(core::rect<irr::s32>(
-			edgeBorderWidth - BUTTON_WIDTH,
+		int edgeBorderWidth = scrSize.Width - GUI_SCREEN_PADDING_LARGE;
+		int edgeBorderHeight = scrSize.Height - GUI_SCREEN_PADDING_LARGE;
+		
+		// Lobby button
+		guiElements.push_back(engine->gui->addButton(core::rect<irr::s32>(
+			edgeBorderWidth - BUTTON_WIDTH * 3 - GUI_ELEMENT_SPACING * 2,
 			edgeBorderHeight - BUTTON_HEIGHT,
-			edgeBorderWidth,
-			edgeBorderHeight), 0, BUTTON_QUIT, engine->lang->GetText(engine->lang->language, "Quit").c_str());
-
-		engine->gui->addButton(core::rect<irr::s32>(
+			edgeBorderWidth - BUTTON_WIDTH * 2 - GUI_ELEMENT_SPACING * 2,
+			edgeBorderHeight), 
+			0, 
+			BUTTON_ENTER_LOBBY, 
+			engine->lang->GetText(engine->lang->language, "EnterLobby").c_str()));
+		
+		// Options button
+		guiElements.push_back(engine->gui->addButton(core::rect<irr::s32>(
 			edgeBorderWidth - BUTTON_WIDTH * 2 - GUI_ELEMENT_SPACING,
 			edgeBorderHeight - BUTTON_HEIGHT,
 			edgeBorderWidth - BUTTON_WIDTH - GUI_ELEMENT_SPACING,
-			edgeBorderHeight), 0, BUTTON_ENTER_LOBBY, engine->lang->GetText(engine->lang->language, "EnterLobby").c_str());
+			edgeBorderHeight), 
+			0, 
+			BUTTON_OPTIONS, 
+			engine->lang->GetText(engine->lang->language, "Options").c_str()));
+
+		// Quit button
+		guiElements.push_back(engine->gui->addButton(core::rect<irr::s32>(
+			edgeBorderWidth - BUTTON_WIDTH,
+			edgeBorderHeight - BUTTON_HEIGHT,
+			edgeBorderWidth,
+			edgeBorderHeight), 
+			0, 
+			BUTTON_QUIT, 
+			engine->lang->GetText(engine->lang->language, "Quit").c_str()));
 	}
 
 	MainMenu::~MainMenu()
 	{
-		auto guiList = engine->gui->getRootGUIElement()->getChildren();
-		while(!guiList.empty())
+		if(!engine->terminate)
 		{
-			(*guiList.getLast())->remove();
+			for(auto i = guiElements.begin(); i < guiElements.end(); ++i)
+			{
+				(*i)->remove();
+			}
 		}
 	}
 
@@ -45,18 +63,22 @@ namespace Typhon
 	{
 		if (event.EventType == EET_GUI_EVENT)
 		{
-			if(event.GUIEvent.EventType == gui::EGUI_EVENT_TYPE::EGET_BUTTON_CLICKED)
+			if(event.GUIEvent.EventType == gui::EGET_BUTTON_CLICKED)
 			{
 				s32 id = event.GUIEvent.Caller->getID();
 
 				switch(id)
 				{
-				case BUTTON_QUIT:
-
+				case BUTTON_ENTER_LOBBY:
+					engine->eventQueue.push(FSM::LOBBY);
 					return true;
 
-				case BUTTON_ENTER_LOBBY:
+				case BUTTON_OPTIONS:
+					engine->eventQueue.push(FSM::OPTIONS);
+					return true;
 
+				case BUTTON_QUIT:
+					engine->terminate = true;
 					return true;
 
 				default:
