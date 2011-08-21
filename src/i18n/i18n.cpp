@@ -28,7 +28,7 @@ namespace Typhon
 	}
 
 	I18N::I18N(LuaManager *lua)
-		: lua(lua)
+		: lua(lua), language(EN)
 	{
 		setlocale(LC_ALL, "");
 	}

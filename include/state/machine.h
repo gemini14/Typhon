@@ -14,12 +14,12 @@
 #include "engine/engine.h"
 #include "metrics/metrics.h"
 #include "network/networkfactory.h"
+#include "state/fsmevents.h"
 #include "state/mainmenu.h"
 #include "utility/stateexception.h"
 
 namespace mpl = boost::mpl;
 namespace sc = boost::statechart;
-
 
 namespace Typhon
 {
@@ -30,20 +30,6 @@ namespace Typhon
 		struct Lobby;
 		struct MainMenu;
 		struct Options;
-
-		// EVENTS
-		struct EvGame : sc::event<EvGame>
-		{
-		};
-		struct EvLobby : sc::event<EvLobby>
-		{
-		};
-		struct EvMainMenu : sc::event<EvMainMenu>
-		{
-		};
-		struct EvOptions : sc::event<EvOptions>
-		{
-		};
 
 		// MACHINE
 		struct Machine : sc::state_machine<Machine, MainMenu>

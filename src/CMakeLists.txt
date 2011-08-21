@@ -44,10 +44,12 @@ ${hdr}network/networklinux.h
 ${hdr}network/networkraw.h
 ${hdr}network/networkwin.h
 
+${hdr}state/fsmevents.h
 ${hdr}state/fsmstate.h
 ${hdr}state/machine.h
 ${hdr}state/mainmenu.h
 
+${hdr}utility/constants.h
 ${hdr}utility/stateexception.h
 )
 
@@ -127,12 +129,14 @@ ${hdr}network/networkwin.h
 )
 
 source_group(Header\ Files\\state FILES
+${hdr}state/fsmevents.h
 ${hdr}state/fsmstate.h
 ${hdr}state/machine.h
 ${hdr}state/mainmenu.h
 )
 
 source_group(Header\ Files\\utility FILES
+${hdr}utility/constants.h
 ${hdr}utility/stateexception.h
 )
 

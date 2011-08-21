@@ -6,7 +6,7 @@
 
 namespace Typhon
 {
-	class MainMenu : public FSMState
+	class MainMenu : public FSMState, irr::IEventReceiver
 	{
 	private:
 
@@ -17,6 +17,7 @@ namespace Typhon
 		MainMenu(std::shared_ptr<Engine> engine);
 		virtual ~MainMenu();
 
+		virtual bool OnEvent(const irr::SEvent &event);
 		virtual void Run();
 	};
 }

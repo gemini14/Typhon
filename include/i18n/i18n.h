@@ -21,6 +21,8 @@ namespace Typhon
 
 	public:
 
+		LANG language;
+
 		I18N(LuaManager *lua);
 		~I18N();
 
