@@ -1,6 +1,7 @@
 #include "engine/luamanager.h"
 
 #include <cassert>
+#include <iostream>
 
 using namespace luabind;
 using namespace std;
