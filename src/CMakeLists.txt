@@ -5,11 +5,13 @@ project(Typhon)
 
 
 include_directories(
-	../include/ 
+	../include/
+	../include/freetype/ 
 )
 
 link_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/../lib/ 
+	${CMAKE_CURRENT_SOURCE_DIR}/../lib/freetype 
 	${CMAKE_CURRENT_SOURCE_DIR}/../lib/Irrlicht/ 
 	${CMAKE_CURRENT_SOURCE_DIR}/../lib/luabind/
 	${CMAKE_CURRENT_SOURCE_DIR}/../lib/lua/
@@ -31,6 +33,9 @@ ${hdr}enet/win32.h
 
 ${hdr}engine/engine.h
 ${hdr}engine/luamanager.h
+
+${hdr}font/font_manager.h
+${hdr}font/gui_freetype_font.h
 
 ${hdr}i18n/i18n.h
 
@@ -54,6 +59,7 @@ ${hdr}state/options.h
 
 ${hdr}utility/constants.h
 ${hdr}utility/stateexception.h
+${hdr}utility/utility.h
 )
 
 set(SourceFiles 
@@ -72,6 +78,9 @@ enet/win32.c
 engine/engine.cpp
 engine/luamanager.cpp
 
+font/font_manager.cpp
+font/gui_freetype_font.cpp
+
 i18n/i18n.cpp
 
 metrics/metrics.cpp
@@ -88,6 +97,8 @@ state/game.cpp
 state/lobby.cpp
 state/mainmenu.cpp
 state/options.cpp
+
+utility/utility.cpp
 )
 
 
@@ -114,6 +125,11 @@ ${hdr}enet/win32.h
 source_group(Header\ Files\\engine FILES
 ${hdr}engine/engine.h
 ${hdr}engine/luamanager.h
+)
+
+source_group(Header\ Files\\font FILES
+${hdr}font/font_manager.h
+${hdr}font/gui_freetype_font.h
 )
 
 source_group(Header\ Files\\i18n FILES
@@ -147,6 +163,7 @@ ${hdr}state/options.h
 source_group(Header\ Files\\utility FILES
 ${hdr}utility/constants.h
 ${hdr}utility/stateexception.h
+${hdr}utility/utility.h
 )
 
 
@@ -165,6 +182,11 @@ enet/win32.c
 source_group(Source\ Files\\engine FILES
 engine/engine.cpp
 engine/luamanager.cpp
+)
+
+source_group(Source\ Files\\font FILES
+font/font_manager.cpp
+font/gui_freetype_font.cpp
 )
 
 source_group(Source\ Files\\i18n FILES
@@ -197,6 +219,7 @@ state/options.cpp
 )
 
 source_group(Source\ Files\\utility FILES
+utility/utility.cpp
 )
 
 
@@ -206,7 +229,8 @@ if(CMAKE_CL_64)
 	message("Creating Win64 project...")
 	add_executable(Typhon64 ${SourceFiles} ${HeaderFiles} ${ScriptFiles})
 	target_link_libraries(Typhon64 debug IrrlichtD_64 optimized Irrlicht_64 
-		lua5.1_64 debug luabindD_64 optimized luabind_64 Ws2_32 winmm)
+		lua5.1_64 debug luabindD_64 optimized luabind_64 Ws2_32 winmm
+		debug freetype246D_64 optimized freetype246_64)
 	set_target_properties(Typhon64 PROPERTIES PREFIX "../")
 
 elseif(CMAKE_HOST_WIN32)
@@ -215,7 +239,8 @@ elseif(CMAKE_HOST_WIN32)
 	message("Creating Win32 project")
 	add_executable(Typhon32 ${SourceFiles} ${HeaderFiles} ${ScriptFiles})
 	target_link_libraries(Typhon32 debug IrrlichtD_32 optimized Irrlicht_32
-		lua5.1_32 debug luabindD_32 optimized luabind_32 Ws2_32 winmm)
+		lua5.1_32 debug luabindD_32 optimized luabind_32 Ws2_32 winmm
+		debug freetype246D_32 optimized freetype246_32)
 	set_target_properties(Typhon32 PROPERTIES PREFIX "../")
 
 elseif(CMAKE_HOST_UNIX)

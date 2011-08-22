@@ -3,14 +3,56 @@
 #include <clocale>
 #include <cstdlib>
 #include <iostream>
+#include <utility>
 
 #include "engine/luamanager.h"
+#include "utility/utility.h"
 
 using namespace luabind;
 using namespace std;
 
 namespace Typhon
 {
+	
+
+	I18N::I18N(LuaManager *lua)
+		: lua(lua), language(EN)
+	{
+		langSelector = nullptr;
+		setlocale(LC_ALL, "");
+	}
+
+	I18N::~I18N()
+	{
+	}
+
+	void I18N::AddElementWithText(irr::gui::IGUIElement *element, const std::string &retrievalKey)
+	{
+		auto elementTuple = make_tuple<irr::gui::IGUIElement*>(element, retrievalKey);
+		i18nElements.insert(make_pair<int, GUIItem>(element->getID(), elementTuple));
+		element->setText(GetText(language, retrievalKey).c_str());
+	}
+
+	void I18N::ChangeLanguage(const LANG lang)
+	{
+		language = lang;
+
+		for(auto iter = i18nElements.begin(); iter != i18nElements.end(); ++iter)
+		{
+			std::get<0>(iter->second)->setText(GetText(language, std::get<1>(iter->second)).c_str());
+		}
+	}
+
+	void I18N::ClearAllElements()
+	{
+		i18nElements.erase(i18nElements.begin(), i18nElements.end());
+	}
+
+	void I18N::ClearElement(const int elementID)
+	{
+		i18nElements.erase(elementID);
+	}
+
 	std::string I18N::ConvertLangToString(LANG lang)
 	{
 		switch(lang)
@@ -27,17 +69,24 @@ namespace Typhon
 		return "";
 	}
 
-	I18N::I18N(LuaManager *lua)
-		: lua(lua), language(EN)
+	int I18N::GetNumberOfLanguages()
 	{
-		setlocale(LC_ALL, "");
+		int numLangs;
+		try
+		{
+			numLangs = call_function<int>(lua->luaState, "GetNumberOfLanguages"); 
+		}
+		catch (luabind::error& e)
+		{
+			string error = lua_tostring(lua->luaState, -1);
+			cout << "\n" << e.what() << "\n" << error << "\n";
+			return 0;
+		}
+
+		return numLangs;
 	}
 
-	I18N::~I18N()
-	{
-	}
-
-	std::wstring I18N::GetText(LANG lang, const std::string &entry)
+	std::wstring I18N::GetText(const LANG lang, const std::string &entry)
 	{
 		// Depending on text retrieval frequency, may want to load a whole language's text at once,
 		// store (and convert) it, and return text as needed.  If only GUI/HUD uses text, this should
@@ -53,16 +102,7 @@ namespace Typhon
 			cout << "\n" << e.what() << "\n" << error << "\n";
 			return L"";
 		}
-
-		auto size = mbstowcs(nullptr, text.c_str(), 0);
-		if(size == -1)
-		{
-			return L"";
-		}
-		wchar_t *buffer = new wchar_t[size + 1];
-		mbstowcs(buffer, text.c_str(), size + 1);
-		wstring convertedText(buffer);
-		delete []buffer;
-		return convertedText;
+		
+		return ConvertStrToWide(text);
 	}
 }

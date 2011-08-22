@@ -18,15 +18,16 @@ namespace Typhon
 		int edgeBorderHeight = scrSize.Height - GUI_SCREEN_PADDING_LARGE;
 		
 		// Lobby button
-		guiElements.push_back(engine->gui->addButton(core::rect<irr::s32>(
+		
+			guiElements.push_back(engine->gui->addButton(core::rect<irr::s32>(
 			edgeBorderWidth - BUTTON_WIDTH * 3 - GUI_ELEMENT_SPACING * 2,
 			edgeBorderHeight - BUTTON_HEIGHT,
 			edgeBorderWidth - BUTTON_WIDTH * 2 - GUI_ELEMENT_SPACING * 2,
 			edgeBorderHeight), 
 			0, 
-			BUTTON_ENTER_LOBBY, 
-			engine->lang->GetText(engine->lang->language, "EnterLobby").c_str()));
-		
+			BUTTON_ENTER_LOBBY));
+		engine->lang->AddElementWithText(guiElements.back(), "EnterLobby");
+					
 		// Options button
 		guiElements.push_back(engine->gui->addButton(core::rect<irr::s32>(
 			edgeBorderWidth - BUTTON_WIDTH * 2 - GUI_ELEMENT_SPACING,
@@ -34,8 +35,8 @@ namespace Typhon
 			edgeBorderWidth - BUTTON_WIDTH - GUI_ELEMENT_SPACING,
 			edgeBorderHeight), 
 			0, 
-			BUTTON_OPTIONS, 
-			engine->lang->GetText(engine->lang->language, "Options").c_str()));
+			BUTTON_OPTIONS)); 
+		engine->lang->AddElementWithText(guiElements.back(), "Options");
 
 		// Quit button
 		guiElements.push_back(engine->gui->addButton(core::rect<irr::s32>(
@@ -44,14 +45,16 @@ namespace Typhon
 			edgeBorderWidth,
 			edgeBorderHeight), 
 			0, 
-			BUTTON_QUIT, 
-			engine->lang->GetText(engine->lang->language, "Quit").c_str()));
+			BUTTON_QUIT));
+		engine->lang->AddElementWithText(guiElements.back(), "Quit");
 	}
 
 	MainMenu::~MainMenu()
 	{
 		if(!engine->terminate)
 		{
+			engine->lang->ClearAllElements();
+
 			for(auto i = guiElements.begin(); i < guiElements.end(); ++i)
 			{
 				(*i)->remove();
@@ -63,10 +66,10 @@ namespace Typhon
 	{
 		if (event.EventType == EET_GUI_EVENT)
 		{
-			if(event.GUIEvent.EventType == gui::EGET_BUTTON_CLICKED)
+			s32 id = event.GUIEvent.Caller->getID();
+			switch(event.GUIEvent.EventType)
 			{
-				s32 id = event.GUIEvent.Caller->getID();
-
+			case gui::EGET_BUTTON_CLICKED:
 				switch(id)
 				{
 				case BUTTON_ENTER_LOBBY:
@@ -84,6 +87,14 @@ namespace Typhon
 				default:
 					return false;
 				}
+				break;
+
+			case gui::EGET_COMBO_BOX_CHANGED:
+				engine->lang->ChangeLanguage(static_cast<LANG>(engine->lang->langSelector->getSelected()));
+				break;
+
+			default:
+				break;
 			}
 		}
 

@@ -10,6 +10,7 @@
 #include "engine/luamanager.h"
 #include "i18n/i18n.h"
 #include "irrlicht/irrlicht.h"
+#include "font/font_manager.h"
 #include "state/fsmevents.h"
 
 namespace Typhon
@@ -19,6 +20,7 @@ namespace Typhon
 	private:
 
 		LuaManager lua;
+		std::unique_ptr<FontManager> fonts;
 
 	public:
 
