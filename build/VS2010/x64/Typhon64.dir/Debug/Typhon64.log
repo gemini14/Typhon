@@ -1,12 +1,18 @@
-﻿Build started 8/22/2011 5:03:41 AM.
+﻿Build started 8/23/2011 1:19:49 AM.
      1>Project "D:\X Platform Projects\Typhon\build\VS2010\x64\Typhon64.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Typhon64.dir\Debug\Typhon64.unsuccessfulbuild" because "AlwaysCreate" was specified.
        CustomBuild:
          All outputs are up-to-date.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:/X Platform Projects/Typhon/src/../include" /I"D:/X Platform Projects/Typhon/src/../include/freetype" /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon64.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/bin/Win64/Debug/../Typhon64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\engine\engine.cpp  /Zm1000 
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:/X Platform Projects/Typhon/src/../include" /I"D:/X Platform Projects/Typhon/src/../include/freetype" /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon64.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/bin/Win64/Debug/../Typhon64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\engine\engine.cpp ..\..\..\src\i18n\i18n.cpp ..\..\..\src\main.cpp ..\..\..\src\state\mainmenu.cpp ..\..\..\src\state\options.cpp  /Zm1000 
          engine.cpp
+         i18n.cpp
+         main.cpp
+         mainmenu.cpp
+         options.cpp
+     1>..\..\..\src\state\options.cpp(41): warning C4065: switch statement contains 'default' but no 'case' labels
+         Generating Code...
          All outputs are up-to-date.
        ManifestResourceCompile:
          All outputs are up-to-date.
@@ -54,4 +60,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.91
+Time Elapsed 00:00:18.33

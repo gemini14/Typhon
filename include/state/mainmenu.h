@@ -11,8 +11,6 @@ namespace Typhon
 	{
 	private:
 
-		std::vector<irr::gui::IGUIButton*> guiElements;
-
 	public:
 
 		MainMenu(std::shared_ptr<Engine> engine);

@@ -34,7 +34,7 @@ namespace Typhon
 			driver = device->getVideoDriver();
 			smgr = device->getSceneManager();
 			gui = device->getGUIEnvironment();
-			
+
 			// add resource directory/archive
 #ifdef _DEBUG
 			device->getFileSystem()->addFileArchive("resources/", true, false, io::EFAT_FOLDER);
@@ -42,19 +42,46 @@ namespace Typhon
 			// TODO: pick a better archive type
 			device->getFileSystem()->addFileArchive("resources.zip", true, false, io::EFAT_ZIP);
 #endif
-			
+
 			// set GUI font
 			gui->getSkin()->setFont(fonts->GetTtFont(driver, "fonts/Vera.ttf", 16));
-			
+
 			// create drop down language selector
 			lang->langSelector = gui->addComboBox(core::rect<s32>(10, 10, 50, 40));
-			
+
 			int numLanguages = lang->GetNumberOfLanguages();
+			int userLangGUIid = 0;
+			LANG userLangEnum;
+			std::string userPrefLang;
+
+			try
+			{
+				userPrefLang = luabind::call_function<std::string>(lua.luaState, "GetOption",
+					"chosenLanguage");
+				userLangEnum = lang->ConvertStringToLang(userPrefLang);
+				if(userLangEnum == INVALID)
+				{
+					userLangEnum = EN;
+				}
+			}
+			catch(luabind::error& e)
+			{
+				string error = lua_tostring(lua.luaState, -1 );
+				cout << "\n" << e.what() << "\n" << error << "\n";
+			}
+
 			for(int i = 0; i < numLanguages; ++i)
 			{
-				lang->langSelector->addItem(ConvertStrToWide(lang->ConvertLangToString(static_cast<LANG>(i))).c_str());
+				LANG langToAdd = static_cast<LANG>(i);
+				lang->langSelector->addItem(ConvertStrToWide(lang->ConvertLangToString(langToAdd)).c_str());
+
+				if(langToAdd == userLangEnum)
+				{
+					userLangGUIid = i;
+				}
 			}
-			lang->langSelector->setSelected(0);
+			lang->langSelector->setSelected(userLangGUIid);
+			lang->ChangeLanguage(userLangEnum);
 
 			ready = true;
 		}	

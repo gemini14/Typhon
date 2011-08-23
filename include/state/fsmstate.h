@@ -7,11 +7,18 @@
 
 #include "engine/engine.h"
 #include "irrlicht/irrlicht.h"
+#include "utility/constants.h"
 
 namespace Typhon
 {
 	class FSMState : boost::noncopyable, public irr::IEventReceiver
 	{
+	protected:
+
+		std::vector<irr::gui::IGUIButton*> guiElements;
+		int edgeBorderWidth;
+		int edgeBorderHeight;
+
 	public:
 
 		std::shared_ptr<Engine> engine;
@@ -20,10 +27,23 @@ namespace Typhon
 			: engine(engine)
 		{
 			engine->device->setEventReceiver(this);
+
+			auto scrSize = engine->driver->getScreenSize();
+			edgeBorderWidth = scrSize.Width - GUI_SCREEN_PADDING_LARGE;
+			edgeBorderHeight = scrSize.Height - GUI_SCREEN_PADDING_LARGE;
 		}
-		
+
 		virtual ~FSMState()
 		{
+			if(!engine->terminate)
+			{
+				engine->lang->ClearAllElements();
+
+				for(auto i = guiElements.begin(); i < guiElements.end(); ++i)
+				{
+					(*i)->remove();
+				}
+			}
 		}
 
 		virtual bool OnEvent(const irr::SEvent &event) = 0;

@@ -1,25 +1,20 @@
 #include "state/mainmenu.h"
 
 #include "engine/engine.h"
-#include "utility/constants.h"
 
 using namespace irr;
 
 namespace Typhon
 {
 	// GUI ENUMS
-	enum GUI_IDS { BUTTON_ENTER_LOBBY, BUTTON_OPTIONS, BUTTON_QUIT };
+	enum GUI_ID { BUTTON_ENTER_LOBBY, BUTTON_OPTIONS, BUTTON_QUIT };
 
 	MainMenu::MainMenu(std::shared_ptr<Engine> engine)
 		: FSMState(engine)
 	{
-		auto scrSize = engine->driver->getScreenSize();
-		int edgeBorderWidth = scrSize.Width - GUI_SCREEN_PADDING_LARGE;
-		int edgeBorderHeight = scrSize.Height - GUI_SCREEN_PADDING_LARGE;
-		
 		// Lobby button
 		
-			guiElements.push_back(engine->gui->addButton(core::rect<irr::s32>(
+		guiElements.push_back(engine->gui->addButton(core::rect<irr::s32>(
 			edgeBorderWidth - BUTTON_WIDTH * 3 - GUI_ELEMENT_SPACING * 2,
 			edgeBorderHeight - BUTTON_HEIGHT,
 			edgeBorderWidth - BUTTON_WIDTH * 2 - GUI_ELEMENT_SPACING * 2,
@@ -51,15 +46,6 @@ namespace Typhon
 
 	MainMenu::~MainMenu()
 	{
-		if(!engine->terminate)
-		{
-			engine->lang->ClearAllElements();
-
-			for(auto i = guiElements.begin(); i < guiElements.end(); ++i)
-			{
-				(*i)->remove();
-			}
-		}
 	}
 
 	bool MainMenu::OnEvent(const irr::SEvent &event)
@@ -90,6 +76,8 @@ namespace Typhon
 				break;
 
 			case gui::EGET_COMBO_BOX_CHANGED:
+				// if another combo box is added, IDs will have to be passed out
+				// and this case statement will have to include a switch
 				engine->lang->ChangeLanguage(static_cast<LANG>(engine->lang->langSelector->getSelected()));
 				break;
 

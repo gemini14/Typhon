@@ -105,8 +105,10 @@ utility/utility.cpp
 set(ScriptFiles
 scripts/de_lang.lua
 scripts/en_lang.lua
+scripts/input_codes.lua
 scripts/lang_get.lua
-scripts/scriptList.lua
+scripts/script_list.lua
+scripts/user_options.lua
 )
 
 

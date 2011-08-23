@@ -14,7 +14,7 @@ namespace Typhon
 		luaL_openlibs(luaState);
 		open(luaState);
 
-		LoadScript("scripts/scriptList.lua");
+		LoadScript("scripts/script_list.lua");
 		auto scripts = GetLuaObject("scriptList");
 		assert(type(scripts) == LUA_TTABLE);
 		for(luabind::iterator i(scripts), end; i != end; ++i)

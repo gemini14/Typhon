@@ -20,6 +20,10 @@ namespace Typhon
 	{
 		langSelector = nullptr;
 		setlocale(LC_ALL, "");
+		
+		// add new language entries here after adding them to the enum declaration
+		langMap[EN] = "en";
+		langMap[DE] = "de";
 	}
 
 	I18N::~I18N()
@@ -55,35 +59,30 @@ namespace Typhon
 
 	std::string I18N::ConvertLangToString(LANG lang)
 	{
-		switch(lang)
+		if(langMap.find(lang) != langMap.end())
 		{
-		case EN:
-			return "en";
-		case DE:
-			return "de";
-		default:
-			std::cout << "Bad language code passed in.\n";
-			return "";
+			return langMap[lang];
 		}
 
 		return "";
 	}
 
-	int I18N::GetNumberOfLanguages()
+	LANG I18N::ConvertStringToLang(const std::string &langStr)
 	{
-		int numLangs;
-		try
+		for(auto iter = langMap.begin(); iter != langMap.end(); ++iter)
 		{
-			numLangs = call_function<int>(lua->luaState, "GetNumberOfLanguages"); 
-		}
-		catch (luabind::error& e)
-		{
-			string error = lua_tostring(lua->luaState, -1);
-			cout << "\n" << e.what() << "\n" << error << "\n";
-			return 0;
+			if(iter->second == langStr)
+			{
+				return iter->first;
+			}
 		}
 
-		return numLangs;
+		return INVALID;
+	}
+
+	int I18N::GetNumberOfLanguages()
+	{
+		return static_cast<int>(langMap.size());
 	}
 
 	std::wstring I18N::GetText(const LANG lang, const std::string &entry)

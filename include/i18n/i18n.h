@@ -13,7 +13,8 @@ namespace Typhon
 {
 	class LuaManager;
 
-	enum LANG { EN, DE };
+	// if you add language here, you MUST add it to langMap in I18N's constructor, too
+	enum LANG { INVALID = -1, EN, DE };
 	
 	class I18N : boost::noncopyable
 	{
@@ -21,16 +22,17 @@ namespace Typhon
 
 		typedef std::tuple<irr::gui::IGUIElement*, std::string> GUIItem;
 		typedef std::map<int, GUIItem> I18NElementsMap;
-		
-		I18NElementsMap i18nElements;
+		typedef std::map<LANG, std::string> LANGmap;
 
+		LANGmap langMap;
+		I18NElementsMap i18nElements;
 		LuaManager *lua;
+		LANG language;
 
 	public:
 
 		irr::gui::IGUIComboBox *langSelector;		
-		LANG language;
-
+				
 		I18N(LuaManager *lua);
 		~I18N();
 
@@ -39,8 +41,10 @@ namespace Typhon
 		void ClearAllElements();
 		void ClearElement(const int elementID);
 		std::string ConvertLangToString(LANG lang);
+		LANG ConvertStringToLang(const std::string &langStr);
 		int GetNumberOfLanguages();
 		std::wstring GetText(const LANG lang, const std::string &entry);
 	};
 }
+
 #endif
