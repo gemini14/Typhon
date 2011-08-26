@@ -79,7 +79,7 @@ int main(int argc, char* argv[])
 		}
 	}
 
-
+	machine.engine->SavePrefs();
 	//stringstream discovery;
 	//discovery << name << "%" << perfScore;
 	//while(true)

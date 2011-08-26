@@ -12,6 +12,7 @@
 #include "irrlicht/irrlicht.h"
 #include "font/font_manager.h"
 #include "state/fsmevents.h"
+#include "utility/useroptions.h"
 
 namespace Typhon
 {
@@ -19,7 +20,6 @@ namespace Typhon
 	{
 	private:
 
-		LuaManager lua;
 		std::unique_ptr<FontManager> fonts;
 
 	public:
@@ -32,11 +32,15 @@ namespace Typhon
 		irr::video::IVideoDriver *driver;
 		irr::gui::IGUIEnvironment *gui;
 
+		LuaManager lua;
 		std::queue<FSM::EVENT_TYPE> eventQueue;
 		std::shared_ptr<I18N> lang;
+		UserOptions options;
 
 		Engine();
 		~Engine();
+
+		void SavePrefs();
 	};
 }
 

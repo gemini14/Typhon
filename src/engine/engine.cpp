@@ -1,5 +1,6 @@
 #include "engine/engine.h"
 
+#include "utility/constants.h"
 #include "utility/utility.h"
 
 using namespace irr;
@@ -7,6 +8,7 @@ using namespace std;
 
 namespace Typhon
 {
+	
 	Engine::Engine()
 		: ready(false), terminate(false), lang(new I18N(&lua)), fonts(new FontManager())
 	{
@@ -46,28 +48,31 @@ namespace Typhon
 			// set GUI font
 			gui->getSkin()->setFont(fonts->GetTtFont(driver, "fonts/Vera.ttf", 16));
 
-			// create drop down language selector
-			lang->langSelector = gui->addComboBox(core::rect<s32>(10, 10, 50, 40));
-
-			int numLanguages = lang->GetNumberOfLanguages();
-			int userLangGUIid = 0;
-			LANG userLangEnum;
-			std::string userPrefLang;
-
+			// Get user options from Lua file
 			try
 			{
-				userPrefLang = luabind::call_function<std::string>(lua.luaState, "GetOption",
-					"chosenLanguage");
-				userLangEnum = lang->ConvertStringToLang(userPrefLang);
-				if(userLangEnum == INVALID)
-				{
-					userLangEnum = EN;
-				}
+				luabind::call_function<void>(lua.luaState, "GetUserData");
+				options.name = ConvertStrToWide(luabind::call_function<std::string>(lua.luaState,
+					"GetOption", "Name"));
+				options.language = luabind::call_function<std::string>(lua.luaState,
+					"GetOption", "Language");
 			}
-			catch(luabind::error& e)
+			catch(luabind::error &e)
 			{
-				string error = lua_tostring(lua.luaState, -1 );
-				cout << "\n" << e.what() << "\n" << error << "\n";
+				cout << "\n" << e.what() << "\n" << lua_tostring(lua.luaState, -1) << "\n";
+				options.name = L"Player1";
+				options.language = "en";
+			}
+
+			// create drop down language selector
+			lang->langSelector = gui->addComboBox(core::rect<s32>(10, 10, 50, 40), 0, COMBOBOX_LANG_SELECTOR_ID);
+			
+			int numLanguages = lang->GetNumberOfLanguages();
+			int userLangGUIid = 0;
+			LANG userLangEnum = lang->ConvertStringToLang(options.language);
+			if(userLangEnum == INVALID)
+			{
+				userLangEnum = EN;
 			}
 
 			for(int i = 0; i < numLanguages; ++i)
@@ -83,6 +88,7 @@ namespace Typhon
 			lang->langSelector->setSelected(userLangGUIid);
 			lang->ChangeLanguage(userLangEnum);
 
+			// indicate that components have successfully been initialized
 			ready = true;
 		}	
 	}
@@ -92,6 +98,18 @@ namespace Typhon
 		if(device)
 		{
 			device->drop();
+		}
+	}
+
+	void Engine::SavePrefs()
+	{
+		try
+		{
+			luabind::call_function<void>(lua.luaState, "SaveUserData");
+		}
+		catch(luabind::error &e)
+		{
+			cout << "\n" << e.what() << "\n" << lua_tostring(lua.luaState, -1) << "\n";
 		}
 	}
 }

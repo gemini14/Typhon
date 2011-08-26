@@ -1,17 +1,25 @@
-﻿Build started 8/23/2011 1:19:49 AM.
-     1>Project "D:\X Platform Projects\Typhon\build\VS2010\x64\Typhon64.vcxproj" on node 2 (build target(s)).
+﻿Build started 8/26/2011 4:19:35 AM.
+     1>Project "D:\X Platform Projects\Typhon\build\VS2010\x64\Typhon64.vcxproj" on node 3 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Typhon64.dir\Debug\Typhon64.unsuccessfulbuild" because "AlwaysCreate" was specified.
        CustomBuild:
          All outputs are up-to-date.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:/X Platform Projects/Typhon/src/../include" /I"D:/X Platform Projects/Typhon/src/../include/freetype" /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon64.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/bin/Win64/Debug/../Typhon64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\engine\engine.cpp ..\..\..\src\i18n\i18n.cpp ..\..\..\src\main.cpp ..\..\..\src\state\mainmenu.cpp ..\..\..\src\state\options.cpp  /Zm1000 
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:/X Platform Projects/Typhon/src/../include" /I"D:/X Platform Projects/Typhon/src/../include/freetype" /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon64.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/bin/Win64/Debug/../Typhon64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\engine\engine.cpp ..\..\..\src\i18n\i18n.cpp ..\..\..\src\main.cpp ..\..\..\src\state\mainmenu.cpp ..\..\..\src\state\options.cpp ..\..\..\src\utility\utility.cpp  /Zm1000 
          engine.cpp
          i18n.cpp
          main.cpp
          mainmenu.cpp
          options.cpp
-     1>..\..\..\src\state\options.cpp(41): warning C4065: switch statement contains 'default' but no 'case' labels
+         utility.cpp
+     1>..\..\..\src\utility\utility.cpp(11): warning C4996: 'mbstowcs': This function or variable may be unsafe. Consider using mbstowcs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(498) : see declaration of 'mbstowcs'
+     1>..\..\..\src\utility\utility.cpp(17): warning C4996: 'mbstowcs': This function or variable may be unsafe. Consider using mbstowcs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(498) : see declaration of 'mbstowcs'
+     1>..\..\..\src\utility\utility.cpp(25): warning C4996: 'wcstombs': This function or variable may be unsafe. Consider using wcstombs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(533) : see declaration of 'wcstombs'
+     1>..\..\..\src\utility\utility.cpp(31): warning C4996: 'wcstombs': This function or variable may be unsafe. Consider using wcstombs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(533) : see declaration of 'wcstombs'
          Generating Code...
          All outputs are up-to-date.
        ManifestResourceCompile:
@@ -60,4 +68,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:18.33
+Time Elapsed 00:00:25.73

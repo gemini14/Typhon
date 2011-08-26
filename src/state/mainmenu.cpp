@@ -92,6 +92,5 @@ namespace Typhon
 
 	void MainMenu::Run()
 	{
-		// get text from lang file
 	}
 }
