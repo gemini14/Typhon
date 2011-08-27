@@ -93,7 +93,7 @@ namespace Typhon
 		string text;
 		try
 		{
-			text = call_function<std::string>(lua->luaState, "GetText", ConvertLangToString(lang) , entry); 
+			text = call_function<std::string>(lua->luaState, "GetText", ConvertLangToString(lang), entry); 
 		}
 		catch (luabind::error& e)
 		{

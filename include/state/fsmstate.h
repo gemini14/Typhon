@@ -15,7 +15,7 @@ namespace Typhon
 	{
 	protected:
 
-		std::vector<irr::gui::IGUIButton*> guiElements;
+		std::vector<irr::gui::IGUIElement*> guiElements;
 		int edgeBorderWidth;
 		int edgeBorderHeight;
 
@@ -37,8 +37,6 @@ namespace Typhon
 		{
 			if(!engine->terminate)
 			{
-				engine->lang->ClearAllElements();
-
 				for(auto i = guiElements.begin(); i < guiElements.end(); ++i)
 				{
 					(*i)->remove();

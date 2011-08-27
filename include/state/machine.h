@@ -89,6 +89,7 @@ namespace Typhon
 				: my_base(ctx)
 			{
 				std::cout << "Entered the game! Hi hi!\n";
+				outermost_context().state.reset();
 			}
 
 			~Game()
@@ -114,6 +115,7 @@ namespace Typhon
 				}
 				std::cout << "Network up!\n";
 				std::cout << "Lobby hi!\n";
+				outermost_context().state.reset();
 			}
 
 			~Lobby()
@@ -134,6 +136,7 @@ namespace Typhon
 				: my_base(ctx), menu(new Typhon::MainMenu(outermost_context().engine))
 			{
 				std::cout << "Hi hi!\n";
+				outermost_context().state.reset();
 				outermost_context().state = menu;
 				outermost_context().backColor = irr::video::SColor(255, 245, 203, 10);
 			}
@@ -154,6 +157,7 @@ namespace Typhon
 				: my_base(ctx), options(new Typhon::Options(outermost_context().engine))
 			{
 				std::cout << "Options hi!\n";
+				outermost_context().state.reset();
 				outermost_context().state = options;
 				outermost_context().backColor = irr::video::SColor(255, 245, 203, 10);
 			}

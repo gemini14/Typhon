@@ -71,7 +71,7 @@ namespace Typhon
 					return true;
 
 				default:
-					return false;
+					break;
 				}
 				break;
 
@@ -79,7 +79,7 @@ namespace Typhon
 				// if another combo box is added, IDs will have to be passed out
 				// and this case statement will have to include a switch
 				engine->lang->ChangeLanguage(static_cast<LANG>(engine->lang->langSelector->getSelected()));
-				break;
+				return true;
 
 			default:
 				break;
@@ -92,6 +92,5 @@ namespace Typhon
 
 	void MainMenu::Run()
 	{
-		// get text from lang file
 	}
 }

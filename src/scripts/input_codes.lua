@@ -8,4 +8,6 @@ local input_codes = {
 	throwSecondary = 0x02
 }
 
-return input_codes
+function GetInputCode(action)
+	return input_codes[action]
+end

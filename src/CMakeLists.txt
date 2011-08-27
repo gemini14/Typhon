@@ -59,6 +59,7 @@ ${hdr}state/options.h
 
 ${hdr}utility/constants.h
 ${hdr}utility/stateexception.h
+${hdr}utility/useroptions.h
 ${hdr}utility/utility.h
 )
 
@@ -108,6 +109,7 @@ scripts/en_lang.lua
 scripts/input_codes.lua
 scripts/lang_get.lua
 scripts/script_list.lua
+scripts/user_data.lua
 scripts/user_options.lua
 )
 
@@ -165,6 +167,7 @@ ${hdr}state/options.h
 source_group(Header\ Files\\utility FILES
 ${hdr}utility/constants.h
 ${hdr}utility/stateexception.h
+${hdr}utility/useroptions.h
 ${hdr}utility/utility.h
 )
 

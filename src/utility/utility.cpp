@@ -19,4 +19,18 @@ namespace Typhon
 		delete []buffer;
 		return convertedText;
 	}
+
+	std::string ConvertWideToStr(const std::wstring &str)
+	{
+		auto size = wcstombs(nullptr, str.c_str(), 0);
+		if(size == -1)
+		{
+			return "";
+		}
+		char *buffer = new char[size + 1];
+		wcstombs(buffer, str.c_str(), size + 1);
+		string convertedText(buffer);
+		delete []buffer;
+		return convertedText;
+	}
 }
