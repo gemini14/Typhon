@@ -1,8 +1,6 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
 
-#include <vector>
-
 #include "state/fsmstate.h"
 
 namespace Typhon
