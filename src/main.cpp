@@ -53,6 +53,7 @@ int main(int argc, char* argv[])
 		while(!machine.engine->eventQueue.empty())
 		{
 			auto newEvent = machine.engine->eventQueue.front();
+			machine.engine->lang->ClearAllElements();
 			switch(newEvent)
 			{
 			case FSM::GAME:

@@ -1,2 +1,2 @@
-Name = Player1
-Language = de
+Name = Tarik
+Language = en

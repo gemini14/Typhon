@@ -1,11 +1,11 @@
 local options = {}
-local userSaveFile = "user_data.lua"
+local userSaveFile = 'scripts/user_data.lua'
 
 function GetUserData()
 	local handle, errorString = io.open(userSaveFile)
 	if handle then
 		for str in handle:lines() do
-			for k, v in string.gmatch(str, "(%w+)%s*=%s*(%w+)") do
+			for k, v in string.gmatch(str, '(%w+)%s*=%s*(%w+)') do
 				if k and v then
 					options[k] = v
 				end

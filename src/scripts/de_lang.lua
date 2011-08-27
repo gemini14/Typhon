@@ -4,6 +4,7 @@ de.BackToMainMenu = 'Zurück zum Hauptmenü'
 de.EnterLobby = 'Lobby eintreten'
 de.GameTitle = 'Verrückte Bahnen'
 de.Options = 'Optionen'
+de.PlayerName = 'Spieler Name'
 de.Ready = 'Bereit'
 de.Quit = 'Abbrechen'
 

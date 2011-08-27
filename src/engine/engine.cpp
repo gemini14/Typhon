@@ -103,8 +103,11 @@ namespace Typhon
 
 	void Engine::SavePrefs()
 	{
+		options.language = lang->ConvertLangToString(static_cast<LANG>(lang->langSelector->getSelected()));
 		try
 		{
+			luabind::call_function<void>(lua.luaState, "SetOption", "Name", ConvertWideToStr(options.name));
+			luabind::call_function<void>(lua.luaState, "SetOption", "Language", options.language);
 			luabind::call_function<void>(lua.luaState, "SaveUserData");
 		}
 		catch(luabind::error &e)

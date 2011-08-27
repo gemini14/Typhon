@@ -4,6 +4,7 @@ en.BackToMainMenu = 'Back to Main Menu'
 en.EnterLobby = 'Enter Lobby'
 en.GameTitle = 'Lunatic Lanes'
 en.Options = 'Options'
+en.PlayerName = 'Player Name'
 en.Ready = 'Ready'
 en.Quit = 'Quit'
 
