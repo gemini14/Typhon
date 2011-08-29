@@ -1,5 +1,7 @@
 #include "engine/engine.h"
 
+#include <iostream>
+
 #include "utility/constants.h"
 #include "utility/utility.h"
 
@@ -8,9 +10,8 @@ using namespace std;
 
 namespace Typhon
 {
-	
 	Engine::Engine()
-		: ready(false), terminate(false), lang(new I18N(&lua)), fonts(new FontManager())
+		: fonts(new FontManager()), ready(false), terminate(false), lang(new I18N(&lua))
 	{
 		video::E_DRIVER_TYPE driverType;
 #ifdef _IRR_WINDOWS_
@@ -38,7 +39,7 @@ namespace Typhon
 			gui = device->getGUIEnvironment();
 
 			// add resource directory/archive
-#ifdef _DEBUG
+#ifdef DEBUG
 			device->getFileSystem()->addFileArchive("resources/", true, false, io::EFAT_FOLDER);
 #else
 			// TODO: pick a better archive type

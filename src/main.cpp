@@ -45,7 +45,8 @@ int main(int argc, char* argv[])
 
 	int lastFPS = -1;
 
-	while(!machine.terminated() && machine.engine->device->run() && !machine.engine->terminate)
+	while(!machine.terminated() && machine.engine->device->run() &&
+			!machine.engine->terminate)
 	{
 		machine.Run(lastFPS);
 		

@@ -9,7 +9,7 @@ namespace Typhon
 	std::wstring ConvertStrToWide(const std::string &str)
 	{
 		auto size = mbstowcs(nullptr, str.c_str(), 0);
-		if(size == -1)
+		if(size == static_cast<size_t>(-1))
 		{
 			return L"";
 		}
@@ -23,7 +23,7 @@ namespace Typhon
 	std::string ConvertWideToStr(const std::wstring &str)
 	{
 		auto size = wcstombs(nullptr, str.c_str(), 0);
-		if(size == -1)
+		if(size == static_cast<size_t>(-1))
 		{
 			return "";
 		}

@@ -3,11 +3,11 @@
 
 # compile C with /usr/bin/gcc
 # compile CXX with /usr/bin/c++
-C_FLAGS = -g -I/home/tarik/workspace/Typhon/src/../include   -g -Wall -std=c++0x
+C_FLAGS = -g -I/home/tarik/workspace/Typhon/src/../include -I/home/tarik/workspace/Typhon/src/../include/freetype   -g -Wall -std=c++0x
 
 C_DEFINES = -DHAS_SOCKLEN_T
 
-CXX_FLAGS = -g -I/home/tarik/workspace/Typhon/src/../include   -g -Wall -std=c++0x
+CXX_FLAGS = -g -I/home/tarik/workspace/Typhon/src/../include -I/home/tarik/workspace/Typhon/src/../include/freetype   -g -Wall -std=c++0x
 
 CXX_DEFINES = -DHAS_SOCKLEN_T
 

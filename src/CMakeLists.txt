@@ -260,7 +260,7 @@ elseif(CMAKE_HOST_UNIX)
 		   
 	add_executable(Typhon ${SourceFiles})
 	set_target_properties(Typhon PROPERTIES DEBUG_POSTFIX _D)
-	target_link_libraries(Typhon Irrlicht)
+	target_link_libraries(Typhon Irrlicht lua5.1 luabind freetype z)
 
 endif()
 

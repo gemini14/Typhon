@@ -1,6 +1,6 @@
 #include "state/options.h"
 
-#include "state/options.h"
+#include <iostream>
 
 #include "engine/engine.h"
 #include "utility/constants.h"

@@ -10,6 +10,10 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/Typhon.dir/enet/unix.c.o"
   "CMakeFiles/Typhon.dir/enet/win32.c.o"
   "CMakeFiles/Typhon.dir/engine/engine.cpp.o"
+  "CMakeFiles/Typhon.dir/engine/luamanager.cpp.o"
+  "CMakeFiles/Typhon.dir/font/font_manager.cpp.o"
+  "CMakeFiles/Typhon.dir/font/gui_freetype_font.cpp.o"
+  "CMakeFiles/Typhon.dir/i18n/i18n.cpp.o"
   "CMakeFiles/Typhon.dir/metrics/metrics.cpp.o"
   "CMakeFiles/Typhon.dir/network/lobbylist.cpp.o"
   "CMakeFiles/Typhon.dir/network/network.cpp.o"
@@ -18,8 +22,13 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/Typhon.dir/network/networklinux.cpp.o"
   "CMakeFiles/Typhon.dir/network/networkraw.cpp.o"
   "CMakeFiles/Typhon.dir/network/networkwin.cpp.o"
-  "/home/tarik/workspace/Typhon/shared/Linux/Typhon.pdb"
-  "/home/tarik/workspace/Typhon/shared/Linux/Typhon"
+  "CMakeFiles/Typhon.dir/state/game.cpp.o"
+  "CMakeFiles/Typhon.dir/state/lobby.cpp.o"
+  "CMakeFiles/Typhon.dir/state/mainmenu.cpp.o"
+  "CMakeFiles/Typhon.dir/state/options.cpp.o"
+  "CMakeFiles/Typhon.dir/utility/utility.cpp.o"
+  "/home/tarik/workspace/Typhon/bin/Linux/Typhon.pdb"
+  "/home/tarik/workspace/Typhon/bin/Linux/Typhon"
 )
 
 # Per-language clean rules from dependency scanning.

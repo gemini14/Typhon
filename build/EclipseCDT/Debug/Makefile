@@ -351,6 +351,102 @@ engine/engine.cpp.s:
 	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/engine/engine.cpp.s
 .PHONY : engine/engine.cpp.s
 
+engine/luamanager.o: engine/luamanager.cpp.o
+.PHONY : engine/luamanager.o
+
+# target to build an object file
+engine/luamanager.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/engine/luamanager.cpp.o
+.PHONY : engine/luamanager.cpp.o
+
+engine/luamanager.i: engine/luamanager.cpp.i
+.PHONY : engine/luamanager.i
+
+# target to preprocess a source file
+engine/luamanager.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/engine/luamanager.cpp.i
+.PHONY : engine/luamanager.cpp.i
+
+engine/luamanager.s: engine/luamanager.cpp.s
+.PHONY : engine/luamanager.s
+
+# target to generate assembly for a file
+engine/luamanager.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/engine/luamanager.cpp.s
+.PHONY : engine/luamanager.cpp.s
+
+font/font_manager.o: font/font_manager.cpp.o
+.PHONY : font/font_manager.o
+
+# target to build an object file
+font/font_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/font/font_manager.cpp.o
+.PHONY : font/font_manager.cpp.o
+
+font/font_manager.i: font/font_manager.cpp.i
+.PHONY : font/font_manager.i
+
+# target to preprocess a source file
+font/font_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/font/font_manager.cpp.i
+.PHONY : font/font_manager.cpp.i
+
+font/font_manager.s: font/font_manager.cpp.s
+.PHONY : font/font_manager.s
+
+# target to generate assembly for a file
+font/font_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/font/font_manager.cpp.s
+.PHONY : font/font_manager.cpp.s
+
+font/gui_freetype_font.o: font/gui_freetype_font.cpp.o
+.PHONY : font/gui_freetype_font.o
+
+# target to build an object file
+font/gui_freetype_font.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/font/gui_freetype_font.cpp.o
+.PHONY : font/gui_freetype_font.cpp.o
+
+font/gui_freetype_font.i: font/gui_freetype_font.cpp.i
+.PHONY : font/gui_freetype_font.i
+
+# target to preprocess a source file
+font/gui_freetype_font.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/font/gui_freetype_font.cpp.i
+.PHONY : font/gui_freetype_font.cpp.i
+
+font/gui_freetype_font.s: font/gui_freetype_font.cpp.s
+.PHONY : font/gui_freetype_font.s
+
+# target to generate assembly for a file
+font/gui_freetype_font.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/font/gui_freetype_font.cpp.s
+.PHONY : font/gui_freetype_font.cpp.s
+
+i18n/i18n.o: i18n/i18n.cpp.o
+.PHONY : i18n/i18n.o
+
+# target to build an object file
+i18n/i18n.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/i18n/i18n.cpp.o
+.PHONY : i18n/i18n.cpp.o
+
+i18n/i18n.i: i18n/i18n.cpp.i
+.PHONY : i18n/i18n.i
+
+# target to preprocess a source file
+i18n/i18n.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/i18n/i18n.cpp.i
+.PHONY : i18n/i18n.cpp.i
+
+i18n/i18n.s: i18n/i18n.cpp.s
+.PHONY : i18n/i18n.s
+
+# target to generate assembly for a file
+i18n/i18n.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/i18n/i18n.cpp.s
+.PHONY : i18n/i18n.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -567,6 +663,126 @@ network/networkwin.cpp.s:
 	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/networkwin.cpp.s
 .PHONY : network/networkwin.cpp.s
 
+state/game.o: state/game.cpp.o
+.PHONY : state/game.o
+
+# target to build an object file
+state/game.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/game.cpp.o
+.PHONY : state/game.cpp.o
+
+state/game.i: state/game.cpp.i
+.PHONY : state/game.i
+
+# target to preprocess a source file
+state/game.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/game.cpp.i
+.PHONY : state/game.cpp.i
+
+state/game.s: state/game.cpp.s
+.PHONY : state/game.s
+
+# target to generate assembly for a file
+state/game.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/game.cpp.s
+.PHONY : state/game.cpp.s
+
+state/lobby.o: state/lobby.cpp.o
+.PHONY : state/lobby.o
+
+# target to build an object file
+state/lobby.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/lobby.cpp.o
+.PHONY : state/lobby.cpp.o
+
+state/lobby.i: state/lobby.cpp.i
+.PHONY : state/lobby.i
+
+# target to preprocess a source file
+state/lobby.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/lobby.cpp.i
+.PHONY : state/lobby.cpp.i
+
+state/lobby.s: state/lobby.cpp.s
+.PHONY : state/lobby.s
+
+# target to generate assembly for a file
+state/lobby.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/lobby.cpp.s
+.PHONY : state/lobby.cpp.s
+
+state/mainmenu.o: state/mainmenu.cpp.o
+.PHONY : state/mainmenu.o
+
+# target to build an object file
+state/mainmenu.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/mainmenu.cpp.o
+.PHONY : state/mainmenu.cpp.o
+
+state/mainmenu.i: state/mainmenu.cpp.i
+.PHONY : state/mainmenu.i
+
+# target to preprocess a source file
+state/mainmenu.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/mainmenu.cpp.i
+.PHONY : state/mainmenu.cpp.i
+
+state/mainmenu.s: state/mainmenu.cpp.s
+.PHONY : state/mainmenu.s
+
+# target to generate assembly for a file
+state/mainmenu.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/mainmenu.cpp.s
+.PHONY : state/mainmenu.cpp.s
+
+state/options.o: state/options.cpp.o
+.PHONY : state/options.o
+
+# target to build an object file
+state/options.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/options.cpp.o
+.PHONY : state/options.cpp.o
+
+state/options.i: state/options.cpp.i
+.PHONY : state/options.i
+
+# target to preprocess a source file
+state/options.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/options.cpp.i
+.PHONY : state/options.cpp.i
+
+state/options.s: state/options.cpp.s
+.PHONY : state/options.s
+
+# target to generate assembly for a file
+state/options.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/options.cpp.s
+.PHONY : state/options.cpp.s
+
+utility/utility.o: utility/utility.cpp.o
+.PHONY : utility/utility.o
+
+# target to build an object file
+utility/utility.cpp.o:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/utility/utility.cpp.o
+.PHONY : utility/utility.cpp.o
+
+utility/utility.i: utility/utility.cpp.i
+.PHONY : utility/utility.i
+
+# target to preprocess a source file
+utility/utility.cpp.i:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/utility/utility.cpp.i
+.PHONY : utility/utility.cpp.i
+
+utility/utility.s: utility/utility.cpp.s
+.PHONY : utility/utility.s
+
+# target to generate assembly for a file
+utility/utility.cpp.s:
+	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/utility/utility.cpp.s
+.PHONY : utility/utility.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -606,6 +822,18 @@ help:
 	@echo "... engine/engine.o"
 	@echo "... engine/engine.i"
 	@echo "... engine/engine.s"
+	@echo "... engine/luamanager.o"
+	@echo "... engine/luamanager.i"
+	@echo "... engine/luamanager.s"
+	@echo "... font/font_manager.o"
+	@echo "... font/font_manager.i"
+	@echo "... font/font_manager.s"
+	@echo "... font/gui_freetype_font.o"
+	@echo "... font/gui_freetype_font.i"
+	@echo "... font/gui_freetype_font.s"
+	@echo "... i18n/i18n.o"
+	@echo "... i18n/i18n.i"
+	@echo "... i18n/i18n.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -633,6 +861,21 @@ help:
 	@echo "... network/networkwin.o"
 	@echo "... network/networkwin.i"
 	@echo "... network/networkwin.s"
+	@echo "... state/game.o"
+	@echo "... state/game.i"
+	@echo "... state/game.s"
+	@echo "... state/lobby.o"
+	@echo "... state/lobby.i"
+	@echo "... state/lobby.s"
+	@echo "... state/mainmenu.o"
+	@echo "... state/mainmenu.i"
+	@echo "... state/mainmenu.s"
+	@echo "... state/options.o"
+	@echo "... state/options.i"
+	@echo "... state/options.s"
+	@echo "... utility/utility.o"
+	@echo "... utility/utility.i"
+	@echo "... utility/utility.s"
 .PHONY : help
 
 

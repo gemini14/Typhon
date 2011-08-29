@@ -32,8 +32,8 @@ namespace Typhon
 
 	void I18N::AddElementWithText(irr::gui::IGUIElement *element, const std::string &retrievalKey)
 	{
-		auto elementTuple = make_tuple<irr::gui::IGUIElement*>(element, retrievalKey);
-		i18nElements.insert(make_pair<int, GUIItem>(element->getID(), elementTuple));
+		auto elementTuple = make_tuple(element, retrievalKey);
+		i18nElements.insert(make_pair(element->getID(), elementTuple));
 		element->setText(GetText(language, retrievalKey).c_str());
 	}
 
