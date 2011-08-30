@@ -17,7 +17,10 @@ namespace Typhon
 #ifdef _IRR_WINDOWS_
 		driverType = video::EDT_DIRECT3D9;
 #elif defined(_IRR_LINUX_PLATFORM_)
-		driverType = video::EDT_OPENGL;
+		// TODO find way to get OpenGL working at acceptable speed (software renderer runs smoothly,
+		// but at a much lower framerate)
+		driverType = video::EDT_SOFTWARE;
+		// driverType = video::EDT_OPENGL;
 #endif
 		core::dimension2d<u32> resolution(1024, 768);
 
@@ -47,7 +50,7 @@ namespace Typhon
 #endif
 
 			// set GUI font
-			gui->getSkin()->setFont(fonts->GetTtFont(driver, "fonts/Vera.ttf", 16));
+			gui->getSkin()->setFont(fonts->GetTtFont(driver, "fonts/Ubuntu-R.ttf", 16));
 
 			// Get user options from Lua file
 			try

@@ -1,8 +1,8 @@
 local de = {}
 
-de.BackToMainMenu = 'Zurück zum Hauptmenü'
+de.BackToMainMenu = 'ZurÃ¼ck zum HauptmenÃ¼'
 de.EnterLobby = 'Lobby eintreten'
-de.GameTitle = 'Verrückte Bahnen'
+de.GameTitle = 'VerrÃ¼ckte Bahnen'
 de.Options = 'Optionen'
 de.PlayerName = 'Spieler Name'
 de.Ready = 'Bereit'
