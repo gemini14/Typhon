@@ -50,12 +50,8 @@ namespace Typhon
 					throw StateException("Couldn't allocate or create Irrlicht device.\n");
 				}
 
-				std::cout << "Irrlicht engine initialized!\n";
+				std::cout << "Irrlicht engine initialized.\n";
 				std::cout << "Perf score: " << perfScore << "\n";
-
-				auto test = engine->lang->GetText(DE, "BackToMainMenu");
-				auto test2 = engine->lang->GetText(EN, "BackToMainMenu");
-				std::wcout << test << "\n" << test2 << "\n";
 			}
 
 			void Run(int &lastFPS)
@@ -71,7 +67,7 @@ namespace Typhon
 				int fps = engine->driver->getFPS();
 				if (lastFPS != fps)
 				{
-					irr::core::stringw titleBar(L"Project Typhon - FPS: ");
+					irr::core::stringw titleBar(L"Lunatic Lanes - FPS: ");
 					titleBar += fps;
 					engine->device->setWindowCaption(titleBar.c_str());
 					lastFPS = fps;
@@ -88,13 +84,13 @@ namespace Typhon
 			Game(my_context ctx)
 				: my_base(ctx)
 			{
-				std::cout << "Entered the game! Hi hi!\n";
+				std::cout << "Entered the game state\n";
 				outermost_context().state.reset();
 			}
 
 			~Game()
 			{
-				std::cout << "Game bye!\n";
+				std::cout << "Game state exit\n";
 			}
 		};
 
@@ -135,7 +131,6 @@ namespace Typhon
 			MainMenu(my_context ctx)
 				: my_base(ctx), menu(new Typhon::MainMenu(outermost_context().engine))
 			{
-				std::cout << "Hi hi!\n";
 				outermost_context().state.reset();
 				outermost_context().state = menu;
 				outermost_context().backColor = irr::video::SColor(255, 245, 203, 10);
@@ -143,7 +138,6 @@ namespace Typhon
 
 			~MainMenu()
 			{
-				std::cout << "Bye bye!\n";
 			}
 		};
 
@@ -156,7 +150,6 @@ namespace Typhon
 			Options(my_context ctx)
 				: my_base(ctx), options(new Typhon::Options(outermost_context().engine))
 			{
-				std::cout << "Options hi!\n";
 				outermost_context().state.reset();
 				outermost_context().state = options;
 				outermost_context().backColor = irr::video::SColor(255, 245, 203, 10);
@@ -164,7 +157,6 @@ namespace Typhon
 
 			~Options()
 			{
-				std::cout << "Options bye!\n";
 			}
 		};
 	}
