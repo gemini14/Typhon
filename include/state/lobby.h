@@ -1,6 +1,7 @@
 #ifndef LOBBY_H
 #define LOBBY_H
 
+#include "network/networkfactory.h"
 #include "state/fsmstate.h"
 
 namespace Typhon
@@ -9,6 +10,7 @@ namespace Typhon
 	{
 	private:
 
+		std::unique_ptr<Network> network;
 
 	public:
 
