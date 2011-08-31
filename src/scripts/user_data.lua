@@ -1,2 +1,2 @@
 Name = Tarik
-Language = de
+Language = en

@@ -7,12 +7,45 @@ using namespace irr;
 namespace Typhon
 {
 		// GUI ENUMS
-	enum GUI_ID { };
+	enum GUI_ID { 
+		TABCONTROL_PLAYERPANE,
+		
+		BUTTON_READY,
+		BUTTON_RETURN_MENU };
 
 	Lobby::Lobby(std::shared_ptr<Engine> engine)
 		: FSMState(engine)
 	{
-		
+		// player pane (holds list of human players/AI who will be playing them game)
+		guiElements.push_back(engine->gui->addTabControl(core::rect<irr::s32>(
+			GUI_ELEMENT_SPACING * 2,
+			GUI_ELEMENT_SPACING * 2,
+			edgeBorderWidth,
+			edgeBorderHeight - BUTTON_HEIGHT - GUI_ELEMENT_SPACING),
+			0,
+			false,
+			true,
+			TABCONTROL_PLAYERPANE));
+
+				// Return to main menu button
+		guiElements.push_back(engine->gui->addButton(core::rect<irr::s32>(
+			edgeBorderWidth - BUTTON_WIDTH * 2 - GUI_ELEMENT_SPACING,
+			edgeBorderHeight - BUTTON_HEIGHT,
+			edgeBorderWidth - BUTTON_WIDTH - GUI_ELEMENT_SPACING,
+			edgeBorderHeight), 
+			0, 
+			BUTTON_RETURN_MENU)); 
+		engine->lang->AddElementWithText(guiElements.back(), "BackToMainMenu");
+
+		// Player ready button
+		guiElements.push_back(engine->gui->addButton(core::rect<irr::s32>(
+			edgeBorderWidth - BUTTON_WIDTH,
+			edgeBorderHeight - BUTTON_HEIGHT,
+			edgeBorderWidth,
+			edgeBorderHeight), 
+			0, 
+			BUTTON_READY));
+		engine->lang->AddElementWithText(guiElements.back(), "Ready");
 	}
 
 	Lobby::~Lobby()
@@ -27,7 +60,16 @@ namespace Typhon
 			switch(event.GUIEvent.EventType)
 			{
 			case gui::EGET_BUTTON_CLICKED:
-				
+				switch(id)
+				{
+				case BUTTON_RETURN_MENU:
+					engine->eventQueue.push(FSM::MAINMENU);
+					return true;
+
+				case BUTTON_READY:
+					engine->eventQueue.push(FSM::GAME);
+					return true;
+				}
 				break;
 
 			case gui::EGET_COMBO_BOX_CHANGED:

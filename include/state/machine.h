@@ -101,17 +101,21 @@ namespace Typhon
 				sc::transition<EvGame, Game>> reactions;
 
 			std::unique_ptr<Network> network;
+			std::shared_ptr<Typhon::Lobby> lobby;
 
 			Lobby(my_context ctx)
-				: my_base(ctx), network(Typhon::GetNetwork(Typhon::RAW, PORT_NUMBER))
+				: my_base(ctx), network(Typhon::GetNetwork(Typhon::RAW, PORT_NUMBER)),
+				lobby(new Typhon::Lobby(outermost_context().engine))
 			{
 				if (!network)
 				{
 					throw StateException("Error starting up network code (could not allocate or incompatible system).\n");
 				}
+				outermost_context().state.reset();
+				outermost_context().state = lobby;
+				outermost_context().backColor = irr::video::SColor(255, 245, 203, 10);
 				std::cout << "Network up!\n";
 				std::cout << "Lobby hi!\n";
-				outermost_context().state.reset();
 			}
 
 			~Lobby()
