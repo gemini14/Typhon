@@ -1,6 +1,9 @@
 #ifndef LOBBY_H
 #define LOBBY_H
 
+#include <string>
+#include <vector>
+
 #include "network/networkfactory.h"
 #include "state/fsmstate.h"
 
@@ -10,7 +13,18 @@ namespace Typhon
 	{
 	private:
 
+		struct Player
+		{
+			enum PLAYER_TYPE { AI, HUMAN };
+
+			PLAYER_TYPE type;
+			std::wstring name;
+			int perfScore;
+			sockaddr *sourceAddr;
+		};
+
 		std::unique_ptr<Network> network;
+		std::vector<Player> playerList;
 
 	public:
 

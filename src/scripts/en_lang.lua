@@ -1,6 +1,7 @@
 local en = {}
 
 en.BackToMainMenu = 'Back to Main Menu'
+en.Computer = 'Computer'
 en.EnterLobby = 'Enter Lobby'
 en.GameTitle = 'Lunatic Lanes'
 en.Options = 'Options'

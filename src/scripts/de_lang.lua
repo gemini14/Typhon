@@ -1,6 +1,7 @@
 local de = {}
 
 de.BackToMainMenu = 'Zurück zum Hauptmenü'
+de.Computer = 'Computer'
 de.EnterLobby = 'Lobby eintreten'
 de.GameTitle = 'Verrückte Bahnen'
 de.Options = 'Optionen'

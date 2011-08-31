@@ -32,7 +32,7 @@ int Metrics::GetPerfScore()
 	{
 		char buffer[256];
 		FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, error, 0, buffer, 256, 0);
-        printf("Error: Problem opening registry key to find CPU speed.\n");
+		printf("Error: Problem opening registry key to find CPU speed.\n");
 	}
 	else
 	{
