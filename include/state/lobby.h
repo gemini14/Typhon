@@ -9,12 +9,12 @@
 
 namespace Typhon
 {
-	class Lobby : public FSMState
+class Lobby : public FSMState
 	{
 	private:
 
 		enum PLAYER_TYPE { HUMAN, AI };
-
+		
 		class Player
 		{
 		public:
@@ -37,17 +37,20 @@ namespace Typhon
 		std::unique_ptr<Network> network;
 		std::vector<Player> players;
 		int numBots;
+		irr::gui::IGUIStaticText *playersGUI;
 
-		void AddPlayer(const std::wstring& name, const int perfScore,
-			const std::string& location, const int port);
-		void RemovePlayer(const std::wstring& name);
+		void UpdatePlayersOnScreen();
 
 	public:
 
 		Lobby(std::shared_ptr<Engine> engine);
 		virtual ~Lobby();
 
+		void AddPlayer(const std::wstring& name, const int perfScore,
+			const std::string& location, const int port);
+		Network* GetNetwork();
 		virtual bool OnEvent(const irr::SEvent &event);
+		void RemovePlayer(const std::wstring& name);		
 		virtual void Run();
 	};
 }

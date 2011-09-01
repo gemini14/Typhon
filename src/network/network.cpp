@@ -23,4 +23,11 @@ namespace Typhon
 	Network::~Network()
 	{
 	}
+
+	std::string Network::GetIPInStringForm()
+	{
+		char str[INET_ADDRSTRLEN];
+		inet_ntop(AF_INET, &machineAddr.sin_addr, str, INET_ADDRSTRLEN);
+		return str;
+	}
 }

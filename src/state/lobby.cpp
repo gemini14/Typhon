@@ -1,6 +1,7 @@
 #include "state/lobby.h"
 
 #include <algorithm>
+#include <sstream>
 
 #include <Ws2tcpip.h>
 
@@ -24,44 +25,16 @@ namespace Typhon
 		STATIC_TEXT_READY
 	};
 
-	void Lobby::AddPlayer(const std::wstring& name, const int perfScore,
-		const std::string& location, const int port)
+	void Lobby::UpdatePlayersOnScreen()
 	{
-		// make sure we don't bump a real player from the lobby
-		if(!numBots)
+		std::wstringstream playerText;
+		// tried to use std::copy and ostream_iterator, but it was such a pain
+		// to (try to) get it working that I just went with a simple for loop to save time
+		for(auto iter = players.begin(); iter != players.end(); ++iter)
 		{
-			return;
+			playerText << iter->name << L"\n\n";
 		}
-
-		auto iter = find_if(players.rbegin(), players.rend(), [](Player p){ return p.type == Lobby::AI; });
-		if(iter != players.rend())
-		{
-				iter->name = name;
-				iter->perfScore = perfScore;
-				iter->type = HUMAN;
-				iter->sourceAddr.sin_port = port;
-				inet_pton(AF_INET, location.c_str(), &iter->sourceAddr.sin_addr);
-				numBots--;
-				sort(players.begin(), players.end(), [](const Player& lhs, const Player& rhs) -> bool
-				{
-					if(lhs.type < rhs.type)
-						return true;
-					else
-						return lhs.name < rhs.name;
-				});
-		}
-	}
-
-	void Lobby::RemovePlayer(const std::wstring& name)
-	{
-		auto iter = find_if(players.begin(), players.end(), [=](Player p) { return p.name == name; });
-		if(iter != players.end())
-		{
-			// setting other fields is unnecessary since we can ignore them after seeing
-			// that this is a bot
-			iter->name = L"Bot";
-			iter->type = AI;
-		}
+		playersGUI->setText(playerText.str().c_str());
 	}
 
 	Lobby::Lobby(std::shared_ptr<Engine> engine)
@@ -125,10 +98,49 @@ namespace Typhon
 			0,
 			STATIC_TEXT_READY));
 		engine->lang->AddElementWithText(guiElements.back(), "Ready");
+
+		playersGUI = engine->gui->addStaticText(L"", core::rect<s32>(
+			GUI_ELEMENT_SPACING * 3,
+			GUI_ELEMENT_SPACING * 4,
+			GUI_ELEMENT_SPACING * 3 + 200,
+			edgeBorderHeight - BUTTON_HEIGHT - GUI_ELEMENT_SPACING),
+			false,
+			true,
+			0,
+			STATIC_TEXT_PLAYER_LIST);
+		guiElements.push_back(playersGUI);
 	}
 
 	Lobby::~Lobby()
 	{
+	}
+
+	void Lobby::AddPlayer(const std::wstring& name, const int perfScore,
+		const std::string& location, const int port)
+	{
+		// make sure we don't bump a real player from the lobby
+		if(!numBots)
+		{
+			return;
+		}
+
+		auto iter = find_if(players.rbegin(), players.rend(), [](Player p){ return p.type == Lobby::AI; });
+		if(iter != players.rend())
+		{
+			iter->name = name;
+			iter->perfScore = perfScore;
+			iter->type = HUMAN;
+			iter->sourceAddr.sin_port = port;
+			inet_pton(AF_INET, location.c_str(), &iter->sourceAddr.sin_addr);
+			numBots--;
+			sort(players.begin(), players.end(), [](const Player& lhs, const Player& rhs){ return lhs.type < rhs.type; });
+			UpdatePlayersOnScreen();
+		}		
+	}
+
+	Network* Lobby::GetNetwork()
+	{
+		return network.get();
 	}
 
 	bool Lobby::OnEvent(const irr::SEvent &event)
@@ -164,6 +176,19 @@ namespace Typhon
 
 		return false;
 
+	}
+
+	void Lobby::RemovePlayer(const std::wstring& name)
+	{
+		auto iter = find_if(players.begin(), players.end(), [=](Player p) { return p.name == name; });
+		if(iter != players.end())
+		{
+			// setting other fields is unnecessary since we can ignore them after seeing
+			// that this is a bot
+			iter->name = L"Bot";
+			iter->type = AI;
+			UpdatePlayersOnScreen();
+		}
 	}
 
 	void Lobby::Run()
