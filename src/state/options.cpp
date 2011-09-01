@@ -16,7 +16,8 @@ namespace Typhon
 		EDITBOX_PLAYER_NAME,
 		STATICTEXT_PLAYER_NAME_DESC, 
 		
-		BUTTON_RETURN_MENU }; 
+		BUTTON_RETURN_MENU
+	}; 
 
 	Options::Options(std::shared_ptr<Engine> engine)
 		: FSMState(engine)

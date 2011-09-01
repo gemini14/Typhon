@@ -1,7 +1,6 @@
 #include "i18n/i18n.h"
 
 #include <clocale>
-#include <cstdlib>
 #include <iostream>
 #include <utility>
 
@@ -19,8 +18,7 @@ namespace Typhon
 		: lua(lua), language(EN)
 	{
 		langSelector = nullptr;
-		setlocale(LC_ALL, "");
-		
+				
 		// add new language entries here after adding them to the enum declaration
 		langMap[EN] = "en";
 		langMap[DE] = "de";

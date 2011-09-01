@@ -7,7 +7,11 @@ using namespace irr;
 namespace Typhon
 {
 	// GUI ENUMS
-	enum GUI_ID { BUTTON_ENTER_LOBBY, BUTTON_OPTIONS, BUTTON_QUIT };
+	enum GUI_ID { 
+		BUTTON_ENTER_LOBBY,
+		BUTTON_OPTIONS,
+		BUTTON_QUIT
+	};
 
 	MainMenu::MainMenu(std::shared_ptr<Engine> engine)
 		: FSMState(engine)

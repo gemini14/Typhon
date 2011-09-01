@@ -1,9 +1,14 @@
 #include "state/lobby.h"
 
+#include <algorithm>
+
+#include <Ws2tcpip.h>
+
 #include "engine/engine.h"
 #include "utility/stateexception.h"
 
 using namespace irr;
+using namespace std;
 
 namespace Typhon
 {
@@ -12,88 +17,157 @@ namespace Typhon
 		TABCONTROL_PLAYERPANE,
 
 		BUTTON_READY,
-		BUTTON_RETURN_MENU };
+		BUTTON_RETURN_MENU,
 
-		Lobby::Lobby(std::shared_ptr<Engine> engine)
-			: FSMState(engine), network(Typhon::GetNetwork(Typhon::RAW, PORT_NUMBER))		
+		STATIC_TEXT_PLAYER,
+		STATIC_TEXT_PLAYER_LIST,
+		STATIC_TEXT_READY
+	};
+
+	void Lobby::AddPlayer(const std::wstring& name, const int perfScore,
+		const std::string& location, const int port)
+	{
+		// make sure we don't bump a real player from the lobby
+		if(!numBots)
 		{
-			if (!network)
-			{
-				throw StateException("Error starting up network code (could not allocate or incompatible system).\n");
-			}
-
-			// player pane (holds list of human players/AI who will be playing them game)
-			guiElements.push_back(engine->gui->addTabControl(core::rect<irr::s32>(
-				GUI_ELEMENT_SPACING * 2,
-				GUI_ELEMENT_SPACING * 2,
-				edgeBorderWidth,
-				edgeBorderHeight - BUTTON_HEIGHT - GUI_ELEMENT_SPACING),
-				0,
-				false,
-				true,
-				TABCONTROL_PLAYERPANE));
-
-			// Return to main menu button
-			guiElements.push_back(engine->gui->addButton(core::rect<irr::s32>(
-				edgeBorderWidth - BUTTON_WIDTH * 2 - GUI_ELEMENT_SPACING,
-				edgeBorderHeight - BUTTON_HEIGHT,
-				edgeBorderWidth - BUTTON_WIDTH - GUI_ELEMENT_SPACING,
-				edgeBorderHeight), 
-				0, 
-				BUTTON_RETURN_MENU)); 
-			engine->lang->AddElementWithText(guiElements.back(), "BackToMainMenu");
-
-			// Player ready button
-			guiElements.push_back(engine->gui->addButton(core::rect<irr::s32>(
-				edgeBorderWidth - BUTTON_WIDTH,
-				edgeBorderHeight - BUTTON_HEIGHT,
-				edgeBorderWidth,
-				edgeBorderHeight), 
-				0, 
-				BUTTON_READY));
-			engine->lang->AddElementWithText(guiElements.back(), "Ready");
+			return;
 		}
 
-		Lobby::~Lobby()
+		auto iter = find_if(players.rbegin(), players.rend(), [](Player p){ return p.type == Lobby::AI; });
+		if(iter != players.rend())
 		{
-		}
-
-		bool Lobby::OnEvent(const irr::SEvent &event)
-		{
-			if (event.EventType == EET_GUI_EVENT)
-			{
-				s32 id = event.GUIEvent.Caller->getID();
-				switch(event.GUIEvent.EventType)
+				iter->name = name;
+				iter->perfScore = perfScore;
+				iter->type = HUMAN;
+				iter->sourceAddr.sin_port = port;
+				inet_pton(AF_INET, location.c_str(), &iter->sourceAddr.sin_addr);
+				numBots--;
+				sort(players.begin(), players.end(), [](const Player& lhs, const Player& rhs) -> bool
 				{
-				case gui::EGET_BUTTON_CLICKED:
-					switch(id)
-					{
-					case BUTTON_RETURN_MENU:
-						engine->eventQueue.push(FSM::MAINMENU);
+					if(lhs.type < rhs.type)
 						return true;
+					else
+						return lhs.name < rhs.name;
+				});
+		}
+	}
 
-					case BUTTON_READY:
-						engine->eventQueue.push(FSM::GAME);
-						return true;
-					}
-					break;
+	void Lobby::RemovePlayer(const std::wstring& name)
+	{
+		auto iter = find_if(players.begin(), players.end(), [=](Player p) { return p.name == name; });
+		if(iter != players.end())
+		{
+			// setting other fields is unnecessary since we can ignore them after seeing
+			// that this is a bot
+			iter->name = L"Bot";
+			iter->type = AI;
+		}
+	}
 
-				case gui::EGET_COMBO_BOX_CHANGED:
-					// if another combo box is added, IDs will have to be passed out
-					// and this case statement will have to include a switch
-					engine->lang->ChangeLanguage(static_cast<LANG>(engine->lang->langSelector->getSelected()));
+	Lobby::Lobby(std::shared_ptr<Engine> engine)
+		: FSMState(engine), network(Typhon::GetNetwork(Typhon::RAW, PORT_NUMBER)),
+		numBots(MAX_PLAYERS), players(MAX_PLAYERS, Player())
+	{
+		if (!network)
+		{
+			throw StateException("Error starting up network code (could not allocate or incompatible system).\n");
+		}
+
+		// player pane (holds list of human players/AI who will be playing them game)
+		guiElements.push_back(engine->gui->addTabControl(core::rect<s32>(
+			GUI_ELEMENT_SPACING * 2,
+			GUI_ELEMENT_SPACING * 2,
+			edgeBorderWidth,
+			edgeBorderHeight - BUTTON_HEIGHT - GUI_ELEMENT_SPACING),
+			0,
+			false,
+			true,
+			TABCONTROL_PLAYERPANE));
+
+		// Return to main menu button
+		guiElements.push_back(engine->gui->addButton(core::rect<s32>(
+			edgeBorderWidth - BUTTON_WIDTH * 2 - GUI_ELEMENT_SPACING,
+			edgeBorderHeight - BUTTON_HEIGHT,
+			edgeBorderWidth - BUTTON_WIDTH - GUI_ELEMENT_SPACING,
+			edgeBorderHeight), 
+			0, 
+			BUTTON_RETURN_MENU)); 
+		engine->lang->AddElementWithText(guiElements.back(), "BackToMainMenu");
+
+		// Player ready button
+		guiElements.push_back(engine->gui->addButton(core::rect<s32>(
+			edgeBorderWidth - BUTTON_WIDTH,
+			edgeBorderHeight - BUTTON_HEIGHT,
+			edgeBorderWidth,
+			edgeBorderHeight), 
+			0, 
+			BUTTON_READY));
+		engine->lang->AddElementWithText(guiElements.back(), "Ready");
+
+		guiElements.push_back(engine->gui->addStaticText(L"", core::rect<s32>(
+			GUI_ELEMENT_SPACING * 3,
+			GUI_ELEMENT_SPACING * 2 + 7,
+			GUI_ELEMENT_SPACING * 3 + 50,
+			GUI_ELEMENT_SPACING * 2 + 27),
+			false,
+			false,
+			0,
+			STATIC_TEXT_PLAYER));
+		engine->lang->AddElementWithText(guiElements.back(), "Player");
+
+		guiElements.push_back(engine->gui->addStaticText(L"", core::rect<s32>(
+			edgeBorderWidth - GUI_ELEMENT_SPACING * 5,
+			GUI_ELEMENT_SPACING * 2 + 7,
+			edgeBorderWidth - GUI_ELEMENT_SPACING * 2,
+			GUI_ELEMENT_SPACING * 2 + 27),
+			false,
+			false,
+			0,
+			STATIC_TEXT_READY));
+		engine->lang->AddElementWithText(guiElements.back(), "Ready");
+	}
+
+	Lobby::~Lobby()
+	{
+	}
+
+	bool Lobby::OnEvent(const irr::SEvent &event)
+	{
+		if (event.EventType == EET_GUI_EVENT)
+		{
+			s32 id = event.GUIEvent.Caller->getID();
+			switch(event.GUIEvent.EventType)
+			{
+			case gui::EGET_BUTTON_CLICKED:
+				switch(id)
+				{
+				case BUTTON_RETURN_MENU:
+					engine->eventQueue.push(FSM::MAINMENU);
 					return true;
 
-				default:
-					break;
+				case BUTTON_READY:
+					// engine->eventQueue.push(FSM::GAME);
+					return true;
 				}
+				break;
+
+			case gui::EGET_COMBO_BOX_CHANGED:
+				// if another combo box is added, IDs will have to be passed out
+				// and this case statement will have to include a switch
+				engine->lang->ChangeLanguage(static_cast<LANG>(engine->lang->langSelector->getSelected()));
+				return true;
+
+			default:
+				break;
 			}
-
-			return false;
-
 		}
 
-		void Lobby::Run()
-		{
-		}
+		return false;
+
+	}
+
+	void Lobby::Run()
+	{
+
+	}
 }

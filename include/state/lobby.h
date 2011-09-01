@@ -13,18 +13,34 @@ namespace Typhon
 	{
 	private:
 
-		struct Player
+		enum PLAYER_TYPE { HUMAN, AI };
+
+		class Player
 		{
-			enum PLAYER_TYPE { AI, HUMAN };
+		public:
+
+			Player() : type(AI), name(L"Bot"), perfScore(0)
+			{
+				memset(&sourceAddr, 0, sizeof sourceAddr);
+				sourceAddr.sin_family = AF_INET;
+			}
+			~Player()
+			{
+			}
 
 			PLAYER_TYPE type;
 			std::wstring name;
 			int perfScore;
-			sockaddr *sourceAddr;
+			sockaddr_in sourceAddr;
 		};
 
 		std::unique_ptr<Network> network;
-		std::vector<Player> playerList;
+		std::vector<Player> players;
+		int numBots;
+
+		void AddPlayer(const std::wstring& name, const int perfScore,
+			const std::string& location, const int port);
+		void RemovePlayer(const std::wstring& name);
 
 	public:
 

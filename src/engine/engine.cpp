@@ -17,7 +17,7 @@ namespace Typhon
 #ifdef _IRR_WINDOWS_
 		driverType = video::EDT_DIRECT3D9;
 #elif defined(_IRR_LINUX_PLATFORM_)
-		// TODO find way to get OpenGL working at acceptable speed (software renderer runs smoothly,
+		// TODO: find way to get OpenGL working at acceptable speed (software renderer runs smoothly,
 		// but at a much lower framerate)
 		driverType = video::EDT_SOFTWARE;
 		// driverType = video::EDT_OPENGL;
