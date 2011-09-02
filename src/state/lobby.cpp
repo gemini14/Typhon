@@ -115,8 +115,8 @@ namespace Typhon
 	{
 	}
 
-	void Lobby::AddPlayer(const std::wstring& name, const int perfScore,
-		const std::string& location, const int port)
+	void Lobby::AddPlayer(const std::wstring &name, const int perfScore,
+		const std::string &location, const int port)
 	{
 		// make sure we don't bump a real player from the lobby
 		if(!numBots)
@@ -178,14 +178,14 @@ namespace Typhon
 
 	}
 
-	void Lobby::RemovePlayer(const std::wstring& name)
+	void Lobby::RemovePlayer(const std::wstring &name)
 	{
 		auto iter = find_if(players.begin(), players.end(), [=](Player p) { return p.name == name; });
 		if(iter != players.end())
 		{
 			// setting other fields is unnecessary since we can ignore them after seeing
 			// that this is a bot
-			iter->name = L"Bot";
+			iter->name = engine->lang->GetText("Bot");
 			iter->type = AI;
 			UpdatePlayersOnScreen();
 		}

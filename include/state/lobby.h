@@ -46,11 +46,11 @@ class Lobby : public FSMState
 		Lobby(std::shared_ptr<Engine> engine);
 		virtual ~Lobby();
 
-		void AddPlayer(const std::wstring& name, const int perfScore,
-			const std::string& location, const int port);
+		void AddPlayer(const std::wstring &name, const int perfScore,
+			const std::string &location, const int port);
 		Network* GetNetwork();
 		virtual bool OnEvent(const irr::SEvent &event);
-		void RemovePlayer(const std::wstring& name);		
+		void RemovePlayer(const std::wstring &name);		
 		virtual void Run();
 	};
 }

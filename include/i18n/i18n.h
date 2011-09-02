@@ -44,6 +44,7 @@ namespace Typhon
 		LANG ConvertStringToLang(const std::string &langStr);
 		int GetNumberOfLanguages();
 		std::wstring GetText(const LANG lang, const std::string &entry);
+		std::wstring GetText(const std::string &entry);
 	};
 }
 

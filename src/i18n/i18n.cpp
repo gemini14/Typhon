@@ -102,4 +102,9 @@ namespace Typhon
 		
 		return ConvertStrToWide(text);
 	}
+
+	std::wstring I18N::GetText(const std::string &entry)
+	{
+		return GetText(language, entry);
+	}
 }
