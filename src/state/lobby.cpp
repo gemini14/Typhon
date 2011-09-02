@@ -17,6 +17,9 @@ using namespace std;
 
 namespace Typhon
 {
+	const video::SColor RED = video::SColor(255, 255, 0, 0);
+	const video::SColor GREEN = video::SColor(255, 0, 255, 0);
+
 	// GUI ENUMS
 	enum GUI_ID { 
 		TABCONTROL_PLAYERPANE,
@@ -28,6 +31,27 @@ namespace Typhon
 		STATIC_TEXT_PLAYER_LIST,
 		STATIC_TEXT_READY
 	};
+
+	void Lobby::FlipPlayerReady()
+	{
+		for(int i = 0; i < MAX_PLAYERS; ++i)
+		{
+			if(players[i].name == engine->options.name)
+			{
+				players[i].ready = !players[i].ready;
+				auto readyBox = readyImages[i];
+				if(players[i].ready)
+				{
+					readyBox->setBackgroundColor(GREEN);
+				}
+				else
+				{
+					readyBox->setBackgroundColor(RED);
+				}
+				break;
+			}
+		}
+	}
 
 	void Lobby::UpdatePlayersOnScreen()
 	{
@@ -119,14 +143,21 @@ namespace Typhon
 
 		for(float i = 2.5f; i < 2.5f + MAX_PLAYERS; ++i)
 		{
-			auto checkBox = engine->gui->addCheckBox(false, core::rect<s32>(
+			auto readyImg = engine->gui->addStaticText(L"",
+				core::rect<s32>(
 				static_cast<int>(edgeBorderWidth - GUI_ELEMENT_SPACING * 4.5),
 				static_cast<int>(CHECKBOX_SPACING * i),
 				static_cast<int>(edgeBorderWidth - GUI_ELEMENT_SPACING * 3.5),
 				static_cast<int>(CHECKBOX_SPACING * i + GUI_ELEMENT_SPACING) 
-				));
-			readyCheckBoxes.push_back(checkBox);
-			guiElements.push_back(checkBox);
+				),
+				true,
+				true,
+				nullptr,
+				-1,
+				true);
+			readyImg->setBackgroundColor(RED);
+			readyImages.push_back(readyImg);
+			guiElements.push_back(readyImg);
 		}
 	}
 
@@ -178,15 +209,7 @@ namespace Typhon
 					return true;
 
 				case BUTTON_READY:
-					for(int i = 0; i < MAX_PLAYERS; ++i)
-					{
-						if(players[i].name == engine->options.name)
-						{
-							auto checkBox = readyCheckBoxes[i];
-							checkBox->setChecked(!checkBox->isChecked());
-							break;
-						}
-					}
+					FlipPlayerReady();
 					return true;
 				}
 				break;

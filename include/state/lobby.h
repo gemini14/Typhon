@@ -37,10 +37,11 @@ class Lobby : public FSMState
 
 		std::unique_ptr<Network> network;
 		std::vector<Player> players;
-		std::vector<irr::gui::IGUICheckBox*> readyCheckBoxes;
+		std::vector<irr::gui::IGUIStaticText*> readyImages;
 		int numBots;
 		irr::gui::IGUIStaticText *playersGUI;
 
+		void FlipPlayerReady();
 		void UpdatePlayersOnScreen();
 
 	public:
