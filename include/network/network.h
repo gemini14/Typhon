@@ -43,7 +43,8 @@ namespace Typhon
 		virtual ~Network();
 
 		virtual void BroadcastMessage(const std::string &msg, const char prefix) = 0;
-		std::string GetIPInStringForm();
+		const unsigned long GetIP() const;
+		std::string GetIPInStringForm() const;
 		virtual const Message ReceiveMessage() = 0;
 		virtual bool StartUp() = 0;
 	};

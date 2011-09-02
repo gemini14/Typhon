@@ -3,12 +3,6 @@
 #include <algorithm>
 #include <sstream>
 
-#ifdef WIN32
-#include <Ws2tcpip.h>
-#else
-// TODO: Add Linux equivalent
-#endif
-
 #include "engine/engine.h"
 #include "utility/stateexception.h"
 
@@ -32,11 +26,15 @@ namespace Typhon
 		STATIC_TEXT_READY
 	};
 
-	void Lobby::FlipPlayerReady()
+	void Lobby::FlipPlayerReady(const unsigned long playerIP)
 	{
 		for(int i = 0; i < MAX_PLAYERS; ++i)
 		{
-			if(players[i].name == engine->options.name)
+#ifdef WIN32
+			if(players[i].sourceAddr.sin_addr.S_un.S_addr == playerIP)
+#else
+			// TODO: Add Linux equivalent
+#endif
 			{
 				players[i].ready = !players[i].ready;
 				auto readyBox = readyImages[i];
@@ -166,7 +164,7 @@ namespace Typhon
 	}
 
 	void Lobby::AddPlayer(const std::wstring &name, const int perfScore,
-		const std::string &location, const int port)
+		const unsigned long location, const int port)
 	{
 		// make sure we don't bump a real player from the lobby
 		if(!numBots)
@@ -182,7 +180,11 @@ namespace Typhon
 			iter->type = HUMAN;
 			iter->ready = false;
 			iter->sourceAddr.sin_port = port;
-			inet_pton(AF_INET, location.c_str(), &iter->sourceAddr.sin_addr);
+#ifdef WIN32
+			iter->sourceAddr.sin_addr.S_un.S_addr = location;
+#else
+			// TODO: Add Linux equivalent
+#endif
 			numBots--;
 			sort(players.begin(), players.end(), [](const Player& lhs, const Player& rhs){ return lhs.type < rhs.type; });
 			UpdatePlayersOnScreen();
@@ -209,7 +211,9 @@ namespace Typhon
 					return true;
 
 				case BUTTON_READY:
-					FlipPlayerReady();
+					FlipPlayerReady(network->GetIP());
+					// R indicates Ready, T indicates True
+					network->BroadcastMessage("T", 'R');
 					return true;
 				}
 				break;
