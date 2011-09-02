@@ -19,7 +19,7 @@ class Lobby : public FSMState
 		{
 		public:
 
-			Player() : type(AI), name(L"Bot"), perfScore(0), ready(false)
+			Player() : type(AI), name(L"Bot"), perfScore(0), ready(true)
 			{
 				memset(&sourceAddr, 0, sizeof sourceAddr);
 				sourceAddr.sin_family = AF_INET;
@@ -37,6 +37,7 @@ class Lobby : public FSMState
 
 		std::unique_ptr<Network> network;
 		std::vector<Player> players;
+		std::vector<irr::gui::IGUICheckBox*> readyCheckBoxes;
 		int numBots;
 		irr::gui::IGUIStaticText *playersGUI;
 

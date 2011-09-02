@@ -3,7 +3,11 @@
 #include <algorithm>
 #include <sstream>
 
+#ifdef WIN32
 #include <Ws2tcpip.h>
+#else
+// TODO: Add Linux equivalent
+#endif
 
 #include "engine/engine.h"
 #include "utility/stateexception.h"
@@ -67,7 +71,7 @@ namespace Typhon
 			BUTTON_RETURN_MENU)); 
 		engine->lang->AddElementWithText(guiElements.back(), "BackToMainMenu");
 
-		// Player ready button
+		// Ready button
 		guiElements.push_back(engine->gui->addButton(core::rect<s32>(
 			edgeBorderWidth - BUTTON_WIDTH,
 			edgeBorderHeight - BUTTON_HEIGHT,
@@ -77,6 +81,7 @@ namespace Typhon
 			BUTTON_READY));
 		engine->lang->AddElementWithText(guiElements.back(), "Ready");
 
+		// "Player" column label
 		guiElements.push_back(engine->gui->addStaticText(L"", core::rect<s32>(
 			GUI_ELEMENT_SPACING * 3,
 			GUI_ELEMENT_SPACING * 2 + 7,
@@ -88,6 +93,7 @@ namespace Typhon
 			STATIC_TEXT_PLAYER));
 		engine->lang->AddElementWithText(guiElements.back(), "Player");
 
+		// "Ready" column label
 		guiElements.push_back(engine->gui->addStaticText(L"", core::rect<s32>(
 			edgeBorderWidth - GUI_ELEMENT_SPACING * 5,
 			GUI_ELEMENT_SPACING * 2 + 7,
@@ -99,6 +105,7 @@ namespace Typhon
 			STATIC_TEXT_READY));
 		engine->lang->AddElementWithText(guiElements.back(), "Ready");
 
+		// actual list of current players in lobby
 		playersGUI = engine->gui->addStaticText(L"", core::rect<s32>(
 			GUI_ELEMENT_SPACING * 3,
 			GUI_ELEMENT_SPACING * 4,
@@ -109,6 +116,18 @@ namespace Typhon
 			0,
 			STATIC_TEXT_PLAYER_LIST);
 		guiElements.push_back(playersGUI);
+
+		for(float i = 2.5f; i < 2.5f + MAX_PLAYERS; ++i)
+		{
+			auto checkBox = engine->gui->addCheckBox(false, core::rect<s32>(
+				static_cast<int>(edgeBorderWidth - GUI_ELEMENT_SPACING * 4.5),
+				static_cast<int>(CHECKBOX_SPACING * i),
+				static_cast<int>(edgeBorderWidth - GUI_ELEMENT_SPACING * 3.5),
+				static_cast<int>(CHECKBOX_SPACING * i + GUI_ELEMENT_SPACING) 
+				));
+			readyCheckBoxes.push_back(checkBox);
+			guiElements.push_back(checkBox);
+		}
 	}
 
 	Lobby::~Lobby()
@@ -130,6 +149,7 @@ namespace Typhon
 			iter->name = name;
 			iter->perfScore = perfScore;
 			iter->type = HUMAN;
+			iter->ready = false;
 			iter->sourceAddr.sin_port = port;
 			inet_pton(AF_INET, location.c_str(), &iter->sourceAddr.sin_addr);
 			numBots--;
@@ -158,7 +178,15 @@ namespace Typhon
 					return true;
 
 				case BUTTON_READY:
-					// engine->eventQueue.push(FSM::GAME);
+					for(int i = 0; i < MAX_PLAYERS; ++i)
+					{
+						if(players[i].name == engine->options.name)
+						{
+							auto checkBox = readyCheckBoxes[i];
+							checkBox->setChecked(!checkBox->isChecked());
+							break;
+						}
+					}
 					return true;
 				}
 				break;
@@ -187,6 +215,7 @@ namespace Typhon
 			// that this is a bot
 			iter->name = engine->lang->GetText("Bot");
 			iter->type = AI;
+			iter->ready = false;
 			UpdatePlayersOnScreen();
 		}
 	}
