@@ -1,10 +1,15 @@
 #include "state/lobby.h"
 
 #include <algorithm>
+#include <regex>
 #include <sstream>
+
+#include <boost/lexical_cast.hpp>
+#include <boost/tokenizer.hpp>
 
 #include "engine/engine.h"
 #include "utility/stateexception.h"
+#include "utility/utility.h"
 
 using namespace irr;
 using namespace std;
@@ -26,17 +31,25 @@ namespace Typhon
 		STATIC_TEXT_READY
 	};
 
-	void Lobby::FlipPlayerReady(const unsigned long playerIP)
+	void Lobby::ChangePlayerReady(const unsigned long playerIP, const char ready)
 	{
 		for(int i = 0; i < MAX_PLAYERS; ++i)
 		{
-#ifdef WIN32
-			if(players[i].sourceAddr.sin_addr.S_un.S_addr == playerIP)
-#else
-			// TODO: Add Linux equivalent
-#endif
+			if(GetNetworkIP(players[i].sourceAddr) == playerIP)
 			{
-				players[i].ready = !players[i].ready;
+				if(ready == 'S')
+				{
+					players[i].ready = !players[i].ready;
+				}
+				else if(ready == 'T')
+				{
+					players[i].ready = true;
+				}
+				else
+				{
+					players[i].ready = false;
+				}
+
 				auto readyBox = readyImages[i];
 				if(players[i].ready)
 				{
@@ -65,13 +78,15 @@ namespace Typhon
 
 	Lobby::Lobby(std::shared_ptr<Engine> engine)
 		: FSMState(engine), network(Typhon::GetNetwork(Typhon::RAW, PORT_NUMBER)),
-		numBots(MAX_PLAYERS), players(MAX_PLAYERS, Player())
+		numBots(MAX_PLAYERS), players(MAX_PLAYERS, Player()),
+		discoveryMessage(ConvertWideToStr(engine->options.name) + " " + boost::lexical_cast<std::string>(engine->perfScore))
 	{
 		if (!network)
 		{
 			throw StateException("Error starting up network code (could not allocate or incompatible system).\n");
 		}
 
+		prevTime = engine->device->getTimer()->getTime();
 		// player pane (holds list of human players/AI who will be playing them game)
 		guiElements.push_back(engine->gui->addTabControl(core::rect<s32>(
 			GUI_ELEMENT_SPACING * 2,
@@ -153,7 +168,7 @@ namespace Typhon
 				nullptr,
 				-1,
 				true);
-			readyImg->setBackgroundColor(RED);
+			readyImg->setBackgroundColor(GREEN);
 			readyImages.push_back(readyImg);
 			guiElements.push_back(readyImg);
 		}
@@ -163,8 +178,7 @@ namespace Typhon
 	{
 	}
 
-	void Lobby::AddPlayer(const std::wstring &name, const int perfScore,
-		const unsigned long location, const int port)
+	void Lobby::AddPlayer(const std::wstring &name, const int perfScore, const unsigned long location)
 	{
 		// make sure we don't bump a real player from the lobby
 		if(!numBots)
@@ -179,7 +193,6 @@ namespace Typhon
 			iter->perfScore = perfScore;
 			iter->type = HUMAN;
 			iter->ready = false;
-			iter->sourceAddr.sin_port = port;
 #ifdef WIN32
 			iter->sourceAddr.sin_addr.S_un.S_addr = location;
 #else
@@ -211,9 +224,7 @@ namespace Typhon
 					return true;
 
 				case BUTTON_READY:
-					FlipPlayerReady(network->GetIP());
-					// R indicates Ready, T indicates True
-					network->BroadcastMessage("T", 'R');
+					ChangePlayerReady(network->GetIP());
 					return true;
 				}
 				break;
@@ -240,15 +251,72 @@ namespace Typhon
 		{
 			// setting other fields is unnecessary since we can ignore them after seeing
 			// that this is a bot
-			iter->name = engine->lang->GetText("Bot");
+			iter->name = L"Bot";
 			iter->type = AI;
-			iter->ready = false;
+			iter->ready = true;
 			UpdatePlayersOnScreen();
 		}
 	}
 
 	void Lobby::Run()
 	{
+		auto currentTime = engine->device->getTimer()->getTime();
+		if((currentTime - prevTime) * 0.001f > 0.5f)
+		{
+			prevTime = currentTime;
+			network->BroadcastMessage(discoveryMessage, 'D');
+			auto iter = find_if(players.begin(), players.end(), [=](const Player &p)
+			{
+				return GetNetworkIP(p.sourceAddr) == network->GetIP();
+			});
+			if(iter != players.end())
+			{
+				switch(iter->ready)
+					{
+				case true:
+					network->BroadcastMessage("T", 'R');
+					break;
+				case false:
+					network->BroadcastMessage("F", 'R');
+					break;
+				}
+			}
 
+			while(true)
+			{
+				auto recvMessage = network->ReceiveMessage();
+
+				auto playerSearch = [=](const Player &p)
+				{
+					return GetNetworkIP(recvMessage.address) == GetNetworkIP(p.sourceAddr);
+				};
+				auto iter = find_if(players.begin(), players.end(), playerSearch);
+
+				if(recvMessage.prefix == 'N')
+				{
+					break;
+				}
+				else if(recvMessage.prefix == 'D')
+				{
+					if(iter == players.end())
+					{
+						boost::char_separator<char> separator(" ");
+						boost::tokenizer<boost::char_separator<char>> tokens(recvMessage.msg, separator);
+						auto iterator = tokens.begin();
+						std::wstring newPlayerName = ConvertStrToWide(*iterator);
+						iterator++;
+						int perf = boost::lexical_cast<int>(*iterator);
+						AddPlayer(newPlayerName, perf, GetNetworkIP(recvMessage.address));
+					}
+				}
+				else if(recvMessage.prefix == 'R')
+				{
+					if(iter != players.end())
+					{
+						ChangePlayerReady(GetNetworkIP(iter->sourceAddr), recvMessage.msg[0]);
+					}
+				}
+			}
+		}
 	}
 }

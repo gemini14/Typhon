@@ -147,8 +147,8 @@ namespace Typhon
 			else if(receivedBytes > 0)
 			{
 				Message msg;
-				msg.msg = buffer[1];
 				msg.prefix = buffer[0];
+				msg.msg = string(buffer + 1, buffer + receivedBytes);
 				msg.address = sender.sin_addr;
 				return msg;	
 			}				

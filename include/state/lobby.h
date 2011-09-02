@@ -40,8 +40,10 @@ class Lobby : public FSMState
 		std::vector<irr::gui::IGUIStaticText*> readyImages;
 		int numBots;
 		irr::gui::IGUIStaticText *playersGUI;
+		std::string discoveryMessage;
+		unsigned int prevTime;
 
-		void FlipPlayerReady(const unsigned long playerIP);
+		void ChangePlayerReady(const unsigned long playerIP, const char ready = 'S');
 		void UpdatePlayersOnScreen();
 
 	public:
@@ -49,8 +51,7 @@ class Lobby : public FSMState
 		Lobby(std::shared_ptr<Engine> engine);
 		virtual ~Lobby();
 
-		void AddPlayer(const std::wstring &name, const int perfScore,
-			const unsigned long location, const int port);
+		void AddPlayer(const std::wstring &name, const int perfScore, const unsigned long location);
 		Network* GetNetwork();
 		virtual bool OnEvent(const irr::SEvent &event);
 		void RemovePlayer(const std::wstring &name);		

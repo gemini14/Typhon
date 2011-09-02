@@ -54,4 +54,20 @@ namespace Typhon
 		// TODO: Add Linux equivalent
 #endif
 	}
+
+	unsigned long GetNetworkIP(const sockaddr_in &address)
+	{
+#ifdef WIN32
+		return address.sin_addr.S_un.S_addr;
+#else
+#endif
+	}
+
+	unsigned long GetNetworkIP(const in_addr &address)
+	{
+#ifdef WIN32
+		return address.S_un.S_addr;
+#else
+#endif
+	}
 }

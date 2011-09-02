@@ -49,6 +49,8 @@ namespace Typhon
 					throw StateException("Couldn't allocate or create Irrlicht device.\n");
 				}
 
+				engine->perfScore = perfScore;
+
 				std::cout << "Irrlicht engine initialized.\n";
 				std::cout << "Perf score: " << perfScore << "\n";
 			}
@@ -104,8 +106,8 @@ namespace Typhon
 			Lobby(my_context ctx)
 				: my_base(ctx), lobby(new Typhon::Lobby(outermost_context().engine))
 			{
-				lobby->AddPlayer(lobby->engine->options.name, outermost_context().perfScore,
-					lobby->GetNetwork()->GetIP(), lobby->GetNetwork()->portNumber);
+				lobby->AddPlayer(lobby->engine->options.name, lobby->engine->perfScore,
+					lobby->GetNetwork()->GetIP());
 				outermost_context().state.reset();
 				outermost_context().state = lobby;
 				outermost_context().backColor = irr::video::SColor(255, 245, 203, 10);
