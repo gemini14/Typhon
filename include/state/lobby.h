@@ -19,7 +19,7 @@ class Lobby : public FSMState
 		{
 		public:
 
-			Player() : type(AI), name(L"Bot"), perfScore(0)
+			Player() : type(AI), name(L"Bot"), perfScore(0), ready(false)
 			{
 				memset(&sourceAddr, 0, sizeof sourceAddr);
 				sourceAddr.sin_family = AF_INET;
@@ -31,6 +31,7 @@ class Lobby : public FSMState
 			PLAYER_TYPE type;
 			std::wstring name;
 			int perfScore;
+			bool ready;
 			sockaddr_in sourceAddr;
 		};
 
