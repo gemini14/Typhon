@@ -20,15 +20,80 @@ DEALINGS IN THE SOFTWARE.
 
 // Project Typhon
 
+#include <exception>
 #include <iostream>
+#include <sstream>
 
-#include <irrlicht/irrlicht.h>
+#include "state/machine.h"
 
-#include <metrics/metrics.h>
+using namespace std;
+using namespace Typhon;
+
 
 int main(int argc, char* argv[])
 {
-	irr::c8 test;
-	std::cout << Typhon::Metrics::GetPerfScore();
+	FSM::Machine machine;
+	try
+	{
+		machine.initiate();
+	}
+	catch(const exception &ex)
+	{
+		cout << ex.what();
+		return 1;
+	}
+
+	int lastFPS = -1;
+
+	while(!machine.terminated() && machine.engine->device->run() &&
+			!machine.engine->terminate)
+	{
+		machine.Run(lastFPS);
+		
+		// process FSM's event queue
+		while(!machine.engine->eventQueue.empty())
+		{
+			auto newEvent = machine.engine->eventQueue.front();
+			machine.engine->lang->ClearAllElements();
+			switch(newEvent)
+			{
+			case FSM::GAME:
+				machine.process_event(FSM::EvGame());
+				break;
+
+			case FSM::LOBBY:
+				machine.process_event(FSM::EvLobby());
+				break;
+
+			case FSM::MAINMENU:
+				machine.process_event(FSM::EvMainMenu());
+				break;
+
+			case FSM::OPTIONS:
+				machine.process_event(FSM::EvOptions());
+				break;
+
+			default:
+				cout << "Invalid event passed to event queue.\n";
+				break;
+			}
+			machine.engine->eventQueue.pop();
+		}
+	}
+
+	machine.engine->SavePrefs();
+	//stringstream discovery;
+	//discovery << name << "%" << perfScore;
+	//while(true)
+	//{
+	//	net->BroadcastMessage(discovery.str(), 'D');
+	//	Message m = net->ReceiveMessage();
+	//	if(m.prefix == 'D')
+	//	{
+	//		std::cout << "Discovery message: " << m.msg;
+	//		break;
+	//	}
+	//}
+
 	return 0;
 }

@@ -5,71 +5,262 @@ project(Typhon)
 
 
 include_directories(
-    ../include/ 
+	../include/
+	../include/freetype/ 
 )
 
 link_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/../lib/ 
-    ${CMAKE_CURRENT_SOURCE_DIR}/../lib/Irrlicht/ 
+	${CMAKE_CURRENT_SOURCE_DIR}/../lib/ 
+	${CMAKE_CURRENT_SOURCE_DIR}/../lib/freetype 
+	${CMAKE_CURRENT_SOURCE_DIR}/../lib/Irrlicht/ 
+	${CMAKE_CURRENT_SOURCE_DIR}/../lib/luabind/
+	${CMAKE_CURRENT_SOURCE_DIR}/../lib/lua/
 )
 
-set(Hdr ../include/)
+set(hdr ../include/)
 
 set(HeaderFiles
-${Hdr}metrics/metrics.h
+
+${hdr}enet/callbacks.h
+${hdr}enet/enet.h
+${hdr}enet/list.h
+${hdr}enet/protocol.h
+${hdr}enet/time.h
+${hdr}enet/types.h
+${hdr}enet/unix.h
+${hdr}enet/utility.h
+${hdr}enet/win32.h
+
+${hdr}engine/engine.h
+${hdr}engine/luamanager.h
+
+${hdr}font/font_manager.h
+${hdr}font/gui_freetype_font.h
+
+${hdr}i18n/i18n.h
+
+${hdr}metrics/metrics.h
+
+${hdr}network/lobbylist.h
+${hdr}network/network.h
+${hdr}network/networkenet.h
+${hdr}network/networkfactory.h
+${hdr}network/networklinux.h
+${hdr}network/networkraw.h
+${hdr}network/networkwin.h
+
+${hdr}state/fsmevents.h
+${hdr}state/fsmstate.h
+${hdr}state/game.h
+${hdr}state/lobby.h
+${hdr}state/machine.h
+${hdr}state/mainmenu.h
+${hdr}state/options.h
+
+${hdr}utility/constants.h
+${hdr}utility/stateexception.h
+${hdr}utility/useroptions.h
+${hdr}utility/utility.h
 )
 
 set(SourceFiles 
 main.cpp 
+
+enet/callbacks.c
+enet/compress.c
+enet/host.c
+enet/list.c
+enet/packet.c
+enet/peer.c
+enet/protocol.c
+enet/unix.c
+enet/win32.c
+
+engine/engine.cpp
+engine/luamanager.cpp
+
+font/font_manager.cpp
+font/gui_freetype_font.cpp
+
+i18n/i18n.cpp
+
+metrics/metrics.cpp
+
+network/lobbylist.cpp
+network/network.cpp
+network/networkenet.cpp
+network/networkfactory.cpp
+network/networklinux.cpp
+network/networkraw.cpp
+network/networkwin.cpp
+
+state/game.cpp
+state/lobby.cpp
+state/mainmenu.cpp
+state/options.cpp
+
+utility/utility.cpp
+)
+
+
+set(ScriptFiles
+scripts/de_lang.lua
+scripts/en_lang.lua
+scripts/input_codes.lua
+scripts/lang_get.lua
+scripts/script_list.lua
+scripts/user_data.lua
+scripts/user_options.lua
+)
+
+
+source_group(Header\ Files\\enet FILES
+${hdr}enet/callbacks.h
+${hdr}enet/enet.h
+${hdr}enet/list.h
+${hdr}enet/protocol.h
+${hdr}enet/time.h
+${hdr}enet/types.h
+${hdr}enet/unix.h
+${hdr}enet/utility.h
+${hdr}enet/win32.h
+)
+
+source_group(Header\ Files\\engine FILES
+${hdr}engine/engine.h
+${hdr}engine/luamanager.h
+)
+
+source_group(Header\ Files\\font FILES
+${hdr}font/font_manager.h
+${hdr}font/gui_freetype_font.h
+)
+
+source_group(Header\ Files\\i18n FILES
+${hdr}i18n/i18n.h
+)
+
+source_group(Header\ Files\\metrics FILES 
+${hdr}metrics/metrics.h
+)
+
+source_group(Header\ Files\\network FILES 
+${hdr}network/lobbylist.h
+${hdr}network/network.h
+${hdr}network/networkenet.h
+${hdr}network/networkfactory.h
+${hdr}network/networklinux.h
+${hdr}network/networkraw.h
+${hdr}network/networkwin.h
+)
+
+source_group(Header\ Files\\state FILES
+${hdr}state/fsmevents.h
+${hdr}state/fsmstate.h
+${hdr}state/game.h
+${hdr}state/lobby.h
+${hdr}state/machine.h
+${hdr}state/mainmenu.h
+${hdr}state/options.h
+)
+
+source_group(Header\ Files\\utility FILES
+${hdr}utility/constants.h
+${hdr}utility/stateexception.h
+${hdr}utility/useroptions.h
+${hdr}utility/utility.h
+)
+
+
+source_group(Source\ Files\\enet FILES
+enet/callbacks.c
+enet/compress.c
+enet/host.c
+enet/list.c
+enet/packet.c
+enet/peer.c
+enet/protocol.c
+enet/unix.c
+enet/win32.c
+)
+
+source_group(Source\ Files\\engine FILES
+engine/engine.cpp
+engine/luamanager.cpp
+)
+
+source_group(Source\ Files\\font FILES
+font/font_manager.cpp
+font/gui_freetype_font.cpp
+)
+
+source_group(Source\ Files\\i18n FILES
+i18n/i18n.cpp
+)
+
+source_group(Source\ Files\\metrics FILES 
 metrics/metrics.cpp
 )
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../shared/)
+source_group(Source\ Files\\network FILES 
+network/lobbylist.cpp
+network/network.cpp
+network/networkenet.cpp
+network/networkfactory.cpp
+network/networklinux.cpp
+network/networkraw.cpp
+network/networkwin.cpp
+)
+
+source_group(Source\ Files\\scripts FILES 
+${ScriptFiles}
+)
+
+source_group(Source\ Files\\state FILES
+state/game.cpp
+state/lobby.cpp
+state/mainmenu.cpp
+state/options.cpp
+)
+
+source_group(Source\ Files\\utility FILES
+utility/utility.cpp
+)
 
 
 if(CMAKE_CL_64)
 
-    message("Creating Win64 project...")
-    add_executable(Typhon64 ${SourceFiles} ${HeaderFiles})
-    target_link_libraries(Typhon64 debug IrrlichtD_64 optimized Irrlicht_64)
-    set_target_properties(Typhon64 PROPERTIES PREFIX "../")
+	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../bin/Win64/)
+	message("Creating Win64 project...")
+	add_executable(Typhon64 ${SourceFiles} ${HeaderFiles} ${ScriptFiles})
+	target_link_libraries(Typhon64 debug IrrlichtD_64 optimized Irrlicht_64 
+		lua5.1_64 debug luabindD_64 optimized luabind_64 Ws2_32 winmm
+		debug freetype246D_64 optimized freetype246_64)
+	set_target_properties(Typhon64 PROPERTIES PREFIX "../")
 
 elseif(CMAKE_HOST_WIN32)
 
-    message("Creating Win32 project")
-    add_executable(Typhon32 ${SourceFiles} ${HeaderFiles})
-    target_link_libraries(Typhon32 debug IrrlichtD_32 optimized Irrlicht_32)
-    set_target_properties(Typhon32 PROPERTIES PREFIX "../")
+	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../bin/Win32/)
+	message("Creating Win32 project")
+	add_executable(Typhon32 ${SourceFiles} ${HeaderFiles} ${ScriptFiles})
+	target_link_libraries(Typhon32 debug IrrlichtD_32 optimized Irrlicht_32
+		lua5.1_32 debug luabindD_32 optimized luabind_32 Ws2_32 winmm
+		debug freetype246D_32 optimized freetype246_32)
+	set_target_properties(Typhon32 PROPERTIES PREFIX "../")
 
 elseif(CMAKE_HOST_UNIX)
-    
-    add_definitions(-g -Wall -std=c++0x)
-    
-    # Set linux bin directory to a separate folder so that it can be ignored
-    # (Linux exe's don't have any extension)
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../shared/Linux/)
-    
-    if(${CMAKE_SIZEOF_VOID_P} EQUAL 8)
-    
-        message("CMAKE_SIZEOF_VOID_P = ${CMAKE_SIZEOF_VOID_P}")
-        message("Creating x64 project...")
-        #64-bit project (void pointer is 8 bytes/64bits)
-        
-        add_executable(Typhon64 ${SourceFiles})
-        set_target_properties(Typhon64 PROPERTIES DEBUG_POSTFIX _D)
-        target_link_libraries(Typhon64 -m64 Irrlicht64.a)
-        
-    elseif(${CMAKE_SIZEOF_VOID_P} EQUAL 4)
-    
-        message("CMAKE_SIZEOF_VOID_P = ${CMAKE_SIZEOF_VOID_P}")
-        message("Creating x86 project...")
-        #32-bit project (void pointer is 4 bytes/32 bits)
-        
-        add_executable(Typhon32 ${SourceFiles})
-        set_target_properties(Typhon32 PROPERTIES DEBUG_POSTFIX _D)
-        target_link_libraries(Typhon32 -m32 Irrlicht32.a)
-    
-    endif()
+	
+	add_definitions(-g -Wall -std=c++0x -DHAS_SOCKLEN_T)
+	
+	# Set linux bin directory to a separate folder so that it can be ignored
+	# (Linux exe's don't have any extension)
+	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../bin/Linux/)
+	
+	message("Creating project...")
+		   
+	add_executable(Typhon ${SourceFiles})
+	set_target_properties(Typhon PROPERTIES DEBUG_POSTFIX _D)
+	target_link_libraries(Typhon Irrlicht lua5.1 luabind freetype z)
 
 endif()
 

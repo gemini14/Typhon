@@ -1,0 +1,53 @@
+﻿Build started 9/2/2011 2:12:12 AM.
+     1>Project "D:\X Platform Projects\Typhon\build\VS2010\x64\Typhon64.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Typhon64.dir\Release\Typhon64.unsuccessfulbuild".
+       CustomBuild:
+         All outputs are up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:/X Platform Projects/Typhon/src/../include" /I"D:/X Platform Projects/Typhon/src/../include/freetype" /nologo /W3 /WX- /O2 /Ob2 /D WIN32 /D _WINDOWS /D NDEBUG /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon64.dir\Release\\" /Fd"D:/X Platform Projects/Typhon/bin/Win64/Release/../Typhon64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\utility\utility.cpp  /Zm1000 
+         utility.cpp
+         All outputs are up-to-date.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\X Platform Projects\Typhon\bin\Win64\Release\Typhon64.exe" /VERSION:"0.0" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Release" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/freetype" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/freetype/Release" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Irrlicht" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Irrlicht/Release" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/luabind" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/luabind/Release" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/lua" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/lua/Release" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib Irrlicht_64.lib lua5.1_64.lib luabind_64.lib Ws2_32.lib winmm.lib freetype246_64.lib /MANIFEST /ManifestFile:"Typhon64.dir\Release\Typhon64.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"D:\X Platform Projects\Typhon\bin\Win64\Release\Typhon64.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/X Platform Projects/Typhon/build/VS2010/x64/Release/Typhon64.lib" /MACHINE:X64 Typhon64.dir\Release\main.obj
+         Typhon64.dir\Release\callbacks.obj
+         Typhon64.dir\Release\compress.obj
+         Typhon64.dir\Release\host.obj
+         Typhon64.dir\Release\list.obj
+         Typhon64.dir\Release\packet.obj
+         Typhon64.dir\Release\peer.obj
+         Typhon64.dir\Release\protocol.obj
+         Typhon64.dir\Release\unix.obj
+         Typhon64.dir\Release\win32.obj
+         Typhon64.dir\Release\engine.obj
+         Typhon64.dir\Release\luamanager.obj
+         Typhon64.dir\Release\font_manager.obj
+         Typhon64.dir\Release\gui_freetype_font.obj
+         Typhon64.dir\Release\i18n.obj
+         Typhon64.dir\Release\metrics.obj
+         Typhon64.dir\Release\lobbylist.obj
+         Typhon64.dir\Release\network.obj
+         Typhon64.dir\Release\networkenet.obj
+         Typhon64.dir\Release\networkfactory.obj
+         Typhon64.dir\Release\networklinux.obj
+         Typhon64.dir\Release\networkraw.obj
+         Typhon64.dir\Release\networkwin.obj
+         Typhon64.dir\Release\game.obj
+         Typhon64.dir\Release\lobby.obj
+         Typhon64.dir\Release\mainmenu.obj
+         Typhon64.dir\Release\options.obj
+         Typhon64.dir\Release\utility.obj  /machine:x64 
+         luabind_64.lib(pcall.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+         Generating code
+         Finished generating code
+         Typhon64.vcxproj -> D:\X Platform Projects\Typhon\bin\Win64\Release\Typhon64.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\X Platform Projects\Typhon\bin\Win64\Release\Typhon64.exe;#1" /manifest Typhon64.dir\Release\Typhon64.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Typhon64.dir\Release\Typhon64.unsuccessfulbuild".
+         Touching "Typhon64.dir\Release\Typhon64.lastbuildstate".
+     1>Done Building Project "D:\X Platform Projects\Typhon\build\VS2010\x64\Typhon64.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.43

@@ -1,6 +1,7 @@
 #ifdef WIN32
+#define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
-#else
+#else // Linux
 #include <unistd.h>
 #endif
 
@@ -31,7 +32,7 @@ int Metrics::GetPerfScore()
 	{
 		char buffer[256];
 		FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, error, 0, buffer, 256, 0);
-        printf("Error: Problem opening registry key to find CPU speed.\n");
+		printf("Error: Problem opening registry key to find CPU speed.\n");
 	}
 	else
 	{
@@ -93,7 +94,7 @@ int Metrics::GetPerfScore()
 	}
 #endif
 
-	score = (numCores * speedCPU) * 0.5 + memory * 0.5;
+	score = static_cast<int>((speedCPU * .4) + (memory * 0.4) + (numCores * .2));
 	return score;
 }
 

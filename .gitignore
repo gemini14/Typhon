@@ -23,4 +23,5 @@ ipch/
 *.cache
 
 #Proj specific
-/shared/Linux
+/bin/Linux
+.metadata
