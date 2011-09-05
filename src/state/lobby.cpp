@@ -1,6 +1,11 @@
 #include "state/lobby.h"
 
 #include <algorithm>
+#ifndef DEBUG
+#define NDEBUG
+#endif
+#include <cassert>
+#include <list>
 #include <regex>
 #include <sstream>
 
@@ -19,6 +24,11 @@ namespace Typhon
 	const video::SColor RED = video::SColor(255, 255, 0, 0);
 	const video::SColor GREEN = video::SColor(255, 0, 255, 0);
 
+	const int BROADCAST_INTERVAL = 1000;
+	// if we haven't heard another discovery message from player in PLAYER_TIMEOUT seconds, 
+	// assume they quit the program or program was force closed, cable ripped out, etc.
+	const int PLAYER_TIMEOUT = 3000;
+
 	// GUI ENUMS
 	enum GUI_ID { 
 		TABCONTROL_PLAYERPANE,
@@ -30,6 +40,27 @@ namespace Typhon
 		STATIC_TEXT_PLAYER_LIST,
 		STATIC_TEXT_READY
 	};
+
+	void Lobby::BroadcastPlayerInfoStatus()
+	{
+		network->BroadcastMessage(discoveryMessage, 'D');
+		auto iter = find_if(players.begin(), players.end(), [=](const Player &p)
+		{
+			return GetNetworkIP(p.sourceAddr) == network->GetIP();
+		});
+		if(iter != players.end())
+		{
+			switch(iter->ready)
+			{
+			case true:
+				network->BroadcastMessage("T", 'R');
+				break;
+			case false:
+				network->BroadcastMessage("F", 'R');
+				break;
+			}
+		}
+	}
 
 	void Lobby::ChangePlayerReady(const unsigned long playerIP, const char ready)
 	{
@@ -50,18 +81,28 @@ namespace Typhon
 					players[i].ready = false;
 				}
 
-				auto readyBox = readyImages[i];
-				if(players[i].ready)
-				{
-					readyBox->setBackgroundColor(GREEN);
-				}
-				else
-				{
-					readyBox->setBackgroundColor(RED);
-				}
 				break;
 			}
 		}
+
+		UpdateReadyBoxes();
+	}
+
+	void Lobby::PruneDisconnects()
+	{
+		list<unsigned long> playersToRemove;
+		for_each(players.begin(), players.end(), [&](const Player &p)
+		{
+			// following if needs this->HUMAN to compile, not sure why, since the
+			// lambda should capture it ([&])
+			if(p.type == this->HUMAN && p.refreshTime >= PLAYER_TIMEOUT && GetNetworkIP(p.sourceAddr) != network->GetIP())
+			{
+				playersToRemove.push_back(GetNetworkIP(p.sourceAddr));
+				wcout << p.name;
+				cout << " pruned, refresh is " << p.refreshTime << "\n\n";
+			}
+		});
+		for_each(playersToRemove.begin(), playersToRemove.end(), [=](const unsigned long addr){ RemovePlayer(addr); });
 	}
 
 	void Lobby::UpdatePlayersOnScreen()
@@ -74,6 +115,22 @@ namespace Typhon
 			playerText << iter->name << L"\n\n";
 		}
 		playersGUI->setText(playerText.str().c_str());
+		UpdateReadyBoxes();
+	}
+
+	void Lobby::UpdateReadyBoxes()
+	{
+		for(int i = 0; i < MAX_PLAYERS; ++i)
+		{
+			if(players[i].ready)
+			{
+				readyImages[i]->setBackgroundColor(GREEN);
+			}
+			else
+			{
+				readyImages[i]->setBackgroundColor(RED);
+			}
+		}
 	}
 
 	Lobby::Lobby(std::shared_ptr<Engine> engine)
@@ -186,13 +243,17 @@ namespace Typhon
 			return;
 		}
 
-		auto iter = find_if(players.rbegin(), players.rend(), [](Player p){ return p.type == Lobby::AI; });
-		if(iter != players.rend())
-		{
+		// get open AI spot in player list.  we know it is an AI b/c numBots is positive
+		auto iter = players.end() - 1;
+		assert(iter != players.end() && iter->type == AI);
+
+			wcout << name;
+			cout << " being added.\n";
 			iter->name = name;
 			iter->perfScore = perfScore;
 			iter->type = HUMAN;
 			iter->ready = false;
+			iter->refreshTime = 0.f;
 #ifdef WIN32
 			iter->sourceAddr.sin_addr.S_un.S_addr = location;
 #else
@@ -201,7 +262,6 @@ namespace Typhon
 			numBots--;
 			sort(players.begin(), players.end(), [](const Player& lhs, const Player& rhs){ return lhs.type < rhs.type; });
 			UpdatePlayersOnScreen();
-		}		
 	}
 
 	Network* Lobby::GetNetwork()
@@ -244,16 +304,21 @@ namespace Typhon
 
 	}
 
-	void Lobby::RemovePlayer(const std::wstring &name)
+	void Lobby::RemovePlayer(const unsigned long addr)
 	{
-		auto iter = find_if(players.begin(), players.end(), [=](Player p) { return p.name == name; });
+		auto iter = find_if(players.begin(), players.end(), [=](Player p) { return GetNetworkIP(p.sourceAddr) == addr; });
 		if(iter != players.end())
 		{
 			// setting other fields is unnecessary since we can ignore them after seeing
 			// that this is a bot
+			wcout << iter->name;
+			wcout << " being removed.\n";
 			iter->name = L"Bot";
 			iter->type = AI;
+			memset(&iter->sourceAddr, 0, sizeof iter->sourceAddr);
+			iter->refreshTime = 0;
 			iter->ready = true;
+			ChangePlayerReady(addr, 'T');
 			UpdatePlayersOnScreen();
 		}
 	}
@@ -261,61 +326,57 @@ namespace Typhon
 	void Lobby::Run()
 	{
 		auto currentTime = engine->device->getTimer()->getTime();
-		if((currentTime - prevTime) * 0.001f > 0.5f)
+		if((currentTime - prevTime) > BROADCAST_INTERVAL)
 		{
-			prevTime = currentTime;
-			network->BroadcastMessage(discoveryMessage, 'D');
-			auto iter = find_if(players.begin(), players.end(), [=](const Player &p)
+			for_each(players.begin(), players.end(), [=](Player &p) 
 			{
-				return GetNetworkIP(p.sourceAddr) == network->GetIP();
+				p.refreshTime += currentTime - prevTime;
 			});
+			prevTime = currentTime;
+			PruneDisconnects();
+			BroadcastPlayerInfoStatus();
+		}
+
+		auto recvMessage = network->ReceiveMessage();
+
+		if(recvMessage.prefix == 'N')
+		{
+			return;
+		}
+
+		auto playerSearch = [=](const Player &p)
+		{
+			return GetNetworkIP(recvMessage.address) == GetNetworkIP(p.sourceAddr);
+		};
+
+		// find first player with a matching IP
+		auto iter = find_if(players.begin(), players.end(), playerSearch);
+		if(recvMessage.prefix == 'D')
+		{
+			// if no player was found with a matching IP, add them
+			if(iter == players.end())
+			{
+				boost::char_separator<char> separator(" ");
+				boost::tokenizer<boost::char_separator<char>> tokens(recvMessage.msg, separator);
+				auto iterator = tokens.begin();
+				std::wstring newPlayerName = ConvertStrToWide(*iterator);
+				iterator++;
+				int perf = boost::lexical_cast<int>(*iterator);
+				wcout << newPlayerName;
+				cout << " about to be added.\n";
+				AddPlayer(newPlayerName, perf, GetNetworkIP(recvMessage.address));
+			}
+			else
+			{
+				iter->refreshTime = 0.f;
+			}
+		}
+		else if(recvMessage.prefix == 'R')
+		{
+			// if a player with a matching IP was found, toggle ready state
 			if(iter != players.end())
 			{
-				switch(iter->ready)
-					{
-				case true:
-					network->BroadcastMessage("T", 'R');
-					break;
-				case false:
-					network->BroadcastMessage("F", 'R');
-					break;
-				}
-			}
-
-			while(true)
-			{
-				auto recvMessage = network->ReceiveMessage();
-
-				auto playerSearch = [=](const Player &p)
-				{
-					return GetNetworkIP(recvMessage.address) == GetNetworkIP(p.sourceAddr);
-				};
-				auto iter = find_if(players.begin(), players.end(), playerSearch);
-
-				if(recvMessage.prefix == 'N')
-				{
-					break;
-				}
-				else if(recvMessage.prefix == 'D')
-				{
-					if(iter == players.end())
-					{
-						boost::char_separator<char> separator(" ");
-						boost::tokenizer<boost::char_separator<char>> tokens(recvMessage.msg, separator);
-						auto iterator = tokens.begin();
-						std::wstring newPlayerName = ConvertStrToWide(*iterator);
-						iterator++;
-						int perf = boost::lexical_cast<int>(*iterator);
-						AddPlayer(newPlayerName, perf, GetNetworkIP(recvMessage.address));
-					}
-				}
-				else if(recvMessage.prefix == 'R')
-				{
-					if(iter != players.end())
-					{
-						ChangePlayerReady(GetNetworkIP(iter->sourceAddr), recvMessage.msg[0]);
-					}
-				}
+				ChangePlayerReady(GetNetworkIP(iter->sourceAddr), recvMessage.msg[0]);
 			}
 		}
 	}

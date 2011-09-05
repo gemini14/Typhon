@@ -19,7 +19,8 @@ class Lobby : public FSMState
 		{
 		public:
 
-			Player() : type(AI), name(L"Bot"), perfScore(0), ready(true)
+			Player() 
+				: type(AI), name(L"Bot"), perfScore(0), ready(true), refreshTime(0)
 			{
 				memset(&sourceAddr, 0, sizeof sourceAddr);
 				sourceAddr.sin_family = AF_INET;
@@ -33,6 +34,7 @@ class Lobby : public FSMState
 			int perfScore;
 			bool ready;
 			sockaddr_in sourceAddr;
+			int refreshTime;
 		};
 
 		std::unique_ptr<Network> network;
@@ -43,8 +45,11 @@ class Lobby : public FSMState
 		std::string discoveryMessage;
 		unsigned int prevTime;
 
+		void BroadcastPlayerInfoStatus();
 		void ChangePlayerReady(const unsigned long playerIP, const char ready = 'S');
+		void PruneDisconnects();
 		void UpdatePlayersOnScreen();
+		void UpdateReadyBoxes();
 
 	public:
 
@@ -54,7 +59,7 @@ class Lobby : public FSMState
 		void AddPlayer(const std::wstring &name, const int perfScore, const unsigned long location);
 		Network* GetNetwork();
 		virtual bool OnEvent(const irr::SEvent &event);
-		void RemovePlayer(const std::wstring &name);		
+		void RemovePlayer(const unsigned long addr);		
 		virtual void Run();
 	};
 }
