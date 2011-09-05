@@ -27,6 +27,8 @@ namespace Typhon
 		bool ready;
 		bool terminate;
 
+		int perfScore;
+
 		irr::IrrlichtDevice *device;
 		irr::scene::ISceneManager *smgr;
 		irr::video::IVideoDriver *driver;

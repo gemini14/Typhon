@@ -101,6 +101,7 @@ namespace Typhon
 
 	NetworkWin::~NetworkWin()
 	{
+		closesocket(winsocket);
 		WSACleanup();
 	}
 
@@ -136,7 +137,7 @@ namespace Typhon
 		{
 			DisplayError("Error checking for readability with select().");
 		}
-		else if(selectResult > 0) // 0 means it just timed out
+		else if(selectResult > 0) // 0 means packet was empty
 		{
 			int receivedBytes = recvfrom(winsocket, buffer, recvBufferLength, 0,
 				reinterpret_cast<sockaddr*>(&sender), &senderLen);
@@ -147,8 +148,8 @@ namespace Typhon
 			else if(receivedBytes > 0)
 			{
 				Message msg;
-				msg.msg = buffer[1];
 				msg.prefix = buffer[0];
+				msg.msg = string(buffer + 1, buffer + receivedBytes);
 				msg.address = sender.sin_addr;
 				return msg;	
 			}				

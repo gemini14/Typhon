@@ -1,55 +1,13 @@
-﻿Build started 8/22/2011 1:10:48 AM.
-     1>Project "D:\X Platform Projects\Typhon\build\VS2010\x64\Typhon64.vcxproj" on node 3 (build target(s)).
+﻿Build started 9/2/2011 2:12:12 AM.
+     1>Project "D:\X Platform Projects\Typhon\build\VS2010\x64\Typhon64.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Creating "Typhon64.dir\Release\Typhon64.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "Typhon64.dir\Release\Typhon64.unsuccessfulbuild".
        CustomBuild:
          All outputs are up-to-date.
        ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:/X Platform Projects/Typhon/src/../include" /I"D:/X Platform Projects/Typhon/src/../include/freetype" /nologo /W3 /WX- /O2 /Ob2 /D WIN32 /D _WINDOWS /D NDEBUG /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon64.dir\Release\\" /Fd"D:/X Platform Projects/Typhon/bin/Win64/Release/../Typhon64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\utility\utility.cpp  /Zm1000 
+         utility.cpp
          All outputs are up-to-date.
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:/X Platform Projects/Typhon/src/../include" /I"D:/X Platform Projects/Typhon/src/../include/freetype" /nologo /W3 /WX- /O2 /Ob2 /D WIN32 /D _WINDOWS /D NDEBUG /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon64.dir\Release\\" /Fd"D:/X Platform Projects/Typhon/bin/Win64/Release/../Typhon64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\main.cpp ..\..\..\src\engine\engine.cpp ..\..\..\src\engine\luamanager.cpp ..\..\..\src\font\font_manager.cpp ..\..\..\src\font\gui_freetype_font.cpp ..\..\..\src\i18n\i18n.cpp ..\..\..\src\metrics\metrics.cpp ..\..\..\src\network\lobbylist.cpp ..\..\..\src\network\network.cpp ..\..\..\src\network\networkenet.cpp ..\..\..\src\network\networkfactory.cpp ..\..\..\src\network\networklinux.cpp ..\..\..\src\network\networkraw.cpp ..\..\..\src\network\networkwin.cpp ..\..\..\src\state\game.cpp ..\..\..\src\state\lobby.cpp ..\..\..\src\state\mainmenu.cpp ..\..\..\src\state\options.cpp  /Zm1000 
-         main.cpp
-         engine.cpp
-         luamanager.cpp
-         font_manager.cpp
-         gui_freetype_font.cpp
-         i18n.cpp
-     1>..\..\..\src\i18n\i18n.cpp(57): warning C4996: 'mbstowcs': This function or variable may be unsafe. Consider using mbstowcs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(498) : see declaration of 'mbstowcs'
-     1>..\..\..\src\i18n\i18n.cpp(63): warning C4996: 'mbstowcs': This function or variable may be unsafe. Consider using mbstowcs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(498) : see declaration of 'mbstowcs'
-         metrics.cpp
-         lobbylist.cpp
-         network.cpp
-         networkenet.cpp
-         networkfactory.cpp
-         networklinux.cpp
-         networkraw.cpp
-         networkwin.cpp
-         game.cpp
-         lobby.cpp
-         mainmenu.cpp
-         options.cpp
-     1>..\..\..\src\state\options.cpp(59): warning C4065: switch statement contains 'default' but no 'case' labels
-         Generating Code...
-         All outputs are up-to-date.
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:/X Platform Projects/Typhon/src/../include" /I"D:/X Platform Projects/Typhon/src/../include/freetype" /nologo /W3 /WX- /O2 /Ob2 /D WIN32 /D _WINDOWS /D NDEBUG /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon64.dir\Release\\" /Fd"D:/X Platform Projects/Typhon/bin/Win64/Release/../Typhon64.pdb" /Gd /TC /errorReport:prompt ..\..\..\src\enet\callbacks.c ..\..\..\src\enet\compress.c ..\..\..\src\enet\host.c ..\..\..\src\enet\list.c ..\..\..\src\enet\packet.c ..\..\..\src\enet\peer.c ..\..\..\src\enet\protocol.c ..\..\..\src\enet\unix.c ..\..\..\src\enet\win32.c  /Zm1000 
-         callbacks.c
-         compress.c
-     1>..\..\..\src\enet\compress.c(303): warning C4146: unary minus operator applied to unsigned type, result still unsigned
-     1>..\..\..\src\enet\compress.c(308): warning C4146: unary minus operator applied to unsigned type, result still unsigned
-     1>..\..\..\src\enet\compress.c(326): warning C4146: unary minus operator applied to unsigned type, result still unsigned
-     1>..\..\..\src\enet\compress.c(548): warning C4146: unary minus operator applied to unsigned type, result still unsigned
-     1>..\..\..\src\enet\compress.c(563): warning C4146: unary minus operator applied to unsigned type, result still unsigned
-     1>..\..\..\src\enet\compress.c(578): warning C4146: unary minus operator applied to unsigned type, result still unsigned
-     1>..\..\..\src\enet\compress.c(593): warning C4146: unary minus operator applied to unsigned type, result still unsigned
-         host.c
-         list.c
-         packet.c
-         peer.c
-         protocol.c
-         unix.c
-         win32.c
-         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\X Platform Projects\Typhon\bin\Win64\Release\Typhon64.exe" /VERSION:"0.0" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Release" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/freetype" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/freetype/Release" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Irrlicht" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Irrlicht/Release" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/luabind" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/luabind/Release" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/lua" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/lua/Release" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib Irrlicht_64.lib lua5.1_64.lib luabind_64.lib Ws2_32.lib winmm.lib freetype246_64.lib /MANIFEST /ManifestFile:"Typhon64.dir\Release\Typhon64.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"D:\X Platform Projects\Typhon\bin\Win64\Release\Typhon64.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/X Platform Projects/Typhon/build/VS2010/x64/Release/Typhon64.lib" /MACHINE:X64 Typhon64.dir\Release\main.obj
          Typhon64.dir\Release\callbacks.obj
@@ -77,8 +35,9 @@
          Typhon64.dir\Release\game.obj
          Typhon64.dir\Release\lobby.obj
          Typhon64.dir\Release\mainmenu.obj
-         Typhon64.dir\Release\options.obj  /machine:x64 
-         luabind_64.lib(open.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+         Typhon64.dir\Release\options.obj
+         Typhon64.dir\Release\utility.obj  /machine:x64 
+         luabind_64.lib(pcall.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
          Generating code
          Finished generating code
          Typhon64.vcxproj -> D:\X Platform Projects\Typhon\bin\Win64\Release\Typhon64.exe
@@ -91,4 +50,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:38.98
+Time Elapsed 00:00:04.43
