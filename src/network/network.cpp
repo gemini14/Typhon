@@ -4,6 +4,10 @@
 #include <iostream>
 #include <sstream>
 
+#ifndef WIN32
+#include <arpa/inet.h>
+#endif
+
 using namespace std;
 
 namespace Typhon
@@ -29,7 +33,7 @@ namespace Typhon
 #ifdef WIN32
 		return machineAddr.sin_addr.S_un.S_addr;
 #else
-		// TODO: Add linux equivalent
+		return machineAddr.sin_addr.s_addr;
 #endif
 	}
 

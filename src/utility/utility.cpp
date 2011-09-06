@@ -3,6 +3,7 @@
 #ifdef WIN32
 #include <Windows.h>
 #else
+#include <cstdlib>
 #endif
 
 using namespace std;
@@ -28,7 +29,16 @@ namespace Typhon
 		delete []buffer;
 		return convertedText;
 #else
-		// TODO: Add Linux equivalent
+		size_t len = mbstowcs(nullptr, str.c_str(), -1);
+		if(len == static_cast<size_t>(-1))
+		{
+			return L"";
+		}
+		wchar_t *buffer = new wchar_t[len];
+		mbstowcs(buffer, str.c_str(), len);
+		wstring convertedText(buffer);
+		delete []buffer;
+		return convertedText;
 #endif
 	}
 
@@ -51,7 +61,16 @@ namespace Typhon
 		delete []buffer;
 		return convertedText;
 #else
-		// TODO: Add Linux equivalent
+		size_t len = wcstombs(nullptr, str.c_str(), -1);
+		if(len == static_cast<size_t>(-1))
+		{
+			return "";
+		}
+		char *buffer = new char[len];
+		std::wcstombs(buffer, str.c_str(), len);
+		string convertedText(buffer);
+		delete []buffer;
+		return convertedText;
 #endif
 	}
 
@@ -60,6 +79,7 @@ namespace Typhon
 #ifdef WIN32
 		return address.sin_addr.S_un.S_addr;
 #else
+		return address.sin_addr.s_addr;
 #endif
 	}
 
@@ -68,6 +88,7 @@ namespace Typhon
 #ifdef WIN32
 		return address.S_un.S_addr;
 #else
+		return address.s_addr;
 #endif
 	}
 }

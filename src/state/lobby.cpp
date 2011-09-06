@@ -5,6 +5,7 @@
 #define NDEBUG
 #endif
 #include <cassert>
+#include <iostream>
 #include <list>
 #include <regex>
 #include <sstream>
@@ -135,7 +136,7 @@ namespace Typhon
 
 	Lobby::Lobby(std::shared_ptr<Engine> engine)
 		: FSMState(engine), network(Typhon::GetNetwork(Typhon::RAW, PORT_NUMBER)),
-		numBots(MAX_PLAYERS), players(MAX_PLAYERS, Player()),
+		players(MAX_PLAYERS, Player()), numBots(MAX_PLAYERS),
 		discoveryMessage(ConvertWideToStr(engine->options.name) + " " + boost::lexical_cast<std::string>(engine->perfScore))
 	{
 		if (!network)
@@ -257,7 +258,7 @@ namespace Typhon
 #ifdef WIN32
 			iter->sourceAddr.sin_addr.S_un.S_addr = location;
 #else
-			// TODO: Add Linux equivalent
+			iter->sourceAddr.sin_addr.s_addr = location;
 #endif
 			numBots--;
 			sort(players.begin(), players.end(), [](const Player& lhs, const Player& rhs){ return lhs.type < rhs.type; });

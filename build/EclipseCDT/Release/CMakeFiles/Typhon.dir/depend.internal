@@ -1540,11 +1540,15 @@ CMakeFiles/Typhon.dir/state/lobby.cpp.o
  /home/tarik/workspace/Typhon/src/../include/luabind/weak_ref.hpp
  /home/tarik/workspace/Typhon/src/../include/luabind/wrapper_base.hpp
  /home/tarik/workspace/Typhon/src/../include/luabind/yield_policy.hpp
+ /home/tarik/workspace/Typhon/src/../include/network/network.h
+ /home/tarik/workspace/Typhon/src/../include/network/networkfactory.h
  /home/tarik/workspace/Typhon/src/../include/state/fsmevents.h
  /home/tarik/workspace/Typhon/src/../include/state/fsmstate.h
  /home/tarik/workspace/Typhon/src/../include/state/lobby.h
  /home/tarik/workspace/Typhon/src/../include/utility/constants.h
+ /home/tarik/workspace/Typhon/src/../include/utility/stateexception.h
  /home/tarik/workspace/Typhon/src/../include/utility/useroptions.h
+ /home/tarik/workspace/Typhon/src/../include/utility/utility.h
  /home/tarik/workspace/Typhon/src/state/lobby.cpp
 CMakeFiles/Typhon.dir/state/mainmenu.cpp.o
  /home/tarik/workspace/Typhon/src/../include/engine/engine.h

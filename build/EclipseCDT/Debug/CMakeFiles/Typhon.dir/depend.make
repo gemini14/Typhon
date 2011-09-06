@@ -1539,11 +1539,15 @@ CMakeFiles/Typhon.dir/state/lobby.cpp.o: /home/tarik/workspace/Typhon/src/../inc
 CMakeFiles/Typhon.dir/state/lobby.cpp.o: /home/tarik/workspace/Typhon/src/../include/luabind/weak_ref.hpp
 CMakeFiles/Typhon.dir/state/lobby.cpp.o: /home/tarik/workspace/Typhon/src/../include/luabind/wrapper_base.hpp
 CMakeFiles/Typhon.dir/state/lobby.cpp.o: /home/tarik/workspace/Typhon/src/../include/luabind/yield_policy.hpp
+CMakeFiles/Typhon.dir/state/lobby.cpp.o: /home/tarik/workspace/Typhon/src/../include/network/network.h
+CMakeFiles/Typhon.dir/state/lobby.cpp.o: /home/tarik/workspace/Typhon/src/../include/network/networkfactory.h
 CMakeFiles/Typhon.dir/state/lobby.cpp.o: /home/tarik/workspace/Typhon/src/../include/state/fsmevents.h
 CMakeFiles/Typhon.dir/state/lobby.cpp.o: /home/tarik/workspace/Typhon/src/../include/state/fsmstate.h
 CMakeFiles/Typhon.dir/state/lobby.cpp.o: /home/tarik/workspace/Typhon/src/../include/state/lobby.h
 CMakeFiles/Typhon.dir/state/lobby.cpp.o: /home/tarik/workspace/Typhon/src/../include/utility/constants.h
+CMakeFiles/Typhon.dir/state/lobby.cpp.o: /home/tarik/workspace/Typhon/src/../include/utility/stateexception.h
 CMakeFiles/Typhon.dir/state/lobby.cpp.o: /home/tarik/workspace/Typhon/src/../include/utility/useroptions.h
+CMakeFiles/Typhon.dir/state/lobby.cpp.o: /home/tarik/workspace/Typhon/src/../include/utility/utility.h
 CMakeFiles/Typhon.dir/state/lobby.cpp.o: /home/tarik/workspace/Typhon/src/state/lobby.cpp
 
 CMakeFiles/Typhon.dir/state/mainmenu.cpp.o: /home/tarik/workspace/Typhon/src/../include/engine/engine.h

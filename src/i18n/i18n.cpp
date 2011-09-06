@@ -18,6 +18,10 @@ namespace Typhon
 		: lua(lua), language(EN)
 	{
 		langSelector = nullptr;
+
+#ifndef WIN32
+		setlocale(LC_ALL, "");
+#endif
 				
 		// add new language entries here after adding them to the enum declaration
 		langMap[EN] = "en";

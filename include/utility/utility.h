@@ -6,7 +6,7 @@
 #ifdef WIN32
 #include <WS2tcpip.h>
 #else
-// TODO: Add Linux equiv
+#include <netinet/in.h>
 #endif
 
 namespace Typhon
