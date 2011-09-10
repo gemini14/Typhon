@@ -34,8 +34,8 @@ namespace Typhon
 		{
 			return L"";
 		}
-		wchar_t *buffer = new wchar_t[len];
-		mbstowcs(buffer, str.c_str(), len);
+		wchar_t *buffer = new wchar_t[len + 1];
+		mbstowcs(buffer, str.c_str(), len + 1);
 		wstring convertedText(buffer);
 		delete []buffer;
 		return convertedText;
@@ -66,8 +66,8 @@ namespace Typhon
 		{
 			return "";
 		}
-		char *buffer = new char[len];
-		std::wcstombs(buffer, str.c_str(), len);
+		char *buffer = new char[len + 1];
+		std::wcstombs(buffer, str.c_str(), len + 1);
 		string convertedText(buffer);
 		delete []buffer;
 		return convertedText;
