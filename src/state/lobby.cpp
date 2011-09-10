@@ -254,7 +254,7 @@ namespace Typhon
 			iter->perfScore = perfScore;
 			iter->type = HUMAN;
 			iter->ready = false;
-			iter->refreshTime = 0.f;
+			iter->refreshTime = 0;
 #ifdef WIN32
 			iter->sourceAddr.sin_addr.S_un.S_addr = location;
 #else
@@ -369,7 +369,7 @@ namespace Typhon
 			}
 			else
 			{
-				iter->refreshTime = 0.f;
+				iter->refreshTime = 0;
 			}
 		}
 		else if(recvMessage.prefix == 'R')

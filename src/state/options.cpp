@@ -2,8 +2,6 @@
 
 #include <iostream>
 
-#include "engine/engine.h"
-#include "utility/constants.h"
 #include "utility/utility.h"
 
 using namespace irr;

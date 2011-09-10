@@ -1,14 +1,14 @@
-﻿Build started 9/5/2011 2:34:35 AM.
+﻿Build started 9/10/2011 12:44:42 AM.
      1>Project "D:\X Platform Projects\Typhon\build\VS2010\x64\Typhon64.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Typhon64.dir\Debug\Typhon64.unsuccessfulbuild" because "AlwaysCreate" was specified.
        CustomBuild:
          All outputs are up-to-date.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:/X Platform Projects/Typhon/src/../include" /I"D:/X Platform Projects/Typhon/src/../include/freetype" /Zi /nologo /W3 /WX- /Od /Ob0 /D DEBUG /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon64.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/bin/Win64/Debug/../Typhon64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\state\lobby.cpp  /Zm1000 
-         lobby.cpp
-     1>..\..\..\src\state\lobby.cpp(256): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>..\..\..\src\state\lobby.cpp(371): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:/X Platform Projects/Typhon/src/../include" /I"D:/X Platform Projects/Typhon/src/../include/freetype" /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon64.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/bin/Win64/Debug/../Typhon64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\main.cpp ..\..\..\src\state\game.cpp  /Zm1000 
+         main.cpp
+         game.cpp
+         Generating Code...
          All outputs are up-to-date.
        ManifestResourceCompile:
          All outputs are up-to-date.
@@ -56,4 +56,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:07.77
+Time Elapsed 00:00:13.29
