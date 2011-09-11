@@ -1,6 +1,7 @@
 #ifndef NETWORKENET_H
 #define NETWORKENET_H
 
+#include "enet/enet.h"
 #include "network/network.h"
 
 namespace Typhon
@@ -9,13 +10,15 @@ namespace Typhon
 	{
 	private:
 
+		sockaddr_in serverIP;
+
 	protected:
 
 		virtual void DisplayError(const std::string &message);
 
 	public:
 
-		NetworkENet(const int port);
+		NetworkENet(const int port, const sockaddr_in *IP);
 		virtual ~NetworkENet();
 
 		virtual void BroadcastMessage(const std::string &msg, const char prefix);

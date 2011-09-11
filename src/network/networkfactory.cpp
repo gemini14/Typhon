@@ -10,9 +10,9 @@
 
 namespace Typhon
 {
-	Network* GetNetwork(NETWORK_HANDLING_TYPE type, const int port)
+	Network* GetNetwork(NETWORK_HANDLING_TYPE type, const int port, const sockaddr_in *IP)
 	{
-		Network *net;
+		Network *net = nullptr;
 		if (type == RAW)
 		{
 #ifdef WIN32
@@ -23,7 +23,10 @@ namespace Typhon
 		}
 		else
 		{
-			net = new NetworkENet(port);
+			if(IP)
+			{
+				net = new NetworkENet(port, IP);
+			}
 		}
 
 		if (net && !net->StartUp())

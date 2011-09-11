@@ -60,6 +60,7 @@ ${hdr}state/mainmenu.h
 ${hdr}state/options.h
 
 ${hdr}utility/constants.h
+${hdr}utility/networkinitexception.h
 ${hdr}utility/stateexception.h
 ${hdr}utility/useroptions.h
 ${hdr}utility/utility.h
@@ -174,6 +175,7 @@ ${hdr}state/options.h
 
 source_group(Header\ Files\\utility FILES
 ${hdr}utility/constants.h
+${hdr}utility/networkinitexception.h
 ${hdr}utility/stateexception.h
 ${hdr}utility/useroptions.h
 ${hdr}utility/utility.h

@@ -13,7 +13,7 @@ namespace Typhon
 		ENET
 	};
 
-	Network* GetNetwork(NETWORK_HANDLING_TYPE type, const int port);
+	Network* GetNetwork(NETWORK_HANDLING_TYPE type, const int port, const sockaddr_in *IP = nullptr);
 }
 
 #endif

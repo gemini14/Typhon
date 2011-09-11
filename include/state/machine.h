@@ -82,11 +82,15 @@ namespace Typhon
 			typedef mpl::list<
 				sc::transition<EvLobby, Lobby>> reactions;
 
+			std::shared_ptr<Typhon::Game> game;
+
 			Game(my_context ctx)
-				: my_base(ctx)
+				: my_base(ctx), game(new Typhon::Game(outermost_context().engine))
 			{
 				std::cout << "Entered the game state\n";
 				outermost_context().state.reset();
+				outermost_context().state = game;
+				outermost_context().backColor = irr::video::SColor(255, 245, 203, 10);
 			}
 
 			~Game()

@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include "utility/stateexception.h"
+
 using namespace irr;
 using namespace std;
 
@@ -11,8 +13,12 @@ namespace Typhon
 	};
 
 	Game::Game(std::shared_ptr<Engine> engine)
-		: FSMState(engine), network(Typhon::GetNetwork(Typhon::ENET, PORT_NUMBER))
+		: FSMState(engine), network(Typhon::GetNetwork(Typhon::ENET, PORT_NUMBER, &engine->serverIP))
 	{
+		if (!network)
+		{
+			throw StateException("Error starting up network code (could not allocate or incompatible system).\n");
+		}
 	}
 
 	Game::~Game()
