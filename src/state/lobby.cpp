@@ -10,6 +10,7 @@
 #include <regex>
 #include <sstream>
 
+#include <boost/foreach.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/tokenizer.hpp>
 
@@ -110,7 +111,7 @@ namespace Typhon
 	void Lobby::PruneDisconnects()
 	{
 		list<unsigned long> playersToRemove;
-		for_each(players.begin(), players.end(), [&](const LobbyPlayer &p)
+		BOOST_FOREACH(const LobbyPlayer &p, players)
 		{
 			// following if needs this->HUMAN to compile, not sure why, since the
 			// lambda should capture it ([&])
@@ -120,8 +121,12 @@ namespace Typhon
 				wcout << p.name;
 				cout << " pruned, refresh is " << p.refreshTime << "\n\n";
 			}
-		});
-		for_each(playersToRemove.begin(), playersToRemove.end(), [=](const unsigned long addr){ RemovePlayer(addr); });
+		}
+
+		BOOST_FOREACH(const unsigned long addr, playersToRemove)
+		{
+			RemovePlayer(addr);
+		}
 	}
 
 	bool Lobby::ReadyToPlay()
@@ -133,13 +138,13 @@ namespace Typhon
 		}
 
 		bool ready = true;
-		for_each(players.begin(), players.end(), [&](const LobbyPlayer &p)
+		BOOST_FOREACH(const LobbyPlayer p, players)
 		{
 			if(!p.ready)
 			{
 				ready = false;
 			}
-		});
+		}
 
 		return ready;
 	}
@@ -149,9 +154,9 @@ namespace Typhon
 		std::wstringstream playerText;
 		// tried to use std::copy and ostream_iterator, but it was such a pain
 		// to (try to) get it working that I just went with a simple for loop to save time
-		for(auto iter = players.begin(); iter != players.end(); ++iter)
+		BOOST_FOREACH(const LobbyPlayer iter, players)
 		{
-			playerText << iter->name << L"\n\n";
+			playerText << iter.name << L"\n\n";
 		}
 		playersGUI->setText(playerText.str().c_str());
 		UpdateReadyBoxes();
@@ -286,22 +291,26 @@ namespace Typhon
 		auto iter = players.end() - 1;
 		assert(iter != players.end() && iter->type == AI);
 
-			wcout << name;
-			cout << " being added.\n";
-			iter->name = name;
-			iter->perfScore = perfScore;
-			iter->type = HUMAN;
-			iter->ready = false;
-			iter->refreshTime = 0;
+		wcout << name;
+		cout << " being added.\n";
+		iter->name = name;
+		iter->perfScore = perfScore;
+		iter->type = HUMAN;
+		iter->ready = false;
+		iter->refreshTime = 0;
 #ifdef WIN32
-			iter->sourceAddr.sin_addr.S_un.S_addr = location;
+		iter->sourceAddr.sin_addr.S_un.S_addr = location;
 #else
-			iter->sourceAddr.sin_addr.s_addr = location;
+		iter->sourceAddr.sin_addr.s_addr = location;
 #endif
-			numBots--;
-			CheckNewServerCandidate(*iter);
-			sort(players.begin(), players.end(), [](const LobbyPlayer& lhs, const LobbyPlayer& rhs){ return lhs.type < rhs.type; });
-			UpdatePlayersOnScreen();
+		numBots--;
+		CheckNewServerCandidate(*iter);
+		sort(players.begin(), players.end(), [](const LobbyPlayer& lhs, const LobbyPlayer& rhs)
+		{
+			return lhs.type < rhs.type; 
+		});
+
+		UpdatePlayersOnScreen();
 	}
 
 	Network* Lobby::GetNetwork()
@@ -374,10 +383,10 @@ namespace Typhon
 		auto currentTime = engine->device->getTimer()->getTime();
 		if((currentTime - prevTime) > BROADCAST_INTERVAL)
 		{
-			for_each(players.begin(), players.end(), [=](LobbyPlayer &p) 
+			BOOST_FOREACH(LobbyPlayer &p, players)
 			{
 				p.refreshTime += currentTime - prevTime;
-			});
+			}
 			prevTime = currentTime;
 			PruneDisconnects();
 			BroadcastPlayerInfoStatus();

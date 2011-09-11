@@ -4,6 +4,8 @@
 #include <iostream>
 #include <utility>
 
+#include <boost/foreach.hpp>
+
 #include "engine/luamanager.h"
 #include "utility/utility.h"
 
@@ -71,11 +73,11 @@ namespace Typhon
 
 	LANG I18N::ConvertStringToLang(const std::string &langStr)
 	{
-		for(auto iter = langMap.begin(); iter != langMap.end(); ++iter)
+		BOOST_FOREACH(auto iter, langMap)
 		{
-			if(iter->second == langStr)
+			if(iter.second == langStr)
 			{
-				return iter->first;
+				return iter.first;
 			}
 		}
 
