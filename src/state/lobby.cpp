@@ -324,6 +324,26 @@ namespace Typhon
 
 	}
 
+	bool Lobby::ReadyToPlay()
+	{
+		// there must be at least 1 human player in the lobby
+		if(numBots == MAX_PLAYERS)
+		{
+			return false;
+		}
+
+		bool ready = true;
+		for_each(players.begin(), players.end(), [&](const LobbyPlayer &p)
+		{
+			if(!p.ready)
+			{
+				ready = false;
+			}
+		});
+
+		return ready;
+	}
+
 	void Lobby::RemovePlayer(const unsigned long addr)
 	{
 		auto iter = find_if(players.begin(), players.end(), [=](LobbyPlayer p) { return GetNetworkIP(p.sourceAddr) == addr; });

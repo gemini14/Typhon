@@ -38,6 +38,7 @@ class Lobby : public FSMState
 		void AddPlayer(const std::wstring &name, const int perfScore, const unsigned long location);
 		Network* GetNetwork();
 		virtual bool OnEvent(const irr::SEvent &event);
+		bool ReadyToPlay();
 		void RemovePlayer(const unsigned long addr);		
 		virtual void Run();
 	};
