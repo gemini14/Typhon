@@ -124,6 +124,26 @@ namespace Typhon
 		for_each(playersToRemove.begin(), playersToRemove.end(), [=](const unsigned long addr){ RemovePlayer(addr); });
 	}
 
+	bool Lobby::ReadyToPlay()
+	{
+		// there must be at least 1 human player in the lobby
+		if(numBots == MAX_PLAYERS)
+		{
+			return false;
+		}
+
+		bool ready = true;
+		for_each(players.begin(), players.end(), [&](const LobbyPlayer &p)
+		{
+			if(!p.ready)
+			{
+				ready = false;
+			}
+		});
+
+		return ready;
+	}
+
 	void Lobby::UpdatePlayersOnScreen()
 	{
 		std::wstringstream playerText;
@@ -324,26 +344,6 @@ namespace Typhon
 
 	}
 
-	bool Lobby::ReadyToPlay()
-	{
-		// there must be at least 1 human player in the lobby
-		if(numBots == MAX_PLAYERS)
-		{
-			return false;
-		}
-
-		bool ready = true;
-		for_each(players.begin(), players.end(), [&](const LobbyPlayer &p)
-		{
-			if(!p.ready)
-			{
-				ready = false;
-			}
-		});
-
-		return ready;
-	}
-
 	void Lobby::RemovePlayer(const unsigned long addr)
 	{
 		auto iter = find_if(players.begin(), players.end(), [=](LobbyPlayer p) { return GetNetworkIP(p.sourceAddr) == addr; });
@@ -424,6 +424,14 @@ namespace Typhon
 			{
 				ChangePlayerReady(GetNetworkIP(iter->sourceAddr), recvMessage.msg[0]);
 			}
+		}
+
+		if(ReadyToPlay())
+		{
+			// all players are ready, so make a note of the server address and
+			// post event to switch to game state
+			engine->serverIP = designatedServer.sourceAddr;
+			engine->eventQueue.push(FSM::GAME);
 		}
 	}
 }

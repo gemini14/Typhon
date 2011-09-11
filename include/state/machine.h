@@ -111,13 +111,10 @@ namespace Typhon
 				outermost_context().state.reset();
 				outermost_context().state = lobby;
 				outermost_context().backColor = irr::video::SColor(255, 245, 203, 10);
-				std::cout << "Network up!\n";
-				std::cout << "Lobby hi!\n";
 			}
 
 			~Lobby()
 			{
-				std::cout << "Lobby bye!\n";
 			}
 		};
 
