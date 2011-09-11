@@ -91,6 +91,11 @@ namespace Typhon
 
 	void Lobby::CheckNewServerCandidate(const LobbyPlayer& newPlayer)
 	{
+		if(newPlayer.type == AI)
+		{
+			return;
+		}
+
 		if(designatedServer.perfScore == 0)
 		{
 			designatedServer = newPlayer;
@@ -330,9 +335,15 @@ namespace Typhon
 			wcout << " being removed.\n";
 			iter->name = L"Bot";
 			iter->type = AI;
+			if(GetNetworkIP(iter->sourceAddr) == GetNetworkIP(designatedServer.sourceAddr))
+			{
+				designatedServer = LobbyPlayer();
+				for_each(players.begin(), players.end(), [=](const LobbyPlayer &p){CheckNewServerCandidate(p);});
+			}
 			memset(&iter->sourceAddr, 0, sizeof iter->sourceAddr);
 			iter->refreshTime = 0;
 			iter->ready = true;
+			numBots++;
 			ChangePlayerReady(addr, 'T');
 			UpdatePlayersOnScreen();
 		}
