@@ -6,6 +6,11 @@
 #include <string>
 
 #include <boost/noncopyable.hpp>
+#ifdef WIN32
+#include <WinSock2.h>
+#else
+#include <netinet/in.h>
+#endif
 
 #include "engine/luamanager.h"
 #include "i18n/i18n.h"
@@ -38,6 +43,7 @@ namespace Typhon
 		std::queue<FSM::EVENT_TYPE> eventQueue;
 		std::shared_ptr<I18N> lang;
 		UserOptions options;
+		sockaddr_in serverIP;
 
 		Engine();
 		~Engine();

@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "network/networkfactory.h"
+#include "player/lobbyplayer.h"
 #include "state/fsmstate.h"
 
 namespace Typhon
@@ -13,40 +14,18 @@ class Lobby : public FSMState
 	{
 	private:
 
-		enum PLAYER_TYPE { HUMAN, AI };
-		
-		class Player
-		{
-		public:
-
-			Player() 
-				: type(AI), name(L"Bot"), perfScore(0), ready(true), refreshTime(0)
-			{
-				memset(&sourceAddr, 0, sizeof sourceAddr);
-				sourceAddr.sin_family = AF_INET;
-			}
-			~Player()
-			{
-			}
-
-			PLAYER_TYPE type;
-			std::wstring name;
-			int perfScore;
-			bool ready;
-			sockaddr_in sourceAddr;
-			int refreshTime;
-		};
-
 		std::unique_ptr<Network> network;
-		std::vector<Player> players;
+		std::vector<LobbyPlayer> players;
 		std::vector<irr::gui::IGUIStaticText*> readyImages;
 		int numBots;
 		irr::gui::IGUIStaticText *playersGUI;
 		std::string discoveryMessage;
 		unsigned int prevTime;
+		LobbyPlayer designatedServer;
 
 		void BroadcastPlayerInfoStatus();
 		void ChangePlayerReady(const unsigned long playerIP, const char ready = 'S');
+		void CheckNewServerCandidate(const LobbyPlayer& newPlayer);
 		void PruneDisconnects();
 		void UpdatePlayersOnScreen();
 		void UpdateReadyBoxes();

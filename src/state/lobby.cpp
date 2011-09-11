@@ -45,7 +45,7 @@ namespace Typhon
 	void Lobby::BroadcastPlayerInfoStatus()
 	{
 		network->BroadcastMessage(discoveryMessage, 'D');
-		auto iter = find_if(players.begin(), players.end(), [=](const Player &p)
+		auto iter = find_if(players.begin(), players.end(), [=](const LobbyPlayer &p)
 		{
 			return GetNetworkIP(p.sourceAddr) == network->GetIP();
 		});
@@ -89,14 +89,27 @@ namespace Typhon
 		UpdateReadyBoxes();
 	}
 
+	void Lobby::CheckNewServerCandidate(const LobbyPlayer& newPlayer)
+	{
+		if(designatedServer.perfScore == 0)
+		{
+			designatedServer = newPlayer;
+		}
+		else if(designatedServer.perfScore == newPlayer.perfScore &&
+			GetNetworkIP(designatedServer.sourceAddr) < GetNetworkIP(newPlayer.sourceAddr))
+		{
+			designatedServer = newPlayer;
+		}
+	}
+
 	void Lobby::PruneDisconnects()
 	{
 		list<unsigned long> playersToRemove;
-		for_each(players.begin(), players.end(), [&](const Player &p)
+		for_each(players.begin(), players.end(), [&](const LobbyPlayer &p)
 		{
 			// following if needs this->HUMAN to compile, not sure why, since the
 			// lambda should capture it ([&])
-			if(p.type == this->HUMAN && p.refreshTime >= PLAYER_TIMEOUT && GetNetworkIP(p.sourceAddr) != network->GetIP())
+			if(p.type == HUMAN && p.refreshTime >= PLAYER_TIMEOUT && GetNetworkIP(p.sourceAddr) != network->GetIP())
 			{
 				playersToRemove.push_back(GetNetworkIP(p.sourceAddr));
 				wcout << p.name;
@@ -136,7 +149,7 @@ namespace Typhon
 
 	Lobby::Lobby(std::shared_ptr<Engine> engine)
 		: FSMState(engine), network(Typhon::GetNetwork(Typhon::RAW, PORT_NUMBER)),
-		players(MAX_PLAYERS, Player()), numBots(MAX_PLAYERS),
+		players(MAX_PLAYERS, LobbyPlayer()), numBots(MAX_PLAYERS),
 		discoveryMessage(ConvertWideToStr(engine->options.name) + " " + boost::lexical_cast<std::string>(engine->perfScore))
 	{
 		if (!network)
@@ -261,7 +274,8 @@ namespace Typhon
 			iter->sourceAddr.sin_addr.s_addr = location;
 #endif
 			numBots--;
-			sort(players.begin(), players.end(), [](const Player& lhs, const Player& rhs){ return lhs.type < rhs.type; });
+			CheckNewServerCandidate(*iter);
+			sort(players.begin(), players.end(), [](const LobbyPlayer& lhs, const LobbyPlayer& rhs){ return lhs.type < rhs.type; });
 			UpdatePlayersOnScreen();
 	}
 
@@ -307,7 +321,7 @@ namespace Typhon
 
 	void Lobby::RemovePlayer(const unsigned long addr)
 	{
-		auto iter = find_if(players.begin(), players.end(), [=](Player p) { return GetNetworkIP(p.sourceAddr) == addr; });
+		auto iter = find_if(players.begin(), players.end(), [=](LobbyPlayer p) { return GetNetworkIP(p.sourceAddr) == addr; });
 		if(iter != players.end())
 		{
 			// setting other fields is unnecessary since we can ignore them after seeing
@@ -329,7 +343,7 @@ namespace Typhon
 		auto currentTime = engine->device->getTimer()->getTime();
 		if((currentTime - prevTime) > BROADCAST_INTERVAL)
 		{
-			for_each(players.begin(), players.end(), [=](Player &p) 
+			for_each(players.begin(), players.end(), [=](LobbyPlayer &p) 
 			{
 				p.refreshTime += currentTime - prevTime;
 			});
@@ -345,7 +359,7 @@ namespace Typhon
 			return;
 		}
 
-		auto playerSearch = [=](const Player &p)
+		auto playerSearch = [=](const LobbyPlayer &p)
 		{
 			return GetNetworkIP(recvMessage.address) == GetNetworkIP(p.sourceAddr);
 		};

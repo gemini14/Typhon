@@ -92,6 +92,8 @@ namespace Typhon
 			lang->langSelector->setSelected(userLangGUIid);
 			lang->ChangeLanguage(userLangEnum);
 
+			memset(&serverIP, 0, sizeof serverIP);
+
 			// indicate that components have successfully been initialized
 			ready = true;
 		}	
