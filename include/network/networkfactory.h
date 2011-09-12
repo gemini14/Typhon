@@ -10,7 +10,8 @@ namespace Typhon
 	enum NETWORK_HANDLING_TYPE
 	{
 		RAW,
-		ENET
+		ENETCLIENT,
+		ENETSERVER
 	};
 
 	Network* GetNetwork(NETWORK_HANDLING_TYPE type, const int port, const sockaddr_in *IP = nullptr);

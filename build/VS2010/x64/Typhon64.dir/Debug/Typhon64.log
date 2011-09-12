@@ -1,4 +1,4 @@
-﻿Build started 9/11/2011 12:17:09 AM.
+﻿Build started 9/11/2011 10:02:06 PM.
      1>Project "D:\X Platform Projects\Typhon\build\VS2010\x64\Typhon64.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Touching "Typhon64.dir\Debug\Typhon64.unsuccessfulbuild".
@@ -30,7 +30,8 @@
          Typhon64.dir\Debug\metrics.obj
          Typhon64.dir\Debug\lobbylist.obj
          Typhon64.dir\Debug\network.obj
-         Typhon64.dir\Debug\networkenet.obj
+         Typhon64.dir\Debug\networkenetclient.obj
+         Typhon64.dir\Debug\networkenetserver.obj
          Typhon64.dir\Debug\networkfactory.obj
          Typhon64.dir\Debug\networklinux.obj
          Typhon64.dir\Debug\networkraw.obj
@@ -55,4 +56,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:44.73
+Time Elapsed 00:00:27.71

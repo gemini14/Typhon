@@ -88,7 +88,6 @@ namespace Typhon
 				: my_base(ctx), game(new Typhon::Game(outermost_context().engine))
 			{
 				std::cout << "Entered the game state\n";
-				outermost_context().state.reset();
 				outermost_context().state = game;
 				outermost_context().backColor = irr::video::SColor(255, 245, 203, 10);
 			}
@@ -112,7 +111,6 @@ namespace Typhon
 			{
 				lobby->AddPlayer(lobby->engine->options.name, lobby->engine->perfScore,
 					lobby->GetNetwork()->GetIP());
-				outermost_context().state.reset();
 				outermost_context().state = lobby;
 				outermost_context().backColor = irr::video::SColor(255, 245, 203, 10);
 			}
@@ -133,7 +131,6 @@ namespace Typhon
 			MainMenu(my_context ctx)
 				: my_base(ctx), menu(new Typhon::MainMenu(outermost_context().engine))
 			{
-				outermost_context().state.reset();
 				outermost_context().state = menu;
 				outermost_context().backColor = irr::video::SColor(255, 245, 203, 10);
 			}
@@ -152,7 +149,6 @@ namespace Typhon
 			Options(my_context ctx)
 				: my_base(ctx), options(new Typhon::Options(outermost_context().engine))
 			{
-				outermost_context().state.reset();
 				outermost_context().state = options;
 				outermost_context().backColor = irr::video::SColor(255, 245, 203, 10);
 			}

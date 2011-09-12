@@ -13,7 +13,7 @@ namespace Typhon
 	};
 
 	Game::Game(std::shared_ptr<Engine> engine)
-		: FSMState(engine), network(Typhon::GetNetwork(Typhon::ENET, PORT_NUMBER, &engine->serverIP))
+		: FSMState(engine), network(Typhon::GetNetwork(Typhon::ENETCLIENT, PORT_NUMBER, &engine->serverIP))
 	{
 		if (!network)
 		{

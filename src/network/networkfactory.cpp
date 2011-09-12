@@ -6,7 +6,8 @@
 #include "network/networklinux.h"
 #endif
 
-#include "network/networkenet.h"
+#include "network/networkenetclient.h"
+#include "network/networkenetserver.h"
 
 namespace Typhon
 {
@@ -21,11 +22,15 @@ namespace Typhon
 			net = new NetworkLinux(port);
 #endif
 		}
-		else
+		else if (IP)
 		{
-			if(IP)
+			if(type == ENETCLIENT)
 			{
-				net = new NetworkENet(port, IP);
+				net = new NetworkENetClient(port, IP);
+			}
+			else
+			{
+				net = new NetworkENetServer(port);
 			}
 		}
 

@@ -43,7 +43,8 @@ ${hdr}metrics/metrics.h
 
 ${hdr}network/lobbylist.h
 ${hdr}network/network.h
-${hdr}network/networkenet.h
+${hdr}network/networkenetclient.h
+${hdr}network/networkenetserver.h
 ${hdr}network/networkfactory.h
 ${hdr}network/networklinux.h
 ${hdr}network/networkraw.h
@@ -60,7 +61,6 @@ ${hdr}state/mainmenu.h
 ${hdr}state/options.h
 
 ${hdr}utility/constants.h
-${hdr}utility/networkinitexception.h
 ${hdr}utility/stateexception.h
 ${hdr}utility/useroptions.h
 ${hdr}utility/utility.h
@@ -91,7 +91,8 @@ metrics/metrics.cpp
 
 network/lobbylist.cpp
 network/network.cpp
-network/networkenet.cpp
+network/networkenetclient.cpp
+network/networkenetserver.cpp
 network/networkfactory.cpp
 network/networklinux.cpp
 network/networkraw.cpp
@@ -152,7 +153,8 @@ ${hdr}metrics/metrics.h
 source_group(Header\ Files\\network FILES 
 ${hdr}network/lobbylist.h
 ${hdr}network/network.h
-${hdr}network/networkenet.h
+${hdr}network/networkenetclient.h
+${hdr}network/networkenetserver.h
 ${hdr}network/networkfactory.h
 ${hdr}network/networklinux.h
 ${hdr}network/networkraw.h
@@ -175,7 +177,6 @@ ${hdr}state/options.h
 
 source_group(Header\ Files\\utility FILES
 ${hdr}utility/constants.h
-${hdr}utility/networkinitexception.h
 ${hdr}utility/stateexception.h
 ${hdr}utility/useroptions.h
 ${hdr}utility/utility.h
@@ -215,7 +216,8 @@ metrics/metrics.cpp
 source_group(Source\ Files\\network FILES 
 network/lobbylist.cpp
 network/network.cpp
-network/networkenet.cpp
+network/networkenetclient.cpp
+network/networkenetserver.cpp
 network/networkfactory.cpp
 network/networklinux.cpp
 network/networkraw.cpp
