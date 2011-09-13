@@ -24,6 +24,8 @@ DEALINGS IN THE SOFTWARE.
 #include <iostream>
 #include <sstream>
 
+#include <boost/thread.hpp>
+
 #include "state/machine.h"
 
 using namespace std;
@@ -44,6 +46,7 @@ int main(int argc, char* argv[])
 	}
 
 	int lastFPS = -1;
+	boost::thread *serverThread = nullptr;
 
 	while(!machine.terminated() && machine.engine->device->run() &&
 			!machine.engine->terminate)
@@ -58,6 +61,7 @@ int main(int argc, char* argv[])
 			switch(newEvent)
 			{
 			case FSM::GAME:
+				// serverThread = new boost::thread(
 				machine.process_event(FSM::EvGame());
 				break;
 

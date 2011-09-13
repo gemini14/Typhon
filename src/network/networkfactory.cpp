@@ -13,33 +13,40 @@ namespace Typhon
 {
 	Network* GetNetwork(NETWORK_HANDLING_TYPE type, const int port, const sockaddr_in *IP)
 	{
+		// the following function SHOULD be completely thread-safe
 		Network *net = nullptr;
-		if (type == RAW)
+		
+		switch(type)
 		{
+		case RAW:
 #ifdef WIN32
 			net = new NetworkWin(port);
-#else // Linux
+#else
 			net = new NetworkLinux(port);
 #endif
-		}
-		else if (IP)
-		{
-			if(type == ENETCLIENT)
+			break;
+
+		case ENETCLIENT:
+			if(IP)
 			{
 				net = new NetworkENetClient(port, IP);
 			}
-			else
+			break;
+
+		case ENETSERVER:
+			if(IP)
 			{
 				net = new NetworkENetServer(port);
 			}
-		}
+			break;
+
+		default:
+			return nullptr;
+	}
 
 		if (net && !net->StartUp())
 		{
-			if(net)
-			{
-				delete net;
-			}
+			delete net;
 			return nullptr;
 		}
 

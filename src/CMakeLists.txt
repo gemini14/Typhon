@@ -52,6 +52,8 @@ ${hdr}network/networkwin.h
 
 ${hdr}player/lobbyplayer.h
 
+${hdr}server/server.h
+
 ${hdr}state/fsmevents.h
 ${hdr}state/fsmstate.h
 ${hdr}state/game.h
@@ -99,6 +101,8 @@ network/networkraw.cpp
 network/networkwin.cpp
 
 player/lobbyplayer.cpp
+
+server/server.cpp
 
 state/game.cpp
 state/lobby.cpp
@@ -165,6 +169,10 @@ source_group(Header\ Files\\player FILES
 ${hdr}player/lobbyplayer.h
 )
 
+source_group(Header\ Files\\server FILES
+${hdr}server/server.h
+)
+
 source_group(Header\ Files\\state FILES
 ${hdr}state/fsmevents.h
 ${hdr}state/fsmstate.h
@@ -226,6 +234,10 @@ network/networkwin.cpp
 
 source_group(Source\ Files\\player FILES
 player/lobbyplayer.cpp
+)
+
+source_group(Source\ Files\\server FILES
+server/server.cpp
 )
 
 source_group(Source\ Files\\scripts FILES 
