@@ -26,8 +26,10 @@ DEALINGS IN THE SOFTWARE.
 
 #include <boost/thread.hpp>
 
+#include "server/server.h"
 #include "state/machine.h"
 
+using namespace boost;
 using namespace std;
 using namespace Typhon;
 
@@ -39,7 +41,7 @@ int main(int argc, char* argv[])
 	{
 		machine.initiate();
 	}
-	catch(const exception &ex)
+	catch(const std::exception &ex)
 	{
 		cout << ex.what();
 		return 1;
@@ -61,7 +63,7 @@ int main(int argc, char* argv[])
 			switch(newEvent)
 			{
 			case FSM::GAME:
-				// serverThread = new boost::thread(
+				serverThread = new boost::thread(&Server::ServerThreadRun);
 				machine.process_event(FSM::EvGame());
 				break;
 
@@ -77,6 +79,15 @@ int main(int argc, char* argv[])
 				machine.process_event(FSM::EvOptions());
 				break;
 
+			case FSM::RET_TO_LOBBY_FROM_GAME:
+				Server::ClientLeftGame();
+				if(serverThread && serverThread->joinable())
+				{
+					serverThread->join();
+				}
+				machine.process_event(FSM::EvLobby());
+				break;
+
 			default:
 				cout << "Invalid event passed to event queue.\n";
 				break;
@@ -86,18 +97,5 @@ int main(int argc, char* argv[])
 	}
 
 	machine.engine->SavePrefs();
-	//stringstream discovery;
-	//discovery << name << "%" << perfScore;
-	//while(true)
-	//{
-	//	net->BroadcastMessage(discovery.str(), 'D');
-	//	Message m = net->ReceiveMessage();
-	//	if(m.prefix == 'D')
-	//	{
-	//		std::cout << "Discovery message: " << m.msg;
-	//		break;
-	//	}
-	//}
-
 	return 0;
 }

@@ -261,9 +261,14 @@ if(CMAKE_CL_64)
 	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../bin/Win64/)
 	message("Creating Win64 project...")
 	add_executable(Typhon64 ${SourceFiles} ${HeaderFiles} ${ScriptFiles})
-	target_link_libraries(Typhon64 debug IrrlichtD_64 optimized Irrlicht_64 
-		lua5.1_64 debug luabindD_64 optimized luabind_64 Ws2_32 winmm
-		debug freetype246D_64 optimized freetype246_64)
+	target_link_libraries(Typhon64 
+		debug IrrlichtD_64 optimized Irrlicht_64 
+		lua5.1_64 
+		debug luabindD_64 optimized luabind_64 
+		Ws2_32 
+		winmm
+		debug freetype246D_64 optimized freetype246_64
+		debug boost_thread-vc100-mt-gd-1_47 optimized boost_thread-vc100-mt-1_47)
 	set_target_properties(Typhon64 PROPERTIES PREFIX "../")
 
 elseif(CMAKE_HOST_WIN32)
@@ -271,9 +276,14 @@ elseif(CMAKE_HOST_WIN32)
 	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../bin/Win32/)
 	message("Creating Win32 project")
 	add_executable(Typhon32 ${SourceFiles} ${HeaderFiles} ${ScriptFiles})
-	target_link_libraries(Typhon32 debug IrrlichtD_32 optimized Irrlicht_32
-		lua5.1_32 debug luabindD_32 optimized luabind_32 Ws2_32 winmm
-		debug freetype246D_32 optimized freetype246_32)
+	target_link_libraries(Typhon32 
+		debug IrrlichtD_32 optimized Irrlicht_32
+		lua5.1_32 
+		debug luabindD_32 optimized luabind_32 
+		Ws2_32 
+		winmm
+		debug freetype246D_32 optimized freetype246_32
+		debug boost_thread-vc100-mt-gd-1_47 optimized boost_thread-vc100-mt-1_47)
 	set_target_properties(Typhon32 PROPERTIES PREFIX "../")
 
 elseif(CMAKE_HOST_UNIX)

@@ -9,7 +9,7 @@ namespace Typhon
 {
 	namespace FSM
 	{
-		enum EVENT_TYPE { GAME, LOBBY, MAINMENU, OPTIONS };
+		enum EVENT_TYPE { GAME, LOBBY, MAINMENU, OPTIONS, RET_TO_LOBBY_FROM_GAME };
 		
 		struct EvGame : sc::event<EvGame>
 		{

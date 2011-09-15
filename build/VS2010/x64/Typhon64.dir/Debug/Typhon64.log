@@ -1,17 +1,23 @@
-﻿Build started 9/11/2011 10:02:06 PM.
+﻿Build started 9/15/2011 3:44:41 AM.
      1>Project "D:\X Platform Projects\Typhon\build\VS2010\x64\Typhon64.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Touching "Typhon64.dir\Debug\Typhon64.unsuccessfulbuild".
+         Creating "Typhon64.dir\Debug\Typhon64.unsuccessfulbuild" because "AlwaysCreate" was specified.
        CustomBuild:
          All outputs are up-to-date.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:/X Platform Projects/Typhon/src/../include" /I"D:/X Platform Projects/Typhon/src/../include/freetype" /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon64.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/bin/Win64/Debug/../Typhon64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\main.cpp  /Zm1000 
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:/X Platform Projects/Typhon/src/../include" /I"D:/X Platform Projects/Typhon/src/../include/freetype" /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Typhon64.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/bin/Win64/Debug/../Typhon64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\engine\engine.cpp ..\..\..\src\main.cpp ..\..\..\src\state\game.cpp ..\..\..\src\state\lobby.cpp ..\..\..\src\state\mainmenu.cpp ..\..\..\src\state\options.cpp  /Zm1000 
+         engine.cpp
          main.cpp
+         game.cpp
+         lobby.cpp
+         mainmenu.cpp
+         options.cpp
+         Generating Code...
          All outputs are up-to-date.
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\X Platform Projects\Typhon\bin\Win64\Debug\Typhon64.exe" /VERSION:"0.0" /INCREMENTAL /NOLOGO /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/freetype" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/freetype/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Irrlicht" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Irrlicht/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/luabind" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/luabind/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/lua" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/lua/Debug" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib IrrlichtD_64.lib lua5.1_64.lib luabindD_64.lib Ws2_32.lib winmm.lib freetype246D_64.lib /MANIFEST /ManifestFile:"Typhon64.dir\Debug\Typhon64.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\X Platform Projects\Typhon\bin\Win64\Debug\Typhon64.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/X Platform Projects/Typhon/build/VS2010/x64/Debug/Typhon64.lib" /MACHINE:X64 Typhon64.dir\Debug\Typhon64.exe.embed.manifest.res
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\X Platform Projects\Typhon\bin\Win64\Debug\Typhon64.exe" /VERSION:"0.0" /INCREMENTAL /NOLOGO /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/freetype" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/freetype/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Irrlicht" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/Irrlicht/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/luabind" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/luabind/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/lua" /LIBPATH:"D:/X Platform Projects/Typhon/src/../lib/lua/Debug" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib IrrlichtD_64.lib lua5.1_64.lib luabindD_64.lib Ws2_32.lib winmm.lib freetype246D_64.lib "boost_thread-vc100-mt-gd-1_47.lib" /MANIFEST /ManifestFile:"Typhon64.dir\Debug\Typhon64.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\X Platform Projects\Typhon\bin\Win64\Debug\Typhon64.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/X Platform Projects/Typhon/build/VS2010/x64/Debug/Typhon64.lib" /MACHINE:X64 Typhon64.dir\Debug\Typhon64.exe.embed.manifest.res
          Typhon64.dir\Debug\main.obj
          Typhon64.dir\Debug\callbacks.obj
          Typhon64.dir\Debug\compress.obj
@@ -37,6 +43,7 @@
          Typhon64.dir\Debug\networkraw.obj
          Typhon64.dir\Debug\networkwin.obj
          Typhon64.dir\Debug\lobbyplayer.obj
+         Typhon64.dir\Debug\server.obj
          Typhon64.dir\Debug\game.obj
          Typhon64.dir\Debug\lobby.obj
          Typhon64.dir\Debug\mainmenu.obj
@@ -56,4 +63,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:27.71
+Time Elapsed 00:00:29.73
