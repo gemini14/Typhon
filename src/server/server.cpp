@@ -6,8 +6,8 @@
 
 namespace Typhon
 {
-	bool Server::clientLeftGame = false;
-	boost::mutex clientLeftMutex;
+	bool Server::hostLeftGame = false;
+	boost::mutex hostLeftMutex;
 
 	Server::Server()
 	{
@@ -19,8 +19,8 @@ namespace Typhon
 
 	void Server::ClientLeftGame()
 	{
-		boost::lock_guard<boost::mutex> lockVar(clientLeftMutex);
-		clientLeftGame = true;
+		boost::lock_guard<boost::mutex> lockVar(hostLeftMutex);
+		hostLeftGame = true;
 	}
 
 	void Server::ServerThreadRun()
@@ -29,10 +29,10 @@ namespace Typhon
 		{
 			
 
-			boost::lock_guard<boost::mutex> lockVar(clientLeftMutex);
-			if(clientLeftGame)
+			boost::lock_guard<boost::mutex> lockVar(hostLeftMutex);
+			if(hostLeftGame)
 			{
-				clientLeftGame = false;
+				hostLeftGame = false;
 				break;
 			}
 		}

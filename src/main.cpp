@@ -33,6 +33,7 @@ using namespace boost;
 using namespace std;
 using namespace Typhon;
 
+void MessagePump(FSM::Machine &machine, boost::thread* &serverThread);
 
 int main(int argc, char* argv[])
 {
@@ -51,51 +52,57 @@ int main(int argc, char* argv[])
 	boost::thread *serverThread = nullptr;
 
 	while(!machine.terminated() && machine.engine->device->run() &&
-			!machine.engine->terminate)
+		!machine.engine->terminate)
 	{
 		machine.Run(lastFPS);
-		
-		// process FSM's event queue
-		while(!machine.engine->eventQueue.empty())
-		{
-			auto newEvent = machine.engine->eventQueue.front();
-			machine.engine->lang->ClearAllElements();
-			switch(newEvent)
-			{
-			case FSM::GAME:
-				serverThread = new boost::thread(&Server::ServerThreadRun);
-				machine.process_event(FSM::EvGame());
-				break;
-
-			case FSM::LOBBY:
-				machine.process_event(FSM::EvLobby());
-				break;
-
-			case FSM::MAINMENU:
-				machine.process_event(FSM::EvMainMenu());
-				break;
-
-			case FSM::OPTIONS:
-				machine.process_event(FSM::EvOptions());
-				break;
-
-			case FSM::RET_TO_LOBBY_FROM_GAME:
-				Server::ClientLeftGame();
-				if(serverThread && serverThread->joinable())
-				{
-					serverThread->join();
-				}
-				machine.process_event(FSM::EvLobby());
-				break;
-
-			default:
-				cout << "Invalid event passed to event queue.\n";
-				break;
-			}
-			machine.engine->eventQueue.pop();
-		}
+		MessagePump(machine, serverThread);		
 	}
 
 	machine.engine->SavePrefs();
 	return 0;
+}
+
+void MessagePump(FSM::Machine &machine, boost::thread* &serverThread)
+{
+	// process FSM's event queue
+	while(!machine.engine->eventQueue.empty())
+	{
+		auto newEvent = machine.engine->eventQueue.front();
+		machine.engine->lang->ClearAllElements();
+		switch(newEvent)
+		{
+		case FSM::GAME:
+			serverThread = new boost::thread(&Server::ServerThreadRun);
+			machine.process_event(FSM::EvGame());
+			break;
+
+		case FSM::LOBBY:
+			machine.process_event(FSM::EvLobby());
+			break;
+
+		case FSM::MAINMENU:
+			machine.process_event(FSM::EvMainMenu());
+			break;
+
+		case FSM::OPTIONS:
+			machine.process_event(FSM::EvOptions());
+			break;
+
+		case FSM::RET_TO_LOBBY_FROM_GAME:
+			Server::ClientLeftGame();
+			if(serverThread && serverThread->joinable())
+			{
+				serverThread->join();
+				delete serverThread;
+				serverThread = nullptr;
+			}
+			machine.process_event(FSM::EvLobby());
+			break;
+
+		default:
+			cout << "Invalid event passed to event queue.\n";
+			break;
+		}
+		machine.engine->eventQueue.pop();
+	}
 }

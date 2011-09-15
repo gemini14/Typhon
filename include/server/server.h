@@ -9,7 +9,7 @@ namespace Typhon
 	{
 	private:
 
-		static bool clientLeftGame;
+		static bool hostLeftGame;
 
 	public:
 
