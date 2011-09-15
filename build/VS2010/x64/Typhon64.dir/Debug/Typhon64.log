@@ -1,4 +1,4 @@
-﻿Build started 9/15/2011 7:39:31 PM.
+﻿Build started 9/15/2011 7:41:25 PM.
      1>Project "D:\X Platform Projects\Typhon\build\VS2010\x64\Typhon64.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Typhon64.dir\Debug\Typhon64.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -9,7 +9,7 @@
          networkenetserver.cpp
      1>c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\xutility(2239): warning C4996: 'std::_Copy_impl': Function call with parameters that may be unsafe - this call relies on the caller to check that the passed values are correct. To disable this warning, use -D_SCL_SECURE_NO_WARNINGS. See documentation on how to use Visual C++ 'Checked Iterators'
                  c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\xutility(2224) : see declaration of 'std::_Copy_impl'
-                 ..\..\..\src\network\networkenetserver.cpp(31) : see reference to function template instantiation '_OutIt std::copy<const sockaddr_in*,sockaddr_in*>(_InIt,_InIt,_OutIt)' being compiled
+                 ..\..\..\src\network\networkenetserver.cpp(32) : see reference to function template instantiation '_OutIt std::copy<const sockaddr_in*,sockaddr_in*>(_InIt,_InIt,_OutIt)' being compiled
                  with
                  [
                      _OutIt=sockaddr_in *,
@@ -65,4 +65,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.81
+Time Elapsed 00:00:04.94

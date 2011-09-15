@@ -22,6 +22,7 @@ namespace Typhon
 
 	void NetworkENetServer::DisplayError(const std::string &message)
 	{
+		boost::lock_guard<boost::mutex> lock(coutMutex);
 		cout << message << "\n";
 	}
 
@@ -53,12 +54,10 @@ namespace Typhon
 			switch(event.type)
 			{
 			case ENET_EVENT_TYPE_CONNECT:
-#if defined(_DEBUG)|defined(DEBUG)
 				{
 					boost::lock_guard<boost::mutex> lock(coutMutex);
 					cout << "Client connected from " << event.peer->address.host << ".\n";
 				}
-#endif
 				// TODO perform client addition here
 				break;
 
@@ -77,12 +76,10 @@ namespace Typhon
 				break;
 
 			case ENET_EVENT_TYPE_DISCONNECT:
-#if defined(_DEBUG)|defined(DEBUG)
 				{
 					boost::lock_guard<boost::mutex> lock(coutMutex);
 					cout << "Client at " << event.peer->address.host << " disconnected.\n";
 				}
-#endif
 				// TODO perform client removal here
 				break;
 			}
