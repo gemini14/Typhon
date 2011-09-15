@@ -10,7 +10,8 @@ namespace Typhon
 	{
 	private:
 
-
+		ENetHost *server;
+		sockaddr_in IP;
 
 	protected:
 
@@ -18,7 +19,7 @@ namespace Typhon
 
 	public:
 
-		NetworkENetServer(const int port);
+		NetworkENetServer(const int port, const sockaddr_in *serverIP);
 		virtual ~NetworkENetServer();
 
 		virtual void BroadcastMessage(const std::string &msg, const char prefix);

@@ -15,7 +15,7 @@ namespace Typhon
 	{
 		// the following function SHOULD be completely thread-safe
 		Network *net = nullptr;
-		
+
 		switch(type)
 		{
 		case RAW:
@@ -36,13 +36,13 @@ namespace Typhon
 		case ENETSERVER:
 			if(IP)
 			{
-				net = new NetworkENetServer(port);
+				net = new NetworkENetServer(port, IP);
 			}
 			break;
 
 		default:
 			return nullptr;
-	}
+		}
 
 		if (net && !net->StartUp())
 		{

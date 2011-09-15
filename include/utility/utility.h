@@ -15,6 +15,7 @@ namespace Typhon
 	std::string ConvertWideToStr(const std::wstring &str);
 	unsigned long GetNetworkIP(const sockaddr_in &address);
 	unsigned long GetNetworkIP(const in_addr &address);
+	const in_addr StoreIPNumber(const unsigned long ip);
 }
 
 #endif

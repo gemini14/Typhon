@@ -72,7 +72,7 @@ void MessagePump(FSM::Machine &machine, boost::thread* &serverThread)
 		switch(newEvent)
 		{
 		case FSM::GAME:
-			serverThread = new boost::thread(&Server::ServerThreadRun);
+			serverThread = new boost::thread(&Server::ServerThreadRun, machine.engine->serverIP);
 			machine.process_event(FSM::EvGame());
 			break;
 
@@ -89,7 +89,7 @@ void MessagePump(FSM::Machine &machine, boost::thread* &serverThread)
 			break;
 
 		case FSM::RET_TO_LOBBY_FROM_GAME:
-			Server::ClientLeftGame();
+			Server::HostLeftGame();
 			if(serverThread && serverThread->joinable())
 			{
 				serverThread->join();

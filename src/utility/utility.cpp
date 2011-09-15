@@ -91,4 +91,15 @@ namespace Typhon
 		return address.s_addr;
 #endif
 	}
+
+	const in_addr StoreIPNumber(const unsigned long ip)
+	{
+		in_addr newAddr;
+#ifdef WIN32
+		newAddr.S_un.S_addr = ip;
+#else
+		newAddr.s_addr = ip;
+#endif
+		return newAddr;
+	}
 }
