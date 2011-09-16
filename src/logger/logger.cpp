@@ -1,6 +1,7 @@
 #include "logger/logger.h"
 
 #include <iostream>
+#include <queue>
 
 #include <boost/thread.hpp>
 
@@ -8,6 +9,8 @@ namespace Typhon
 {
 	boost::mutex logQueueGuard;
 	boost::mutex flushExitGuard;
+
+	bool Logger::flushExit;
 
 	std::queue<std::string> logMessageQueue;
 
@@ -36,17 +39,21 @@ namespace Typhon
 				boost::lock_guard<boost::mutex> lock(logQueueGuard);
 				if(!logMessageQueue.empty())
 				{
-					auto msg = logMessageQueue.front();
-					std::cout << msg << std::endl;
+					std::cout << logMessageQueue.front() << std::endl;
+					logMessageQueue.pop();
 				}
 			}
 
+			boost::lock_guard<boost::mutex> lock(flushExitGuard);
+			if(flushExit)
 			{
-				boost::lock_guard<boost::mutex> lock(flushExitGuard);
-				if(flushExit)
+				boost::lock_guard<boost::mutex> lock(logQueueGuard);
+				while(!logMessageQueue.empty())
 				{
-					break;
+					std::cout << logMessageQueue.front() << std::endl;
+					logMessageQueue.pop();
 				}
+				break;
 			}
 		}
 	}

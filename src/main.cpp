@@ -26,6 +26,7 @@ DEALINGS IN THE SOFTWARE.
 
 #include <boost/thread.hpp>
 
+#include "logger/logger.h"
 #include "server/server.h"
 #include "state/machine.h"
 
@@ -37,6 +38,8 @@ void MessagePump(FSM::Machine &machine, boost::thread* &serverThread);
 
 int main(int argc, char* argv[])
 {
+	boost::thread loggerThread(&Logger::Run);
+
 	FSM::Machine machine;
 	try
 	{
@@ -59,6 +62,13 @@ int main(int argc, char* argv[])
 	}
 
 	machine.engine->SavePrefs();
+
+	Logger::FlushAndExit();
+	if(loggerThread.joinable())
+	{
+		loggerThread.join();
+	}
+
 	return 0;
 }
 

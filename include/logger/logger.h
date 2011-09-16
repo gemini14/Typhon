@@ -1,7 +1,6 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-#include <queue>
 #include <string>
 
 namespace Typhon

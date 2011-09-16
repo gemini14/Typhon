@@ -77,7 +77,7 @@ namespace Typhon
 	std::string GetIPStringForm(sockaddr_in *address)
 	{
 		char IP_str[INET_ADDRSTRLEN];
-		inet_ntop(AF_INET, address.sin_addr, IP_str, INET_ADDRSTRLEN);
+		inet_ntop(AF_INET, &address->sin_addr, IP_str, INET_ADDRSTRLEN);
 		return string(IP_str);
 	}
 
