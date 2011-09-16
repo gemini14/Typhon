@@ -5,9 +5,7 @@
 #define NDEBUG
 #endif
 #include <cassert>
-#include <iostream>
 #include <list>
-#include <regex>
 #include <sstream>
 
 #include <boost/foreach.hpp>
@@ -118,8 +116,8 @@ namespace Typhon
 			if(p.type == HUMAN && p.refreshTime >= PLAYER_TIMEOUT && GetNetworkIP(p.sourceAddr) != network->GetIP())
 			{
 				playersToRemove.push_back(GetNetworkIP(p.sourceAddr));
-				wcout << p.name;
-				cout << " pruned, refresh is " << p.refreshTime << "\n\n";
+				Log(ConvertWideToStr(p.name) + " pruned, refresh is " +
+					boost::lexical_cast<string>(p.refreshTime) + "\n");
 			}
 		}
 
@@ -291,8 +289,7 @@ namespace Typhon
 		auto iter = players.end() - 1;
 		assert(iter != players.end() && iter->type == AI);
 
-		wcout << name;
-		cout << " being added.\n";
+		Log(ConvertWideToStr(name) + " being added.");
 		iter->name = name;
 		iter->perfScore = perfScore;
 		iter->type = HUMAN;
@@ -360,8 +357,7 @@ namespace Typhon
 		{
 			// setting other fields is unnecessary since we can ignore them after seeing
 			// that this is a bot
-			wcout << iter->name;
-			wcout << " being removed.\n";
+			Log(ConvertWideToStr(iter->name) + " being removed.");
 			iter->name = L"Bot";
 			iter->type = AI;
 			if(GetNetworkIP(iter->sourceAddr) == GetNetworkIP(designatedServer.sourceAddr))
@@ -417,8 +413,7 @@ namespace Typhon
 				std::wstring newPlayerName = ConvertStrToWide(*iterator);
 				iterator++;
 				int perf = boost::lexical_cast<int>(*iterator);
-				wcout << newPlayerName;
-				cout << " about to be added.\n";
+				Log(ConvertWideToStr(newPlayerName) + " about to be added.");
 				AddPlayer(newPlayerName, perf, GetNetworkIP(recvMessage.address));
 			}
 			else

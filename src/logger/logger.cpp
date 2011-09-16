@@ -16,8 +16,10 @@ namespace Typhon
 
 	void Log(const std::string &msg)
 	{
+#if defined(DEBUG)|defined(_DEBUG)
 		boost::lock_guard<boost::mutex> lock(logQueueGuard);
 		logMessageQueue.push(msg);
+#endif
 	}
 
 	void Logger::FlushAndExit()

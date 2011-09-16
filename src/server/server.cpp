@@ -2,8 +2,6 @@
 
 #include <boost/thread.hpp>
 
-#include <iostream>
-
 namespace Typhon
 {
 	bool Server::hostLeftGame = false;

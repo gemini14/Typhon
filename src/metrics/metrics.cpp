@@ -5,9 +5,14 @@
 #include <unistd.h>
 #endif
 
-#include <cstdio>
+#include <string>
 
-#include <metrics/metrics.h>
+#include <boost/lexical_cast.hpp>
+
+#include "logger/logger.h"
+#include "metrics/metrics.h"
+
+using namespace std;
 
 namespace Typhon
 {
@@ -32,7 +37,7 @@ int Metrics::GetPerfScore()
 	{
 		char buffer[256];
 		FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, error, 0, buffer, 256, 0);
-		printf("Error: Problem opening registry key to find CPU speed.\n");
+		Log("Error: Problem opening registry key to find CPU speed.");
 	}
 	else
 	{
@@ -55,7 +60,7 @@ int Metrics::GetPerfScore()
 #else
 	// get number of cores
 	numCores = sysconf(_SC_NPROCESSORS_ONLN);
-	printf("Number of cores: %ld\n", numCores);
+	Log("Number of cores: " + boost::lexical_cast<string>(numCores));
 
 	// get CPU speed (max)
 	FILE *resultCPU = popen("cat /proc/cpuinfo | grep \"cpu MHz\"", "r");
@@ -72,8 +77,7 @@ int Metrics::GetPerfScore()
 
 		if (pclose(resultCPU) == -1)
 		{
-			printf(
-					"Error: Failed to close command stream after querying system for CPU speed.\n");
+			Log("Error: Failed to close command stream after querying system for CPU speed.");
 		}
 	}
 
@@ -84,12 +88,11 @@ int Metrics::GetPerfScore()
 	{
 
 		fscanf(resultMem, "%*s %d", &memory);
-		printf("Memory: %d\n", memory);
+		Log("Memory: " +  boost::lexical_cast<string>(memory));
 
 		if (pclose(resultMem) == -1)
 		{
-			printf(
-					"Error: Failed to close command stream after querying system for memory.\n");
+			Log("Error: Failed to close command stream after querying system for memory.");
 		}
 	}
 #endif

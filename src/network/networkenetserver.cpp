@@ -1,10 +1,9 @@
 #include "network/networkenetserver.h"
 
 #include <algorithm>
-#include <iostream>
 #include <string>
 
-#include <boost/thread.hpp>
+#include <boost/lexical_cast.hpp>
 
 #include "utility/constants.h"
 #include "utility/utility.h"
@@ -18,12 +17,9 @@ namespace Typhon
 		SEND_CH = 0 
 	};
 
-	boost::mutex coutMutex;
-
 	void NetworkENetServer::DisplayError(const std::string &message)
 	{
-		boost::lock_guard<boost::mutex> lock(coutMutex);
-		cout << message << "\n";
+		Log(message);
 	}
 
 	NetworkENetServer::NetworkENetServer(const int port, const sockaddr_in *serverIP)
@@ -54,10 +50,8 @@ namespace Typhon
 			switch(event.type)
 			{
 			case ENET_EVENT_TYPE_CONNECT:
-				{
-					boost::lock_guard<boost::mutex> lock(coutMutex);
-					cout << "Client connected from " << event.peer->address.host << ".\n";
-				}
+				Log("Client connected from " + boost::lexical_cast<string>(event.peer->address.host));
+
 				// TODO perform client addition here
 				break;
 
@@ -76,10 +70,8 @@ namespace Typhon
 				break;
 
 			case ENET_EVENT_TYPE_DISCONNECT:
-				{
-					boost::lock_guard<boost::mutex> lock(coutMutex);
-					cout << "Client at " << event.peer->address.host << " disconnected.\n";
-				}
+				Log("Client at " + boost::lexical_cast<string>(event.peer->address.host) + " disconnected.");
+
 				// TODO perform client removal here
 				break;
 			}

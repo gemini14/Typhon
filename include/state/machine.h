@@ -5,6 +5,7 @@
 #include <memory>
 #include <string>
 
+#include <boost/lexical_cast.hpp>
 #include <boost/mpl/list.hpp>
 #include <boost/statechart/event.hpp>
 #include <boost/statechart/state.hpp>
@@ -12,6 +13,7 @@
 #include <boost/statechart/transition.hpp>
 
 #include "engine/engine.h"
+#include "logger/logger.h"
 #include "metrics/metrics.h"
 #include "state/fsmevents.h"
 #include "state/game.h"
@@ -51,8 +53,8 @@ namespace Typhon
 
 				engine->perfScore = perfScore;
 
-				std::cout << "Irrlicht engine initialized.\n";
-				std::cout << "Perf score: " << perfScore << "\n";
+				Log("Irrlicht engine initialized.");
+				Log("Perf score: " + boost::lexical_cast<std::string>(perfScore));
 			}
 
 			void Run(int &lastFPS)
@@ -87,14 +89,14 @@ namespace Typhon
 			Game(my_context ctx)
 				: my_base(ctx), game(new Typhon::Game(outermost_context().engine))
 			{
-				std::cout << "Entered the game state\n";
+				Log("Entered the game state");
 				outermost_context().state = game;
 				outermost_context().backColor = irr::video::SColor(255, 245, 203, 10);
 			}
 
 			~Game()
 			{
-				std::cout << "Game state exit\n";
+				Log("Game state exit");
 			}
 		};
 

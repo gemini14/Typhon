@@ -1,7 +1,6 @@
 #include "network/network.h"
 
 #include <algorithm>
-#include <iostream>
 #include <sstream>
 
 #ifndef WIN32

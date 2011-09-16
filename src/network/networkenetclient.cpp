@@ -10,6 +10,7 @@ namespace Typhon
 {
 	void NetworkENetClient::DisplayError(const std::string &message)
 	{
+		Log(message);
 	}
 
 	NetworkENetClient::NetworkENetClient(const int port, const sockaddr_in *IP)
@@ -65,13 +66,13 @@ namespace Typhon
 		ENetEvent event;
 		if(enet_host_service(client, &event, 10000) && event.type == ENET_EVENT_TYPE_CONNECT)
 		{
-			cout << "Connected to server successfully!\n";
+			Log("Connected to server successfully!");
 		}
 		else
 		{
 			// timed out or disconnect event received
 			enet_peer_reset(peer);
-			cout << "Failed to connect to server.\n";
+			Log("Failed to connect to server.");
 		}
 
 		return true;

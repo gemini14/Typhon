@@ -1,7 +1,5 @@
 #include "state/game.h"
 
-#include <iostream>
-
 #include "utility/stateexception.h"
 
 using namespace irr;

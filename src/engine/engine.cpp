@@ -1,7 +1,6 @@
 #include "engine/engine.h"
 
-#include <iostream>
-
+#include "logger/logger.h"
 #include "utility/constants.h"
 #include "utility/utility.h"
 
@@ -63,7 +62,7 @@ namespace Typhon
 			}
 			catch(luabind::error &e)
 			{
-				cout << "\n" << e.what() << "\n" << lua_tostring(lua.luaState, -1) << "\n";
+				Log("\n" + string(e.what()) + "\n" + lua_tostring(lua.luaState, -1));
 				options.name = L"Player1";
 				options.language = "en";
 			}
@@ -118,7 +117,7 @@ namespace Typhon
 		}
 		catch(luabind::error &e)
 		{
-			cout << "\n" << e.what() << "\n" << lua_tostring(lua.luaState, -1) << "\n";
+			Log("\n" + string(e.what()) + "\n" + string(lua_tostring(lua.luaState, -1)));
 		}
 	}
 }

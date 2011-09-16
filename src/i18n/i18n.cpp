@@ -1,12 +1,12 @@
 #include "i18n/i18n.h"
 
 #include <clocale>
-#include <iostream>
 #include <utility>
 
 #include <boost/foreach.hpp>
 
 #include "engine/luamanager.h"
+#include "logger/logger.h"
 #include "utility/utility.h"
 
 using namespace luabind;
@@ -101,8 +101,7 @@ namespace Typhon
 		}
 		catch (luabind::error& e)
 		{
-			string error = lua_tostring(lua->luaState, -1 );
-			cout << "\n" << e.what() << "\n" << error << "\n";
+			Log("\n" + string(e.what()) + "\n" + string(lua_tostring(lua->luaState, -1 )));
 			return L"";
 		}
 		

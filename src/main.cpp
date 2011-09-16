@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
 	}
 	catch(const std::exception &ex)
 	{
-		cout << ex.what();
+		Log(ex.what());
 		return 1;
 	}
 
@@ -110,7 +110,7 @@ void MessagePump(FSM::Machine &machine, boost::thread* &serverThread)
 			break;
 
 		default:
-			cout << "Invalid event passed to event queue.\n";
+			Log("Invalid event passed to event queue.");
 			break;
 		}
 		machine.engine->eventQueue.pop();

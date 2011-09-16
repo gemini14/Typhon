@@ -13,6 +13,7 @@ namespace Typhon
 {
 	void NetworkLinux::DisplayError(const std::string &message)
 	{
+		// TODO hopefully perror is thread-safe...
 		perror(message.c_str());
 	}
 

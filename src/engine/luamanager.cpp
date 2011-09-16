@@ -1,7 +1,10 @@
 #include "engine/luamanager.h"
 
 #include <cassert>
-#include <iostream>
+
+#include <boost/lexical_cast.hpp>
+
+#include "logger/logger.h"
 
 using namespace luabind;
 using namespace std;
@@ -41,8 +44,8 @@ namespace Typhon
 		int result = luaL_dofile(luaState, filename.c_str());
 		if(result)
 		{
-			cout << "Error loading Lua script.  Error code: " << result << "\n"; 
-			cout << "\n" << lua_tostring(luaState, -1) << "\n";
+			Log("Error loading Lua script.  Error code: " + boost::lexical_cast<string>(result)); 
+			Log("\n" + string(lua_tostring(luaState, -1)));
 			return false;
 		}
 

@@ -13,7 +13,6 @@ namespace Typhon
 {
 	Network* GetNetwork(NETWORK_HANDLING_TYPE type, const int port, const sockaddr_in *IP)
 	{
-		// the following function SHOULD be completely thread-safe
 		Network *net = nullptr;
 
 		switch(type)

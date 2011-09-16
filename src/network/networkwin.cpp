@@ -2,7 +2,7 @@
 
 #ifdef WIN32
 
-#include <iostream>
+#include <boost/lexical_cast.hpp>
 
 using namespace std;
 
@@ -10,7 +10,7 @@ namespace Typhon
 {
 	void NetworkWin::DisplayError(const std::string &message)
 	{
-		cout << message << " Error: " << WSAGetLastError() << "\n";
+		Log(message + " Error: " + boost::lexical_cast<string>(WSAGetLastError()));
 	}
 
 	std::string NetworkWin::GetIP()
@@ -190,7 +190,7 @@ namespace Typhon
 		char bufIP[INET_ADDRSTRLEN], bufBroadcast[INET_ADDRSTRLEN];
 		inet_ntop(AF_INET, &machineAddr.sin_addr, bufIP, INET_ADDRSTRLEN);
 		inet_ntop(AF_INET, &broadcastAddr.sin_addr, bufBroadcast, INET_ADDRSTRLEN);
-		cout << "IP is: " << bufIP << "\nBroadcast address is: " << bufBroadcast << "\n";
+		Log("IP is: " + string(bufIP) + "\nBroadcast address is: " + string(bufBroadcast));
 
 		// winsock started up OK, now create socket
 		winsocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
@@ -199,7 +199,7 @@ namespace Typhon
 			DisplayError("Winsock failed to create socket.");
 			return false;
 		}
-		cout << "Socket created.\n";
+		Log("Socket created.");
 
 		// switch it to broadcast mode
 		char optionSet = '1';
@@ -209,16 +209,18 @@ namespace Typhon
 			closesocket(winsocket);
 			return false;
 		}
-		cout << "Socket switched to broadcast mode.\n";
+		Log("Socket switched to broadcast mode.");
 
 		// bind it (this simplifies things by making sure everyone is using the same port)
-		if(bind(winsocket, reinterpret_cast<sockaddr*>(&machineAddr), sizeof(machineAddr)) == SOCKET_ERROR)
+		// (here we need the :: b/c if it is not included, the compiler gets confused due to 
+		// the conflict of std::bind and ::bind (the WinSock one))
+		if(::bind(winsocket, reinterpret_cast<sockaddr*>(&machineAddr), sizeof(machineAddr)) == SOCKET_ERROR)
 		{
 			DisplayError("Socket binding failed.");
 			closesocket(winsocket);
 			return false;
 		}
-		cout << "Socket bound.\n";
+		Log("Socket bound.");
 
 		return true;
 	}

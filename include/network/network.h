@@ -11,6 +11,8 @@
 #include <netinet/in.h>
 #endif
 
+#include "logger/logger.h"
+
 namespace Typhon
 {
 	struct Message

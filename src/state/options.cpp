@@ -1,7 +1,6 @@
 #include "state/options.h"
 
-#include <iostream>
-
+#include "logger/logger.h"
 #include "utility/utility.h"
 
 using namespace irr;
@@ -84,7 +83,7 @@ namespace Typhon
 					}
 					catch(luabind::error &e)
 					{
-						cout << "\n" << e.what() << "\n" << lua_tostring(engine->lua.luaState, -1) << "\n";
+						Log("\n" + string(e.what())+ "\n" + lua_tostring(engine->lua.luaState, -1));
 					}
 					engine->eventQueue.push(FSM::MAINMENU);
 					return true;
