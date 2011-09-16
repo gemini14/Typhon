@@ -10,6 +10,7 @@ namespace Typhon
 	{
 	private:
 
+		ENetHost *client;
 		sockaddr_in serverIP;
 
 	protected:

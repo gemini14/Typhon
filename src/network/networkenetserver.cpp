@@ -27,7 +27,7 @@ namespace Typhon
 	}
 
 	NetworkENetServer::NetworkENetServer(const int port, const sockaddr_in *serverIP)
-		: Network(port)
+		: Network(port), server(nullptr)
 	{
 		copy(serverIP, serverIP + sizeof serverIP, &IP);
 	}
@@ -98,12 +98,10 @@ namespace Typhon
 		}
 
 		ENetAddress address;
-		char IP_str[INET_ADDRSTRLEN];
-		inet_ntop(AF_INET, &(IP.sin_addr), IP_str, INET_ADDRSTRLEN);
-		enet_address_set_host(&address, IP_str);
+		enet_address_set_host(&address, GetIPStringForm(&IP).c_str());
 		address.port = portNumber;
 
-		server = enet_host_create(&address, MAX_PLAYERS, 0, 0, 0);
+		server = enet_host_create(&address, MAX_PLAYERS, 2, 0, 0);
 		if(!server)
 		{
 			DisplayError("ENet was not able to create a server host.");

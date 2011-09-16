@@ -39,6 +39,8 @@ ${hdr}font/gui_freetype_font.h
 
 ${hdr}i18n/i18n.h
 
+${hdr}logger/logger.h
+
 ${hdr}metrics/metrics.h
 
 ${hdr}network/lobbylist.h
@@ -88,6 +90,8 @@ font/font_manager.cpp
 font/gui_freetype_font.cpp
 
 i18n/i18n.cpp
+
+logger/logger.cpp
 
 metrics/metrics.cpp
 
@@ -148,6 +152,10 @@ ${hdr}font/gui_freetype_font.h
 
 source_group(Header\ Files\\i18n FILES
 ${hdr}i18n/i18n.h
+)
+
+source_group(Header\ Files\\logger FILES
+${hdr}logger/logger.h
 )
 
 source_group(Header\ Files\\metrics FILES 
@@ -215,6 +223,10 @@ font/gui_freetype_font.cpp
 
 source_group(Source\ Files\\i18n FILES
 i18n/i18n.cpp
+)
+
+source_group(Source\ Files\\logger FILES
+logger/logger.cpp
 )
 
 source_group(Source\ Files\\metrics FILES 

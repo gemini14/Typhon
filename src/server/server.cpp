@@ -21,15 +21,17 @@ namespace Typhon
 
 		while(true)
 		{
-			
 
-			boost::lock_guard<boost::mutex> lockVar(hostLeftMutex);
-			if(hostLeftGame)
+
 			{
-				// perform clean up operations here
+				boost::lock_guard<boost::mutex> lockVar(hostLeftMutex);
+				if(hostLeftGame)
+				{
+					// perform clean up operations here
 
-				hostLeftGame = false;
-				break;
+					hostLeftGame = false;
+					break;
+				}
 			}
 		}
 	}
