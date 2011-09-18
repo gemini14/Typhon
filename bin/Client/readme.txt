@@ -1,0 +1,1 @@
+The Linux/ folder is used to store Linux executables during development & testing and is set to be ignored by Git.
