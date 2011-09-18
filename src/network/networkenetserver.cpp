@@ -30,7 +30,10 @@ namespace Typhon
 
 	NetworkENetServer::~NetworkENetServer()
 	{
-		enet_host_destroy(server);
+		if(server)
+		{
+			enet_host_destroy(server);
+		}
 		enet_deinitialize();
 	}
 
@@ -90,7 +93,7 @@ namespace Typhon
 		}
 
 		ENetAddress address;
-		enet_address_set_host(&address, GetIPStringForm(&IP).c_str());
+		address.host = GetNetworkIP(IP);
 		address.port = portNumber;
 
 		server = enet_host_create(&address, MAX_PLAYERS, 2, 0, 0);

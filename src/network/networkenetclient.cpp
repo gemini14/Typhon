@@ -20,7 +20,10 @@ namespace Typhon
 
 	NetworkENetClient::~NetworkENetClient()
 	{
-		enet_host_destroy(client);
+		if(client)
+		{
+			enet_host_destroy(client);
+		}
 		enet_deinitialize();
 	}
 
@@ -53,7 +56,7 @@ namespace Typhon
 		}
 
 		ENetAddress address;
-		enet_address_set_host(&address, GetIPStringForm(&serverIP).c_str());
+		address.host = GetNetworkIP(serverIP);
 		address.port = portNumber;
 
 		ENetPeer *peer = enet_host_connect(client, &address, 2, 0);

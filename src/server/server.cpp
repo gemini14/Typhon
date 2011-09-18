@@ -16,6 +16,10 @@ namespace Typhon
 	void Server::ServerThreadRun(const sockaddr_in &serverIP)
 	{
 		Server gameServer(GetNetwork(ENETSERVER, PORT_NUMBER, &serverIP));
+		if(!gameServer.gameServer)
+		{
+			return;
+		}
 
 		while(true)
 		{
