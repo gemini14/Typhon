@@ -9,12 +9,16 @@ namespace Typhon
 	{
 	private:
 
+		int linuxSocket;
+		unsigned int netmask;
+
 		virtual std::string GetIP();
 		virtual std::string GetNetMask();
 
 	protected:
 
 		virtual void DisplayError(const std::string &message);
+		void Display_PError(const std::string &message);
 
 	public:
 

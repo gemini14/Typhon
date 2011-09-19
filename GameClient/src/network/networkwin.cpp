@@ -94,9 +94,8 @@ namespace Typhon
 	}
 
 	NetworkWin::NetworkWin(const int port)
-		: NetworkRaw(port)
+		: NetworkRaw(port), winsocket(INVALID_SOCKET)
 	{
-		winsocket = INVALID_SOCKET;
 	}
 
 	NetworkWin::~NetworkWin()
@@ -107,8 +106,7 @@ namespace Typhon
 
 	void NetworkWin::BroadcastMessage(const std::string &msg, const char prefix)
 	{
-		string data;
-		data = prefix + msg;
+		string data(prefix + msg);
 
 		if(sendto(winsocket, data.c_str(), static_cast<int>(data.length()), 0, 
 			reinterpret_cast<sockaddr*>(&broadcastAddr), sizeof(broadcastAddr)) == -1)
