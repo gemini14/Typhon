@@ -1,7 +1,5 @@
 #include "network/networkenetclient.h"
 
-#include <boost/thread.hpp>
-
 #include "utility/utility.h"
 
 using namespace std;

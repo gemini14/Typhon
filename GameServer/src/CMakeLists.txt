@@ -28,6 +28,17 @@ ${hdr}enet/types.h
 ${hdr}enet/unix.h
 ${hdr}enet/utility.h
 ${hdr}enet/win32.h
+
+${hdr}logger/logger.h
+
+${hdr}network/network.h
+${hdr}network/networkenetserver.h
+${hdr}network/networkfactory.h
+
+${hdr}server/server.h
+
+${hdr}utility/constants.h
+${hdr}utility/utility.h
 )
 
 
@@ -44,6 +55,16 @@ enet/peer.c
 enet/protocol.c
 enet/unix.c
 enet/win32.c
+
+logger/logger.cpp
+
+network/network.cpp
+network/networkenetserver.cpp
+network/networkfactory.cpp
+
+server/server.cpp
+
+utility/utility.cpp
 )
 
 
@@ -63,6 +84,26 @@ ${hdr}enet/utility.h
 ${hdr}enet/win32.h
 )
 
+source_group(Header\ Files\\logger FILES
+${hdr}logger/logger.h
+)
+
+source_group(Header\ Files\\network FILES
+${hdr}network/network.h
+${hdr}network/networkenetserver.h
+${hdr}network/networkfactory.h
+)
+
+source_group(Header\ Files\\server FILES
+${hdr}server/server.h
+)
+
+source_group(Header\ Files\\utility FILES
+${hdr}utility/constants.h
+${hdr}utility/utility.h
+)
+
+
 source_group(Source\ Files\\enet FILES
 enet/callbacks.c
 enet/compress.c
@@ -73,6 +114,24 @@ enet/peer.c
 enet/protocol.c
 enet/unix.c
 enet/win32.c
+)
+
+source_group(Source\ Files\\logger FILES
+logger/logger.cpp
+)
+
+source_group(Source\ Files\\network FILES
+network/network.cpp
+network/networkenetserver.cpp
+network/networkfactory.cpp
+)
+
+source_group(Source\ Files\\server FILES
+server/server.cpp
+)
+
+source_group(Source\ Files\\utility FILES
+utility/utility.cpp
 )
 
 

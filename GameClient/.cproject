@@ -137,6 +137,22 @@
 	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
 		<buildTargets>
+			<target name="Client Release" path="build/EclipseCDT" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>cmake</buildCommand>
+				<buildArguments>-E chdir Release/ cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_C_FLAGS="-g -O3" -DCMAKE_CXX_FLAGS="-g -O3" ../../../src</buildArguments>
+				<buildTarget/>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>false</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="Client Debug" path="build/EclipseCDT" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>cmake</buildCommand>
+				<buildArguments>-E chdir Debug/ cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_BUILD_TYPE="Debug" -DCMAKE_C_FLAGS="-g" -DCMAKE_CXX_FLAGS="-g" ../../../src</buildArguments>
+				<buildTarget/>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>false</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
 			<target name="CMake Release" path="build/EclipseCDT/x64" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
 				<buildCommand>cmake</buildCommand>
 				<buildArguments>-E chdir Release/ cmake -G "Unix Makefiles"  -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_C_FLAGS="-m64" -DCMAKE_CXX_FLAGS="-m64" ../../../../src</buildArguments>
@@ -161,22 +177,6 @@
 			<target name="CMake Release" path="build/EclipseCDT/x86" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
 				<buildCommand>cmake</buildCommand>
 				<buildArguments>-E chdir Release/ cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_C_FLAGS="-m32" -DCMAKE_CXX_FLAGS="-m32" ../../../../src</buildArguments>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>false</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="Release" path="build/EclipseCDT" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>cmake</buildCommand>
-				<buildArguments>-E chdir Release/ cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_C_FLAGS="-g -O3" -DCMAKE_CXX_FLAGS="-g -O3" ../../../src</buildArguments>
-				<buildTarget/>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>false</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="Debug" path="build/EclipseCDT" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>cmake</buildCommand>
-				<buildArguments>-E chdir Debug/ cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_BUILD_TYPE="Debug" -DCMAKE_C_FLAGS="-g" -DCMAKE_CXX_FLAGS="-g" ../../../src</buildArguments>
-				<buildTarget/>
 				<stopOnError>true</stopOnError>
 				<useDefaultCommand>false</useDefaultCommand>
 				<runAllBuilders>true</runAllBuilders>

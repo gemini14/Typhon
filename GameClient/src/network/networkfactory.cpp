@@ -7,7 +7,7 @@
 #endif
 
 #include "network/networkenetclient.h"
-#include "network/networkenetserver.h"
+
 
 namespace Typhon
 {
@@ -29,13 +29,6 @@ namespace Typhon
 			if(IP)
 			{
 				net = new NetworkENetClient(port, IP);
-			}
-			break;
-
-		case ENETSERVER:
-			if(IP)
-			{
-				net = new NetworkENetServer(port, IP);
 			}
 			break;
 

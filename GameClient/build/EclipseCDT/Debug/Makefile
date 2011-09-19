@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tarik/workspace/Typhon/src
+CMAKE_SOURCE_DIR = /home/tarik/Typhon/GameClient/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tarik/workspace/Typhon/build/EclipseCDT/Debug
+CMAKE_BINARY_DIR = /home/tarik/Typhon/GameClient/build/EclipseCDT/Debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,9 +69,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/workspace/Typhon/build/EclipseCDT/Debug/CMakeFiles /home/tarik/workspace/Typhon/build/EclipseCDT/Debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/Typhon/GameClient/build/EclipseCDT/Debug/CMakeFiles /home/tarik/Typhon/GameClient/build/EclipseCDT/Debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/workspace/Typhon/build/EclipseCDT/Debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/Typhon/GameClient/build/EclipseCDT/Debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -99,24 +99,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Typhon
+# Target rules for targets named TyphonClient
 
 # Build rule for target.
-Typhon: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Typhon
-.PHONY : Typhon
+TyphonClient: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TyphonClient
+.PHONY : TyphonClient
 
 # fast build rule for target.
-Typhon/fast:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/build
-.PHONY : Typhon/fast
+TyphonClient/fast:
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/build
+.PHONY : TyphonClient/fast
 
 enet/callbacks.o: enet/callbacks.c.o
 .PHONY : enet/callbacks.o
 
 # target to build an object file
 enet/callbacks.c.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/callbacks.c.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/callbacks.c.o
 .PHONY : enet/callbacks.c.o
 
 enet/callbacks.i: enet/callbacks.c.i
@@ -124,7 +124,7 @@ enet/callbacks.i: enet/callbacks.c.i
 
 # target to preprocess a source file
 enet/callbacks.c.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/callbacks.c.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/callbacks.c.i
 .PHONY : enet/callbacks.c.i
 
 enet/callbacks.s: enet/callbacks.c.s
@@ -132,7 +132,7 @@ enet/callbacks.s: enet/callbacks.c.s
 
 # target to generate assembly for a file
 enet/callbacks.c.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/callbacks.c.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/callbacks.c.s
 .PHONY : enet/callbacks.c.s
 
 enet/compress.o: enet/compress.c.o
@@ -140,7 +140,7 @@ enet/compress.o: enet/compress.c.o
 
 # target to build an object file
 enet/compress.c.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/compress.c.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/compress.c.o
 .PHONY : enet/compress.c.o
 
 enet/compress.i: enet/compress.c.i
@@ -148,7 +148,7 @@ enet/compress.i: enet/compress.c.i
 
 # target to preprocess a source file
 enet/compress.c.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/compress.c.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/compress.c.i
 .PHONY : enet/compress.c.i
 
 enet/compress.s: enet/compress.c.s
@@ -156,7 +156,7 @@ enet/compress.s: enet/compress.c.s
 
 # target to generate assembly for a file
 enet/compress.c.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/compress.c.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/compress.c.s
 .PHONY : enet/compress.c.s
 
 enet/host.o: enet/host.c.o
@@ -164,7 +164,7 @@ enet/host.o: enet/host.c.o
 
 # target to build an object file
 enet/host.c.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/host.c.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/host.c.o
 .PHONY : enet/host.c.o
 
 enet/host.i: enet/host.c.i
@@ -172,7 +172,7 @@ enet/host.i: enet/host.c.i
 
 # target to preprocess a source file
 enet/host.c.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/host.c.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/host.c.i
 .PHONY : enet/host.c.i
 
 enet/host.s: enet/host.c.s
@@ -180,7 +180,7 @@ enet/host.s: enet/host.c.s
 
 # target to generate assembly for a file
 enet/host.c.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/host.c.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/host.c.s
 .PHONY : enet/host.c.s
 
 enet/list.o: enet/list.c.o
@@ -188,7 +188,7 @@ enet/list.o: enet/list.c.o
 
 # target to build an object file
 enet/list.c.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/list.c.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/list.c.o
 .PHONY : enet/list.c.o
 
 enet/list.i: enet/list.c.i
@@ -196,7 +196,7 @@ enet/list.i: enet/list.c.i
 
 # target to preprocess a source file
 enet/list.c.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/list.c.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/list.c.i
 .PHONY : enet/list.c.i
 
 enet/list.s: enet/list.c.s
@@ -204,7 +204,7 @@ enet/list.s: enet/list.c.s
 
 # target to generate assembly for a file
 enet/list.c.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/list.c.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/list.c.s
 .PHONY : enet/list.c.s
 
 enet/packet.o: enet/packet.c.o
@@ -212,7 +212,7 @@ enet/packet.o: enet/packet.c.o
 
 # target to build an object file
 enet/packet.c.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/packet.c.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/packet.c.o
 .PHONY : enet/packet.c.o
 
 enet/packet.i: enet/packet.c.i
@@ -220,7 +220,7 @@ enet/packet.i: enet/packet.c.i
 
 # target to preprocess a source file
 enet/packet.c.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/packet.c.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/packet.c.i
 .PHONY : enet/packet.c.i
 
 enet/packet.s: enet/packet.c.s
@@ -228,7 +228,7 @@ enet/packet.s: enet/packet.c.s
 
 # target to generate assembly for a file
 enet/packet.c.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/packet.c.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/packet.c.s
 .PHONY : enet/packet.c.s
 
 enet/peer.o: enet/peer.c.o
@@ -236,7 +236,7 @@ enet/peer.o: enet/peer.c.o
 
 # target to build an object file
 enet/peer.c.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/peer.c.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/peer.c.o
 .PHONY : enet/peer.c.o
 
 enet/peer.i: enet/peer.c.i
@@ -244,7 +244,7 @@ enet/peer.i: enet/peer.c.i
 
 # target to preprocess a source file
 enet/peer.c.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/peer.c.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/peer.c.i
 .PHONY : enet/peer.c.i
 
 enet/peer.s: enet/peer.c.s
@@ -252,7 +252,7 @@ enet/peer.s: enet/peer.c.s
 
 # target to generate assembly for a file
 enet/peer.c.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/peer.c.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/peer.c.s
 .PHONY : enet/peer.c.s
 
 enet/protocol.o: enet/protocol.c.o
@@ -260,7 +260,7 @@ enet/protocol.o: enet/protocol.c.o
 
 # target to build an object file
 enet/protocol.c.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/protocol.c.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/protocol.c.o
 .PHONY : enet/protocol.c.o
 
 enet/protocol.i: enet/protocol.c.i
@@ -268,7 +268,7 @@ enet/protocol.i: enet/protocol.c.i
 
 # target to preprocess a source file
 enet/protocol.c.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/protocol.c.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/protocol.c.i
 .PHONY : enet/protocol.c.i
 
 enet/protocol.s: enet/protocol.c.s
@@ -276,7 +276,7 @@ enet/protocol.s: enet/protocol.c.s
 
 # target to generate assembly for a file
 enet/protocol.c.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/protocol.c.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/protocol.c.s
 .PHONY : enet/protocol.c.s
 
 enet/unix.o: enet/unix.c.o
@@ -284,7 +284,7 @@ enet/unix.o: enet/unix.c.o
 
 # target to build an object file
 enet/unix.c.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/unix.c.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/unix.c.o
 .PHONY : enet/unix.c.o
 
 enet/unix.i: enet/unix.c.i
@@ -292,7 +292,7 @@ enet/unix.i: enet/unix.c.i
 
 # target to preprocess a source file
 enet/unix.c.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/unix.c.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/unix.c.i
 .PHONY : enet/unix.c.i
 
 enet/unix.s: enet/unix.c.s
@@ -300,7 +300,7 @@ enet/unix.s: enet/unix.c.s
 
 # target to generate assembly for a file
 enet/unix.c.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/unix.c.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/unix.c.s
 .PHONY : enet/unix.c.s
 
 enet/win32.o: enet/win32.c.o
@@ -308,7 +308,7 @@ enet/win32.o: enet/win32.c.o
 
 # target to build an object file
 enet/win32.c.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/win32.c.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/win32.c.o
 .PHONY : enet/win32.c.o
 
 enet/win32.i: enet/win32.c.i
@@ -316,7 +316,7 @@ enet/win32.i: enet/win32.c.i
 
 # target to preprocess a source file
 enet/win32.c.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/win32.c.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/win32.c.i
 .PHONY : enet/win32.c.i
 
 enet/win32.s: enet/win32.c.s
@@ -324,7 +324,7 @@ enet/win32.s: enet/win32.c.s
 
 # target to generate assembly for a file
 enet/win32.c.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/enet/win32.c.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/enet/win32.c.s
 .PHONY : enet/win32.c.s
 
 engine/engine.o: engine/engine.cpp.o
@@ -332,7 +332,7 @@ engine/engine.o: engine/engine.cpp.o
 
 # target to build an object file
 engine/engine.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/engine/engine.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/engine/engine.cpp.o
 .PHONY : engine/engine.cpp.o
 
 engine/engine.i: engine/engine.cpp.i
@@ -340,7 +340,7 @@ engine/engine.i: engine/engine.cpp.i
 
 # target to preprocess a source file
 engine/engine.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/engine/engine.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/engine/engine.cpp.i
 .PHONY : engine/engine.cpp.i
 
 engine/engine.s: engine/engine.cpp.s
@@ -348,7 +348,7 @@ engine/engine.s: engine/engine.cpp.s
 
 # target to generate assembly for a file
 engine/engine.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/engine/engine.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/engine/engine.cpp.s
 .PHONY : engine/engine.cpp.s
 
 engine/luamanager.o: engine/luamanager.cpp.o
@@ -356,7 +356,7 @@ engine/luamanager.o: engine/luamanager.cpp.o
 
 # target to build an object file
 engine/luamanager.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/engine/luamanager.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/engine/luamanager.cpp.o
 .PHONY : engine/luamanager.cpp.o
 
 engine/luamanager.i: engine/luamanager.cpp.i
@@ -364,7 +364,7 @@ engine/luamanager.i: engine/luamanager.cpp.i
 
 # target to preprocess a source file
 engine/luamanager.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/engine/luamanager.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/engine/luamanager.cpp.i
 .PHONY : engine/luamanager.cpp.i
 
 engine/luamanager.s: engine/luamanager.cpp.s
@@ -372,7 +372,7 @@ engine/luamanager.s: engine/luamanager.cpp.s
 
 # target to generate assembly for a file
 engine/luamanager.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/engine/luamanager.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/engine/luamanager.cpp.s
 .PHONY : engine/luamanager.cpp.s
 
 font/font_manager.o: font/font_manager.cpp.o
@@ -380,7 +380,7 @@ font/font_manager.o: font/font_manager.cpp.o
 
 # target to build an object file
 font/font_manager.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/font/font_manager.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/font/font_manager.cpp.o
 .PHONY : font/font_manager.cpp.o
 
 font/font_manager.i: font/font_manager.cpp.i
@@ -388,7 +388,7 @@ font/font_manager.i: font/font_manager.cpp.i
 
 # target to preprocess a source file
 font/font_manager.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/font/font_manager.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/font/font_manager.cpp.i
 .PHONY : font/font_manager.cpp.i
 
 font/font_manager.s: font/font_manager.cpp.s
@@ -396,7 +396,7 @@ font/font_manager.s: font/font_manager.cpp.s
 
 # target to generate assembly for a file
 font/font_manager.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/font/font_manager.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/font/font_manager.cpp.s
 .PHONY : font/font_manager.cpp.s
 
 font/gui_freetype_font.o: font/gui_freetype_font.cpp.o
@@ -404,7 +404,7 @@ font/gui_freetype_font.o: font/gui_freetype_font.cpp.o
 
 # target to build an object file
 font/gui_freetype_font.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/font/gui_freetype_font.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/font/gui_freetype_font.cpp.o
 .PHONY : font/gui_freetype_font.cpp.o
 
 font/gui_freetype_font.i: font/gui_freetype_font.cpp.i
@@ -412,7 +412,7 @@ font/gui_freetype_font.i: font/gui_freetype_font.cpp.i
 
 # target to preprocess a source file
 font/gui_freetype_font.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/font/gui_freetype_font.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/font/gui_freetype_font.cpp.i
 .PHONY : font/gui_freetype_font.cpp.i
 
 font/gui_freetype_font.s: font/gui_freetype_font.cpp.s
@@ -420,7 +420,7 @@ font/gui_freetype_font.s: font/gui_freetype_font.cpp.s
 
 # target to generate assembly for a file
 font/gui_freetype_font.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/font/gui_freetype_font.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/font/gui_freetype_font.cpp.s
 .PHONY : font/gui_freetype_font.cpp.s
 
 i18n/i18n.o: i18n/i18n.cpp.o
@@ -428,7 +428,7 @@ i18n/i18n.o: i18n/i18n.cpp.o
 
 # target to build an object file
 i18n/i18n.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/i18n/i18n.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/i18n/i18n.cpp.o
 .PHONY : i18n/i18n.cpp.o
 
 i18n/i18n.i: i18n/i18n.cpp.i
@@ -436,7 +436,7 @@ i18n/i18n.i: i18n/i18n.cpp.i
 
 # target to preprocess a source file
 i18n/i18n.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/i18n/i18n.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/i18n/i18n.cpp.i
 .PHONY : i18n/i18n.cpp.i
 
 i18n/i18n.s: i18n/i18n.cpp.s
@@ -444,15 +444,39 @@ i18n/i18n.s: i18n/i18n.cpp.s
 
 # target to generate assembly for a file
 i18n/i18n.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/i18n/i18n.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/i18n/i18n.cpp.s
 .PHONY : i18n/i18n.cpp.s
+
+logger/logger.o: logger/logger.cpp.o
+.PHONY : logger/logger.o
+
+# target to build an object file
+logger/logger.cpp.o:
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/logger/logger.cpp.o
+.PHONY : logger/logger.cpp.o
+
+logger/logger.i: logger/logger.cpp.i
+.PHONY : logger/logger.i
+
+# target to preprocess a source file
+logger/logger.cpp.i:
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/logger/logger.cpp.i
+.PHONY : logger/logger.cpp.i
+
+logger/logger.s: logger/logger.cpp.s
+.PHONY : logger/logger.s
+
+# target to generate assembly for a file
+logger/logger.cpp.s:
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/logger/logger.cpp.s
+.PHONY : logger/logger.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -460,7 +484,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -468,7 +492,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 metrics/metrics.o: metrics/metrics.cpp.o
@@ -476,7 +500,7 @@ metrics/metrics.o: metrics/metrics.cpp.o
 
 # target to build an object file
 metrics/metrics.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/metrics/metrics.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/metrics/metrics.cpp.o
 .PHONY : metrics/metrics.cpp.o
 
 metrics/metrics.i: metrics/metrics.cpp.i
@@ -484,7 +508,7 @@ metrics/metrics.i: metrics/metrics.cpp.i
 
 # target to preprocess a source file
 metrics/metrics.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/metrics/metrics.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/metrics/metrics.cpp.i
 .PHONY : metrics/metrics.cpp.i
 
 metrics/metrics.s: metrics/metrics.cpp.s
@@ -492,7 +516,7 @@ metrics/metrics.s: metrics/metrics.cpp.s
 
 # target to generate assembly for a file
 metrics/metrics.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/metrics/metrics.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/metrics/metrics.cpp.s
 .PHONY : metrics/metrics.cpp.s
 
 network/lobbylist.o: network/lobbylist.cpp.o
@@ -500,7 +524,7 @@ network/lobbylist.o: network/lobbylist.cpp.o
 
 # target to build an object file
 network/lobbylist.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/lobbylist.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o
 .PHONY : network/lobbylist.cpp.o
 
 network/lobbylist.i: network/lobbylist.cpp.i
@@ -508,7 +532,7 @@ network/lobbylist.i: network/lobbylist.cpp.i
 
 # target to preprocess a source file
 network/lobbylist.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/lobbylist.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.i
 .PHONY : network/lobbylist.cpp.i
 
 network/lobbylist.s: network/lobbylist.cpp.s
@@ -516,7 +540,7 @@ network/lobbylist.s: network/lobbylist.cpp.s
 
 # target to generate assembly for a file
 network/lobbylist.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/lobbylist.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.s
 .PHONY : network/lobbylist.cpp.s
 
 network/network.o: network/network.cpp.o
@@ -524,7 +548,7 @@ network/network.o: network/network.cpp.o
 
 # target to build an object file
 network/network.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/network.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/network.cpp.o
 .PHONY : network/network.cpp.o
 
 network/network.i: network/network.cpp.i
@@ -532,7 +556,7 @@ network/network.i: network/network.cpp.i
 
 # target to preprocess a source file
 network/network.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/network.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/network.cpp.i
 .PHONY : network/network.cpp.i
 
 network/network.s: network/network.cpp.s
@@ -540,39 +564,39 @@ network/network.s: network/network.cpp.s
 
 # target to generate assembly for a file
 network/network.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/network.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/network.cpp.s
 .PHONY : network/network.cpp.s
 
-network/networkenet.o: network/networkenet.cpp.o
-.PHONY : network/networkenet.o
+network/networkenetclient.o: network/networkenetclient.cpp.o
+.PHONY : network/networkenetclient.o
 
 # target to build an object file
-network/networkenet.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/networkenet.cpp.o
-.PHONY : network/networkenet.cpp.o
+network/networkenetclient.cpp.o:
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/networkenetclient.cpp.o
+.PHONY : network/networkenetclient.cpp.o
 
-network/networkenet.i: network/networkenet.cpp.i
-.PHONY : network/networkenet.i
+network/networkenetclient.i: network/networkenetclient.cpp.i
+.PHONY : network/networkenetclient.i
 
 # target to preprocess a source file
-network/networkenet.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/networkenet.cpp.i
-.PHONY : network/networkenet.cpp.i
+network/networkenetclient.cpp.i:
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/networkenetclient.cpp.i
+.PHONY : network/networkenetclient.cpp.i
 
-network/networkenet.s: network/networkenet.cpp.s
-.PHONY : network/networkenet.s
+network/networkenetclient.s: network/networkenetclient.cpp.s
+.PHONY : network/networkenetclient.s
 
 # target to generate assembly for a file
-network/networkenet.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/networkenet.cpp.s
-.PHONY : network/networkenet.cpp.s
+network/networkenetclient.cpp.s:
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/networkenetclient.cpp.s
+.PHONY : network/networkenetclient.cpp.s
 
 network/networkfactory.o: network/networkfactory.cpp.o
 .PHONY : network/networkfactory.o
 
 # target to build an object file
 network/networkfactory.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/networkfactory.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/networkfactory.cpp.o
 .PHONY : network/networkfactory.cpp.o
 
 network/networkfactory.i: network/networkfactory.cpp.i
@@ -580,7 +604,7 @@ network/networkfactory.i: network/networkfactory.cpp.i
 
 # target to preprocess a source file
 network/networkfactory.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/networkfactory.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/networkfactory.cpp.i
 .PHONY : network/networkfactory.cpp.i
 
 network/networkfactory.s: network/networkfactory.cpp.s
@@ -588,7 +612,7 @@ network/networkfactory.s: network/networkfactory.cpp.s
 
 # target to generate assembly for a file
 network/networkfactory.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/networkfactory.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/networkfactory.cpp.s
 .PHONY : network/networkfactory.cpp.s
 
 network/networklinux.o: network/networklinux.cpp.o
@@ -596,7 +620,7 @@ network/networklinux.o: network/networklinux.cpp.o
 
 # target to build an object file
 network/networklinux.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/networklinux.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/networklinux.cpp.o
 .PHONY : network/networklinux.cpp.o
 
 network/networklinux.i: network/networklinux.cpp.i
@@ -604,7 +628,7 @@ network/networklinux.i: network/networklinux.cpp.i
 
 # target to preprocess a source file
 network/networklinux.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/networklinux.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/networklinux.cpp.i
 .PHONY : network/networklinux.cpp.i
 
 network/networklinux.s: network/networklinux.cpp.s
@@ -612,7 +636,7 @@ network/networklinux.s: network/networklinux.cpp.s
 
 # target to generate assembly for a file
 network/networklinux.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/networklinux.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/networklinux.cpp.s
 .PHONY : network/networklinux.cpp.s
 
 network/networkraw.o: network/networkraw.cpp.o
@@ -620,7 +644,7 @@ network/networkraw.o: network/networkraw.cpp.o
 
 # target to build an object file
 network/networkraw.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/networkraw.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/networkraw.cpp.o
 .PHONY : network/networkraw.cpp.o
 
 network/networkraw.i: network/networkraw.cpp.i
@@ -628,7 +652,7 @@ network/networkraw.i: network/networkraw.cpp.i
 
 # target to preprocess a source file
 network/networkraw.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/networkraw.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/networkraw.cpp.i
 .PHONY : network/networkraw.cpp.i
 
 network/networkraw.s: network/networkraw.cpp.s
@@ -636,7 +660,7 @@ network/networkraw.s: network/networkraw.cpp.s
 
 # target to generate assembly for a file
 network/networkraw.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/networkraw.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/networkraw.cpp.s
 .PHONY : network/networkraw.cpp.s
 
 network/networkwin.o: network/networkwin.cpp.o
@@ -644,7 +668,7 @@ network/networkwin.o: network/networkwin.cpp.o
 
 # target to build an object file
 network/networkwin.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/networkwin.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/networkwin.cpp.o
 .PHONY : network/networkwin.cpp.o
 
 network/networkwin.i: network/networkwin.cpp.i
@@ -652,7 +676,7 @@ network/networkwin.i: network/networkwin.cpp.i
 
 # target to preprocess a source file
 network/networkwin.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/networkwin.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/networkwin.cpp.i
 .PHONY : network/networkwin.cpp.i
 
 network/networkwin.s: network/networkwin.cpp.s
@@ -660,15 +684,39 @@ network/networkwin.s: network/networkwin.cpp.s
 
 # target to generate assembly for a file
 network/networkwin.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/network/networkwin.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/networkwin.cpp.s
 .PHONY : network/networkwin.cpp.s
+
+player/lobbyplayer.o: player/lobbyplayer.cpp.o
+.PHONY : player/lobbyplayer.o
+
+# target to build an object file
+player/lobbyplayer.cpp.o:
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/player/lobbyplayer.cpp.o
+.PHONY : player/lobbyplayer.cpp.o
+
+player/lobbyplayer.i: player/lobbyplayer.cpp.i
+.PHONY : player/lobbyplayer.i
+
+# target to preprocess a source file
+player/lobbyplayer.cpp.i:
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/player/lobbyplayer.cpp.i
+.PHONY : player/lobbyplayer.cpp.i
+
+player/lobbyplayer.s: player/lobbyplayer.cpp.s
+.PHONY : player/lobbyplayer.s
+
+# target to generate assembly for a file
+player/lobbyplayer.cpp.s:
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/player/lobbyplayer.cpp.s
+.PHONY : player/lobbyplayer.cpp.s
 
 state/game.o: state/game.cpp.o
 .PHONY : state/game.o
 
 # target to build an object file
 state/game.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/game.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/state/game.cpp.o
 .PHONY : state/game.cpp.o
 
 state/game.i: state/game.cpp.i
@@ -676,7 +724,7 @@ state/game.i: state/game.cpp.i
 
 # target to preprocess a source file
 state/game.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/game.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/state/game.cpp.i
 .PHONY : state/game.cpp.i
 
 state/game.s: state/game.cpp.s
@@ -684,7 +732,7 @@ state/game.s: state/game.cpp.s
 
 # target to generate assembly for a file
 state/game.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/game.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/state/game.cpp.s
 .PHONY : state/game.cpp.s
 
 state/lobby.o: state/lobby.cpp.o
@@ -692,7 +740,7 @@ state/lobby.o: state/lobby.cpp.o
 
 # target to build an object file
 state/lobby.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/lobby.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/state/lobby.cpp.o
 .PHONY : state/lobby.cpp.o
 
 state/lobby.i: state/lobby.cpp.i
@@ -700,7 +748,7 @@ state/lobby.i: state/lobby.cpp.i
 
 # target to preprocess a source file
 state/lobby.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/lobby.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/state/lobby.cpp.i
 .PHONY : state/lobby.cpp.i
 
 state/lobby.s: state/lobby.cpp.s
@@ -708,7 +756,7 @@ state/lobby.s: state/lobby.cpp.s
 
 # target to generate assembly for a file
 state/lobby.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/lobby.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/state/lobby.cpp.s
 .PHONY : state/lobby.cpp.s
 
 state/mainmenu.o: state/mainmenu.cpp.o
@@ -716,7 +764,7 @@ state/mainmenu.o: state/mainmenu.cpp.o
 
 # target to build an object file
 state/mainmenu.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/mainmenu.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/state/mainmenu.cpp.o
 .PHONY : state/mainmenu.cpp.o
 
 state/mainmenu.i: state/mainmenu.cpp.i
@@ -724,7 +772,7 @@ state/mainmenu.i: state/mainmenu.cpp.i
 
 # target to preprocess a source file
 state/mainmenu.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/mainmenu.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/state/mainmenu.cpp.i
 .PHONY : state/mainmenu.cpp.i
 
 state/mainmenu.s: state/mainmenu.cpp.s
@@ -732,7 +780,7 @@ state/mainmenu.s: state/mainmenu.cpp.s
 
 # target to generate assembly for a file
 state/mainmenu.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/mainmenu.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/state/mainmenu.cpp.s
 .PHONY : state/mainmenu.cpp.s
 
 state/options.o: state/options.cpp.o
@@ -740,7 +788,7 @@ state/options.o: state/options.cpp.o
 
 # target to build an object file
 state/options.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/options.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/state/options.cpp.o
 .PHONY : state/options.cpp.o
 
 state/options.i: state/options.cpp.i
@@ -748,7 +796,7 @@ state/options.i: state/options.cpp.i
 
 # target to preprocess a source file
 state/options.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/options.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/state/options.cpp.i
 .PHONY : state/options.cpp.i
 
 state/options.s: state/options.cpp.s
@@ -756,7 +804,7 @@ state/options.s: state/options.cpp.s
 
 # target to generate assembly for a file
 state/options.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/state/options.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/state/options.cpp.s
 .PHONY : state/options.cpp.s
 
 utility/utility.o: utility/utility.cpp.o
@@ -764,7 +812,7 @@ utility/utility.o: utility/utility.cpp.o
 
 # target to build an object file
 utility/utility.cpp.o:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/utility/utility.cpp.o
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/utility/utility.cpp.o
 .PHONY : utility/utility.cpp.o
 
 utility/utility.i: utility/utility.cpp.i
@@ -772,7 +820,7 @@ utility/utility.i: utility/utility.cpp.i
 
 # target to preprocess a source file
 utility/utility.cpp.i:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/utility/utility.cpp.i
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/utility/utility.cpp.i
 .PHONY : utility/utility.cpp.i
 
 utility/utility.s: utility/utility.cpp.s
@@ -780,7 +828,7 @@ utility/utility.s: utility/utility.cpp.s
 
 # target to generate assembly for a file
 utility/utility.cpp.s:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/utility/utility.cpp.s
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/utility/utility.cpp.s
 .PHONY : utility/utility.cpp.s
 
 # Help Target
@@ -789,7 +837,7 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... Typhon"
+	@echo "... TyphonClient"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... enet/callbacks.o"
@@ -834,6 +882,9 @@ help:
 	@echo "... i18n/i18n.o"
 	@echo "... i18n/i18n.i"
 	@echo "... i18n/i18n.s"
+	@echo "... logger/logger.o"
+	@echo "... logger/logger.i"
+	@echo "... logger/logger.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -846,9 +897,9 @@ help:
 	@echo "... network/network.o"
 	@echo "... network/network.i"
 	@echo "... network/network.s"
-	@echo "... network/networkenet.o"
-	@echo "... network/networkenet.i"
-	@echo "... network/networkenet.s"
+	@echo "... network/networkenetclient.o"
+	@echo "... network/networkenetclient.i"
+	@echo "... network/networkenetclient.s"
 	@echo "... network/networkfactory.o"
 	@echo "... network/networkfactory.i"
 	@echo "... network/networkfactory.s"
@@ -861,6 +912,9 @@ help:
 	@echo "... network/networkwin.o"
 	@echo "... network/networkwin.i"
 	@echo "... network/networkwin.s"
+	@echo "... player/lobbyplayer.o"
+	@echo "... player/lobbyplayer.i"
+	@echo "... player/lobbyplayer.s"
 	@echo "... state/game.o"
 	@echo "... state/game.i"
 	@echo "... state/game.s"

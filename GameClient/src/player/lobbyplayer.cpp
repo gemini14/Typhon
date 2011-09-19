@@ -1,5 +1,7 @@
 #include "player/lobbyplayer.h"
 
+#include <cstring>
+
 namespace Typhon
 {
 	LobbyPlayer::LobbyPlayer() 

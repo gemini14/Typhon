@@ -46,15 +46,12 @@ ${hdr}metrics/metrics.h
 ${hdr}network/lobbylist.h
 ${hdr}network/network.h
 ${hdr}network/networkenetclient.h
-${hdr}network/networkenetserver.h
 ${hdr}network/networkfactory.h
 ${hdr}network/networklinux.h
 ${hdr}network/networkraw.h
 ${hdr}network/networkwin.h
 
 ${hdr}player/lobbyplayer.h
-
-${hdr}server/server.h
 
 ${hdr}state/fsmevents.h
 ${hdr}state/fsmstate.h
@@ -99,15 +96,12 @@ metrics/metrics.cpp
 network/lobbylist.cpp
 network/network.cpp
 network/networkenetclient.cpp
-network/networkenetserver.cpp
 network/networkfactory.cpp
 network/networklinux.cpp
 network/networkraw.cpp
 network/networkwin.cpp
 
 player/lobbyplayer.cpp
-
-server/server.cpp
 
 state/game.cpp
 state/lobby.cpp
@@ -167,7 +161,6 @@ source_group(Header\ Files\\network FILES
 ${hdr}network/lobbylist.h
 ${hdr}network/network.h
 ${hdr}network/networkenetclient.h
-${hdr}network/networkenetserver.h
 ${hdr}network/networkfactory.h
 ${hdr}network/networklinux.h
 ${hdr}network/networkraw.h
@@ -176,10 +169,6 @@ ${hdr}network/networkwin.h
 
 source_group(Header\ Files\\player FILES
 ${hdr}player/lobbyplayer.h
-)
-
-source_group(Header\ Files\\server FILES
-${hdr}server/server.h
 )
 
 source_group(Header\ Files\\state FILES
@@ -238,7 +227,6 @@ source_group(Source\ Files\\network FILES
 network/lobbylist.cpp
 network/network.cpp
 network/networkenetclient.cpp
-network/networkenetserver.cpp
 network/networkfactory.cpp
 network/networklinux.cpp
 network/networkraw.cpp
@@ -247,10 +235,6 @@ network/networkwin.cpp
 
 source_group(Source\ Files\\player FILES
 player/lobbyplayer.cpp
-)
-
-source_group(Source\ Files\\server FILES
-server/server.cpp
 )
 
 source_group(Source\ Files\\scripts FILES 
@@ -311,7 +295,7 @@ elseif(CMAKE_HOST_UNIX)
 		   
 	add_executable(TyphonClient ${SourceFiles})
 	set_target_properties(TyphonClient PROPERTIES DEBUG_POSTFIX _D)
-	target_link_libraries(TyphonClient Irrlicht lua5.1 luabind freetype z)
+	target_link_libraries(TyphonClient Irrlicht lua5.1 luabind freetype z boost_thread-mt pthread)
 
 endif()
 

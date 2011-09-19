@@ -47,44 +47,44 @@ RM = /usr/bin/cmake -E remove -f
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tarik/workspace/Typhon/src
+CMAKE_SOURCE_DIR = /home/tarik/Typhon/GameClient/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tarik/workspace/Typhon/build/EclipseCDT/Debug
+CMAKE_BINARY_DIR = /home/tarik/Typhon/GameClient/build/EclipseCDT/Debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/Typhon.dir
+# Target rules for target CMakeFiles/TyphonClient.dir
 
 # All Build rule for target.
-CMakeFiles/Typhon.dir/all:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/depend
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/workspace/Typhon/build/EclipseCDT/Debug/CMakeFiles  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
-	@echo "Built target Typhon"
-.PHONY : CMakeFiles/Typhon.dir/all
+CMakeFiles/TyphonClient.dir/all:
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/depend
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Debug/CMakeFiles  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
+	@echo "Built target TyphonClient"
+.PHONY : CMakeFiles/TyphonClient.dir/all
 
 # Include target in all.
-all: CMakeFiles/Typhon.dir/all
+all: CMakeFiles/TyphonClient.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Typhon.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/workspace/Typhon/build/EclipseCDT/Debug/CMakeFiles 28
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Typhon.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/workspace/Typhon/build/EclipseCDT/Debug/CMakeFiles 0
-.PHONY : CMakeFiles/Typhon.dir/rule
+CMakeFiles/TyphonClient.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/Typhon/GameClient/build/EclipseCDT/Debug/CMakeFiles 30
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/TyphonClient.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/Typhon/GameClient/build/EclipseCDT/Debug/CMakeFiles 0
+.PHONY : CMakeFiles/TyphonClient.dir/rule
 
 # Convenience name for target.
-Typhon: CMakeFiles/Typhon.dir/rule
-.PHONY : Typhon
+TyphonClient: CMakeFiles/TyphonClient.dir/rule
+.PHONY : TyphonClient
 
 # clean rule for target.
-CMakeFiles/Typhon.dir/clean:
-	$(MAKE) -f CMakeFiles/Typhon.dir/build.make CMakeFiles/Typhon.dir/clean
-.PHONY : CMakeFiles/Typhon.dir/clean
+CMakeFiles/TyphonClient.dir/clean:
+	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/clean
+.PHONY : CMakeFiles/TyphonClient.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/Typhon.dir/clean
+clean: CMakeFiles/TyphonClient.dir/clean
 .PHONY : clean
 
 #=============================================================================

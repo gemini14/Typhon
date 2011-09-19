@@ -1,1 +1,1 @@
-/home/tarik/workspace/Typhon/build/EclipseCDT/Release/CMakeFiles/Typhon.dir
+/home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles/TyphonClient.dir
