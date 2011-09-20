@@ -264,8 +264,7 @@ if(CMAKE_CL_64)
 		debug luabindD_64 optimized luabind_64 
 		Ws2_32 
 		winmm
-		debug freetype246D_64 optimized freetype246_64
-		debug boost_thread-vc100-mt-gd-1_47 optimized boost_thread-vc100-mt-1_47)
+		debug freetype246D_64 optimized freetype246_64)
 	set_target_properties(TyphonClient64 PROPERTIES PREFIX "../")
 
 elseif(CMAKE_HOST_WIN32)
@@ -279,8 +278,7 @@ elseif(CMAKE_HOST_WIN32)
 		debug luabindD_32 optimized luabind_32 
 		Ws2_32 
 		winmm
-		debug freetype246D_32 optimized freetype246_32
-		debug boost_thread-vc100-mt-gd-1_47 optimized boost_thread-vc100-mt-1_47)
+		debug freetype246D_32 optimized freetype246_32)
 	set_target_properties(TyphonClient32 PROPERTIES PREFIX "../")
 
 elseif(CMAKE_HOST_UNIX)
@@ -295,7 +293,7 @@ elseif(CMAKE_HOST_UNIX)
 		   
 	add_executable(TyphonClient ${SourceFiles})
 	set_target_properties(TyphonClient PROPERTIES DEBUG_POSTFIX _D)
-	target_link_libraries(TyphonClient Irrlicht lua5.1 luabind freetype z boost_thread-mt pthread)
+	target_link_libraries(TyphonClient Irrlicht lua5.1 luabind freetype z)
 
 endif()
 
