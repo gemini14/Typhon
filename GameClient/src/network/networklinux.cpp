@@ -137,12 +137,12 @@ namespace Typhon
 		time.tv_sec = 0;
 		time.tv_usec = 16667; // microseconds, so this is ~1/60 sec
 
-		int selectResult = select(0, &read_fds, nullptr, nullptr, &time);
+		int selectResult = select(linuxSocket + 1, &read_fds, nullptr, nullptr, &time);
 		if (selectResult == -1)
 		{
 			Display_PError("select");
 		}
-		else if (selectResult > 0) // 0 means packet was empty
+		else if (selectResult > 0) // 0 means it timed-out
 		{
 			int receivedBytes = recvfrom(linuxSocket, buffer, recvBufferLength,
 					0, reinterpret_cast<sockaddr*>(&sender),
