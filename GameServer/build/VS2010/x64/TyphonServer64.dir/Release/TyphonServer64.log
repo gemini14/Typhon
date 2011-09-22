@@ -1,0 +1,54 @@
+﻿Build started 9/18/2011 12:06:59 AM.
+     1>Project "D:\X Platform Projects\Typhon\GameServer\build\VS2010\x64\TyphonServer64.vcxproj" on node 3 (build target(s)).
+     1>PrepareForBuild:
+         Creating directory "D:\X Platform Projects\Typhon\bin\Server\Win64\Release\".
+       InitializeBuildStatus:
+         Creating "TyphonServer64.dir\Release\TyphonServer64.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule D:/X Platform Projects/Typhon/GameServer/src/CMakeLists.txt
+         CMake does not need to re-run because D:\X Platform Projects\Typhon\GameServer\build\VS2010\x64\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:/X Platform Projects/Typhon/GameServer/src/../include" /nologo /W3 /WX- /O2 /Ob2 /D WIN32 /D _WINDOWS /D NDEBUG /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonServer64.dir\Release\\" /Fd"D:/X Platform Projects/Typhon/bin/Server/Win64/Release/../TyphonServer64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\main.cpp  /Zm1000 
+         main.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:/X Platform Projects/Typhon/GameServer/src/../include" /nologo /W3 /WX- /O2 /Ob2 /D WIN32 /D _WINDOWS /D NDEBUG /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonServer64.dir\Release\\" /Fd"D:/X Platform Projects/Typhon/bin/Server/Win64/Release/../TyphonServer64.pdb" /Gd /TC /errorReport:prompt ..\..\..\src\enet\callbacks.c ..\..\..\src\enet\compress.c ..\..\..\src\enet\host.c ..\..\..\src\enet\list.c ..\..\..\src\enet\packet.c ..\..\..\src\enet\peer.c ..\..\..\src\enet\protocol.c ..\..\..\src\enet\unix.c ..\..\..\src\enet\win32.c  /Zm1000 
+         callbacks.c
+         compress.c
+     1>..\..\..\src\enet\compress.c(303): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(308): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(326): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(548): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(563): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(578): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(593): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+         host.c
+         list.c
+         packet.c
+         peer.c
+         protocol.c
+         unix.c
+         win32.c
+         Generating Code...
+       MakeDirsForLink:
+         Creating directory "D:\X Platform Projects\Typhon\GameServer\build\VS2010\x64\Release\".
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\X Platform Projects\Typhon\bin\Server\Win64\Release\TyphonServer64.exe" /VERSION:"0.0" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:/X Platform Projects/Typhon/GameServer/src/../lib" /LIBPATH:"D:/X Platform Projects/Typhon/GameServer/src/../lib/Release" /LIBPATH:"D:/X Platform Projects/Typhon/GameServer/src/../lib/luabind" /LIBPATH:"D:/X Platform Projects/Typhon/GameServer/src/../lib/luabind/Release" /LIBPATH:"D:/X Platform Projects/Typhon/GameServer/src/../lib/lua" /LIBPATH:"D:/X Platform Projects/Typhon/GameServer/src/../lib/lua/Release" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib lua5.1_64.lib luabind_64.lib Ws2_32.lib winmm.lib "boost_thread-vc100-mt-1_47.lib" /MANIFEST /ManifestFile:"TyphonServer64.dir\Release\TyphonServer64.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"D:\X Platform Projects\Typhon\bin\Server\Win64\Release\TyphonServer64.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/X Platform Projects/Typhon/GameServer/build/VS2010/x64/Release/TyphonServer64.lib" /MACHINE:X64 TyphonServer64.dir\Release\main.obj
+         TyphonServer64.dir\Release\callbacks.obj
+         TyphonServer64.dir\Release\compress.obj
+         TyphonServer64.dir\Release\host.obj
+         TyphonServer64.dir\Release\list.obj
+         TyphonServer64.dir\Release\packet.obj
+         TyphonServer64.dir\Release\peer.obj
+         TyphonServer64.dir\Release\protocol.obj
+         TyphonServer64.dir\Release\unix.obj
+         TyphonServer64.dir\Release\win32.obj  /machine:x64 
+         TyphonServer64.vcxproj -> D:\X Platform Projects\Typhon\bin\Server\Win64\Release\TyphonServer64.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\X Platform Projects\Typhon\bin\Server\Win64\Release\TyphonServer64.exe;#1" /manifest TyphonServer64.dir\Release\TyphonServer64.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "TyphonServer64.dir\Release\TyphonServer64.unsuccessfulbuild".
+         Touching "TyphonServer64.dir\Release\TyphonServer64.lastbuildstate".
+     1>Done Building Project "D:\X Platform Projects\Typhon\GameServer\build\VS2010\x64\TyphonServer64.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.67

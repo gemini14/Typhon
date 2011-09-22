@@ -1,0 +1,143 @@
+﻿Build started 9/17/2011 11:52:43 PM.
+     1>Project "D:\X Platform Projects\Typhon\GameClient\build\VS2010\x86\TyphonClient32.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "TyphonClient32.dir\Debug\TyphonClient32.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         All outputs are up-to-date.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"D:/X Platform Projects/Typhon/GameClient/src/../include" /I"D:/X Platform Projects/Typhon/GameClient/src/../include/freetype" /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonClient32.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/bin/Client/Win32/Debug/../TyphonClient32.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\src\main.cpp ..\..\..\src\engine\engine.cpp ..\..\..\src\engine\luamanager.cpp ..\..\..\src\font\font_manager.cpp ..\..\..\src\font\gui_freetype_font.cpp ..\..\..\src\i18n\i18n.cpp ..\..\..\src\logger\logger.cpp ..\..\..\src\metrics\metrics.cpp ..\..\..\src\network\lobbylist.cpp ..\..\..\src\network\network.cpp ..\..\..\src\network\networkenetclient.cpp ..\..\..\src\network\networkenetserver.cpp ..\..\..\src\network\networkfactory.cpp ..\..\..\src\network\networklinux.cpp ..\..\..\src\network\networkraw.cpp ..\..\..\src\network\networkwin.cpp ..\..\..\src\player\lobbyplayer.cpp ..\..\..\src\server\server.cpp ..\..\..\src\state\game.cpp ..\..\..\src\state\lobby.cpp ..\..\..\src\state\mainmenu.cpp ..\..\..\src\state\options.cpp ..\..\..\src\utility\utility.cpp  /Zm1000 
+         main.cpp
+         engine.cpp
+         luamanager.cpp
+         font_manager.cpp
+         gui_freetype_font.cpp
+         i18n.cpp
+         logger.cpp
+         metrics.cpp
+         lobbylist.cpp
+         network.cpp
+         networkenetclient.cpp
+         networkenetserver.cpp
+     1>c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\xutility(2239): warning C4996: 'std::_Copy_impl': Function call with parameters that may be unsafe - this call relies on the caller to check that the passed values are correct. To disable this warning, use -D_SCL_SECURE_NO_WARNINGS. See documentation on how to use Visual C++ 'Checked Iterators'
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\xutility(2224) : see declaration of 'std::_Copy_impl'
+                 ..\..\..\src\network\networkenetserver.cpp(28) : see reference to function template instantiation '_OutIt std::copy<const sockaddr_in*,sockaddr_in*>(_InIt,_InIt,_OutIt)' being compiled
+                 with
+                 [
+                     _OutIt=sockaddr_in *,
+                     _InIt=const sockaddr_in *
+                 ]
+         networkfactory.cpp
+         networklinux.cpp
+         networkraw.cpp
+         networkwin.cpp
+         lobbyplayer.cpp
+         server.cpp
+         game.cpp
+         lobby.cpp
+         Generating Code...
+         Compiling...
+         mainmenu.cpp
+         options.cpp
+         utility.cpp
+         Generating Code...
+         All outputs are up-to-date.
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"D:/X Platform Projects/Typhon/GameClient/src/../include" /I"D:/X Platform Projects/Typhon/GameClient/src/../include/freetype" /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonClient32.dir\Debug\\" /Fd"D:/X Platform Projects/Typhon/bin/Client/Win32/Debug/../TyphonClient32.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\..\src\enet\callbacks.c ..\..\..\src\enet\compress.c ..\..\..\src\enet\host.c ..\..\..\src\enet\list.c ..\..\..\src\enet\packet.c ..\..\..\src\enet\peer.c ..\..\..\src\enet\protocol.c ..\..\..\src\enet\unix.c ..\..\..\src\enet\win32.c  /Zm1000 
+         callbacks.c
+         compress.c
+     1>..\..\..\src\enet\compress.c(303): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(308): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(326): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(548): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(563): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(578): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\..\src\enet\compress.c(593): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+         host.c
+         list.c
+         packet.c
+         peer.c
+         protocol.c
+         unix.c
+         win32.c
+         Generating Code...
+       ManifestResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\X Platform Projects\Typhon\bin\Client\Win32\Debug\TyphonClient32.exe" /VERSION:"0.0" /INCREMENTAL /NOLOGO /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/freetype" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/freetype/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/Irrlicht" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/Irrlicht/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/luabind" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/luabind/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/lua" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/lua/Debug" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib IrrlichtD_32.lib lua5.1_32.lib luabindD_32.lib Ws2_32.lib winmm.lib freetype246D_32.lib "boost_thread-vc100-mt-gd-1_47.lib" /MANIFEST /ManifestFile:"TyphonClient32.dir\Debug\TyphonClient32.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\X Platform Projects\Typhon\bin\Client\Win32\Debug\TyphonClient32.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/X Platform Projects/Typhon/GameClient/build/VS2010/x86/Debug/TyphonClient32.lib" /MACHINE:X86 TyphonClient32.dir\Debug\TyphonClient32.exe.embed.manifest.res
+         TyphonClient32.dir\Debug\main.obj
+         TyphonClient32.dir\Debug\callbacks.obj
+         TyphonClient32.dir\Debug\compress.obj
+         TyphonClient32.dir\Debug\host.obj
+         TyphonClient32.dir\Debug\list.obj
+         TyphonClient32.dir\Debug\packet.obj
+         TyphonClient32.dir\Debug\peer.obj
+         TyphonClient32.dir\Debug\protocol.obj
+         TyphonClient32.dir\Debug\unix.obj
+         TyphonClient32.dir\Debug\win32.obj
+         TyphonClient32.dir\Debug\engine.obj
+         TyphonClient32.dir\Debug\luamanager.obj
+         TyphonClient32.dir\Debug\font_manager.obj
+         TyphonClient32.dir\Debug\gui_freetype_font.obj
+         TyphonClient32.dir\Debug\i18n.obj
+         TyphonClient32.dir\Debug\logger.obj
+         TyphonClient32.dir\Debug\metrics.obj
+         TyphonClient32.dir\Debug\lobbylist.obj
+         TyphonClient32.dir\Debug\network.obj
+         TyphonClient32.dir\Debug\networkenetclient.obj
+         TyphonClient32.dir\Debug\networkenetserver.obj
+         TyphonClient32.dir\Debug\networkfactory.obj
+         TyphonClient32.dir\Debug\networklinux.obj
+         TyphonClient32.dir\Debug\networkraw.obj
+         TyphonClient32.dir\Debug\networkwin.obj
+         TyphonClient32.dir\Debug\lobbyplayer.obj
+         TyphonClient32.dir\Debug\server.obj
+         TyphonClient32.dir\Debug\game.obj
+         TyphonClient32.dir\Debug\lobby.obj
+         TyphonClient32.dir\Debug\mainmenu.obj
+         TyphonClient32.dir\Debug\options.obj
+         TyphonClient32.dir\Debug\utility.obj  /machine:X86 /debug 
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"TyphonClient32.dir\Debug\TyphonClient32.exe.embed.manifest" /manifest TyphonClient32.dir\Debug\TyphonClient32.exe.intermediate.manifest
+         All outputs are up-to-date.
+       LinkEmbedManifest:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\X Platform Projects\Typhon\bin\Client\Win32\Debug\TyphonClient32.exe" /VERSION:"0.0" /INCREMENTAL /NOLOGO /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/freetype" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/freetype/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/Irrlicht" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/Irrlicht/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/luabind" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/luabind/Debug" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/lua" /LIBPATH:"D:/X Platform Projects/Typhon/GameClient/src/../lib/lua/Debug" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib IrrlichtD_32.lib lua5.1_32.lib luabindD_32.lib Ws2_32.lib winmm.lib freetype246D_32.lib "boost_thread-vc100-mt-gd-1_47.lib" /MANIFEST /ManifestFile:"TyphonClient32.dir\Debug\TyphonClient32.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\X Platform Projects\Typhon\bin\Client\Win32\Debug\TyphonClient32.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/X Platform Projects/Typhon/GameClient/build/VS2010/x86/Debug/TyphonClient32.lib" /MACHINE:X86 TyphonClient32.dir\Debug\TyphonClient32.exe.embed.manifest.res
+         TyphonClient32.dir\Debug\main.obj
+         TyphonClient32.dir\Debug\callbacks.obj
+         TyphonClient32.dir\Debug\compress.obj
+         TyphonClient32.dir\Debug\host.obj
+         TyphonClient32.dir\Debug\list.obj
+         TyphonClient32.dir\Debug\packet.obj
+         TyphonClient32.dir\Debug\peer.obj
+         TyphonClient32.dir\Debug\protocol.obj
+         TyphonClient32.dir\Debug\unix.obj
+         TyphonClient32.dir\Debug\win32.obj
+         TyphonClient32.dir\Debug\engine.obj
+         TyphonClient32.dir\Debug\luamanager.obj
+         TyphonClient32.dir\Debug\font_manager.obj
+         TyphonClient32.dir\Debug\gui_freetype_font.obj
+         TyphonClient32.dir\Debug\i18n.obj
+         TyphonClient32.dir\Debug\logger.obj
+         TyphonClient32.dir\Debug\metrics.obj
+         TyphonClient32.dir\Debug\lobbylist.obj
+         TyphonClient32.dir\Debug\network.obj
+         TyphonClient32.dir\Debug\networkenetclient.obj
+         TyphonClient32.dir\Debug\networkenetserver.obj
+         TyphonClient32.dir\Debug\networkfactory.obj
+         TyphonClient32.dir\Debug\networklinux.obj
+         TyphonClient32.dir\Debug\networkraw.obj
+         TyphonClient32.dir\Debug\networkwin.obj
+         TyphonClient32.dir\Debug\lobbyplayer.obj
+         TyphonClient32.dir\Debug\server.obj
+         TyphonClient32.dir\Debug\game.obj
+         TyphonClient32.dir\Debug\lobby.obj
+         TyphonClient32.dir\Debug\mainmenu.obj
+         TyphonClient32.dir\Debug\options.obj
+         TyphonClient32.dir\Debug\utility.obj  /machine:X86 /debug 
+         TyphonClient32.vcxproj -> D:\X Platform Projects\Typhon\bin\Client\Win32\Debug\TyphonClient32.exe
+       FinalizeBuildStatus:
+         Deleting file "TyphonClient32.dir\Debug\TyphonClient32.unsuccessfulbuild".
+         Touching "TyphonClient32.dir\Debug\TyphonClient32.lastbuildstate".
+     1>Done Building Project "D:\X Platform Projects\Typhon\GameClient\build\VS2010\x86\TyphonClient32.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:01:05.74
