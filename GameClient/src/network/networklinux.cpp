@@ -180,16 +180,15 @@ namespace Typhon
 		// get the netmask and calculate/store the correct broadcast address
 		broadcastAddr.sin_family = AF_INET;
 		broadcastAddr.sin_port = htons(portNumber);
-		GetNetMask(); // throw away result -- weird problem getting netmask in Linux
+		GetNetMask();
 		broadcastAddr.sin_addr.s_addr = machineAddr.sin_addr.s_addr	| ~netmask;
 
 		char bufIP[INET_ADDRSTRLEN], bufBroadcast[INET_ADDRSTRLEN];
 		inet_ntop(AF_INET, &machineAddr.sin_addr, bufIP, INET_ADDRSTRLEN);
 		inet_ntop(AF_INET, &broadcastAddr.sin_addr, bufBroadcast,
 				INET_ADDRSTRLEN);
-		Log(
-				"IP is: " + string(bufIP) + "\nBroadcast address is: "
-						+ string(bufBroadcast));
+		Log("IP is: " + string(bufIP) + "\nBroadcast address is: "
+				+ string(bufBroadcast));
 
 		// create socket
 		linuxSocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
@@ -212,8 +211,12 @@ namespace Typhon
 		Log("Socket switched to broadcast mode.");
 
 		// bind it (this simplifies things by making sure everyone is using the same port)
-		if (bind(linuxSocket, reinterpret_cast<sockaddr*>(&machineAddr),
-				sizeof(machineAddr)) == -1)
+		sockaddr_in bindAddr;
+		bindAddr.sin_family = AF_INET;
+		bindAddr.sin_port = htons(portNumber);
+		bindAddr.sin_addr.s_addr = INADDR_ANY;
+		if (bind(linuxSocket, reinterpret_cast<sockaddr*>(&bindAddr),
+				sizeof(bindAddr)) == -1)
 		{
 			Display_PError("bind");
 			close(linuxSocket);
