@@ -1,0 +1,59 @@
+﻿Build started 9/21/2011 8:41:04 PM.
+     1>Project "D:\Typhon\GameClient\build\VS2010\x64\TyphonClient64.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "TyphonClient64.dir\Debug\TyphonClient64.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         All outputs are up-to-date.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:/Typhon/GameClient/src/../include /ID:/Typhon/GameClient/src/../include/freetype /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonClient64.dir\Debug\\" /Fd"D:/Typhon/bin/Client/Win64/Debug/../TyphonClient64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\network\networkwin.cpp  /Zm1000 
+         networkwin.cpp
+         All outputs are up-to-date.
+       ManifestResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Typhon\bin\Client\Win64\Debug\TyphonClient64.exe" /VERSION:"0.0" /INCREMENTAL /NOLOGO /LIBPATH:D:/Typhon/GameClient/src/../lib /LIBPATH:D:/Typhon/GameClient/src/../lib/Debug /LIBPATH:D:/Typhon/GameClient/src/../lib/freetype /LIBPATH:D:/Typhon/GameClient/src/../lib/freetype/Debug /LIBPATH:D:/Typhon/GameClient/src/../lib/Irrlicht /LIBPATH:D:/Typhon/GameClient/src/../lib/Irrlicht/Debug /LIBPATH:D:/Typhon/GameClient/src/../lib/luabind /LIBPATH:D:/Typhon/GameClient/src/../lib/luabind/Debug /LIBPATH:D:/Typhon/GameClient/src/../lib/lua /LIBPATH:D:/Typhon/GameClient/src/../lib/lua/Debug kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib IrrlichtD_64.lib lua5.1_64.lib luabindD_64.lib Ws2_32.lib winmm.lib freetype246D_64.lib /MANIFEST /ManifestFile:"TyphonClient64.dir\Debug\TyphonClient64.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Typhon\bin\Client\Win64\Debug\TyphonClient64.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Typhon/GameClient/build/VS2010/x64/Debug/TyphonClient64.lib" /MACHINE:X64 TyphonClient64.dir\Debug\TyphonClient64.exe.embed.manifest.res
+         TyphonClient64.dir\Debug\main.obj
+         TyphonClient64.dir\Debug\callbacks.obj
+         TyphonClient64.dir\Debug\compress.obj
+         TyphonClient64.dir\Debug\host.obj
+         TyphonClient64.dir\Debug\list.obj
+         TyphonClient64.dir\Debug\packet.obj
+         TyphonClient64.dir\Debug\peer.obj
+         TyphonClient64.dir\Debug\protocol.obj
+         TyphonClient64.dir\Debug\unix.obj
+         TyphonClient64.dir\Debug\win32.obj
+         TyphonClient64.dir\Debug\engine.obj
+         TyphonClient64.dir\Debug\luamanager.obj
+         TyphonClient64.dir\Debug\font_manager.obj
+         TyphonClient64.dir\Debug\gui_freetype_font.obj
+         TyphonClient64.dir\Debug\i18n.obj
+         TyphonClient64.dir\Debug\logger.obj
+         TyphonClient64.dir\Debug\metrics.obj
+         TyphonClient64.dir\Debug\lobbylist.obj
+         TyphonClient64.dir\Debug\network.obj
+         TyphonClient64.dir\Debug\networkenetclient.obj
+         TyphonClient64.dir\Debug\networkfactory.obj
+         TyphonClient64.dir\Debug\networklinux.obj
+         TyphonClient64.dir\Debug\networkraw.obj
+         TyphonClient64.dir\Debug\networkwin.obj
+         TyphonClient64.dir\Debug\lobbyplayer.obj
+         TyphonClient64.dir\Debug\game.obj
+         TyphonClient64.dir\Debug\lobby.obj
+         TyphonClient64.dir\Debug\mainmenu.obj
+         TyphonClient64.dir\Debug\options.obj
+         TyphonClient64.dir\Debug\utility.obj  /machine:x64 /debug 
+         TyphonClient64.vcxproj -> D:\Typhon\bin\Client\Win64\Debug\TyphonClient64.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"TyphonClient64.dir\Debug\TyphonClient64.exe.embed.manifest" /manifest TyphonClient64.dir\Debug\TyphonClient64.exe.intermediate.manifest
+         All outputs are up-to-date.
+       LinkEmbedManifest:
+         All outputs are up-to-date.
+         TyphonClient64.vcxproj -> D:\Typhon\bin\Client\Win64\Debug\TyphonClient64.exe
+       FinalizeBuildStatus:
+         Deleting file "TyphonClient64.dir\Debug\TyphonClient64.unsuccessfulbuild".
+         Touching "TyphonClient64.dir\Debug\TyphonClient64.lastbuildstate".
+     1>Done Building Project "D:\Typhon\GameClient\build\VS2010\x64\TyphonClient64.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:13.13

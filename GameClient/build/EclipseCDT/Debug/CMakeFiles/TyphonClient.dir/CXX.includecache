@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tarik/Typhon/GameClient/src/../include/logger/logger.h
+string
+-
+
+/home/tarik/Typhon/GameClient/src/../include/network/network.h
+boost/noncopyable.hpp
+-
+string
+-
+WinSock2.h
+-
+Ws2tcpip.h
+-
+netinet/in.h
+-
+logger/logger.h
+/home/tarik/Typhon/GameClient/src/../include/network/logger/logger.h
+
+/home/tarik/Typhon/GameClient/src/../include/network/networkraw.h
+boost/noncopyable.hpp
+-
+network/network.h
+/home/tarik/Typhon/GameClient/src/../include/network/network/network.h
+
+/home/tarik/Typhon/GameClient/src/../include/network/networkwin.h
+WinSock2.h
+-
+ws2tcpip.h
+-
+network/networkraw.h
+/home/tarik/Typhon/GameClient/src/../include/network/network/networkraw.h
+
+/home/tarik/Typhon/GameClient/src/network/networkwin.cpp
+network/networkwin.h
+/home/tarik/Typhon/GameClient/src/network/network/networkwin.h
+boost/lexical_cast.hpp
+-
+

@@ -23,5 +23,6 @@ ipch/
 *.cache
 
 #Proj specific
-/bin/Linux
+/bin/Client/Linux
+/bin/Server/Linux
 .metadata
