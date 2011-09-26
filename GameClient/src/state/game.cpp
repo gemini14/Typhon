@@ -36,6 +36,10 @@ namespace Typhon
 		{
 			// create child process to run the server (if this client is the
 			// one chosen to run the server)
+			std::unique_ptr<char[]> lobbyList(new char[engine->lobbyList->length() + 1]);
+			strcpy(lobbyList.get(), engine->lobbyList->c_str());
+			char * const argList[] = { "TyphonServer", lobbyList.get(), nullptr };
+
 #ifdef WIN32
 #else
 			serverPID = fork();
@@ -48,9 +52,7 @@ namespace Typhon
 				// this is the child
 				// run the server program, sending the names & IPs
 				// of the players as an argument
-				std::unique_ptr<char[]> lobbyList(new char[engine->lobbyList->length() + 1]);
-				strcpy(lobbyList.get(), engine->lobbyList->c_str());
-				char * const argList[] = { "TyphonServer", lobbyList.get(), nullptr };
+
 
 				// TODO Important -- these paths MUST be adjusted for final release
 #ifdef DEBUG

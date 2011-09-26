@@ -462,9 +462,12 @@ namespace Typhon
 							string list;
 							BOOST_FOREACH(const LobbyPlayer p, players)
 							{
-								list += ConvertWideToStr(p.name) + "+" +
-								boost::lexical_cast<string>(GetNetworkIP(p.sourceAddr)) +
-								"+";
+								if(p.type == HUMAN)
+								{
+									list += ConvertWideToStr(p.name) + "+" +
+									boost::lexical_cast<string>(GetNetworkIP(p.sourceAddr)) +
+									"+";
+								}
 							}
 							return list;
 						};

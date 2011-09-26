@@ -11,6 +11,7 @@ using namespace Typhon;
 int main(int argc, char *argv[])
 {
 	Log("No way, it actually worked!!");
+	Log(argv[1]);
 	Log("This will exit immediately after this statement...server out!");
 	return 0;
 }
