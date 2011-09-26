@@ -43,7 +43,6 @@ ${hdr}logger/logger.h
 
 ${hdr}metrics/metrics.h
 
-${hdr}network/lobbylist.h
 ${hdr}network/network.h
 ${hdr}network/networkenetclient.h
 ${hdr}network/networkfactory.h
@@ -93,7 +92,6 @@ logger/logger.cpp
 
 metrics/metrics.cpp
 
-network/lobbylist.cpp
 network/network.cpp
 network/networkenetclient.cpp
 network/networkfactory.cpp

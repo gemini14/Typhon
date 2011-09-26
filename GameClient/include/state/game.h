@@ -10,6 +10,10 @@ namespace Typhon
 	{
 	private:
 
+#ifdef WIN32
+#else
+		int serverPID;
+#endif
 		std::unique_ptr<Network> network;
 
 	public:
