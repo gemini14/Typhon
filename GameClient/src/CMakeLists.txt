@@ -253,6 +253,8 @@ utility/utility.cpp
 
 if(CMAKE_CL_64)
 
+	add_definitions(-DWIN64)
+	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
 	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../bin/Client/Win64/)
 	message("Creating Win64 project...")
 	add_executable(TyphonClient64 ${SourceFiles} ${HeaderFiles} ${ScriptFiles})
@@ -267,6 +269,7 @@ if(CMAKE_CL_64)
 
 elseif(CMAKE_HOST_WIN32)
 
+	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
 	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../bin/Client/Win32/)
 	message("Creating Win32 project")
 	add_executable(TyphonClient32 ${SourceFiles} ${HeaderFiles} ${ScriptFiles})

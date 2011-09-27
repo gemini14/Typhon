@@ -1,7 +1,6 @@
 #include "state/game.h"
 
-#ifdef WIN32
-#else
+#ifndef WIN32
 #include <cstdio>
 #include <sys/errno.h>
 #include <sys/types.h>
@@ -22,9 +21,11 @@ namespace Typhon
 	};
 
 	Game::Game(std::shared_ptr<Engine> engine) :
-			FSMState(engine), serverPID(0), network(
-					Typhon::GetNetwork(Typhon::ENETCLIENT, PORT_NUMBER,
-							&engine->serverIP))
+			FSMState(engine), 
+#ifndef WIN32
+				serverPID(0),
+#endif
+			network(Typhon::GetNetwork(Typhon::ENETCLIENT, PORT_NUMBER, &engine->serverIP))
 	{
 		if (!network)
 		{
@@ -36,12 +37,47 @@ namespace Typhon
 		{
 			// create child process to run the server (if this client is the
 			// one chosen to run the server)
+#ifdef WIN32
+			
+			memset(&startupInfo, 0, sizeof startupInfo);
+			memset(&procInfo, 0, sizeof procInfo);
+			startupInfo.cb = sizeof startupInfo;
+			std::string temp("TyphonServer ");
+			temp += *engine->lobbyList;
+			LPSTR argLine = const_cast<char*>(temp.c_str());
+
+			int result;
+#ifdef WIN64
+#ifdef DEBUG // 64-bit build, Debug
+			result = CreateProcess("../../bin/Server/Win64/Debug/TyphonServer64.exe", argLine, 
+				nullptr, nullptr, true, CREATE_NEW_CONSOLE, nullptr, nullptr,
+				&startupInfo, &procInfo);
+#else // 64-bit build, Release
+			result = CreateProcess("../../bin/Server/Win64/Release/TyphonServer64.exe", argLine, 
+				nullptr, nullptr, true, CREATE_NEW_CONSOLE, nullptr, nullptr,
+				&startupInfo, &procInfo);
+#endif
+#elif defined(WIN32)
+#ifdef DEBUG // 32-bit build, Debug
+			result = CreateProcess("../../bin/Server/Win32/Debug/TyphonServer32.exe", argLine, 
+				nullptr, nullptr, true, CREATE_NEW_CONSOLE, nullptr, nullptr,
+				&startupInfo, &procInfo);
+#else // 32-bit build, Release
+			result = CreateProcess("../../bin/Server/Win32/Release/TyphonServer32.exe", argLine, 
+				nullptr, nullptr, true, CREATE_NEW_CONSOLE, nullptr, nullptr,
+				&startupInfo, &procInfo);
+#endif
+#endif
+			if(!result)
+			{
+				throw StateException("Error creating server process.\n");
+			}
+#endif
+#ifndef WIN32 // Linux
 			std::unique_ptr<char[]> lobbyList(new char[engine->lobbyList->length() + 1]);
 			strcpy(lobbyList.get(), engine->lobbyList->c_str());
-			char * const argList[] = { "TyphonServer", lobbyList.get(), nullptr };
+			char * const argList[] = { "TyphonServer", *lobbyList, nullptr };
 
-#ifdef WIN32
-#else
 			serverPID = fork();
 			if (serverPID == -1)
 			{
@@ -77,8 +113,16 @@ namespace Typhon
 		if (engine->clientIsServer)
 		{
 			network->BroadcastMessage("", 'Q');
+#ifdef WIN32
+			CloseHandle(startupInfo.hStdError);
+			CloseHandle(startupInfo.hStdInput);
+			CloseHandle(startupInfo.hStdOutput);
+			CloseHandle(procInfo.hThread);
+			CloseHandle(procInfo.hProcess);
+#else
 			int status;
 			waitpid(serverPID, &status, 0);
+#endif
 			engine->clientIsServer = false;
 			engine->lobbyList.reset();
 		}

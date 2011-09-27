@@ -137,6 +137,8 @@ utility/utility.cpp
 
 if(CMAKE_CL_64)
 
+	add_definitions(-DWIN64)	
+	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
 	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY
 		${CMAKE_CURRENT_SOURCE_DIR}/../../bin/Server/Win64/)
 	message("Creating Win64 Server project...")
@@ -151,6 +153,7 @@ if(CMAKE_CL_64)
 
 elseif(CMAKE_HOST_WIN32)
 
+	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
 	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../bin/Server/Win32/)
 	message("Creating Win32 Server project...")
 	add_executable(TyphonServer32 ${SourceFiles} ${HeaderFiles} ${ScriptFiles})
