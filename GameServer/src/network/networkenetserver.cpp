@@ -23,10 +23,9 @@ namespace Typhon
 		Log(message);
 	}
 
-	NetworkENetServer::NetworkENetServer(const int port, const sockaddr_in *serverIP)
-		: Network(port), server(nullptr)
+	NetworkENetServer::NetworkENetServer(const int port, const unsigned long serverIP)
+		: Network(port), server(nullptr), IP(htonl(serverIP))
 	{
-		copy(serverIP, serverIP + sizeof serverIP, &IP);
 	}
 
 	NetworkENetServer::~NetworkENetServer()
@@ -92,9 +91,17 @@ namespace Typhon
 		{
 			return false;
 		}
+		Log("ENet initialized successfully.");
 
 		ENetAddress address;
-		address.host = GetNetworkIP(IP);
+		char buffer[INET_ADDRSTRLEN];
+		sockaddr_in addr;
+#ifdef WIN32
+		addr.sin_addr.S_un.S_addr = IP;
+#else
+#endif
+		inet_ntop(AF_INET, &(addr.sin_addr), buffer, INET_ADDRSTRLEN);
+		enet_address_set_host(&address, buffer);
 		address.port = portNumber;
 
 		server = enet_host_create(&address, MAX_PLAYERS, 2, 0, 0);
@@ -103,6 +110,7 @@ namespace Typhon
 			DisplayError("ENet was not able to create a server host.");
 			return false;
 		}
+		Log("ENet server created.");
 
 		return true;
 	}

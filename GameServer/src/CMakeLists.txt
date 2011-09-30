@@ -35,6 +35,7 @@ ${hdr}network/network.h
 ${hdr}network/networkenetserver.h
 ${hdr}network/networkfactory.h
 
+${hdr}server/user.h
 ${hdr}server/server.h
 
 ${hdr}utility/constants.h
@@ -62,6 +63,7 @@ network/network.cpp
 network/networkenetserver.cpp
 network/networkfactory.cpp
 
+server/user.cpp
 server/server.cpp
 
 utility/utility.cpp
@@ -95,6 +97,7 @@ ${hdr}network/networkfactory.h
 )
 
 source_group(Header\ Files\\server FILES
+${hdr}server/user.h
 ${hdr}server/server.h
 )
 
@@ -127,6 +130,7 @@ network/networkfactory.cpp
 )
 
 source_group(Source\ Files\\server FILES
+server/user.cpp
 server/server.cpp
 )
 

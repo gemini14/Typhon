@@ -1,9 +1,10 @@
 #ifndef SERVER_H
 #define SERVER_H
 
-#include <memory>
+#include <unordered_map>
 
 #include "network/networkfactory.h"
+#include "server/user.h"
 
 namespace Typhon
 {
@@ -11,16 +12,14 @@ namespace Typhon
 	{
 	private:
 
-		static bool hostLeftGame;
-
-		std::unique_ptr<Network> gameServer;
+		typedef std::unordered_map<unsigned long, User> PlayerMap;
+		bool hostLeftGame;
+		Network *gameServer;
+		PlayerMap players;
 
 	public:
 
-		static void HostLeftGame();
-		static void ServerThreadRun(const sockaddr_in &serverIP);
-
-		Server(Network *network);
+		Server(Network *net, PlayerMap players);
 		~Server();
 
 		void Run();			
