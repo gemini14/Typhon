@@ -21,6 +21,11 @@ namespace Typhon
 	NetworkENetServer::NetworkENetServer(const int port, const unsigned long serverIP)
 		: Network(port), server(nullptr), IP(htonl(serverIP))
 	{
+#ifdef WIN32
+		machineAddr.sin_addr.S_un.S_addr = IP;
+#else
+		machineAddr.sin_addr.s_addr = IP;
+#endif
 	}
 
 	NetworkENetServer::~NetworkENetServer()

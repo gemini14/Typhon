@@ -31,7 +31,16 @@ namespace Typhon
 	
 	void Server::Disconnect(const Message& m)
 	{
-
+		auto iter = players.find(GetNetworkIP(m.address));
+		if(iter != players.end())
+		{
+			iter->second.SetConnected(false);
+			Log(iter->second.GetPlayerName() + string(" disconnected."));
+			if(gameServer->GetIP() == GetNetworkIP(m.address))
+			{
+				hostLeftGame = true;
+			}
+		}
 	}
 
 	Server::Server(Network *net, PlayerMap players)

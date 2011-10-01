@@ -1,14 +1,14 @@
-﻿Build started 10/1/2011 1:32:22 AM.
+﻿Build started 10/1/2011 1:43:03 AM.
      1>Project "D:\Typhon\GameServer\build\VS2010\x86\TyphonServer32.vcxproj" on node 3 (build target(s)).
      1>InitializeBuildStatus:
          Creating "TyphonServer32.dir\Debug\TyphonServer32.unsuccessfulbuild" because "AlwaysCreate" was specified.
        CustomBuild:
          All outputs are up-to-date.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:/Typhon/GameServer/src/../include /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonServer32.dir\Debug\\" /Fd"D:/Typhon/bin/Server/Win32/Debug/../TyphonServer32.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\src\main.cpp ..\..\..\src\server\server.cpp ..\..\..\src\server\user.cpp  /Zm1000 
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:/Typhon/GameServer/src/../include /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonServer32.dir\Debug\\" /Fd"D:/Typhon/bin/Server/Win32/Debug/../TyphonServer32.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\src\main.cpp ..\..\..\src\network\networkenetserver.cpp ..\..\..\src\server\server.cpp  /Zm1000 
          main.cpp
+         networkenetserver.cpp
          server.cpp
-         user.cpp
          Generating Code...
          All outputs are up-to-date.
        ManifestResourceCompile:
@@ -45,4 +45,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:07.03
+Time Elapsed 00:00:09.20
