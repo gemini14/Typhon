@@ -56,7 +56,7 @@ namespace Typhon
 		delete gameServer;
 	}
 
-	void Server::Run()
+	bool Server::Run()
 	{
 		auto message = gameServer->ReceiveMessage();
 		char prefix = message.prefix;
@@ -65,6 +65,11 @@ namespace Typhon
 			// need to dereference the stored member function pointer and call
 			// it using "this", all wrapped up in parentheses
 			(this->*callbacks[prefix])(message);
+		}
+
+		if(hostLeftGame)
+		{
+			return false;
 		}
 	}
 }

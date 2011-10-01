@@ -30,7 +30,7 @@ namespace Typhon
 		Server(Network *net, PlayerMap players);
 		~Server();
 
-		void Run();			
+		bool Run();			
 	};
 }
 

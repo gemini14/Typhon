@@ -16,6 +16,8 @@ using namespace boost;
 using namespace std;
 using namespace Typhon;
 
+const int MAX_PLAYERS = 8;
+
 int main(int argc, char *argv[])
 {
 	if(argc < 3)
@@ -46,14 +48,23 @@ int main(int argc, char *argv[])
 			else
 			{
 				addr = lexical_cast<unsigned long>(*iter);
-				players.insert(PlayerMap::value_type(addr, User(name)));
+				players.insert(PlayerMap::value_type(addr, User(name, HUMAN)));
 			}
 		}
+	}
+	int suffix = 1;
+	while(players.size() < MAX_PLAYERS)
+	{
+		string botName("Bot #");
+		botName += lexical_cast<string>(suffix++);
+		players.insert(PlayerMap::value_type(0, User(botName, AI)));
 	}
 
 	auto decimalIP = lexical_cast<unsigned long>(argv[2]);
 	Server server(GetNetwork(ENETSERVER, PORT_NUMBER, decimalIP), players);
-	server.Run();
+	while(server.Run())
+	{
+	}
 	
 	return 0;
 }

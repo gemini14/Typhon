@@ -6,13 +6,12 @@
 
 namespace Typhon
 {
-	User::User(const std::string &name)
-		: playerName(name), connected(false)
+	User::User(const std::string &name, const PLAYER_TYPE playerType)
+		: playerName(name), connected(false), type(playerType)
 	{
 	}
 
 	User::User(User&& rhs)
-		: playerName("")
 	{
 		*this = std::move(rhs);
 	}
@@ -22,6 +21,8 @@ namespace Typhon
 		if(this != &rhs)
 		{
 			playerName = rhs.playerName;
+			type = rhs.type;
+			connected = rhs.connected;
 		}
 		return *this;
 	}
@@ -38,6 +39,11 @@ namespace Typhon
 	std::string User::GetPlayerName()
 	{
 		return playerName;
+	}
+		
+	PLAYER_TYPE User::GetType()
+	{
+		return type;
 	}
 
 	void User::SetConnected(bool c)
