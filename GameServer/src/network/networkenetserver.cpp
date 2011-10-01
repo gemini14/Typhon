@@ -13,11 +13,6 @@ using namespace Typhon;
 
 namespace Typhon
 {
-	enum ENet_Channel 
-	{
-		SEND_CH = 0 
-	};
-
 	void NetworkENetServer::DisplayError(const std::string &message)
 	{
 		Log(message);
@@ -41,22 +36,25 @@ namespace Typhon
 	{
 		string packetMsg = prefix + msg;
 		ENetPacket *packet = enet_packet_create(packetMsg.c_str(), packetMsg.length(), ENET_PACKET_FLAG_RELIABLE);
-		enet_host_broadcast(server, SEND_CH, packet);
+		enet_host_broadcast(server, 0, packet);
 		enet_host_flush(server);
 	}
 
 	const Message NetworkENetServer::ReceiveMessage()
 	{
 		ENetEvent event;
+		Message m;
+		m.prefix = 'N';
+		
 		if(enet_host_service(server, &event, 0))
 		{
 			switch(event.type)
 			{
 			case ENET_EVENT_TYPE_CONNECT:
 				Log("Client connected from " + boost::lexical_cast<string>(event.peer->address.host));
-
-				// TODO perform client addition here
-				break;
+				m.prefix = 'C';
+				m.address = StoreIPNumber(event.peer->address.host);
+				return m;
 
 			case ENET_EVENT_TYPE_RECEIVE:
 				// must include at least prefix and 1 char msg
@@ -74,14 +72,12 @@ namespace Typhon
 
 			case ENET_EVENT_TYPE_DISCONNECT:
 				Log("Client at " + boost::lexical_cast<string>(event.peer->address.host) + " disconnected.");
-
-				// TODO perform client removal here
-				break;
+				m.prefix = 'D';
+				m.address = StoreIPNumber(event.peer->address.host);
+				return m;
 			}
 		}
-
-		Message m;
-		m.prefix = 'N';
+		
 		return m;
 	}
 
@@ -99,12 +95,13 @@ namespace Typhon
 #ifdef WIN32
 		addr.sin_addr.S_un.S_addr = IP;
 #else
+		addr.sin_addr.s_addr = IP;
 #endif
-		inet_ntop(AF_INET, &(addr.sin_addr), buffer, INET_ADDRSTRLEN);
+		Log("Server IP is: " + string(inet_ntop(AF_INET, &(addr.sin_addr), buffer, INET_ADDRSTRLEN)));
 		enet_address_set_host(&address, buffer);
 		address.port = portNumber;
 
-		server = enet_host_create(&address, MAX_PLAYERS, 2, 0, 0);
+		server = enet_host_create(&address, MAX_PLAYERS, 1, 0, 0);
 		if(!server)
 		{
 			DisplayError("ENet was not able to create a server host.");

@@ -1,4 +1,4 @@
-﻿Build started 9/30/2011 6:08:41 PM.
+﻿Build started 10/1/2011 1:32:22 AM.
      1>Project "D:\Typhon\GameServer\build\VS2010\x86\ZERO_CHECK.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Win32\Debug\ZERO_CHECK\ZERO_CHECK.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -11,4 +11,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.04
+Time Elapsed 00:00:00.03

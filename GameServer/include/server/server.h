@@ -13,9 +13,17 @@ namespace Typhon
 	private:
 
 		typedef std::unordered_map<unsigned long, User> PlayerMap;
+		typedef void (Server::*ServerMemFuncPtr)(const Message&);
+		typedef std::unordered_map<char, ServerMemFuncPtr> CallbackMap;
+
 		bool hostLeftGame;
 		Network *gameServer;
 		PlayerMap players;
+		CallbackMap callbacks;
+		bool allConnected;
+
+		void Connect(const Message& m);
+		void Disconnect(const Message& m);
 
 	public:
 

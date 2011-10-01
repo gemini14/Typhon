@@ -1,18 +1,43 @@
-﻿Build started 9/30/2011 6:08:41 PM.
+﻿Build started 10/1/2011 1:32:22 AM.
      1>Project "D:\Typhon\GameServer\build\VS2010\x86\TyphonServer32.vcxproj" on node 3 (build target(s)).
      1>InitializeBuildStatus:
          Creating "TyphonServer32.dir\Debug\TyphonServer32.unsuccessfulbuild" because "AlwaysCreate" was specified.
        CustomBuild:
          All outputs are up-to-date.
        ClCompile:
-         All outputs are up-to-date.
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:/Typhon/GameServer/src/../include /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonServer32.dir\Debug\\" /Fd"D:/Typhon/bin/Server/Win32/Debug/../TyphonServer32.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\src\main.cpp ..\..\..\src\server\server.cpp ..\..\..\src\server\user.cpp  /Zm1000 
+         main.cpp
+         server.cpp
+         user.cpp
+         Generating Code...
          All outputs are up-to-date.
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
-         All outputs are up-to-date.
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Typhon\bin\Server\Win32\Debug\TyphonServer32.exe" /VERSION:"0.0" /INCREMENTAL /NOLOGO /LIBPATH:D:/Typhon/GameServer/src/../lib /LIBPATH:D:/Typhon/GameServer/src/../lib/Debug /LIBPATH:D:/Typhon/GameServer/src/../lib/luabind /LIBPATH:D:/Typhon/GameServer/src/../lib/luabind/Debug /LIBPATH:D:/Typhon/GameServer/src/../lib/lua /LIBPATH:D:/Typhon/GameServer/src/../lib/lua/Debug kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib lua5.1_32.lib luabindD_32.lib Ws2_32.lib winmm.lib "boost_thread-vc100-mt-gd-1_47.lib" /MANIFEST /ManifestFile:"TyphonServer32.dir\Debug\TyphonServer32.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Typhon\bin\Server\Win32\Debug\TyphonServer32.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Typhon/GameServer/build/VS2010/x86/Debug/TyphonServer32.lib" /MACHINE:X86 TyphonServer32.dir\Debug\TyphonServer32.exe.embed.manifest.res
+         TyphonServer32.dir\Debug\main.obj
+         TyphonServer32.dir\Debug\callbacks.obj
+         TyphonServer32.dir\Debug\compress.obj
+         TyphonServer32.dir\Debug\host.obj
+         TyphonServer32.dir\Debug\list.obj
+         TyphonServer32.dir\Debug\packet.obj
+         TyphonServer32.dir\Debug\peer.obj
+         TyphonServer32.dir\Debug\protocol.obj
+         TyphonServer32.dir\Debug\unix.obj
+         TyphonServer32.dir\Debug\win32.obj
+         TyphonServer32.dir\Debug\logger.obj
+         TyphonServer32.dir\Debug\network.obj
+         TyphonServer32.dir\Debug\networkenetserver.obj
+         TyphonServer32.dir\Debug\networkfactory.obj
+         TyphonServer32.dir\Debug\user.obj
+         TyphonServer32.dir\Debug\server.obj
+         TyphonServer32.dir\Debug\utility.obj  /machine:X86 /debug 
        Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"TyphonServer32.dir\Debug\TyphonServer32.exe.embed.manifest" /manifest TyphonServer32.dir\Debug\TyphonServer32.exe.intermediate.manifest
          All outputs are up-to-date.
+       LinkEmbedManifest:
+         All outputs are up-to-date.
+         TyphonServer32.vcxproj -> D:\Typhon\bin\Server\Win32\Debug\TyphonServer32.exe
        FinalizeBuildStatus:
          Deleting file "TyphonServer32.dir\Debug\TyphonServer32.unsuccessfulbuild".
          Touching "TyphonServer32.dir\Debug\TyphonServer32.lastbuildstate".
@@ -20,4 +45,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.14
+Time Elapsed 00:00:07.03
