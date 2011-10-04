@@ -9,7 +9,9 @@
 
 #include <boost/lexical_cast.hpp>
 
+#include "network/networkenetclient.h"
 #include "utility/stateexception.h"
+#include "utility/utility.h"
 
 using namespace irr;
 using namespace std;
@@ -25,14 +27,8 @@ namespace Typhon
 #ifndef WIN32
 				serverPID(0),
 #endif
-			network(Typhon::GetNetwork(Typhon::ENETCLIENT, PORT_NUMBER, &engine->serverIP))
+		network(nullptr)
 	{
-		if (!network)
-		{
-			throw StateException(
-					"Error starting up network code (could not allocate or incompatible system).\n");
-		}
-
 		if (engine->clientIsServer)
 		{
 			// create child process to run the server (if this client is the
@@ -44,6 +40,7 @@ namespace Typhon
 			startupInfo.cb = sizeof startupInfo;
 			std::string temp("TyphonServer ");
 			temp += *engine->lobbyList;
+			temp += " " + boost::lexical_cast<string>(GetNetworkIP(engine->serverIP));
 			LPSTR argLine = const_cast<char*>(temp.c_str());
 
 			int result;
@@ -72,11 +69,18 @@ namespace Typhon
 			{
 				throw StateException("Error creating server process.\n");
 			}
+			//else
+			//{
+			//	auto waitResult = WaitForInputIdle(procInfo.hProcess, INFINITE);
+			//}
 #endif
 #ifndef WIN32 // Linux
 			std::unique_ptr<char[]> lobbyList(new char[engine->lobbyList->length() + 1]);
 			strcpy(lobbyList.get(), engine->lobbyList->c_str());
-			char * const argList[] = { "TyphonServer", *lobbyList, nullptr };
+			string server(boost::lexical_cast<string>(GetNetworkIP(engine->serverIP)));
+			std::unique_ptr<char[]> serverAddr(new char[server.length() + 1]);
+			strcpy(serverAddr.get(), server.c_str());
+			char * const argList[] = { "TyphonServer", *lobbyList, *serverAddr, nullptr };
 
 			serverPID = fork();
 			if (serverPID == -1)
@@ -106,13 +110,25 @@ namespace Typhon
 			// if we reached this point, we're the parent
 #endif
 		}
+		
+		network.reset(Typhon::GetNetwork(Typhon::ENETCLIENT, PORT_NUMBER, &engine->serverIP));
+		if (!network)
+		{
+			throw StateException(
+					"Error starting up network code (could not allocate or incompatible system).\n");
+		}
+		bool connectionResult = reinterpret_cast<NetworkENetClient*>(network.get())->ConnectToServer();
+		if(!connectionResult)
+		{
+			engine->eventQueue.push(FSM::RET_TO_LOBBY_FROM_GAME);
+		}
 	}
 
 	Game::~Game()
 	{
 		if (engine->clientIsServer)
 		{
-			network->BroadcastMessage("", 'Q');
+			reinterpret_cast<NetworkENetClient*>(network.get())->DisconnectFromServer();
 #ifdef WIN32
 			CloseHandle(startupInfo.hStdError);
 			CloseHandle(startupInfo.hStdInput);
@@ -160,5 +176,13 @@ namespace Typhon
 
 	void Game::Run()
 	{
+		static auto previousTime = engine->device->getTimer()->getTime();
+		auto currentTime = engine->device->getTimer()->getTime();
+		if(currentTime - previousTime >= 1000)
+		{
+			// refresh connection every 5 sec
+			network->BroadcastMessage("", 'A');
+			previousTime = currentTime;
+		}
 	}
 }

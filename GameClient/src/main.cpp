@@ -46,8 +46,6 @@ int main(int argc, char* argv[])
 
 	machine.engine->SavePrefs();
 
-	Logger::Flush();
-
 	return 0;
 }
 
@@ -61,9 +59,6 @@ void MessagePump(FSM::Machine &machine)
 		switch(newEvent)
 		{
 		case FSM::GAME:
-			/*
-			serverThread = new boost::thread(&Server::ServerThreadRun, machine.engine->serverIP);
-			*/
 			machine.process_event(FSM::EvGame());
 			break;
 
@@ -80,15 +75,6 @@ void MessagePump(FSM::Machine &machine)
 			break;
 
 		case FSM::RET_TO_LOBBY_FROM_GAME:
-			/*
-			Server::HostLeftGame();
-			if(serverThread && serverThread->joinable())
-			{
-				serverThread->join();
-				delete serverThread;
-				serverThread = nullptr;
-			}
-			*/
 			machine.process_event(FSM::EvLobby());
 			break;
 

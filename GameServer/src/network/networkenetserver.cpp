@@ -19,7 +19,7 @@ namespace Typhon
 	}
 
 	NetworkENetServer::NetworkENetServer(const int port, const unsigned long serverIP)
-		: Network(port), server(nullptr), IP(htonl(serverIP))
+		: Network(port), server(nullptr), IP(serverIP)
 	{
 #ifdef WIN32
 		machineAddr.sin_addr.S_un.S_addr = IP;
@@ -51,8 +51,12 @@ namespace Typhon
 		Message m;
 		m.prefix = 'N';
 		
-		if(enet_host_service(server, &event, 0))
+		// Log("Waiting for server event...");
+		// int result = enet_host_service(server, &event, 1000);
+		// Log("Host service result: " + boost::lexical_cast<string>(result));
+		if(enet_host_service(server, &event, 1000))
 		{
+			Log("Event type is " + boost::lexical_cast<string>(event.type));
 			switch(event.type)
 			{
 			case ENET_EVENT_TYPE_CONNECT:
@@ -62,16 +66,25 @@ namespace Typhon
 				return m;
 
 			case ENET_EVENT_TYPE_RECEIVE:
-				// must include at least prefix and 1 char msg
-				if(event.packet->dataLength >= 2)
+				Log("Regular packet received.");
+				if(event.packet->dataLength >= 1)
 				{
 					Message m;
 					m.address = StoreIPNumber(event.peer->address.host);
 					m.prefix = event.packet->data[0];
-					m.msg = string(event.packet->data + 1, event.packet->data + event.packet->dataLength);
+					if(event.packet->dataLength > 1)
+					{
+						m.msg = string(reinterpret_cast<const char*>(event.packet->data + 1), event.packet->dataLength - 1);
+					}
 
 					enet_packet_destroy(event.packet);
+					Log("Prefix: " + boost::lexical_cast<string>(m.prefix) + 
+						" Message: " + m.msg);
 					return m;
+				}
+				else
+				{
+					enet_packet_destroy(event.packet);
 				}
 				break;
 
@@ -104,9 +117,12 @@ namespace Typhon
 #endif
 		Log("Server IP is: " + string(inet_ntop(AF_INET, &(addr.sin_addr), buffer, INET_ADDRSTRLEN)));
 		enet_address_set_host(&address, buffer);
-		address.port = portNumber;
+		// connect to the set port number (1550) + 1 to avoid conflicts with previous
+		// socket operations on the same port in the client's (who's hosting the server)
+		// lobby operations
+		address.port = portNumber + 1;
 
-		server = enet_host_create(&address, MAX_PLAYERS, 1, 0, 0);
+		server = enet_host_create(&address, MAX_PLAYERS, 2, 0, 0);
 		if(!server)
 		{
 			DisplayError("ENet was not able to create a server host.");

@@ -209,6 +209,15 @@ namespace Typhon
 		}
 		Log("Socket switched to broadcast mode.");
 
+		// enable reuse address option
+		if(setsockopt(winsocket, SOL_SOCKET, SO_REUSEADDR, &optionSet, sizeof(int)) == SOCKET_ERROR)
+		{
+			DisplayError("Failed to enable reuseaddr option.");
+			closesocket(winsocket);
+			return false;
+		}
+		Log("Reuseaddr option enabled.");
+
 		// bind it (this simplifies things by making sure everyone is using the same port)
 		// (here we need the :: b/c if it is not included, the compiler gets confused due to 
 		// the conflict of std::bind and ::bind (the WinSock one))

@@ -26,3 +26,4 @@ ipch/
 /bin/Client/Linux
 /bin/Server/Linux
 .metadata
+/GameClient/src/log.txt

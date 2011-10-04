@@ -57,14 +57,18 @@ int main(int argc, char *argv[])
 	{
 		string botName("Bot #");
 		botName += lexical_cast<string>(suffix++);
-		players.insert(PlayerMap::value_type(0, User(botName, AI)));
+		players.insert(PlayerMap::value_type(suffix, User(botName, AI)));
 	}
+	Log("Player table filled.");
 
+	Log("Starting up server.");
 	auto decimalIP = lexical_cast<unsigned long>(argv[2]);
 	Server server(GetNetwork(ENETSERVER, PORT_NUMBER, decimalIP), players);
 	while(server.Run())
 	{
 	}
 	
+	Log("Game is over or host has left, shutting down.");
+	Logger::Flush();
 	return 0;
 }

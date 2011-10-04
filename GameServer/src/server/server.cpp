@@ -8,6 +8,11 @@ using namespace std;
 
 namespace Typhon
 {
+	void Server::Acknowledge(const Message& m)
+	{
+		Log("Dummy message acknowledged.");
+	}
+
 	void Server::Connect(const Message& m)
 	{
 		auto iter = players.find(GetNetworkIP(m.address));
@@ -47,6 +52,7 @@ namespace Typhon
 		: hostLeftGame(false), gameServer(net), players(players),
 		allConnected(false)
 	{
+		callbacks['A'] = &Server::Acknowledge;
 		callbacks['C'] = &Server::Connect;
 		callbacks['D'] = &Server::Disconnect;
 	}
@@ -59,17 +65,19 @@ namespace Typhon
 	bool Server::Run()
 	{
 		auto message = gameServer->ReceiveMessage();
-		char prefix = message.prefix;
-		if(prefix != 'N')
+		if(message.prefix != 'N')
 		{
 			// need to dereference the stored member function pointer and call
 			// it using "this", all wrapped up in parentheses
-			(this->*callbacks[prefix])(message);
+			(this->*callbacks[message.prefix])(message);
 		}
 
 		if(hostLeftGame)
 		{
+			Log("Host left game.");
 			return false;
 		}
+
+		return true;
 	}
 }

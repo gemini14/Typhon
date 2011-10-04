@@ -22,6 +22,7 @@ namespace Typhon
 		CallbackMap callbacks;
 		bool allConnected;
 
+		void Acknowledge(const Message& m);
 		void Connect(const Message& m);
 		void Disconnect(const Message& m);
 

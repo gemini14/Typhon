@@ -210,6 +210,17 @@ namespace Typhon
 		}
 		Log("Socket switched to broadcast mode.");
 
+		// turn on reuse address
+		int reuse = 1;
+		if (setsockopt(linuxSocket, SOL_SOCKET, SO_REUSEADDR, &reuse,
+				sizeof reuse) == -1)
+		{
+			Display_PError("setsockopt");
+			close(linuxSocket);
+			return false;
+		}
+		Log("Reuseaddr option enabled.");
+
 		// bind it (this simplifies things by making sure everyone is using the same port)
 		sockaddr_in bindAddr;
 		bindAddr.sin_family = AF_INET;
