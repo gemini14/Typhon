@@ -1,6 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <unordered_map>
+
 #ifdef WIN32
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
@@ -15,13 +17,21 @@ namespace Typhon
 	{
 	private:
 
+		typedef void (Game::*ClientMemFuncPtr)(const Message&);
+		typedef std::unordered_map<char, ClientMemFuncPtr> CallbackMap;
+
 #ifdef WIN32
 		STARTUPINFO startupInfo;
 		PROCESS_INFORMATION procInfo;
 #else
 		int serverPID;
 #endif
+		
+		bool connectedToServer;
 		std::unique_ptr<Network> network;
+		CallbackMap callbacks;
+
+		void Disconnect(const Message& m);
 
 	public:
 

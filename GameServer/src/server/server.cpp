@@ -16,6 +16,11 @@ namespace Typhon
 	void Server::Connect(const Message& m)
 	{
 		auto iter = players.find(GetNetworkIP(m.address));
+		// Case where unknown player from another game using ENet
+		// connects ignored on purpose (unlikely, plus this isn't
+		// going to be a commercial game).  If required, a simple
+		// peer_reset should do the job if player not found in
+		// player list
 		if(iter != players.end())
 		{
 			iter->second.SetConnected(true);

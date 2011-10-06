@@ -134,7 +134,7 @@ namespace Typhon
 					break;
 
 				case ENET_EVENT_TYPE_DISCONNECT:
-					Log("Disconnected cleanly.");
+					Log("Disconnected cleanly from server.");
 					disconnectedCleanly = true;
 					break;
 				}
@@ -158,12 +158,15 @@ namespace Typhon
 			{
 			case ENET_EVENT_TYPE_RECEIVE:
 				// must include at least prefix and 1 char msg
-				if(event.packet->dataLength >= 2)
+				if(event.packet->dataLength >= 1)
 				{
 					Message m;
 					m.address = StoreIPNumber(event.peer->address.host);
 					m.prefix = event.packet->data[0];
-					m.msg = string(event.packet->data + 1, event.packet->data + event.packet->dataLength);
+					if(event.packet->dataLength > 1)
+					{
+						m.msg = string(reinterpret_cast<const char*>(event.packet->data + 1), event.packet->dataLength - 1);
+					}
 
 					enet_packet_destroy(event.packet);
 					return m;

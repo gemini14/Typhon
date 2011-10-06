@@ -1,12 +1,12 @@
-﻿Build started 10/3/2011 10:57:16 PM.
+﻿Build started 10/6/2011 12:43:35 AM.
      1>Project "D:\Typhon\GameClient\build\VS2010\x64\TyphonClient64.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Touching "TyphonClient64.dir\Debug\TyphonClient64.unsuccessfulbuild".
+         Creating "TyphonClient64.dir\Debug\TyphonClient64.unsuccessfulbuild" because "AlwaysCreate" was specified.
        CustomBuild:
          All outputs are up-to-date.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:/Typhon/GameClient/src/../include /ID:/Typhon/GameClient/src/../include/freetype /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D DEBUG /D WIN64 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonClient64.dir\Debug\\" /Fd"D:/Typhon/bin/Client/Win64/Debug/../TyphonClient64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\network\networkenetclient.cpp  /Zm1000 
-         networkenetclient.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:/Typhon/GameClient/src/../include /ID:/Typhon/GameClient/src/../include/freetype /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D DEBUG /D WIN64 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonClient64.dir\Debug\\" /Fd"D:/Typhon/bin/Client/Win64/Debug/../TyphonClient64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\state\game.cpp  /Zm1000 
+         game.cpp
          All outputs are up-to-date.
        ManifestResourceCompile:
          All outputs are up-to-date.
@@ -55,4 +55,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:09.82
+Time Elapsed 00:00:06.99

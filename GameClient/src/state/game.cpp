@@ -20,21 +20,35 @@ namespace Typhon
 {
 	enum GUI_IDS
 	{
+		MESSAGEBOX_SERVER_DC
 	};
 
-	Game::Game(std::shared_ptr<Engine> engine) :
-			FSMState(engine), 
-#ifndef WIN32
-				serverPID(0),
-#endif
-		network(nullptr)
+	void Game::Disconnect(const Message& m)
 	{
+		if(connectedToServer)
+		{
+			connectedToServer = false;
+			Log("Server disconnected.");
+			// TODO: Add some kind of notification or log system so user can see what happened
+			engine->eventQueue.push(FSM::RET_TO_LOBBY_FROM_GAME);
+		}		
+	}
+
+	Game::Game(std::shared_ptr<Engine> engine) :
+	FSMState(engine), 
+#ifndef WIN32
+		serverPID(0),
+#endif
+		connectedToServer(false), network(nullptr)
+	{
+		callbacks['D'] = &Game::Disconnect;
+
 		if (engine->clientIsServer)
 		{
 			// create child process to run the server (if this client is the
 			// one chosen to run the server)
 #ifdef WIN32
-			
+
 			memset(&startupInfo, 0, sizeof startupInfo);
 			memset(&procInfo, 0, sizeof procInfo);
 			startupInfo.cb = sizeof startupInfo;
@@ -110,15 +124,16 @@ namespace Typhon
 			// if we reached this point, we're the parent
 #endif
 		}
-		
+
 		network.reset(Typhon::GetNetwork(Typhon::ENETCLIENT, PORT_NUMBER, &engine->serverIP));
 		if (!network)
 		{
+			// TODO: Add some kind of notification if user can't initially connect
 			throw StateException(
-					"Error starting up network code (could not allocate or incompatible system).\n");
+				"Error starting up network code (could not allocate or incompatible system).\n");
 		}
-		bool connectionResult = reinterpret_cast<NetworkENetClient*>(network.get())->ConnectToServer();
-		if(!connectionResult)
+		connectedToServer = reinterpret_cast<NetworkENetClient*>(network.get())->ConnectToServer();
+		if(!connectedToServer)
 		{
 			engine->eventQueue.push(FSM::RET_TO_LOBBY_FROM_GAME);
 		}
@@ -148,27 +163,36 @@ namespace Typhon
 	{
 		switch (event.EventType)
 		{
-			case EET_GUI_EVENT:
+		case EET_GUI_EVENT:
 			{
 				s32 id = event.GUIEvent.Caller->getID();
+				switch(event.GUIEvent.EventType)
+				{
+				case gui::EGET_MESSAGEBOX_OK:
+					if(id == MESSAGEBOX_SERVER_DC)
+					{
+						engine->eventQueue.push(FSM::RET_TO_LOBBY_FROM_GAME);
+					}
+					break;
+				}
 			}
-				break;
+			break;
 
-			case EET_KEY_INPUT_EVENT:
+		case EET_KEY_INPUT_EVENT:
 			{
 				auto key = event.KeyInput.Key;
 
 				switch (key)
 				{
-					case KEY_ESCAPE:
-						engine->eventQueue.push(FSM::RET_TO_LOBBY_FROM_GAME);
-						break;
+				case KEY_ESCAPE:
+					engine->eventQueue.push(FSM::RET_TO_LOBBY_FROM_GAME);
+					break;
 				}
 			}
-				break;
+			break;
 
-			default:
-				break;
+		default:
+			break;
 		}
 
 		return false;
@@ -176,13 +200,26 @@ namespace Typhon
 
 	void Game::Run()
 	{
+		if(!connectedToServer)
+		{
+			return;
+		}
+
 		static auto previousTime = engine->device->getTimer()->getTime();
 		auto currentTime = engine->device->getTimer()->getTime();
-		if(currentTime - previousTime >= 1000)
+		if(currentTime - previousTime >= 5000)
 		{
 			// refresh connection every 5 sec
 			network->BroadcastMessage("", 'A');
 			previousTime = currentTime;
+		}
+
+		auto message = network->ReceiveMessage();
+		if(message.prefix != 'N')
+		{
+			// need to dereference the stored member function pointer and call
+			// it using "this", all wrapped up in parentheses
+			(this->*callbacks[message.prefix])(message);
 		}
 	}
 }
