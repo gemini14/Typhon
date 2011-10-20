@@ -133,6 +133,9 @@ namespace Typhon
 			throw StateException(
 				"Error starting up network code (could not allocate or incompatible system).\n");
 		}
+		// set the level manager's network
+		levelManager->network = network;
+		
 		connectedToServer = reinterpret_cast<NetworkENetClient*>(network.get())->ConnectToServer();
 		if(!connectedToServer)
 		{

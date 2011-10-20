@@ -6,7 +6,7 @@
 #include <unordered_map>
 
 #include "engine/engine.h"
-#include "network/message.h"
+#include "network/network.h"
 
 namespace Typhon
 {
@@ -24,6 +24,8 @@ namespace Typhon
 		void LoadLevel(const Message& m);
 
 	public:
+
+		std::shared_ptr<Network> network;
 
 		LevelManager(std::shared_ptr<Engine> engine);
 		~LevelManager();

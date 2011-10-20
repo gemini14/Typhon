@@ -29,7 +29,7 @@ namespace Typhon
 #endif
 		
 		bool connectedToServer;
-		std::unique_ptr<Network> network;
+		std::shared_ptr<Network> network;
 		std::unique_ptr<LevelManager> levelManager;
 		CallbackMap callbacks;
 

@@ -13,7 +13,9 @@ namespace Typhon
 	{
 		string levelName("racetrackLevel" + m.msg[1]);
 		levelName += ".irr";
-		
+		engine->smgr->loadScene(levelName.c_str());
+		// do bullet stuff
+		network->BroadcastMessage("l", 'A');
 	}
 
 	LevelManager::LevelManager(std::shared_ptr<Engine> engine)
