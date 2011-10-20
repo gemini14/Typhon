@@ -5,6 +5,10 @@
 
 #include <boost/lexical_cast.hpp>
 
+#ifndef WIN32
+#include <arpa/inet.h>
+#endif
+
 #include "utility/constants.h"
 #include "utility/utility.h"
 

@@ -385,9 +385,57 @@ CMakeFiles/TyphonServer.dir/network/networkfactory.cpp.o.provides: CMakeFiles/Ty
 CMakeFiles/TyphonServer.dir/network/networkfactory.cpp.o.provides.build: CMakeFiles/TyphonServer.dir/network/networkfactory.cpp.o
 .PHONY : CMakeFiles/TyphonServer.dir/network/networkfactory.cpp.o.provides.build
 
+CMakeFiles/TyphonServer.dir/physics/physics.cpp.o: CMakeFiles/TyphonServer.dir/flags.make
+CMakeFiles/TyphonServer.dir/physics/physics.cpp.o: /home/tarik/Typhon/GameServer/src/physics/physics.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameServer/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_15)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonServer.dir/physics/physics.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonServer.dir/physics/physics.cpp.o -c /home/tarik/Typhon/GameServer/src/physics/physics.cpp
+
+CMakeFiles/TyphonServer.dir/physics/physics.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TyphonServer.dir/physics/physics.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tarik/Typhon/GameServer/src/physics/physics.cpp > CMakeFiles/TyphonServer.dir/physics/physics.cpp.i
+
+CMakeFiles/TyphonServer.dir/physics/physics.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TyphonServer.dir/physics/physics.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tarik/Typhon/GameServer/src/physics/physics.cpp -o CMakeFiles/TyphonServer.dir/physics/physics.cpp.s
+
+CMakeFiles/TyphonServer.dir/physics/physics.cpp.o.requires:
+.PHONY : CMakeFiles/TyphonServer.dir/physics/physics.cpp.o.requires
+
+CMakeFiles/TyphonServer.dir/physics/physics.cpp.o.provides: CMakeFiles/TyphonServer.dir/physics/physics.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TyphonServer.dir/build.make CMakeFiles/TyphonServer.dir/physics/physics.cpp.o.provides.build
+.PHONY : CMakeFiles/TyphonServer.dir/physics/physics.cpp.o.provides
+
+CMakeFiles/TyphonServer.dir/physics/physics.cpp.o.provides.build: CMakeFiles/TyphonServer.dir/physics/physics.cpp.o
+.PHONY : CMakeFiles/TyphonServer.dir/physics/physics.cpp.o.provides.build
+
+CMakeFiles/TyphonServer.dir/server/user.cpp.o: CMakeFiles/TyphonServer.dir/flags.make
+CMakeFiles/TyphonServer.dir/server/user.cpp.o: /home/tarik/Typhon/GameServer/src/server/user.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameServer/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_16)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonServer.dir/server/user.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonServer.dir/server/user.cpp.o -c /home/tarik/Typhon/GameServer/src/server/user.cpp
+
+CMakeFiles/TyphonServer.dir/server/user.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TyphonServer.dir/server/user.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tarik/Typhon/GameServer/src/server/user.cpp > CMakeFiles/TyphonServer.dir/server/user.cpp.i
+
+CMakeFiles/TyphonServer.dir/server/user.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TyphonServer.dir/server/user.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tarik/Typhon/GameServer/src/server/user.cpp -o CMakeFiles/TyphonServer.dir/server/user.cpp.s
+
+CMakeFiles/TyphonServer.dir/server/user.cpp.o.requires:
+.PHONY : CMakeFiles/TyphonServer.dir/server/user.cpp.o.requires
+
+CMakeFiles/TyphonServer.dir/server/user.cpp.o.provides: CMakeFiles/TyphonServer.dir/server/user.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TyphonServer.dir/build.make CMakeFiles/TyphonServer.dir/server/user.cpp.o.provides.build
+.PHONY : CMakeFiles/TyphonServer.dir/server/user.cpp.o.provides
+
+CMakeFiles/TyphonServer.dir/server/user.cpp.o.provides.build: CMakeFiles/TyphonServer.dir/server/user.cpp.o
+.PHONY : CMakeFiles/TyphonServer.dir/server/user.cpp.o.provides.build
+
 CMakeFiles/TyphonServer.dir/server/server.cpp.o: CMakeFiles/TyphonServer.dir/flags.make
 CMakeFiles/TyphonServer.dir/server/server.cpp.o: /home/tarik/Typhon/GameServer/src/server/server.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameServer/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_15)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameServer/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_17)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonServer.dir/server/server.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonServer.dir/server/server.cpp.o -c /home/tarik/Typhon/GameServer/src/server/server.cpp
 
@@ -411,7 +459,7 @@ CMakeFiles/TyphonServer.dir/server/server.cpp.o.provides.build: CMakeFiles/Typho
 
 CMakeFiles/TyphonServer.dir/utility/utility.cpp.o: CMakeFiles/TyphonServer.dir/flags.make
 CMakeFiles/TyphonServer.dir/utility/utility.cpp.o: /home/tarik/Typhon/GameServer/src/utility/utility.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameServer/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_16)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameServer/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_18)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonServer.dir/utility/utility.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonServer.dir/utility/utility.cpp.o -c /home/tarik/Typhon/GameServer/src/utility/utility.cpp
 
@@ -449,6 +497,8 @@ TyphonServer_OBJECTS = \
 "CMakeFiles/TyphonServer.dir/network/network.cpp.o" \
 "CMakeFiles/TyphonServer.dir/network/networkenetserver.cpp.o" \
 "CMakeFiles/TyphonServer.dir/network/networkfactory.cpp.o" \
+"CMakeFiles/TyphonServer.dir/physics/physics.cpp.o" \
+"CMakeFiles/TyphonServer.dir/server/user.cpp.o" \
 "CMakeFiles/TyphonServer.dir/server/server.cpp.o" \
 "CMakeFiles/TyphonServer.dir/utility/utility.cpp.o"
 
@@ -469,6 +519,8 @@ TyphonServer_EXTERNAL_OBJECTS =
 /home/tarik/Typhon/bin/Server/Linux/TyphonServer: CMakeFiles/TyphonServer.dir/network/network.cpp.o
 /home/tarik/Typhon/bin/Server/Linux/TyphonServer: CMakeFiles/TyphonServer.dir/network/networkenetserver.cpp.o
 /home/tarik/Typhon/bin/Server/Linux/TyphonServer: CMakeFiles/TyphonServer.dir/network/networkfactory.cpp.o
+/home/tarik/Typhon/bin/Server/Linux/TyphonServer: CMakeFiles/TyphonServer.dir/physics/physics.cpp.o
+/home/tarik/Typhon/bin/Server/Linux/TyphonServer: CMakeFiles/TyphonServer.dir/server/user.cpp.o
 /home/tarik/Typhon/bin/Server/Linux/TyphonServer: CMakeFiles/TyphonServer.dir/server/server.cpp.o
 /home/tarik/Typhon/bin/Server/Linux/TyphonServer: CMakeFiles/TyphonServer.dir/utility/utility.cpp.o
 /home/tarik/Typhon/bin/Server/Linux/TyphonServer: CMakeFiles/TyphonServer.dir/build.make
@@ -494,6 +546,8 @@ CMakeFiles/TyphonServer.dir/requires: CMakeFiles/TyphonServer.dir/logger/logger.
 CMakeFiles/TyphonServer.dir/requires: CMakeFiles/TyphonServer.dir/network/network.cpp.o.requires
 CMakeFiles/TyphonServer.dir/requires: CMakeFiles/TyphonServer.dir/network/networkenetserver.cpp.o.requires
 CMakeFiles/TyphonServer.dir/requires: CMakeFiles/TyphonServer.dir/network/networkfactory.cpp.o.requires
+CMakeFiles/TyphonServer.dir/requires: CMakeFiles/TyphonServer.dir/physics/physics.cpp.o.requires
+CMakeFiles/TyphonServer.dir/requires: CMakeFiles/TyphonServer.dir/server/user.cpp.o.requires
 CMakeFiles/TyphonServer.dir/requires: CMakeFiles/TyphonServer.dir/server/server.cpp.o.requires
 CMakeFiles/TyphonServer.dir/requires: CMakeFiles/TyphonServer.dir/utility/utility.cpp.o.requires
 .PHONY : CMakeFiles/TyphonServer.dir/requires

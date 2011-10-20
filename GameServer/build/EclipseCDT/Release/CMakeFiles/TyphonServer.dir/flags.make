@@ -3,11 +3,11 @@
 
 # compile C with /usr/bin/gcc
 # compile CXX with /usr/bin/c++
-C_FLAGS = -O3 -g -O3 -DNDEBUG -I/home/tarik/Typhon/GameServer/src/../include   -g -Wall -std=c++0x
+C_FLAGS = -O3 -g -O3 -DNDEBUG -I/home/tarik/Typhon/GameServer/src/../include -I/home/tarik/Typhon/GameServer/src/../include/bullet   -g -Wall -std=c++0x
 
 C_DEFINES = -DHAS_SOCKLEN_T
 
-CXX_FLAGS = -O3 -g -O3 -DNDEBUG -I/home/tarik/Typhon/GameServer/src/../include   -g -Wall -std=c++0x
+CXX_FLAGS = -O3 -g -O3 -DNDEBUG -I/home/tarik/Typhon/GameServer/src/../include -I/home/tarik/Typhon/GameServer/src/../include/bullet   -g -Wall -std=c++0x
 
 CXX_DEFINES = -DHAS_SOCKLEN_T
 

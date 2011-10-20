@@ -8,6 +8,7 @@
 #include <Windows.h>
 #endif
 
+#include "game/levelmanager.h"
 #include "network/networkfactory.h"
 #include "state/fsmstate.h"
 
@@ -29,9 +30,11 @@ namespace Typhon
 		
 		bool connectedToServer;
 		std::unique_ptr<Network> network;
+		std::unique_ptr<LevelManager> levelManager;
 		CallbackMap callbacks;
 
 		void Disconnect(const Message& m);
+		void LevelAction(const Message& m);
 
 	public:
 

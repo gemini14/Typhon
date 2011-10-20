@@ -13,6 +13,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/TyphonServer.dir/network/network.cpp.o"
   "CMakeFiles/TyphonServer.dir/network/networkenetserver.cpp.o"
   "CMakeFiles/TyphonServer.dir/network/networkfactory.cpp.o"
+  "CMakeFiles/TyphonServer.dir/physics/physics.cpp.o"
+  "CMakeFiles/TyphonServer.dir/server/user.cpp.o"
   "CMakeFiles/TyphonServer.dir/server/server.cpp.o"
   "CMakeFiles/TyphonServer.dir/utility/utility.cpp.o"
   "/home/tarik/Typhon/bin/Server/Linux/TyphonServer.pdb"

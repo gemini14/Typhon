@@ -447,6 +447,30 @@ network/networkfactory.cpp.s:
 	$(MAKE) -f CMakeFiles/TyphonServer.dir/build.make CMakeFiles/TyphonServer.dir/network/networkfactory.cpp.s
 .PHONY : network/networkfactory.cpp.s
 
+physics/physics.o: physics/physics.cpp.o
+.PHONY : physics/physics.o
+
+# target to build an object file
+physics/physics.cpp.o:
+	$(MAKE) -f CMakeFiles/TyphonServer.dir/build.make CMakeFiles/TyphonServer.dir/physics/physics.cpp.o
+.PHONY : physics/physics.cpp.o
+
+physics/physics.i: physics/physics.cpp.i
+.PHONY : physics/physics.i
+
+# target to preprocess a source file
+physics/physics.cpp.i:
+	$(MAKE) -f CMakeFiles/TyphonServer.dir/build.make CMakeFiles/TyphonServer.dir/physics/physics.cpp.i
+.PHONY : physics/physics.cpp.i
+
+physics/physics.s: physics/physics.cpp.s
+.PHONY : physics/physics.s
+
+# target to generate assembly for a file
+physics/physics.cpp.s:
+	$(MAKE) -f CMakeFiles/TyphonServer.dir/build.make CMakeFiles/TyphonServer.dir/physics/physics.cpp.s
+.PHONY : physics/physics.cpp.s
+
 server/server.o: server/server.cpp.o
 .PHONY : server/server.o
 
@@ -470,6 +494,30 @@ server/server.s: server/server.cpp.s
 server/server.cpp.s:
 	$(MAKE) -f CMakeFiles/TyphonServer.dir/build.make CMakeFiles/TyphonServer.dir/server/server.cpp.s
 .PHONY : server/server.cpp.s
+
+server/user.o: server/user.cpp.o
+.PHONY : server/user.o
+
+# target to build an object file
+server/user.cpp.o:
+	$(MAKE) -f CMakeFiles/TyphonServer.dir/build.make CMakeFiles/TyphonServer.dir/server/user.cpp.o
+.PHONY : server/user.cpp.o
+
+server/user.i: server/user.cpp.i
+.PHONY : server/user.i
+
+# target to preprocess a source file
+server/user.cpp.i:
+	$(MAKE) -f CMakeFiles/TyphonServer.dir/build.make CMakeFiles/TyphonServer.dir/server/user.cpp.i
+.PHONY : server/user.cpp.i
+
+server/user.s: server/user.cpp.s
+.PHONY : server/user.s
+
+# target to generate assembly for a file
+server/user.cpp.s:
+	$(MAKE) -f CMakeFiles/TyphonServer.dir/build.make CMakeFiles/TyphonServer.dir/server/user.cpp.s
+.PHONY : server/user.cpp.s
 
 utility/utility.o: utility/utility.cpp.o
 .PHONY : utility/utility.o
@@ -546,9 +594,15 @@ help:
 	@echo "... network/networkfactory.o"
 	@echo "... network/networkfactory.i"
 	@echo "... network/networkfactory.s"
+	@echo "... physics/physics.o"
+	@echo "... physics/physics.i"
+	@echo "... physics/physics.s"
 	@echo "... server/server.o"
 	@echo "... server/server.i"
 	@echo "... server/server.s"
+	@echo "... server/user.o"
+	@echo "... server/user.i"
+	@echo "... server/user.s"
 	@echo "... utility/utility.o"
 	@echo "... utility/utility.i"
 	@echo "... utility/utility.s"

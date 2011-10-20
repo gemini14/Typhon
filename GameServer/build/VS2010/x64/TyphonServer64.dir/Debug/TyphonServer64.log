@@ -1,17 +1,20 @@
-﻿Build started 10/6/2011 12:46:32 AM.
+﻿Build started 10/20/2011 2:20:41 AM.
      1>Project "D:\Typhon\GameServer\build\VS2010\x64\TyphonServer64.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "TyphonServer64.dir\Debug\TyphonServer64.unsuccessfulbuild" because "AlwaysCreate" was specified.
        CustomBuild:
          All outputs are up-to-date.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:/Typhon/GameServer/src/../include /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D DEBUG /D WIN64 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonServer64.dir\Debug\\" /Fd"D:/Typhon/bin/Server/Win64/Debug/../TyphonServer64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\server\server.cpp  /Zm1000 
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:/Typhon/GameServer/src/../include /ID:/Typhon/GameServer/src/../include/bullet /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D DEBUG /D WIN64 /D USE_MINICL /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonServer64.dir\Debug\\" /Fd"D:/Typhon/bin/Server/Win64/Debug/../TyphonServer64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\levelmanager\levelmanager.cpp ..\..\..\src\main.cpp ..\..\..\src\server\server.cpp  /Zm1000 
+         levelmanager.cpp
+         main.cpp
          server.cpp
+         Generating Code...
          All outputs are up-to-date.
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Typhon\bin\Server\Win64\Debug\TyphonServer64.exe" /VERSION:"0.0" /INCREMENTAL /NOLOGO /LIBPATH:D:/Typhon/GameServer/src/../lib /LIBPATH:D:/Typhon/GameServer/src/../lib/Debug /LIBPATH:D:/Typhon/GameServer/src/../lib/luabind /LIBPATH:D:/Typhon/GameServer/src/../lib/luabind/Debug /LIBPATH:D:/Typhon/GameServer/src/../lib/lua /LIBPATH:D:/Typhon/GameServer/src/../lib/lua/Debug kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib lua5.1_64.lib luabindD_64.lib Ws2_32.lib winmm.lib "boost_thread-vc100-mt-gd-1_47.lib" /MANIFEST /ManifestFile:"TyphonServer64.dir\Debug\TyphonServer64.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Typhon\bin\Server\Win64\Debug\TyphonServer64.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Typhon/GameServer/build/VS2010/x64/Debug/TyphonServer64.lib" /MACHINE:X64 TyphonServer64.dir\Debug\TyphonServer64.exe.embed.manifest.res
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Typhon\bin\Server\Win64\Debug\TyphonServer64.exe" /VERSION:"0.0" /INCREMENTAL /NOLOGO /LIBPATH:D:/Typhon/GameServer/src/../lib /LIBPATH:D:/Typhon/GameServer/src/../lib/Debug /LIBPATH:D:/Typhon/GameServer/src/../lib/bullet/Win32 /LIBPATH:D:/Typhon/GameServer/src/../lib/bullet/Win32/Debug /LIBPATH:D:/Typhon/GameServer/src/../lib/bullet/Win64 /LIBPATH:D:/Typhon/GameServer/src/../lib/bullet/Win64/Debug /LIBPATH:D:/Typhon/GameServer/src/../lib/bullet/Linux32 /LIBPATH:D:/Typhon/GameServer/src/../lib/bullet/Linux32/Debug /LIBPATH:D:/Typhon/GameServer/src/../lib/bullet/Linux64 /LIBPATH:D:/Typhon/GameServer/src/../lib/bullet/Linux64/Debug /LIBPATH:D:/Typhon/GameServer/src/../lib/luabind /LIBPATH:D:/Typhon/GameServer/src/../lib/luabind/Debug /LIBPATH:D:/Typhon/GameServer/src/../lib/lua /LIBPATH:D:/Typhon/GameServer/src/../lib/lua/Debug kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib lua5.1_64.lib luabindD_64.lib Ws2_32.lib winmm.lib "boost_thread-vc100-mt-gd-1_47.lib" BulletDynamics_x64_debug.lib BulletCollision_x64_debug.lib LinearMath_x64_debug.lib /MANIFEST /ManifestFile:"TyphonServer64.dir\Debug\TyphonServer64.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Typhon\bin\Server\Win64\Debug\TyphonServer64.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Typhon/GameServer/build/VS2010/x64/Debug/TyphonServer64.lib" /MACHINE:X64 TyphonServer64.dir\Debug\TyphonServer64.exe.embed.manifest.res
          TyphonServer64.dir\Debug\main.obj
          TyphonServer64.dir\Debug\callbacks.obj
          TyphonServer64.dir\Debug\compress.obj
@@ -22,10 +25,12 @@
          TyphonServer64.dir\Debug\protocol.obj
          TyphonServer64.dir\Debug\unix.obj
          TyphonServer64.dir\Debug\win32.obj
+         TyphonServer64.dir\Debug\levelmanager.obj
          TyphonServer64.dir\Debug\logger.obj
          TyphonServer64.dir\Debug\network.obj
          TyphonServer64.dir\Debug\networkenetserver.obj
          TyphonServer64.dir\Debug\networkfactory.obj
+         TyphonServer64.dir\Debug\physics.obj
          TyphonServer64.dir\Debug\user.obj
          TyphonServer64.dir\Debug\server.obj
          TyphonServer64.dir\Debug\utility.obj  /machine:x64 /debug 
@@ -43,4 +48,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.88
+Time Elapsed 00:00:19.49

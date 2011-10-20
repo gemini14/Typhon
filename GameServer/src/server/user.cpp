@@ -11,6 +11,13 @@ namespace Typhon
 	{
 	}
 
+	User::User(const User& rhs)
+	{
+		playerName = rhs.playerName;
+		type = rhs.type;
+		connected = rhs.connected;
+	}
+
 	User::User(User&& rhs)
 	{
 		*this = std::move(rhs);

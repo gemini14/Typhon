@@ -10,13 +10,12 @@
 #include "network/networkfactory.h"
 #include "server/server.h"
 #include "server/user.h"
+#include "utility/constants.h"
 #include "utility/utility.h"
 
 using namespace boost;
 using namespace std;
 using namespace Typhon;
-
-const int MAX_PLAYERS = 8;
 
 int main(int argc, char *argv[])
 {

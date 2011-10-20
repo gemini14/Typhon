@@ -18,11 +18,6 @@ using namespace std;
 
 namespace Typhon
 {
-	enum GUI_IDS
-	{
-		MESSAGEBOX_SERVER_DC
-	};
-
 	void Game::Disconnect(const Message& m)
 	{
 		if(connectedToServer)
@@ -34,14 +29,20 @@ namespace Typhon
 		}		
 	}
 
+	void Game::LevelAction(const Message& m)
+	{
+		levelManager->PushMessage(m);
+	}
+
 	Game::Game(std::shared_ptr<Engine> engine) :
 	FSMState(engine), 
 #ifndef WIN32
 		serverPID(0),
 #endif
-		connectedToServer(false), network(nullptr)
+		connectedToServer(false), network(nullptr), levelManager(new LevelManager(engine))
 	{
 		callbacks['D'] = &Game::Disconnect;
+		callbacks['L'] = &Game::LevelAction;
 
 		if (engine->clientIsServer)
 		{
@@ -165,16 +166,13 @@ namespace Typhon
 		{
 		case EET_GUI_EVENT:
 			{
-				s32 id = event.GUIEvent.Caller->getID();
+				/*s32 id = event.GUIEvent.Caller->getID();
 				switch(event.GUIEvent.EventType)
 				{
-				case gui::EGET_MESSAGEBOX_OK:
-					if(id == MESSAGEBOX_SERVER_DC)
-					{
-						engine->eventQueue.push(FSM::RET_TO_LOBBY_FROM_GAME);
-					}
+				
+				default:
 					break;
-				}
+				}*/
 			}
 			break;
 
