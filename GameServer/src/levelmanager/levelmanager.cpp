@@ -3,9 +3,13 @@
 #include <string>
 
 #include <boost/foreach.hpp>
+#include <boost/lexical_cast.hpp>
 
 #include "utility/constants.h"
 #include "utility/utility.h"
+
+using namespace boost;
+using namespace std;
 
 namespace Typhon
 {
@@ -29,18 +33,25 @@ namespace Typhon
 	{
 		callbacks['A'] = &LevelManager::AcknowledgeLoad;
 
+		string playerIDs;
 		int i = 0;
 		for(auto iter = players->begin(); iter != players->end(); ++iter, ++i)
 		{
+			if(iter->second.GetType() == HUMAN)
+			{
+				playerIDs += lexical_cast<string>(iter->first) + string("=") +
+					lexical_cast<string>(i) + string("=");
+			}
 			// bots are already "connected"
 			if(iter->second.GetType() == AI)
 			{
 				loadedLevel[i] = true;
 			}
 		}
+		
 		// this could be changed to load a random level if more are added later
 		Log("Sending level load message.");
-		network->BroadcastMessage("L1", 'L');
+		network->BroadcastMessage("L1+" + playerIDs, 'L');
 
 		// TODO load level mesh, etc. stuff into Bullet
 	}

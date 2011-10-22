@@ -1,12 +1,12 @@
-﻿Build started 10/22/2011 1:43:09 AM.
+﻿Build started 10/22/2011 4:11:28 AM.
      1>Project "D:\Typhon\GameServer\build\VS2010\x64\TyphonServer64.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "TyphonServer64.dir\Debug\TyphonServer64.unsuccessfulbuild" because "AlwaysCreate" was specified.
        CustomBuild:
          All outputs are up-to-date.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:/Typhon/GameServer/src/../include /ID:/Typhon/GameServer/src/../include/bullet /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D DEBUG /D WIN64 /D USE_MINICL /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonServer64.dir\Debug\\" /Fd"D:/Typhon/bin/Server/Win64/Debug/../TyphonServer64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\server\server.cpp  /Zm1000 
-         server.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:/Typhon/GameServer/src/../include /ID:/Typhon/GameServer/src/../include/bullet /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D DEBUG /D WIN64 /D USE_MINICL /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonServer64.dir\Debug\\" /Fd"D:/Typhon/bin/Server/Win64/Debug/../TyphonServer64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\levelmanager\levelmanager.cpp  /Zm1000 
+         levelmanager.cpp
          All outputs are up-to-date.
        ManifestResourceCompile:
          All outputs are up-to-date.
@@ -45,4 +45,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:46.29
+Time Elapsed 00:00:16.85
