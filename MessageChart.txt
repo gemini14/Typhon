@@ -1,0 +1,13 @@
+Server Messages (ENet only):
+
+Prefix		Message		Meaning
+
+L		L#		Load level #, where # is the level ID number
+
+
+Client Messages (ENet only):
+
+Prefix		Message		Meaning
+
+A		l		Level loading & configuration complete
+A				Server ping

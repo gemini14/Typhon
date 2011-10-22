@@ -2,8 +2,11 @@
 #define SERVER_H
 
 #include <memory>
+#include <unordered_map>
 
+#include "levelmanager/levelmanager.h"
 #include "network/networkfactory.h"
+#include "server/user.h"
 
 namespace Typhon
 {
@@ -11,19 +14,27 @@ namespace Typhon
 	{
 	private:
 
-		static bool hostLeftGame;
+		typedef std::unordered_map<unsigned long, User> PlayerMap;
+		typedef void (Server::*ServerMemFuncPtr)(const Message&);
+		typedef std::unordered_map<char, ServerMemFuncPtr> CallbackMap;
 
-		std::unique_ptr<Network> gameServer;
+		bool hostLeftGame;
+		Network *network;
+		PlayerMap players;
+		CallbackMap callbacks;
+		bool allConnected;
+		std::unique_ptr<LevelManager> levelmanager;
+
+		void Acknowledge(const Message& m);
+		void Connect(const Message& m);
+		void Disconnect(const Message& m);
 
 	public:
 
-		static void HostLeftGame();
-		static void ServerThreadRun(const sockaddr_in &serverIP);
-
-		Server(Network *network);
+		Server(Network *net, PlayerMap players);
 		~Server();
 
-		void Run();			
+		bool Run();			
 	};
 }
 

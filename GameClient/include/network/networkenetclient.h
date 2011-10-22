@@ -11,6 +11,7 @@ namespace Typhon
 	private:
 
 		ENetHost *client;
+		ENetPeer *server;
 		sockaddr_in serverIP;
 
 	protected:
@@ -25,6 +26,8 @@ namespace Typhon
 		// Important: this only sends the message to the server, it does
 		// not perform a UDP broadcast
 		virtual void BroadcastMessage(const std::string &msg, const char prefix);
+		bool ConnectToServer();
+		void DisconnectFromServer();
 		virtual const Message ReceiveMessage();
 		virtual bool StartUp();
 	};

@@ -37,12 +37,15 @@ ${hdr}engine/luamanager.h
 ${hdr}font/font_manager.h
 ${hdr}font/gui_freetype_font.h
 
+${hdr}game/levelmanager.h
+
 ${hdr}i18n/i18n.h
 
 ${hdr}logger/logger.h
 
 ${hdr}metrics/metrics.h
 
+${hdr}network/message.h
 ${hdr}network/network.h
 ${hdr}network/networkenetclient.h
 ${hdr}network/networkfactory.h
@@ -85,6 +88,8 @@ engine/luamanager.cpp
 
 font/font_manager.cpp
 font/gui_freetype_font.cpp
+
+game/levelmanager.cpp
 
 i18n/i18n.cpp
 
@@ -143,6 +148,10 @@ ${hdr}font/font_manager.h
 ${hdr}font/gui_freetype_font.h
 )
 
+source_group(Header\ Files\\game FILES
+${hdr}game/levelmanager.h
+)
+
 source_group(Header\ Files\\i18n FILES
 ${hdr}i18n/i18n.h
 )
@@ -156,7 +165,7 @@ ${hdr}metrics/metrics.h
 )
 
 source_group(Header\ Files\\network FILES 
-${hdr}network/lobbylist.h
+${hdr}network/message.h
 ${hdr}network/network.h
 ${hdr}network/networkenetclient.h
 ${hdr}network/networkfactory.h
@@ -207,6 +216,10 @@ engine/luamanager.cpp
 source_group(Source\ Files\\font FILES
 font/font_manager.cpp
 font/gui_freetype_font.cpp
+)
+
+source_group(Source\ Files\\game FILES
+game/levelmanager.cpp
 )
 
 source_group(Source\ Files\\i18n FILES

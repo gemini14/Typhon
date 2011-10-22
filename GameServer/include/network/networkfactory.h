@@ -12,7 +12,7 @@ namespace Typhon
 		ENETSERVER
 	};
 
-	Network* GetNetwork(NETWORK_HANDLING_TYPE type, const int port, const sockaddr_in *IP = nullptr);
+	Network* GetNetwork(NETWORK_HANDLING_TYPE type, const int port, const unsigned long IP = 0);
 }
 
 #endif

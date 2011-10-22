@@ -12,16 +12,10 @@
 #endif
 
 #include "logger/logger.h"
+#include "network/message.h"
 
 namespace Typhon
 {
-	struct Message
-	{
-		char prefix;
-		std::string msg;
-		in_addr address;
-	};
-
 	class Network : boost::noncopyable
 	{
 	private:
