@@ -60,7 +60,7 @@ namespace Typhon
 		// Log("Host service result: " + boost::lexical_cast<string>(result));
 		if(enet_host_service(server, &event, 1000))
 		{
-			Log("Event type is " + boost::lexical_cast<string>(event.type));
+			// Log("Event type is " + boost::lexical_cast<string>(event.type));
 			switch(event.type)
 			{
 			case ENET_EVENT_TYPE_CONNECT:
@@ -70,7 +70,7 @@ namespace Typhon
 				return m;
 
 			case ENET_EVENT_TYPE_RECEIVE:
-				Log("Regular packet received.");
+				// Log("Regular packet received.");
 				if(event.packet->dataLength >= 1)
 				{
 					Message m;
@@ -82,8 +82,8 @@ namespace Typhon
 					}
 
 					enet_packet_destroy(event.packet);
-					Log("Prefix: " + boost::lexical_cast<string>(m.prefix) + 
-						" Message: " + m.msg);
+					// Log("Prefix: " + boost::lexical_cast<string>(m.prefix) + 
+					//	" Message: " + m.msg);
 					return m;
 				}
 				else

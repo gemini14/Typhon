@@ -4,7 +4,7 @@
 #include <fstream>
 #include <queue>
 
-#define LOG_TO_FILE
+// #define LOG_TO_FILE
 
 namespace Typhon
 {

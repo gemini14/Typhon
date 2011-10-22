@@ -5,6 +5,8 @@
 #include <queue>
 #include <unordered_map>
 
+#include "irrlicht/irrlicht.h"
+
 #include "engine/engine.h"
 #include "network/network.h"
 
@@ -20,6 +22,7 @@ namespace Typhon
 		CallbackMap callbacks;
 		std::shared_ptr<Engine> engine;
 		std::queue<Message> messageQueue;
+		irr::scene::ICameraSceneNode *camera;
 
 		void LoadLevel(const Message& m);
 

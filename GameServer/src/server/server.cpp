@@ -1,27 +1,33 @@
 #include "server/server.h"
 
 #include <boost/foreach.hpp>
+#include <boost/lexical_cast.hpp>
 
 #include "utility/utility.h"
 
+using namespace boost;
 using namespace std;
 
 namespace Typhon
 {
 	void Server::Acknowledge(const Message& m)
 	{
-		// Log("Dummy message acknowledged.");
-		switch(m.msg[0])
+		// if message length is 0, that means the client is just
+		// pinging server to stay active
+		if(m.msg.length() > 0)
 		{
-		case 'l':
-			if(levelmanager != nullptr)
+			switch(m.msg[0])
 			{
-				levelmanager->PushMessage(m);				
-			}
-			break;
+			case 'l':
+				if(levelmanager != nullptr)
+				{
+					levelmanager->PushMessage(m);				
+				}
+				break;
 
-		default:
-			break;
+			default:
+				break;
+			}
 		}
 	}
 

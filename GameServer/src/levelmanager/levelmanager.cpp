@@ -39,6 +39,7 @@ namespace Typhon
 			}
 		}
 		// this could be changed to load a random level if more are added later
+		Log("Sending level load message.");
 		network->BroadcastMessage("L1", 'L');
 
 		// TODO load level mesh, etc. stuff into Bullet

@@ -145,6 +145,13 @@ namespace Typhon
 
 	Game::~Game()
 	{
+		auto rootNode = engine->smgr->getRootSceneNode();
+		if(rootNode)
+		{
+			rootNode->removeAll();
+			rootNode->remove();
+		}
+
 		if (engine->clientIsServer)
 		{
 			reinterpret_cast<NetworkENetClient*>(network.get())->DisconnectFromServer();
@@ -222,5 +229,7 @@ namespace Typhon
 			// it using "this", all wrapped up in parentheses
 			(this->*callbacks[message.prefix])(message);
 		}
+		
+		levelManager->Run();
 	}
 }
