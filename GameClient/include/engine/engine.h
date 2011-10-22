@@ -42,8 +42,11 @@ namespace Typhon
 		LuaManager lua;
 		std::queue<FSM::EVENT_TYPE> eventQueue;
 		std::shared_ptr<I18N> lang;
+
 		UserOptions options;
 		sockaddr_in serverIP;
+		bool clientIsServer;
+		std::shared_ptr<std::string> lobbyList;
 
 		Engine();
 		~Engine();

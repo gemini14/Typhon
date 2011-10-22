@@ -53,6 +53,8 @@ namespace Typhon
 			return false;
 		}
 
+		// TODO Pull out and stick in another function to allow time for server
+		// to be forked/exec'ed and started up
 		ENetAddress address;
 		address.host = GetNetworkIP(serverIP);
 		address.port = portNumber;

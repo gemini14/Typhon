@@ -10,7 +10,8 @@ using namespace std;
 namespace Typhon
 {
 	Engine::Engine()
-		: fonts(new FontManager()), ready(false), terminate(false), lang(new I18N(&lua))
+		: fonts(new FontManager()), ready(false), terminate(false),
+		  lang(new I18N(&lua)), clientIsServer(false)
 	{
 		video::E_DRIVER_TYPE driverType;
 #ifdef _IRR_WINDOWS_

@@ -1272,9 +1272,6 @@ CMakeFiles/TyphonClient.dir/metrics/metrics.cpp.o: /home/tarik/Typhon/GameClient
 CMakeFiles/TyphonClient.dir/metrics/metrics.cpp.o: /home/tarik/Typhon/GameClient/src/../include/metrics/metrics.h
 CMakeFiles/TyphonClient.dir/metrics/metrics.cpp.o: /home/tarik/Typhon/GameClient/src/metrics/metrics.cpp
 
-CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o: /home/tarik/Typhon/GameClient/src/../include/network/lobbylist.h
-CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o: /home/tarik/Typhon/GameClient/src/network/lobbylist.cpp
-
 CMakeFiles/TyphonClient.dir/network/network.cpp.o: /home/tarik/Typhon/GameClient/src/../include/logger/logger.h
 CMakeFiles/TyphonClient.dir/network/network.cpp.o: /home/tarik/Typhon/GameClient/src/../include/network/network.h
 CMakeFiles/TyphonClient.dir/network/network.cpp.o: /home/tarik/Typhon/GameClient/src/network/network.cpp

@@ -10,10 +10,20 @@
 using namespace std;
 using namespace Typhon;
 
+// #include <cstdio>
+
 void MessagePump(FSM::Machine &machine);
 
 int main(int argc, char* argv[])
 {
+	/* This code is only used to determine correct working directory for
+	 * exec path creation during game transition.
+	FILE *id = popen("echo $PWD", "r");
+	char result[100];
+	fscanf(id, "%s", result);
+	pclose(id);
+	cout << result << endl;
+	*/
 	FSM::Machine machine;
 	try
 	{

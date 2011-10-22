@@ -519,30 +519,6 @@ metrics/metrics.cpp.s:
 	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/metrics/metrics.cpp.s
 .PHONY : metrics/metrics.cpp.s
 
-network/lobbylist.o: network/lobbylist.cpp.o
-.PHONY : network/lobbylist.o
-
-# target to build an object file
-network/lobbylist.cpp.o:
-	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o
-.PHONY : network/lobbylist.cpp.o
-
-network/lobbylist.i: network/lobbylist.cpp.i
-.PHONY : network/lobbylist.i
-
-# target to preprocess a source file
-network/lobbylist.cpp.i:
-	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.i
-.PHONY : network/lobbylist.cpp.i
-
-network/lobbylist.s: network/lobbylist.cpp.s
-.PHONY : network/lobbylist.s
-
-# target to generate assembly for a file
-network/lobbylist.cpp.s:
-	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.s
-.PHONY : network/lobbylist.cpp.s
-
 network/network.o: network/network.cpp.o
 .PHONY : network/network.o
 
@@ -891,9 +867,6 @@ help:
 	@echo "... metrics/metrics.o"
 	@echo "... metrics/metrics.i"
 	@echo "... metrics/metrics.s"
-	@echo "... network/lobbylist.o"
-	@echo "... network/lobbylist.i"
-	@echo "... network/lobbylist.s"
 	@echo "... network/network.o"
 	@echo "... network/network.i"
 	@echo "... network/network.s"
