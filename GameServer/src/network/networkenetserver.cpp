@@ -5,6 +5,10 @@
 
 #include <boost/lexical_cast.hpp>
 
+#ifndef WIN32
+#include <arpa/inet.h>
+#endif
+
 #include "utility/constants.h"
 #include "utility/utility.h"
 
@@ -13,20 +17,19 @@ using namespace Typhon;
 
 namespace Typhon
 {
-	enum ENet_Channel 
-	{
-		SEND_CH = 0 
-	};
-
 	void NetworkENetServer::DisplayError(const std::string &message)
 	{
 		Log(message);
 	}
 
-	NetworkENetServer::NetworkENetServer(const int port, const sockaddr_in *serverIP)
-		: Network(port), server(nullptr)
+	NetworkENetServer::NetworkENetServer(const int port, const unsigned long serverIP)
+		: Network(port), server(nullptr), IP(serverIP)
 	{
-		copy(serverIP, serverIP + sizeof serverIP, &IP);
+#ifdef WIN32
+		machineAddr.sin_addr.S_un.S_addr = IP;
+#else
+		machineAddr.sin_addr.s_addr = IP;
+#endif
 	}
 
 	NetworkENetServer::~NetworkENetServer()
@@ -42,47 +45,61 @@ namespace Typhon
 	{
 		string packetMsg = prefix + msg;
 		ENetPacket *packet = enet_packet_create(packetMsg.c_str(), packetMsg.length(), ENET_PACKET_FLAG_RELIABLE);
-		enet_host_broadcast(server, SEND_CH, packet);
+		enet_host_broadcast(server, 0, packet);
 		enet_host_flush(server);
 	}
 
 	const Message NetworkENetServer::ReceiveMessage()
 	{
 		ENetEvent event;
-		if(enet_host_service(server, &event, 0))
+		Message m;
+		m.prefix = 'N';
+		
+		// Log("Waiting for server event...");
+		// int result = enet_host_service(server, &event, 1000);
+		// Log("Host service result: " + boost::lexical_cast<string>(result));
+		if(enet_host_service(server, &event, 1000))
 		{
+			// Log("Event type is " + boost::lexical_cast<string>(event.type));
 			switch(event.type)
 			{
 			case ENET_EVENT_TYPE_CONNECT:
 				Log("Client connected from " + boost::lexical_cast<string>(event.peer->address.host));
-
-				// TODO perform client addition here
-				break;
+				m.prefix = 'C';
+				m.address = StoreIPNumber(event.peer->address.host);
+				return m;
 
 			case ENET_EVENT_TYPE_RECEIVE:
-				// must include at least prefix and 1 char msg
-				if(event.packet->dataLength >= 2)
+				// Log("Regular packet received.");
+				if(event.packet->dataLength >= 1)
 				{
 					Message m;
 					m.address = StoreIPNumber(event.peer->address.host);
 					m.prefix = event.packet->data[0];
-					m.msg = string(event.packet->data + 1, event.packet->data + event.packet->dataLength);
+					if(event.packet->dataLength > 1)
+					{
+						m.msg = string(reinterpret_cast<const char*>(event.packet->data + 1), event.packet->dataLength - 1);
+					}
 
 					enet_packet_destroy(event.packet);
+					// Log("Prefix: " + boost::lexical_cast<string>(m.prefix) + 
+					//	" Message: " + m.msg);
 					return m;
+				}
+				else
+				{
+					enet_packet_destroy(event.packet);
 				}
 				break;
 
 			case ENET_EVENT_TYPE_DISCONNECT:
 				Log("Client at " + boost::lexical_cast<string>(event.peer->address.host) + " disconnected.");
-
-				// TODO perform client removal here
-				break;
+				m.prefix = 'D';
+				m.address = StoreIPNumber(event.peer->address.host);
+				return m;
 			}
 		}
-
-		Message m;
-		m.prefix = 'N';
+		
 		return m;
 	}
 
@@ -92,10 +109,22 @@ namespace Typhon
 		{
 			return false;
 		}
+		Log("ENet initialized successfully.");
 
 		ENetAddress address;
-		address.host = GetNetworkIP(IP);
-		address.port = portNumber;
+		char buffer[INET_ADDRSTRLEN];
+		sockaddr_in addr;
+#ifdef WIN32
+		addr.sin_addr.S_un.S_addr = IP;
+#else
+		addr.sin_addr.s_addr = IP;
+#endif
+		Log("Server IP is: " + string(inet_ntop(AF_INET, &(addr.sin_addr), buffer, INET_ADDRSTRLEN)));
+		enet_address_set_host(&address, buffer);
+		// connect to the set port number (1550) + 1 to avoid conflicts with previous
+		// socket operations on the same port in the client's (who's hosting the server)
+		// lobby operations
+		address.port = portNumber + 1;
 
 		server = enet_host_create(&address, MAX_PLAYERS, 2, 0, 0);
 		if(!server)
@@ -103,6 +132,7 @@ namespace Typhon
 			DisplayError("ENet was not able to create a server host.");
 			return false;
 		}
+		Log("ENet server created.");
 
 		return true;
 	}

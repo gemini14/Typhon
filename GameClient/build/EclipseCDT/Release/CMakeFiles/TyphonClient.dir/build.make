@@ -457,33 +457,9 @@ CMakeFiles/TyphonClient.dir/metrics/metrics.cpp.o.provides: CMakeFiles/TyphonCli
 CMakeFiles/TyphonClient.dir/metrics/metrics.cpp.o.provides.build: CMakeFiles/TyphonClient.dir/metrics/metrics.cpp.o
 .PHONY : CMakeFiles/TyphonClient.dir/metrics/metrics.cpp.o.provides.build
 
-CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o: CMakeFiles/TyphonClient.dir/flags.make
-CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o: /home/tarik/Typhon/GameClient/src/network/lobbylist.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_18)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o -c /home/tarik/Typhon/GameClient/src/network/lobbylist.cpp
-
-CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tarik/Typhon/GameClient/src/network/lobbylist.cpp > CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.i
-
-CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tarik/Typhon/GameClient/src/network/lobbylist.cpp -o CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.s
-
-CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o.requires:
-.PHONY : CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o.requires
-
-CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o.provides: CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o.requires
-	$(MAKE) -f CMakeFiles/TyphonClient.dir/build.make CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o.provides.build
-.PHONY : CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o.provides
-
-CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o.provides.build: CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o
-.PHONY : CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o.provides.build
-
 CMakeFiles/TyphonClient.dir/network/network.cpp.o: CMakeFiles/TyphonClient.dir/flags.make
 CMakeFiles/TyphonClient.dir/network/network.cpp.o: /home/tarik/Typhon/GameClient/src/network/network.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_19)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_18)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonClient.dir/network/network.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonClient.dir/network/network.cpp.o -c /home/tarik/Typhon/GameClient/src/network/network.cpp
 
@@ -507,7 +483,7 @@ CMakeFiles/TyphonClient.dir/network/network.cpp.o.provides.build: CMakeFiles/Typ
 
 CMakeFiles/TyphonClient.dir/network/networkenetclient.cpp.o: CMakeFiles/TyphonClient.dir/flags.make
 CMakeFiles/TyphonClient.dir/network/networkenetclient.cpp.o: /home/tarik/Typhon/GameClient/src/network/networkenetclient.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_20)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_19)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonClient.dir/network/networkenetclient.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonClient.dir/network/networkenetclient.cpp.o -c /home/tarik/Typhon/GameClient/src/network/networkenetclient.cpp
 
@@ -531,7 +507,7 @@ CMakeFiles/TyphonClient.dir/network/networkenetclient.cpp.o.provides.build: CMak
 
 CMakeFiles/TyphonClient.dir/network/networkfactory.cpp.o: CMakeFiles/TyphonClient.dir/flags.make
 CMakeFiles/TyphonClient.dir/network/networkfactory.cpp.o: /home/tarik/Typhon/GameClient/src/network/networkfactory.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_21)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_20)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonClient.dir/network/networkfactory.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonClient.dir/network/networkfactory.cpp.o -c /home/tarik/Typhon/GameClient/src/network/networkfactory.cpp
 
@@ -555,7 +531,7 @@ CMakeFiles/TyphonClient.dir/network/networkfactory.cpp.o.provides.build: CMakeFi
 
 CMakeFiles/TyphonClient.dir/network/networklinux.cpp.o: CMakeFiles/TyphonClient.dir/flags.make
 CMakeFiles/TyphonClient.dir/network/networklinux.cpp.o: /home/tarik/Typhon/GameClient/src/network/networklinux.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_22)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_21)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonClient.dir/network/networklinux.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonClient.dir/network/networklinux.cpp.o -c /home/tarik/Typhon/GameClient/src/network/networklinux.cpp
 
@@ -579,7 +555,7 @@ CMakeFiles/TyphonClient.dir/network/networklinux.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/TyphonClient.dir/network/networkraw.cpp.o: CMakeFiles/TyphonClient.dir/flags.make
 CMakeFiles/TyphonClient.dir/network/networkraw.cpp.o: /home/tarik/Typhon/GameClient/src/network/networkraw.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_23)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_22)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonClient.dir/network/networkraw.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonClient.dir/network/networkraw.cpp.o -c /home/tarik/Typhon/GameClient/src/network/networkraw.cpp
 
@@ -603,7 +579,7 @@ CMakeFiles/TyphonClient.dir/network/networkraw.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/TyphonClient.dir/network/networkwin.cpp.o: CMakeFiles/TyphonClient.dir/flags.make
 CMakeFiles/TyphonClient.dir/network/networkwin.cpp.o: /home/tarik/Typhon/GameClient/src/network/networkwin.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_24)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_23)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonClient.dir/network/networkwin.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonClient.dir/network/networkwin.cpp.o -c /home/tarik/Typhon/GameClient/src/network/networkwin.cpp
 
@@ -627,7 +603,7 @@ CMakeFiles/TyphonClient.dir/network/networkwin.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/TyphonClient.dir/player/lobbyplayer.cpp.o: CMakeFiles/TyphonClient.dir/flags.make
 CMakeFiles/TyphonClient.dir/player/lobbyplayer.cpp.o: /home/tarik/Typhon/GameClient/src/player/lobbyplayer.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_25)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_24)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonClient.dir/player/lobbyplayer.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonClient.dir/player/lobbyplayer.cpp.o -c /home/tarik/Typhon/GameClient/src/player/lobbyplayer.cpp
 
@@ -651,7 +627,7 @@ CMakeFiles/TyphonClient.dir/player/lobbyplayer.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/TyphonClient.dir/state/game.cpp.o: CMakeFiles/TyphonClient.dir/flags.make
 CMakeFiles/TyphonClient.dir/state/game.cpp.o: /home/tarik/Typhon/GameClient/src/state/game.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_26)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_25)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonClient.dir/state/game.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonClient.dir/state/game.cpp.o -c /home/tarik/Typhon/GameClient/src/state/game.cpp
 
@@ -675,7 +651,7 @@ CMakeFiles/TyphonClient.dir/state/game.cpp.o.provides.build: CMakeFiles/TyphonCl
 
 CMakeFiles/TyphonClient.dir/state/lobby.cpp.o: CMakeFiles/TyphonClient.dir/flags.make
 CMakeFiles/TyphonClient.dir/state/lobby.cpp.o: /home/tarik/Typhon/GameClient/src/state/lobby.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_27)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_26)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonClient.dir/state/lobby.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonClient.dir/state/lobby.cpp.o -c /home/tarik/Typhon/GameClient/src/state/lobby.cpp
 
@@ -699,7 +675,7 @@ CMakeFiles/TyphonClient.dir/state/lobby.cpp.o.provides.build: CMakeFiles/TyphonC
 
 CMakeFiles/TyphonClient.dir/state/mainmenu.cpp.o: CMakeFiles/TyphonClient.dir/flags.make
 CMakeFiles/TyphonClient.dir/state/mainmenu.cpp.o: /home/tarik/Typhon/GameClient/src/state/mainmenu.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_28)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_27)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonClient.dir/state/mainmenu.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonClient.dir/state/mainmenu.cpp.o -c /home/tarik/Typhon/GameClient/src/state/mainmenu.cpp
 
@@ -723,7 +699,7 @@ CMakeFiles/TyphonClient.dir/state/mainmenu.cpp.o.provides.build: CMakeFiles/Typh
 
 CMakeFiles/TyphonClient.dir/state/options.cpp.o: CMakeFiles/TyphonClient.dir/flags.make
 CMakeFiles/TyphonClient.dir/state/options.cpp.o: /home/tarik/Typhon/GameClient/src/state/options.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_29)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_28)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonClient.dir/state/options.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonClient.dir/state/options.cpp.o -c /home/tarik/Typhon/GameClient/src/state/options.cpp
 
@@ -747,7 +723,7 @@ CMakeFiles/TyphonClient.dir/state/options.cpp.o.provides.build: CMakeFiles/Typho
 
 CMakeFiles/TyphonClient.dir/utility/utility.cpp.o: CMakeFiles/TyphonClient.dir/flags.make
 CMakeFiles/TyphonClient.dir/utility/utility.cpp.o: /home/tarik/Typhon/GameClient/src/utility/utility.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_30)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tarik/Typhon/GameClient/build/EclipseCDT/Release/CMakeFiles $(CMAKE_PROGRESS_29)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TyphonClient.dir/utility/utility.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TyphonClient.dir/utility/utility.cpp.o -c /home/tarik/Typhon/GameClient/src/utility/utility.cpp
 
@@ -788,7 +764,6 @@ TyphonClient_OBJECTS = \
 "CMakeFiles/TyphonClient.dir/i18n/i18n.cpp.o" \
 "CMakeFiles/TyphonClient.dir/logger/logger.cpp.o" \
 "CMakeFiles/TyphonClient.dir/metrics/metrics.cpp.o" \
-"CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o" \
 "CMakeFiles/TyphonClient.dir/network/network.cpp.o" \
 "CMakeFiles/TyphonClient.dir/network/networkenetclient.cpp.o" \
 "CMakeFiles/TyphonClient.dir/network/networkfactory.cpp.o" \
@@ -822,7 +797,6 @@ TyphonClient_EXTERNAL_OBJECTS =
 /home/tarik/Typhon/bin/Client/Linux/TyphonClient: CMakeFiles/TyphonClient.dir/i18n/i18n.cpp.o
 /home/tarik/Typhon/bin/Client/Linux/TyphonClient: CMakeFiles/TyphonClient.dir/logger/logger.cpp.o
 /home/tarik/Typhon/bin/Client/Linux/TyphonClient: CMakeFiles/TyphonClient.dir/metrics/metrics.cpp.o
-/home/tarik/Typhon/bin/Client/Linux/TyphonClient: CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o
 /home/tarik/Typhon/bin/Client/Linux/TyphonClient: CMakeFiles/TyphonClient.dir/network/network.cpp.o
 /home/tarik/Typhon/bin/Client/Linux/TyphonClient: CMakeFiles/TyphonClient.dir/network/networkenetclient.cpp.o
 /home/tarik/Typhon/bin/Client/Linux/TyphonClient: CMakeFiles/TyphonClient.dir/network/networkfactory.cpp.o
@@ -861,7 +835,6 @@ CMakeFiles/TyphonClient.dir/requires: CMakeFiles/TyphonClient.dir/font/gui_freet
 CMakeFiles/TyphonClient.dir/requires: CMakeFiles/TyphonClient.dir/i18n/i18n.cpp.o.requires
 CMakeFiles/TyphonClient.dir/requires: CMakeFiles/TyphonClient.dir/logger/logger.cpp.o.requires
 CMakeFiles/TyphonClient.dir/requires: CMakeFiles/TyphonClient.dir/metrics/metrics.cpp.o.requires
-CMakeFiles/TyphonClient.dir/requires: CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o.requires
 CMakeFiles/TyphonClient.dir/requires: CMakeFiles/TyphonClient.dir/network/network.cpp.o.requires
 CMakeFiles/TyphonClient.dir/requires: CMakeFiles/TyphonClient.dir/network/networkenetclient.cpp.o.requires
 CMakeFiles/TyphonClient.dir/requires: CMakeFiles/TyphonClient.dir/network/networkfactory.cpp.o.requires

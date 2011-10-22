@@ -91,7 +91,7 @@ namespace Typhon
 			{
 				Log("Entered the game state");
 				outermost_context().state = game;
-				outermost_context().backColor = irr::video::SColor(255, 245, 203, 10);
+				outermost_context().backColor = irr::video::SColor(255, 100, 100, 140);
 			}
 
 			~Game()

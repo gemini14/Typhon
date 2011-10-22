@@ -1,12 +1,14 @@
-﻿Build started 9/21/2011 8:41:04 PM.
+﻿Build started 10/22/2011 2:14:54 AM.
      1>Project "D:\Typhon\GameClient\build\VS2010\x64\TyphonClient64.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "TyphonClient64.dir\Debug\TyphonClient64.unsuccessfulbuild" because "AlwaysCreate" was specified.
        CustomBuild:
          All outputs are up-to-date.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:/Typhon/GameClient/src/../include /ID:/Typhon/GameClient/src/../include/freetype /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonClient64.dir\Debug\\" /Fd"D:/Typhon/bin/Client/Win64/Debug/../TyphonClient64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\network\networkwin.cpp  /Zm1000 
-         networkwin.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:/Typhon/GameClient/src/../include /ID:/Typhon/GameClient/src/../include/freetype /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D DEBUG /D WIN64 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonClient64.dir\Debug\\" /Fd"D:/Typhon/bin/Client/Win64/Debug/../TyphonClient64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\game\levelmanager.cpp ..\..\..\src\state\game.cpp  /Zm1000 
+         levelmanager.cpp
+         game.cpp
+         Generating Code...
          All outputs are up-to-date.
        ManifestResourceCompile:
          All outputs are up-to-date.
@@ -26,10 +28,10 @@
          TyphonClient64.dir\Debug\luamanager.obj
          TyphonClient64.dir\Debug\font_manager.obj
          TyphonClient64.dir\Debug\gui_freetype_font.obj
+         TyphonClient64.dir\Debug\levelmanager.obj
          TyphonClient64.dir\Debug\i18n.obj
          TyphonClient64.dir\Debug\logger.obj
          TyphonClient64.dir\Debug\metrics.obj
-         TyphonClient64.dir\Debug\lobbylist.obj
          TyphonClient64.dir\Debug\network.obj
          TyphonClient64.dir\Debug\networkenetclient.obj
          TyphonClient64.dir\Debug\networkfactory.obj
@@ -56,4 +58,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:13.13
+Time Elapsed 00:00:20.45

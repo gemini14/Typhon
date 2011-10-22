@@ -1,4 +1,4 @@
-# Install script for directory: D:/X Platform Projects/Typhon/GameServer/src
+# Install script for directory: D:/Typhon/GameServer/src
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -33,7 +33,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "D:/X Platform Projects/Typhon/GameServer/build/VS2010/x86/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "D:/Typhon/GameServer/build/VS2010/x86/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "D:/X Platform Projects/Typhon/GameServer/build/VS2010/x86/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "D:/Typhon/GameServer/build/VS2010/x86/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

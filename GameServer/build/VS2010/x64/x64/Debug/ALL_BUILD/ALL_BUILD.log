@@ -1,0 +1,15 @@
+﻿Build started 10/8/2011 4:59:00 AM.
+     1>Project "D:\Typhon\GameServer\build\VS2010\x64\ALL_BUILD.vcxproj" on node 3 (rebuild target(s)).
+     1>InitializeBuildStatus:
+         Creating "x64\Debug\ALL_BUILD\ALL_BUILD.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule D:/Typhon/GameServer/src/CMakeLists.txt
+         CMake does not need to re-run because D:\Typhon\GameServer\build\VS2010\x64\CMakeFiles\generate.stamp is up-to-date.
+       FinalizeBuildStatus:
+         Deleting file "x64\Debug\ALL_BUILD\ALL_BUILD.unsuccessfulbuild".
+         Touching "x64\Debug\ALL_BUILD\ALL_BUILD.lastbuildstate".
+     1>Done Building Project "D:\Typhon\GameServer\build\VS2010\x64\ALL_BUILD.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.55

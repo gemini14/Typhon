@@ -37,13 +37,15 @@ ${hdr}engine/luamanager.h
 ${hdr}font/font_manager.h
 ${hdr}font/gui_freetype_font.h
 
+${hdr}game/levelmanager.h
+
 ${hdr}i18n/i18n.h
 
 ${hdr}logger/logger.h
 
 ${hdr}metrics/metrics.h
 
-${hdr}network/lobbylist.h
+${hdr}network/message.h
 ${hdr}network/network.h
 ${hdr}network/networkenetclient.h
 ${hdr}network/networkfactory.h
@@ -87,13 +89,14 @@ engine/luamanager.cpp
 font/font_manager.cpp
 font/gui_freetype_font.cpp
 
+game/levelmanager.cpp
+
 i18n/i18n.cpp
 
 logger/logger.cpp
 
 metrics/metrics.cpp
 
-network/lobbylist.cpp
 network/network.cpp
 network/networkenetclient.cpp
 network/networkfactory.cpp
@@ -145,6 +148,10 @@ ${hdr}font/font_manager.h
 ${hdr}font/gui_freetype_font.h
 )
 
+source_group(Header\ Files\\game FILES
+${hdr}game/levelmanager.h
+)
+
 source_group(Header\ Files\\i18n FILES
 ${hdr}i18n/i18n.h
 )
@@ -158,7 +165,7 @@ ${hdr}metrics/metrics.h
 )
 
 source_group(Header\ Files\\network FILES 
-${hdr}network/lobbylist.h
+${hdr}network/message.h
 ${hdr}network/network.h
 ${hdr}network/networkenetclient.h
 ${hdr}network/networkfactory.h
@@ -211,6 +218,10 @@ font/font_manager.cpp
 font/gui_freetype_font.cpp
 )
 
+source_group(Source\ Files\\game FILES
+game/levelmanager.cpp
+)
+
 source_group(Source\ Files\\i18n FILES
 i18n/i18n.cpp
 )
@@ -255,6 +266,8 @@ utility/utility.cpp
 
 if(CMAKE_CL_64)
 
+	add_definitions(-DWIN64)
+	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
 	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../bin/Client/Win64/)
 	message("Creating Win64 project...")
 	add_executable(TyphonClient64 ${SourceFiles} ${HeaderFiles} ${ScriptFiles})
@@ -269,6 +282,7 @@ if(CMAKE_CL_64)
 
 elseif(CMAKE_HOST_WIN32)
 
+	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
 	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../bin/Client/Win32/)
 	message("Creating Win32 project")
 	add_executable(TyphonClient32 ${SourceFiles} ${HeaderFiles} ${ScriptFiles})

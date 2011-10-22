@@ -16,7 +16,6 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/TyphonClient.dir/i18n/i18n.cpp.o"
   "CMakeFiles/TyphonClient.dir/logger/logger.cpp.o"
   "CMakeFiles/TyphonClient.dir/metrics/metrics.cpp.o"
-  "CMakeFiles/TyphonClient.dir/network/lobbylist.cpp.o"
   "CMakeFiles/TyphonClient.dir/network/network.cpp.o"
   "CMakeFiles/TyphonClient.dir/network/networkenetclient.cpp.o"
   "CMakeFiles/TyphonClient.dir/network/networkfactory.cpp.o"

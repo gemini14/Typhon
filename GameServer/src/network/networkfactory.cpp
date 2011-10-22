@@ -4,7 +4,7 @@
 
 namespace Typhon
 {
-	Network* GetNetwork(NETWORK_HANDLING_TYPE type, const int port, const sockaddr_in *IP)
+	Network* GetNetwork(NETWORK_HANDLING_TYPE type, const int port, const unsigned long IP)
 	{
 		Network *net = nullptr;
 
