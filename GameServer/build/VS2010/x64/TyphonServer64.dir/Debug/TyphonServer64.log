@@ -1,17 +1,45 @@
-﻿Build started 10/22/2011 4:11:28 AM.
-     1>Project "D:\Typhon\GameServer\build\VS2010\x64\TyphonServer64.vcxproj" on node 2 (build target(s)).
+﻿Build started 11/15/2011 1:21:15 AM.
+     1>Project "H:\Code\Typhon\GameServer\build\VS2010\x64\TyphonServer64.vcxproj" on node 3 (build target(s)).
      1>InitializeBuildStatus:
          Creating "TyphonServer64.dir\Debug\TyphonServer64.unsuccessfulbuild" because "AlwaysCreate" was specified.
        CustomBuild:
-         All outputs are up-to-date.
+         Building Custom Rule H:/Code/Typhon/GameServer/src/CMakeLists.txt
+         CMake does not need to re-run because H:\Code\Typhon\GameServer\build\VS2010\x64\CMakeFiles\generate.stamp is up-to-date.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:/Typhon/GameServer/src/../include /ID:/Typhon/GameServer/src/../include/bullet /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D DEBUG /D WIN64 /D USE_MINICL /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonServer64.dir\Debug\\" /Fd"D:/Typhon/bin/Server/Win64/Debug/../TyphonServer64.pdb" /Gd /TP /errorReport:prompt ..\..\..\src\levelmanager\levelmanager.cpp  /Zm1000 
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /IH:/Code/Typhon/GameServer/src/../include /IH:/Code/Typhon/GameServer/src/../include/bullet /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D DEBUG /D WIN64 /D USE_MINICL /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonServer64.dir\Debug\\" /Fd"H:/Code/Typhon/bin/Server/Win64/Debug/../TyphonServer64.pdb" /Gd /TP /errorReport:prompt H:\Code\Typhon\GameServer\src\main.cpp H:\Code\Typhon\GameServer\src\levelmanager\levelmanager.cpp H:\Code\Typhon\GameServer\src\logger\logger.cpp H:\Code\Typhon\GameServer\src\network\network.cpp H:\Code\Typhon\GameServer\src\network\networkenetserver.cpp H:\Code\Typhon\GameServer\src\network\networkfactory.cpp H:\Code\Typhon\GameServer\src\physics\physics.cpp H:\Code\Typhon\GameServer\src\server\user.cpp H:\Code\Typhon\GameServer\src\server\server.cpp H:\Code\Typhon\GameServer\src\utility\utility.cpp  /Zm1000 
+         main.cpp
          levelmanager.cpp
-         All outputs are up-to-date.
+         logger.cpp
+         network.cpp
+         networkenetserver.cpp
+         networkfactory.cpp
+         physics.cpp
+         user.cpp
+         server.cpp
+         utility.cpp
+         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /IH:/Code/Typhon/GameServer/src/../include /IH:/Code/Typhon/GameServer/src/../include/bullet /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D DEBUG /D WIN64 /D USE_MINICL /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"TyphonServer64.dir\Debug\\" /Fd"H:/Code/Typhon/bin/Server/Win64/Debug/../TyphonServer64.pdb" /Gd /TC /errorReport:prompt H:\Code\Typhon\GameServer\src\enet\callbacks.c H:\Code\Typhon\GameServer\src\enet\compress.c H:\Code\Typhon\GameServer\src\enet\host.c H:\Code\Typhon\GameServer\src\enet\list.c H:\Code\Typhon\GameServer\src\enet\packet.c H:\Code\Typhon\GameServer\src\enet\peer.c H:\Code\Typhon\GameServer\src\enet\protocol.c H:\Code\Typhon\GameServer\src\enet\unix.c H:\Code\Typhon\GameServer\src\enet\win32.c  /Zm1000 
+         callbacks.c
+         compress.c
+     1>H:\Code\Typhon\GameServer\src\enet\compress.c(303): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>H:\Code\Typhon\GameServer\src\enet\compress.c(308): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>H:\Code\Typhon\GameServer\src\enet\compress.c(326): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>H:\Code\Typhon\GameServer\src\enet\compress.c(548): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>H:\Code\Typhon\GameServer\src\enet\compress.c(563): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>H:\Code\Typhon\GameServer\src\enet\compress.c(578): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>H:\Code\Typhon\GameServer\src\enet\compress.c(593): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+         host.c
+         list.c
+         packet.c
+         peer.c
+         protocol.c
+         unix.c
+         win32.c
+         Generating Code...
        ManifestResourceCompile:
-         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"TyphonServer64.dir\Debug\TyphonServer64.exe.embed.manifest.res" TyphonServer64.dir\Debug\TyphonServer64_manifest.rc 
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Typhon\bin\Server\Win64\Debug\TyphonServer64.exe" /VERSION:"0.0" /INCREMENTAL /NOLOGO /LIBPATH:D:/Typhon/GameServer/src/../lib /LIBPATH:D:/Typhon/GameServer/src/../lib/Debug /LIBPATH:D:/Typhon/GameServer/src/../lib/bullet/Win32 /LIBPATH:D:/Typhon/GameServer/src/../lib/bullet/Win32/Debug /LIBPATH:D:/Typhon/GameServer/src/../lib/bullet/Win64 /LIBPATH:D:/Typhon/GameServer/src/../lib/bullet/Win64/Debug /LIBPATH:D:/Typhon/GameServer/src/../lib/bullet/Linux32 /LIBPATH:D:/Typhon/GameServer/src/../lib/bullet/Linux32/Debug /LIBPATH:D:/Typhon/GameServer/src/../lib/bullet/Linux64 /LIBPATH:D:/Typhon/GameServer/src/../lib/bullet/Linux64/Debug /LIBPATH:D:/Typhon/GameServer/src/../lib/luabind /LIBPATH:D:/Typhon/GameServer/src/../lib/luabind/Debug /LIBPATH:D:/Typhon/GameServer/src/../lib/lua /LIBPATH:D:/Typhon/GameServer/src/../lib/lua/Debug kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib lua5.1_64.lib luabindD_64.lib Ws2_32.lib winmm.lib "boost_thread-vc100-mt-gd-1_47.lib" BulletDynamics_x64_debug.lib BulletCollision_x64_debug.lib LinearMath_x64_debug.lib /MANIFEST /ManifestFile:"TyphonServer64.dir\Debug\TyphonServer64.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Typhon\bin\Server\Win64\Debug\TyphonServer64.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Typhon/GameServer/build/VS2010/x64/Debug/TyphonServer64.lib" /MACHINE:X64 TyphonServer64.dir\Debug\TyphonServer64.exe.embed.manifest.res
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"H:\Code\Typhon\bin\Server\Win64\Debug\TyphonServer64.exe" /INCREMENTAL /NOLOGO /LIBPATH:H:/Code/Typhon/GameServer/src/../lib /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/Debug /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/bullet/Win32 /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/bullet/Win32/Debug /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/bullet/Win64 /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/bullet/Win64/Debug /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/bullet/Linux32 /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/bullet/Linux32/Debug /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/bullet/Linux64 /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/bullet/Linux64/Debug /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/luabind /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/luabind/Debug /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/lua /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/lua/Debug kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib lua5.1_64.lib luabindD_64.lib Ws2_32.lib winmm.lib "boost_thread-vc100-mt-gd-1_47.lib" BulletDynamics_x64_debug.lib BulletCollision_x64_debug.lib LinearMath_x64_debug.lib /MANIFEST /ManifestFile:"TyphonServer64.dir\Debug\TyphonServer64.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"H:\Code\Typhon\bin\Server\Win64\Debug\TyphonServer64.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"H:/Code/Typhon/GameServer/build/VS2010/x64/Debug/TyphonServer64.lib" /MACHINE:X64 TyphonServer64.dir\Debug\TyphonServer64.exe.embed.manifest.res
          TyphonServer64.dir\Debug\main.obj
          TyphonServer64.dir\Debug\callbacks.obj
          TyphonServer64.dir\Debug\compress.obj
@@ -31,18 +59,43 @@
          TyphonServer64.dir\Debug\user.obj
          TyphonServer64.dir\Debug\server.obj
          TyphonServer64.dir\Debug\utility.obj  /machine:x64 /debug 
-         TyphonServer64.vcxproj -> D:\Typhon\bin\Server\Win64\Debug\TyphonServer64.exe
+     1>LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>BulletCollision_x64_debug.lib(btDbvt.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'BulletCollision_x64_debug.lib(btDbvt.obj)' or at 'H:\Code\Typhon\bin\Server\Win64\Debug\vc100.pdb'; linking object as if no debug info
+     1>BulletCollision_x64_debug.lib(btDbvtBroadphase.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'BulletCollision_x64_debug.lib(btDbvtBroadphase.obj)' or at 'H:\Code\Typhon\bin\Server\Win64\Debug\vc100.pdb'; linking object as if no debug info
+     1>BulletCollision_x64_debug.lib(btOverlappingPairCache.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'BulletCollision_x64_debug.lib(btOverlappingPairCache.obj)' or at 'H:\Code\Typhon\bin\Server\Win64\Debug\vc100.pdb'; linking object as if no debug info
+     1>LinearMath_x64_debug.lib(btAlignedAllocator.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'LinearMath_x64_debug.lib(btAlignedAllocator.obj)' or at 'H:\Code\Typhon\bin\Server\Win64\Debug\vc100.pdb'; linking object as if no debug info
+         TyphonServer64.vcxproj -> H:\Code\Typhon\bin\Server\Win64\Debug\TyphonServer64.exe
        Manifest:
+         Deleting file "TyphonServer64.dir\Debug\TyphonServer64.exe.embed.manifest".
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"TyphonServer64.dir\Debug\TyphonServer64.exe.embed.manifest" /manifest TyphonServer64.dir\Debug\TyphonServer64.exe.intermediate.manifest
-         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"TyphonServer64.dir\Debug\TyphonServer64.exe.embed.manifest.res" TyphonServer64.dir\Debug\TyphonServer64_manifest.rc 
        LinkEmbedManifest:
-         All outputs are up-to-date.
-         TyphonServer64.vcxproj -> D:\Typhon\bin\Server\Win64\Debug\TyphonServer64.exe
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"H:\Code\Typhon\bin\Server\Win64\Debug\TyphonServer64.exe" /INCREMENTAL /NOLOGO /LIBPATH:H:/Code/Typhon/GameServer/src/../lib /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/Debug /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/bullet/Win32 /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/bullet/Win32/Debug /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/bullet/Win64 /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/bullet/Win64/Debug /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/bullet/Linux32 /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/bullet/Linux32/Debug /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/bullet/Linux64 /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/bullet/Linux64/Debug /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/luabind /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/luabind/Debug /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/lua /LIBPATH:H:/Code/Typhon/GameServer/src/../lib/lua/Debug kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib lua5.1_64.lib luabindD_64.lib Ws2_32.lib winmm.lib "boost_thread-vc100-mt-gd-1_47.lib" BulletDynamics_x64_debug.lib BulletCollision_x64_debug.lib LinearMath_x64_debug.lib /MANIFEST /ManifestFile:"TyphonServer64.dir\Debug\TyphonServer64.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"H:\Code\Typhon\bin\Server\Win64\Debug\TyphonServer64.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"H:/Code/Typhon/GameServer/build/VS2010/x64/Debug/TyphonServer64.lib" /MACHINE:X64 TyphonServer64.dir\Debug\TyphonServer64.exe.embed.manifest.res
+         TyphonServer64.dir\Debug\main.obj
+         TyphonServer64.dir\Debug\callbacks.obj
+         TyphonServer64.dir\Debug\compress.obj
+         TyphonServer64.dir\Debug\host.obj
+         TyphonServer64.dir\Debug\list.obj
+         TyphonServer64.dir\Debug\packet.obj
+         TyphonServer64.dir\Debug\peer.obj
+         TyphonServer64.dir\Debug\protocol.obj
+         TyphonServer64.dir\Debug\unix.obj
+         TyphonServer64.dir\Debug\win32.obj
+         TyphonServer64.dir\Debug\levelmanager.obj
+         TyphonServer64.dir\Debug\logger.obj
+         TyphonServer64.dir\Debug\network.obj
+         TyphonServer64.dir\Debug\networkenetserver.obj
+         TyphonServer64.dir\Debug\networkfactory.obj
+         TyphonServer64.dir\Debug\physics.obj
+         TyphonServer64.dir\Debug\user.obj
+         TyphonServer64.dir\Debug\server.obj
+         TyphonServer64.dir\Debug\utility.obj  /machine:x64 /debug 
+         TyphonServer64.vcxproj -> H:\Code\Typhon\bin\Server\Win64\Debug\TyphonServer64.exe
        FinalizeBuildStatus:
          Deleting file "TyphonServer64.dir\Debug\TyphonServer64.unsuccessfulbuild".
          Touching "TyphonServer64.dir\Debug\TyphonServer64.lastbuildstate".
-     1>Done Building Project "D:\Typhon\GameServer\build\VS2010\x64\TyphonServer64.vcxproj" (build target(s)).
+     1>Done Building Project "H:\Code\Typhon\GameServer\build\VS2010\x64\TyphonServer64.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:16.85
+Time Elapsed 00:01:20.65

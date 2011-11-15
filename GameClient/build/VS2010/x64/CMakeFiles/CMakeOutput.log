@@ -162,3 +162,113 @@ Build succeeded.
 Time Elapsed 00:00:05.39
 
 
+The system is: Windows - 6.1 - x86
+The system is: Windows - 6.1 - x86
+Determining if the C compiler works passed with the following output:
+Change Dir: H:/Code/Typhon/GameClient/build/VS2010/x64/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\PROGRA~2\MICROS~2.0\Common7\IDE\devenv.com CMAKE_TRY_COMPILE.sln /build Debug /project cmTryCompileExec
+
+Microsoft (R) Visual Studio Version 10.0.40219.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec, Configuration: Debug x64 ------
+1>Build started 11/15/2011 1:12:07 AM.
+1>InitializeBuildStatus:
+1>  Creating "cmTryCompileExec.dir\Debug\cmTryCompileExec.unsuccessfulbuild" because "AlwaysCreate" was specified.
+1>ClCompile:
+1>  testCCompiler.c
+1>Link:
+1>  cmTryCompileExec.vcxproj -> H:\Code\Typhon\GameClient\build\VS2010\x64\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec.exe
+1>LinkEmbedManifest:
+1>  cmTryCompileExec.vcxproj -> H:\Code\Typhon\GameClient\build\VS2010\x64\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec.exe
+1>FinalizeBuildStatus:
+1>  Deleting file "cmTryCompileExec.dir\Debug\cmTryCompileExec.unsuccessfulbuild".
+1>  Touching "cmTryCompileExec.dir\Debug\cmTryCompileExec.lastbuildstate".
+1>
+1>Build succeeded.
+1>
+1>Time Elapsed 00:00:34.16
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: H:/Code/Typhon/GameClient/build/VS2010/x64/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\PROGRA~2\MICROS~2.0\Common7\IDE\devenv.com CMAKE_TRY_COMPILE.sln /build Debug /project cmTryCompileExec
+
+Microsoft (R) Visual Studio Version 10.0.40219.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec, Configuration: Debug x64 ------
+1>Build started 11/15/2011 1:12:47 AM.
+1>InitializeBuildStatus:
+1>  Creating "cmTryCompileExec.dir\Debug\cmTryCompileExec.unsuccessfulbuild" because "AlwaysCreate" was specified.
+1>ClCompile:
+1>  CMakeCCompilerABI.c
+1>Link:
+1>  cmTryCompileExec.vcxproj -> H:\Code\Typhon\GameClient\build\VS2010\x64\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec.exe
+1>LinkEmbedManifest:
+1>  cmTryCompileExec.vcxproj -> H:\Code\Typhon\GameClient\build\VS2010\x64\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec.exe
+1>FinalizeBuildStatus:
+1>  Deleting file "cmTryCompileExec.dir\Debug\cmTryCompileExec.unsuccessfulbuild".
+1>  Touching "cmTryCompileExec.dir\Debug\cmTryCompileExec.lastbuildstate".
+1>
+1>Build succeeded.
+1>
+1>Time Elapsed 00:00:27.31
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: H:/Code/Typhon/GameClient/build/VS2010/x64/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\PROGRA~2\MICROS~2.0\Common7\IDE\devenv.com CMAKE_TRY_COMPILE.sln /build Debug /project cmTryCompileExec
+
+Microsoft (R) Visual Studio Version 10.0.40219.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec, Configuration: Debug x64 ------
+1>Build started 11/15/2011 1:13:19 AM.
+1>InitializeBuildStatus:
+1>  Creating "cmTryCompileExec.dir\Debug\cmTryCompileExec.unsuccessfulbuild" because "AlwaysCreate" was specified.
+1>ClCompile:
+1>  testCXXCompiler.cxx
+1>Link:
+1>  cmTryCompileExec.vcxproj -> H:\Code\Typhon\GameClient\build\VS2010\x64\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec.exe
+1>LinkEmbedManifest:
+1>  cmTryCompileExec.vcxproj -> H:\Code\Typhon\GameClient\build\VS2010\x64\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec.exe
+1>FinalizeBuildStatus:
+1>  Deleting file "cmTryCompileExec.dir\Debug\cmTryCompileExec.unsuccessfulbuild".
+1>  Touching "cmTryCompileExec.dir\Debug\cmTryCompileExec.lastbuildstate".
+1>
+1>Build succeeded.
+1>
+1>Time Elapsed 00:00:06.53
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: H:/Code/Typhon/GameClient/build/VS2010/x64/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\PROGRA~2\MICROS~2.0\Common7\IDE\devenv.com CMAKE_TRY_COMPILE.sln /build Debug /project cmTryCompileExec
+
+Microsoft (R) Visual Studio Version 10.0.40219.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: cmTryCompileExec, Configuration: Debug x64 ------
+1>Build started 11/15/2011 1:13:29 AM.
+1>InitializeBuildStatus:
+1>  Creating "cmTryCompileExec.dir\Debug\cmTryCompileExec.unsuccessfulbuild" because "AlwaysCreate" was specified.
+1>ClCompile:
+1>  CMakeCXXCompilerABI.cpp
+1>Link:
+1>  cmTryCompileExec.vcxproj -> H:\Code\Typhon\GameClient\build\VS2010\x64\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec.exe
+1>LinkEmbedManifest:
+1>  cmTryCompileExec.vcxproj -> H:\Code\Typhon\GameClient\build\VS2010\x64\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec.exe
+1>FinalizeBuildStatus:
+1>  Deleting file "cmTryCompileExec.dir\Debug\cmTryCompileExec.unsuccessfulbuild".
+1>  Touching "cmTryCompileExec.dir\Debug\cmTryCompileExec.lastbuildstate".
+1>
+1>Build succeeded.
+1>
+1>Time Elapsed 00:00:03.33
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+
+
