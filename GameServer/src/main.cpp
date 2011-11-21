@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
 	
 	typedef std::unordered_map<unsigned long, User> PlayerMap;
 	PlayerMap players;
+	unsigned int playerID = 1;
 	{
 		int i = 1;
 		unsigned long addr;
@@ -47,7 +48,7 @@ int main(int argc, char *argv[])
 			else
 			{
 				addr = lexical_cast<unsigned long>(*iter);
-				players.insert(PlayerMap::value_type(addr, User(name, HUMAN)));
+				players.insert(PlayerMap::value_type(addr, User(name, playerID++, HUMAN)));
 			}
 		}
 	}
@@ -56,11 +57,13 @@ int main(int argc, char *argv[])
 	{
 		string botName("Bot #");
 		botName += lexical_cast<string>(suffix++);
-		auto user = User(botName, AI);
+		auto user = User(botName, playerID++, AI);
 		user.SetConnected(true);
 		players.insert(PlayerMap::value_type(suffix, user));
 	}
 	Log("Player table filled.");
+
+	// send camera look vectors
 
 	Log("Starting up server.");
 	auto decimalIP = lexical_cast<unsigned long>(argv[2]);

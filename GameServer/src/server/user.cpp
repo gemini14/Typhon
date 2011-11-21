@@ -6,8 +6,8 @@
 
 namespace Typhon
 {
-	User::User(const std::string &name, const PLAYER_TYPE playerType)
-		: playerName(name), connected(false), type(playerType)
+	User::User(const std::string &name, const unsigned int playerID, const PLAYER_TYPE playerType)
+		: playerName(name), playerID(playerID), connected(false), type(playerType)
 	{
 	}
 
@@ -41,6 +41,11 @@ namespace Typhon
 	bool User::GetConnected()
 	{
 		return connected;
+	}
+
+	unsigned int User::GetID()
+	{
+		return playerID;
 	}
 
 	std::string User::GetPlayerName()

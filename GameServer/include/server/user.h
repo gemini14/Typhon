@@ -12,18 +12,20 @@ namespace Typhon
 	private:
 
 		std::string playerName;
+		unsigned int playerID;
 		bool connected;
 		PLAYER_TYPE type;
 
 	public:
 
-		User(const std::string &name, const PLAYER_TYPE playerType);
+		User(const std::string &name, const unsigned int playerID, const PLAYER_TYPE playerType);
 		User(const User& rhs);
 		User(User&& rhs);
 		User& operator=(User&& rhs);
 		~User();
 
 		bool GetConnected();
+		unsigned int GetID();
 		std::string GetPlayerName();
 		PLAYER_TYPE GetType();
 		void SetConnected(bool c);

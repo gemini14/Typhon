@@ -40,12 +40,12 @@ namespace Typhon
 			if(iter->second.GetType() == HUMAN)
 			{
 				playerIDs += lexical_cast<string>(iter->first) + string("=") +
-					lexical_cast<string>(i) + string("=");
+					lexical_cast<string>(iter->second.GetID()) + string("=");
 			}
 			// bots are already "connected"
 			if(iter->second.GetType() == AI)
 			{
-				loadedLevel[i] = true;
+				loadedLevel[iter->second.GetID()] = true;
 			}
 		}
 		
