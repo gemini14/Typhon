@@ -125,7 +125,6 @@ scripts/user_data.lua
 scripts/user_options.lua
 )
 
-
 source_group(Header\ Files\\enet FILES
 ${hdr}enet/callbacks.h
 ${hdr}enet/enet.h

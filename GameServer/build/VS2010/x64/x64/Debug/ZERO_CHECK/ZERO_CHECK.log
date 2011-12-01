@@ -1,14 +1,12 @@
-﻿Build started 10/18/2011 1:25:27 AM.
-     1>Project "D:\Typhon\GameServer\build\VS2010\x64\ZERO_CHECK.vcxproj" on node 2 (build target(s)).
+﻿Build started 12/1/2011 1:45:08 AM.
+     1>Project "H:\Code\Typhon\GameServer\build\VS2010\x64\ZERO_CHECK.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "x64\Debug\ZERO_CHECK\ZERO_CHECK.unsuccessfulbuild" because "AlwaysCreate" was specified.
-       CustomBuild:
-         All outputs are up-to-date.
        FinalizeBuildStatus:
          Deleting file "x64\Debug\ZERO_CHECK\ZERO_CHECK.unsuccessfulbuild".
          Touching "x64\Debug\ZERO_CHECK\ZERO_CHECK.lastbuildstate".
-     1>Done Building Project "D:\Typhon\GameServer\build\VS2010\x64\ZERO_CHECK.vcxproj" (build target(s)).
+     1>Done Building Project "H:\Code\Typhon\GameServer\build\VS2010\x64\ZERO_CHECK.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.77
+Time Elapsed 00:00:00.18
