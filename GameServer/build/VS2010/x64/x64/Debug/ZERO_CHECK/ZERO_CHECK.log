@@ -1,7 +1,10 @@
-﻿Build started 12/1/2011 1:45:08 AM.
+﻿Build started 12/1/2011 2:07:30 AM.
      1>Project "H:\Code\Typhon\GameServer\build\VS2010\x64\ZERO_CHECK.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "x64\Debug\ZERO_CHECK\ZERO_CHECK.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Checking Build System
+         CMake does not need to re-run because H:/Code/Typhon/GameServer/build/VS2010/x64/CMakeFiles/generate.stamp is up-to-date.
        FinalizeBuildStatus:
          Deleting file "x64\Debug\ZERO_CHECK\ZERO_CHECK.unsuccessfulbuild".
          Touching "x64\Debug\ZERO_CHECK\ZERO_CHECK.lastbuildstate".
@@ -9,4 +12,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.18
+Time Elapsed 00:00:01.13
