@@ -125,6 +125,9 @@ scripts/user_data.lua
 scripts/user_options.lua
 )
 
+set(Level_ScriptFiles
+resources/levels/racetrackLevel1_lookat.lua
+)
 
 source_group(Header\ Files\\enet FILES
 ${hdr}enet/callbacks.h
@@ -252,6 +255,10 @@ source_group(Source\ Files\\scripts FILES
 ${ScriptFiles}
 )
 
+source_group(Source\ Files\\scripts\\level\ scripts FILES
+${Level_ScriptFiles}
+)
+
 source_group(Source\ Files\\state FILES
 state/game.cpp
 state/lobby.cpp
@@ -270,7 +277,7 @@ if(CMAKE_CL_64)
 	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
 	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../bin/Client/Win64/)
 	message("Creating Win64 project...")
-	add_executable(TyphonClient64 ${SourceFiles} ${HeaderFiles} ${ScriptFiles})
+	add_executable(TyphonClient64 ${SourceFiles} ${HeaderFiles} ${ScriptFiles} ${Level_ScriptFiles})
 	target_link_libraries(TyphonClient64 
 		debug IrrlichtD_64 optimized Irrlicht_64 
 		lua5.1_64 

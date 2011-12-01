@@ -57,9 +57,9 @@ int main(int argc, char *argv[])
 	{
 		string botName("Bot #");
 		botName += lexical_cast<string>(suffix++);
-		auto user = User(botName, playerID++, AI);
-		user.SetConnected(true);
-		players.insert(PlayerMap::value_type(suffix, user));
+		players.insert(PlayerMap::value_type(playerID, User(botName, playerID, AI)));
+		players.at(playerID).SetConnected(true);
+		++playerID;
 	}
 	Log("Player table filled.");
 

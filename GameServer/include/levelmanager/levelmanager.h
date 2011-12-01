@@ -1,12 +1,14 @@
 #ifndef LEVELMANAGER_H
 #define LEVELMANAGER_H
 
+#include <bitset>
 #include <memory>
 #include <unordered_map>
 #include <queue>
 
 #include <boost/dynamic_bitset.hpp>
 
+#include "utility/constants.h"
 #include "network/network.h"
 #include "physics/physics.h"
 #include "server/user.h"
@@ -29,7 +31,7 @@ private:
 
 	Network *network;
 	PlayerMap *players;
-	boost::dynamic_bitset<> loadedLevel;
+	std::bitset<MAX_PLAYERS> loadedLevel;
 	std::unique_ptr<Physics> physics;
 	CallbackMap callbacks;
 	std::queue<Message> messageQueue;

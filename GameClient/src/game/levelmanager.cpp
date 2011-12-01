@@ -42,6 +42,8 @@ namespace Typhon
 			lexical_cast<string>(playerStartID)).c_str());
 		camera = engine->smgr->addCameraSceneNode(carNode, core::vector3df(0, 0, 0), 
 			core::vector3df(0, 0, 1));
+		// Z offset may need to be adjusted in future maps, but there's only 1 map for now
+		camera->setTarget(core::vector3df(carNode->getAbsolutePosition().X, carNode->getAbsolutePosition().Y, carNode->getAbsolutePosition().Z - 40));
 		// do bullet stuff
 		network->BroadcastMessage("l", 'A');
 		Log("Level load complete, acknowledgement sent.");

@@ -5,7 +5,6 @@
 #include <boost/foreach.hpp>
 #include <boost/lexical_cast.hpp>
 
-#include "utility/constants.h"
 #include "utility/utility.h"
 
 using namespace boost;
@@ -29,7 +28,7 @@ namespace Typhon
 	LevelManager::LevelManager(Network *network, PlayerMap *players) :
 	gameOver(false), numLevels(1), chosenLevel(0),
 		allPlayersLoaded(false), network(network),
-		players(players), loadedLevel(MAX_PLAYERS), physics(new Physics())
+		players(players), physics(new Physics())
 	{
 		callbacks['A'] = &LevelManager::AcknowledgeLoad;
 
@@ -45,7 +44,7 @@ namespace Typhon
 			// bots are already "connected"
 			if(iter->second.GetType() == AI)
 			{
-				loadedLevel[iter->second.GetID()] = true;
+				loadedLevel[iter->second.GetID() - 1] = true;
 			}
 		}
 		
@@ -63,7 +62,7 @@ namespace Typhon
 
 	void LevelManager::PlayerLoadComplete(const int playerID)
 	{
-		loadedLevel[playerID] = 1;
+		loadedLevel[playerID - 1] = 1;
 	}
 
 	void LevelManager::PushMessage(const Message& m)
@@ -75,7 +74,7 @@ namespace Typhon
 	{
 		if(!allPlayersLoaded)
 		{
-			for(size_t i = loadedLevel.size(); i >= 0; --i)
+			for(size_t i = loadedLevel.size() - 1; i >= 0; --i)
 			{
 				if(!loadedLevel[i])
 				{

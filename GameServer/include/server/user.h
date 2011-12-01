@@ -18,7 +18,7 @@ namespace Typhon
 
 	public:
 
-		User(const std::string &name, const unsigned int playerID, const PLAYER_TYPE playerType);
+		User(const std::string &name, const unsigned int ID, const PLAYER_TYPE playerType);
 		User(const User& rhs);
 		User(User&& rhs);
 		User& operator=(User&& rhs);
